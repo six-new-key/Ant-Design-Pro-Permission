@@ -1,0 +1,2302 @@
+{
+	"4347948": {
+		"zh-cn": "侧边栏/顶栏主题",
+		"en": "Sidebar/top bar theme"
+	},
+	"dure2": {
+		"zh-cn": "中文",
+		"en": "Chinese"
+	},
+	"f6x6rt4": {
+		"zh-cn": "用户登录",
+		"en": "User login"
+	},
+	"wkir6y6": {
+		"zh-cn": "用户登录页面",
+		"en": "User login page"
+	},
+	"c7ysa3": {
+		"zh-cn": "首页",
+		"en": "Home"
+	},
+	"kea083": {
+		"zh-cn": "表单页",
+		"en": "Form page"
+	},
+	"blql0z4": {
+		"zh-cn": "基础表单",
+		"en": "Basic form"
+	},
+	"astop84": {
+		"zh-cn": "分步表单",
+		"en": "Step-by-step form"
+	},
+	"k2alto4": {
+		"zh-cn": "高级表单",
+		"en": "Advanced Form"
+	},
+	"cow9w3": {
+		"zh-cn": "列表页",
+		"en": "List page"
+	},
+	"dow7jl4": {
+		"zh-cn": "查询表格",
+		"en": "Query form"
+	},
+	"dgqg404": {
+		"zh-cn": "标准列表",
+		"en": "Standard list"
+	},
+	"azqlkn4": {
+		"zh-cn": "卡片列表",
+		"en": "Card list"
+	},
+	"d5an1z4": {
+		"zh-cn": "搜索列表",
+		"en": "Search list"
+	},
+	"dbit7l8": {
+		"zh-cn": "搜索列表（文章）",
+		"en": "Search List (Articles)"
+	},
+	"d42ukd8": {
+		"zh-cn": "搜索列表（项目）",
+		"en": "Search list (items)"
+	},
+	"dckfdo8": {
+		"zh-cn": "搜索列表（应用）",
+		"en": "Search List (App)"
+	},
+	"kyz7a3": {
+		"zh-cn": "详情页",
+		"en": "Details Page"
+	},
+	"4kxd9s5": {
+		"zh-cn": "基础详情页",
+		"en": "Basic Details Page"
+	},
+	"haa5x55": {
+		"zh-cn": "高级详情页",
+		"en": "Advanced Details Page"
+	},
+	"j378s3": {
+		"zh-cn": "结果页",
+		"en": "Result page"
+	},
+	"eryyu3": {
+		"zh-cn": "成功页",
+		"en": "Success page"
+	},
+	"dr5cx3": {
+		"zh-cn": "失败页",
+		"en": "Failed page"
+	},
+	"edu4f3": {
+		"zh-cn": "异常页",
+		"en": "Abnormal page"
+	},
+	"t937qf8": {
+		"zh-cn": "403 禁止访问",
+		"en": "403. No access allowed"
+	},
+	"fiahag9": {
+		"zh-cn": "404 页面不存在",
+		"en": "The 404 page does not exist"
+	},
+	"97z8ov9": {
+		"zh-cn": "500 服务器错误",
+		"en": "500 Server error"
+	},
+	"budut3": {
+		"zh-cn": "个人页",
+		"en": "Personal Page"
+	},
+	"a6ttl24": {
+		"zh-cn": "个人中心",
+		"en": "Personal Center"
+	},
+	"a74gu84": {
+		"zh-cn": "个人设置",
+		"en": "Personal Settings"
+	},
+	"i7vzti4": {
+		"zh-cn": "账户管理",
+		"en": "Account management"
+	},
+	"i7o5hj4": {
+		"zh-cn": "账户中心",
+		"en": "Account Center"
+	},
+	"i7ysqp4": {
+		"zh-cn": "账户设置",
+		"en": "Account Settings"
+	},
+	"2g7lef5": {
+		"zh-cn": "图形编辑器",
+		"en": "Graphic editor"
+	},
+	"gx9roj5": {
+		"zh-cn": "流程编辑器",
+		"en": "Process Editor"
+	},
+	"ixspy85": {
+		"zh-cn": "脑图编辑器",
+		"en": "Mind map editor"
+	},
+	"j5lwby7": {
+		"zh-cn": "Koni编辑器",
+		"en": "Koni Editor"
+	},
+	"ie33fx4": {
+		"zh-cn": "路由嵌套",
+		"en": "Routing nesting"
+	},
+	"bdtfqi6": {
+		"zh-cn": "根路径重定向",
+		"en": "Root path redirection"
+	},
+	"ll1ntd9": {
+		"zh-cn": "正在加载布局...",
+		"en": "Loading the layout..."
+	},
+	"fitay3": {
+		"zh-cn": "未命名",
+		"en": "Unnamed"
+	},
+	"i6tg2": {
+		"zh-cn": "明青",
+		"en": "Mingqing"
+	},
+	"eyvqk3": {
+		"zh-cn": "拂晓蓝",
+		"en": "Dawn Blue"
+	},
+	"k26dd3": {
+		"zh-cn": "薄暮紫",
+		"en": "Dusk Purple"
+	},
+	"fkaon3": {
+		"zh-cn": "极光绿",
+		"en": "Aurora Green"
+	},
+	"eyzdt3": {
+		"zh-cn": "拂晓青",
+		"en": "Fu Xiaoqing"
+	},
+	"ffc403": {
+		"zh-cn": "日暮橙",
+		"en": "Sunset Orange"
+	},
+	"e4mez54": {
+		"zh-cn": "法式洋红",
+		"en": "French magenta"
+	},
+	"ac40i44": {
+		"zh-cn": "从左滑入",
+		"en": "Slide in from the left"
+	},
+	"aanjvd4": {
+		"zh-cn": "从右滑入",
+		"en": "Slide in from the right"
+	},
+	"a9sepd4": {
+		"zh-cn": "从下滑入",
+		"en": "From sliding in"
+	},
+	"a9sdyo4": {
+		"zh-cn": "从上滑入",
+		"en": "Slide in from above"
+	},
+	"e7ddy54": {
+		"zh-cn": "淡入淡出",
+		"en": "Fade in and fade out"
+	},
+	"e78z3x4": {
+		"zh-cn": "淡入向上",
+		"en": "Fade into the upward trend"
+	},
+	"e78z3y4": {
+		"zh-cn": "淡入向下",
+		"en": "Fade in downward"
+	},
+	"e7928p4": {
+		"zh-cn": "淡入向左",
+		"en": "Fade to the left"
+	},
+	"e7909y4": {
+		"zh-cn": "淡入向右",
+		"en": "Fade to the right"
+	},
+	"d563r74": {
+		"zh-cn": "放大向下",
+		"en": "Zoom down"
+	},
+	"clkmdr4": {
+		"zh-cn": "弹跳向左",
+		"en": "Jump to the left"
+	},
+	"clkkf04": {
+		"zh-cn": "弹跳向右",
+		"en": "Jump to the right"
+	},
+	"c6ah0m4": {
+		"zh-cn": "左下旋转",
+		"en": "Rotate to the lower left"
+	},
+	"ax45fd4": {
+		"zh-cn": "右下旋转",
+		"en": "Rotate down to the right"
+	},
+	"c6ag9x4": {
+		"zh-cn": "左上旋转",
+		"en": "Rotate to the upper left"
+	},
+	"ax44oo4": {
+		"zh-cn": "右上旋转",
+		"en": "Rotate to the upper right"
+	},
+	"aunf794": {
+		"zh-cn": "光速左入",
+		"en": "Left entry at the speed of light"
+	},
+	"aulqa04": {
+		"zh-cn": "光速右入",
+		"en": "Right entry at the speed of light"
+	},
+	"ggpj614": {
+		"zh-cn": "缩放效果",
+		"en": "Zoom effect"
+	},
+	"clnlpq4": {
+		"zh-cn": "弹跳效果",
+		"en": "Bouncing effect"
+	},
+	"gqm19h4": {
+		"zh-cn": "翻转效果",
+		"en": "Flip effect"
+	},
+	"czwkc64": {
+		"zh-cn": "摆动效果",
+		"en": "Swing effect"
+	},
+	"dewzeb4": {
+		"zh-cn": "果冻效果",
+		"en": "Jelly effect"
+	},
+	"gmcycd4": {
+		"zh-cn": "脉冲效果",
+		"en": "Pulse effect"
+	},
+	"p5h35y5": {
+		"zh-cn": "侧边栏布局",
+		"en": "Sidebar layout"
+	},
+	"gg31rar": {
+		"zh-cn": "传统的左侧边栏 + 右侧内容区域布局，适合管理后台系统",
+		"en": "The traditional layout of the left sidebar and the right content area is suitable for managing the back-end system"
+	},
+	"m4h4vx6": {
+		"zh-cn": "顶部导航布局",
+		"en": "Top navigation layout"
+	},
+	"caus3qo": {
+		"zh-cn": "顶部导航栏 + 下方内容区域布局，适合展示型网站",
+		"en": "The layout of the top navigation bar and the content area below is suitable for display-oriented websites"
+	},
+	"e82p1q4": {
+		"zh-cn": "混合布局",
+		"en": "Mixed layout"
+	},
+	"qlxff0q": {
+		"zh-cn": "顶部导航 + 左侧边栏的混合布局，适合复杂的管理系统",
+		"en": "The hybrid layout of top navigation and left sidebar is suitable for complex management systems"
+	},
+	"awyze04": {
+		"zh-cn": "双列布局",
+		"en": "Double-column layout"
+	},
+	"56k8koq": {
+		"zh-cn": "左侧双列导航布局，第一列显示主菜单，第二列显示子菜单",
+		"en": "The double-column navigation layout on the left shows the main menu in the first column and the sub-menus in the second column"
+	},
+	"vujwb0y": {
+		"zh-cn": " !important; /* 使用主题蓝色 */\n    }\n  ",
+		"en": "! important; /* Use theme blue */\n}"
+	},
+	"garzt14": {
+		"zh-cn": "系统配置",
+		"en": "System configuration"
+	},
+	"c94d574": {
+		"zh-cn": "布局风格",
+		"en": "Layout style"
+	},
+	"on1359a": {
+		"zh-cn": "选择适合您的布局风格",
+		"en": "Choose the layout style that suits you"
+	},
+	"ai2xe34": {
+		"zh-cn": "主题模式",
+		"en": "Theme Mode"
+	},
+	"vpbehxb": {
+		"zh-cn": "选择明亮或暗黑主题模式",
+		"en": "Select the bright or dark theme mode"
+	},
+	"d7fjhq4": {
+		"zh-cn": "明亮模式",
+		"en": "Bright Mode"
+	},
+	"dllktk4": {
+		"zh-cn": "暗黑模式",
+		"en": "Dark Mode"
+	},
+	"kh915o5": {
+		"zh-cn": "深色侧边栏",
+		"en": "Dark sidebar"
+	},
+	"ef1m0q4": {
+		"zh-cn": "深色顶栏",
+		"en": "Dark top bar"
+	},
+	"blsc7b4": {
+		"zh-cn": "基础配置",
+		"en": "Basic configuration"
+	},
+	"d6t6yg4": {
+		"zh-cn": "文字大小",
+		"en": "Text size"
+	},
+	"bk08os4": {
+		"zh-cn": "圆角设置",
+		"en": "Rounded corner setting"
+	},
+	"qlyh2": {
+		"zh-cn": "页签",
+		"en": "TAB"
+	},
+	"gdoi304": {
+		"zh-cn": "线宽风格",
+		"en": "Line width style"
+	},
+	"jr27ty4": {
+		"zh-cn": "页签阴影",
+		"en": "TAB shadow"
+	},
+	"ftd2kz9": {
+		"zh-cn": "启用页签的阴影效果",
+		"en": "Enable the shadow effect of the TAB"
+	},
+	"7sms9d5": {
+		"zh-cn": "系统主题色",
+		"en": "System theme color"
+	},
+	"bwwfnkk": {
+		"zh-cn": "选择系统主题色，支持预设颜色和自定义颜色",
+		"en": "Select the system theme color, supporting preset colors and custom colors"
+	},
+	"jh1ll3": {
+		"zh-cn": "自定义",
+		"en": "\"Custom\""
+	},
+	"juttrh4": {
+		"zh-cn": "页面动效",
+		"en": "Page animations"
+	},
+	"pfmos7b": {
+		"zh-cn": "选择好看有趣的页面动效",
+		"en": "Choose good-looking and interesting page animations"
+	},
+	"7grhuz6": {
+		"zh-cn": "请输入用户名",
+		"en": "Please enter your username"
+	},
+	"2ymdf3h": {
+		"zh-cn": "用户名长度在 3 到 20 个字符",
+		"en": "The length of a username should be between 3 and 20 characters"
+	},
+	"2j9vj05": {
+		"zh-cn": "请输入密码",
+		"en": "Please enter the password."
+	},
+	"gztydng": {
+		"zh-cn": "密码长度在 6 到 20 个字符",
+		"en": "The password length is between 6 and 20 characters"
+	},
+	"liwyeg5": {
+		"zh-cn": "登录成功！",
+		"en": "Login successful!"
+	},
+	"b74ky09": {
+		"zh-cn": "用户名或密码错误！",
+		"en": "The username or password is incorrect!"
+	},
+	"aoepz49": {
+		"zh-cn": "登录失败，请重试！",
+		"en": "Login failed. Please try again!"
+	},
+	"o39mi7a": {
+		"zh-cn": "欢迎登录后台管理系统",
+		"en": "Welcome to log in to the background management system"
+	},
+	"hmxge3": {
+		"zh-cn": "用户名",
+		"en": "User name"
+	},
+	"g9ob2": {
+		"zh-cn": "密码",
+		"en": "Password"
+	},
+	"ifxxda5": {
+		"zh-cn": " 记住我 ",
+		"en": "Remember me"
+	},
+	"ide6e4": {
+		"zh-cn": " 登录 ",
+		"en": "Log in"
+	},
+	"q9q27m6": {
+		"zh-cn": "还没有账号？",
+		"en": "Don't have an account yet?"
+	},
+	"fub0ks4": {
+		"zh-cn": "立即注册",
+		"en": "Register now"
+	},
+	"y5s6v28": {
+		"zh-cn": "测试按钮1点击了",
+		"en": "Test Button 1 has been clicked"
+	},
+	"y5rjvj8": {
+		"zh-cn": "测试按钮2点击了",
+		"en": "Test Button 2 has been clicked"
+	},
+	"pryeo9": {
+		"zh-cn": "欢迎来到首页页面",
+		"en": "Welcome to the home page"
+	},
+	"hn0w13": {
+		"zh-cn": "用户数",
+		"en": "The number of users"
+	},
+	"kv0f13": {
+		"zh-cn": "订单数",
+		"en": "Order quantity"
+	},
+	"edb1874": {
+		"zh-cn": "活跃用户",
+		"en": "Active users"
+	},
+	"bertyr4": {
+		"zh-cn": "图标测试",
+		"en": "Icon testing"
+	},
+	"ycvxyp6": {
+		"zh-cn": " 测试按钮 ",
+		"en": "Test button"
+	},
+	"d6kar7": {
+		"zh-cn": " 测试按钮2 ",
+		"en": "Test Button 2"
+	},
+	"d4vyuk4": {
+		"zh-cn": "搜索: ",
+		"en": "Search"
+	},
+	"wa7a6b6": {
+		"zh-cn": "退出登录成功",
+		"en": "Logout successful"
+	},
+	"ejix2": {
+		"zh-cn": "刷新",
+		"en": "Refresh"
+	},
+	"ecpz2": {
+		"zh-cn": "全屏",
+		"en": "Full screen"
+	},
+	"o4fw3q6": {
+		"zh-cn": " 个人中心 ",
+		"en": "Personal Center"
+	},
+	"nv9v7k6": {
+		"zh-cn": " 个人设置 ",
+		"en": "Personal Settings"
+	},
+	"krw3ws6": {
+		"zh-cn": " 退出登录 ",
+		"en": "Log out"
+	},
+	"d38w74": {
+		"zh-cn": " 刷新 ",
+		"en": "Refresh"
+	},
+	"b14v6a4": {
+		"zh-cn": "取消固定",
+		"en": "Cancel fixed"
+	},
+	"faow2": {
+		"zh-cn": "固定",
+		"en": "Fixed"
+	},
+	"28id8b6": {
+		"zh-cn": " 关闭左侧 ",
+		"en": "Close the left side"
+	},
+	"29ytv26": {
+		"zh-cn": " 关闭右侧 ",
+		"en": "Close the right side"
+	},
+	"2ac37e6": {
+		"zh-cn": " 关闭其他 ",
+		"en": "\"Turn off others"
+	},
+	"2a150a6": {
+		"zh-cn": " 关闭全部 ",
+		"en": "Close all"
+	},
+	"25biey6": {
+		"zh-cn": "刷新中...",
+		"en": "Refreshing..."
+	},
+	"ev022": {
+		"zh-cn": "取消",
+		"en": "Cancel"
+	},
+	"ij5d2": {
+		"zh-cn": "标题",
+		"en": "Title"
+	},
+	"hrlt2": {
+		"zh-cn": "描述",
+		"en": "Description"
+	},
+	"k1e32": {
+		"zh-cn": "状态",
+		"en": "\"Status\""
+	},
+	"jlvf2": {
+		"zh-cn": "激活",
+		"en": "Activate"
+	},
+	"fnl7p3": {
+		"zh-cn": "未激活",
+		"en": "Not activated"
+	},
+	"heqc2": {
+		"zh-cn": "提交",
+		"en": "Submit"
+	},
+	"biyzkw4": {
+		"zh-cn": "基本信息",
+		"en": "Basic information"
+	},
+	"i6i0694": {
+		"zh-cn": "详细配置",
+		"en": "Detailed configuration"
+	},
+	"g3yc2": {
+		"zh-cn": "完成",
+		"en": "Completed"
+	},
+	"jq5lug4": {
+		"zh-cn": "项目名称",
+		"en": "Project Name"
+	},
+	"jq8eom4": {
+		"zh-cn": "项目描述",
+		"en": "Project Description"
+	},
+	"jqcamd4": {
+		"zh-cn": "项目类型",
+		"en": "Project Type"
+	},
+	"1e5c945": {
+		"zh-cn": "Web应用",
+		"en": "Web application"
+	},
+	"fqfs2p4": {
+		"zh-cn": "移动应用",
+		"en": "Mobile application"
+	},
+	"bzkvr3": {
+		"zh-cn": "优先级",
+		"en": "Priority"
+	},
+	"ul41": {
+		"zh-cn": "高",
+		"en": "high"
+	},
+	"ffx1": {
+		"zh-cn": "中",
+		"en": "In the"
+	},
+	"fny1": {
+		"zh-cn": "低",
+		"en": "low"
+	},
+	"piffe77": {
+		"zh-cn": "表单提交成功!",
+		"en": "The form has been submitted successfully!"
+	},
+	"f9ydxkb": {
+		"zh-cn": "您的信息已经成功提交。",
+		"en": "Your information has been successfully submitted."
+	},
+	"btcrz3": {
+		"zh-cn": "上一步",
+		"en": "Previous step"
+	},
+	"btdio3": {
+		"zh-cn": "下一步",
+		"en": "Next step"
+	},
+	"jqcpva4": {
+		"zh-cn": "项目编号",
+		"en": "Project Number"
+	},
+	"cd0ag54": {
+		"zh-cn": "开始日期",
+		"en": "Start date"
+	},
+	"gfhy2u4": {
+		"zh-cn": "结束日期",
+		"en": "End date"
+	},
+	"jq7s7x4": {
+		"zh-cn": "项目成员",
+		"en": "Project member"
+	},
+	"viahf07": {
+		"zh-cn": "请选择项目成员",
+		"en": "Please select the project members"
+	},
+	"glwp2": {
+		"zh-cn": "张三",
+		"en": "Zhang SAN"
+	},
+	"i1ql2": {
+		"zh-cn": "李四",
+		"en": "Li Si"
+	},
+	"k31l2": {
+		"zh-cn": "王五",
+		"en": "Wang Wu"
+	},
+	"ja8tu04": {
+		"zh-cn": "附件上传",
+		"en": "Upload the attachment"
+	},
+	"unjubc6": {
+		"zh-cn": " 点击上传 ",
+		"en": "Click to upload"
+	},
+	"agnaep4": {
+		"zh-cn": "保存草稿",
+		"en": "Save the draft"
+	},
+	"phz52": {
+		"zh-cn": "重置",
+		"en": "Reset"
+	},
+	"eyrn2": {
+		"zh-cn": "名称",
+		"en": "Name"
+	},
+	"ar84e54": {
+		"zh-cn": "创建时间",
+		"en": "Creation time"
+	},
+	"hkxb2": {
+		"zh-cn": "操作",
+		"en": "Operation"
+	},
+	"mw7rg3": {
+		"zh-cn": "项目A",
+		"en": "Project A"
+	},
+	"1bfh678": {
+		"zh-cn": "这是项目A的描述",
+		"en": "This is the description of Project A"
+	},
+	"mw7rh3": {
+		"zh-cn": "项目B",
+		"en": "Project B"
+	},
+	"1bg45q8": {
+		"zh-cn": "这是项目B的描述",
+		"en": "This is the description of Project B"
+	},
+	"2jb6fo5": {
+		"zh-cn": "请输入名称",
+		"en": "Please enter the name"
+	},
+	"2eief25": {
+		"zh-cn": "请选择状态",
+		"en": "Please select the status"
+	},
+	"en402": {
+		"zh-cn": "全部",
+		"en": "All"
+	},
+	"iftp2": {
+		"zh-cn": "查询",
+		"en": "Query"
+	},
+	"htfu2": {
+		"zh-cn": "新建",
+		"en": "Newly built"
+	},
+	"d0w7cq4": {
+		"zh-cn": "批量删除",
+		"en": "Batch deletion"
+	},
+	"mekb2": {
+		"zh-cn": "编辑",
+		"en": "\"Editor"
+	},
+	"eslg2": {
+		"zh-cn": "删除",
+		"en": "Delete"
+	},
+	"gceemt5": {
+		"zh-cn": "列表项目1",
+		"en": "List Item 1"
+	},
+	"sz6j4uc": {
+		"zh-cn": "这是列表项目1的描述信息",
+		"en": "This is the description information of list item 1"
+	},
+	"gceems5": {
+		"zh-cn": "列表项目2",
+		"en": "List Item 2"
+	},
+	"tg85j1c": {
+		"zh-cn": "这是列表项目2的描述信息",
+		"en": "This is the description information of list item 2"
+	},
+	"gceemr5": {
+		"zh-cn": "列表项目3",
+		"en": "List Item 3"
+	},
+	"tx9rx8c": {
+		"zh-cn": "这是列表项目3的描述信息",
+		"en": "This is the description information of list item 3"
+	},
+	"i0122": {
+		"zh-cn": "更多",
+		"en": "More"
+	},
+	"ead9ly5": {
+		"zh-cn": "卡片标题1",
+		"en": "Card Title 1"
+	},
+	"cx93kua": {
+		"zh-cn": "这是卡片1的描述信息",
+		"en": "This is the description information of Card 1"
+	},
+	"ead9lx5": {
+		"zh-cn": "卡片标题2",
+		"en": "Card Title 2"
+	},
+	"deapz1a": {
+		"zh-cn": "这是卡片2的描述信息",
+		"en": "This is the description information of Card 2"
+	},
+	"ead9lw5": {
+		"zh-cn": "卡片标题3",
+		"en": "Card Title 3"
+	},
+	"dvccd8a": {
+		"zh-cn": "这是卡片3的描述信息",
+		"en": "This is the description information of Card 3"
+	},
+	"2y0eb3a": {
+		"zh-cn": "Vue 3 最佳实践",
+		"en": "Best Practices of Vue 3"
+	},
+	"5cxqhwe": {
+		"zh-cn": "发布于 2024-01-01",
+		"en": "Published on January 1, 2024-01"
+	},
+	"yuqxcg18": {
+		"zh-cn": "这是一篇关于Vue 3最佳实践的文章，介绍了如何使用Composition API...",
+		"en": "This is an article about the best practices of Vue 3, introducing how to use the Composition API..."
+	},
+	"b6box5m": {
+		"zh-cn": "Ant Design Vue 组件库使用指南",
+		"en": "Ant Design Vue Component Library Usage Guide"
+	},
+	"5cxqhxe": {
+		"zh-cn": "发布于 2024-01-02",
+		"en": "Published on January 2, 2024"
+	},
+	"zfyl33z": {
+		"zh-cn": "详细介绍了Ant Design Vue组件库的使用方法和最佳实践...",
+		"en": "The usage methods and best practices of the Ant Design Vue component library were introduced in detail..."
+	},
+	"7ek64j8": {
+		"zh-cn": "请输入搜索关键词",
+		"en": "Please enter the search keywords"
+	},
+	"hpqe2": {
+		"zh-cn": "搜索",
+		"en": "Search"
+	},
+	"qrgt2": {
+		"zh-cn": "页面",
+		"en": "\"Page"
+	},
+	"p1122": {
+		"zh-cn": "这是",
+		"en": "This is"
+	},
+	"1xgdjgd": {
+		"zh-cn": "页面，功能正在开发中...",
+		"en": "The page and functions are under development..."
+	},
+	"iijhd54": {
+		"zh-cn": "返回首页",
+		"en": "Return to the homepage"
+	},
+	"eiq22": {
+		"zh-cn": "分析",
+		"en": "Analysis"
+	},
+	"8m794w7": {
+		"zh-cn": "未找到相关结果",
+		"en": "No relevant results were found"
+	},
+	"m4r284": {
+		"zh-cn": " 选择 ",
+		"en": "\"Choose\""
+	},
+	"d7exy4": {
+		"zh-cn": " 关闭 ",
+		"en": "\"Close"
+	},
+	"l95aeg5": {
+		"zh-cn": "导航到: ",
+		"en": "Navigate to:"
+	},
+	"tl0cjj6": {
+		"zh-cn": " 锁定屏幕 ",
+		"en": "Lock the screen"
+	},
+	"65tpid8": {
+		"zh-cn": " 》 个人中心 ",
+		"en": "\"Personal Center\""
+	},
+	"4nj0m18": {
+		"zh-cn": "密码长度至少4位",
+		"en": "The password length should be at least 4 characters"
+	},
+	"ecjhv27": {
+		"zh-cn": "请输入锁屏密码",
+		"en": "Please enter the lock screen password"
+	},
+	"i2iu115": {
+		"zh-cn": "屏幕已锁定",
+		"en": "The screen is locked."
+	},
+	"vhgmu88": {
+		"zh-cn": "锁定失败，请重试",
+		"en": "Lock failed. Please try again"
+	},
+	"j6fqzj4": {
+		"zh-cn": "锁定屏幕",
+		"en": "Lock the screen"
+	},
+	"f6s4mi4": {
+		"zh-cn": "用户头像",
+		"en": "User avatar"
+	},
+	"mtpif4": {
+		"zh-cn": " 锁定 ",
+		"en": "Locked"
+	},
+	"fips7y7": {
+		"zh-cn": "请输入解锁密码",
+		"en": "Please enter the unlock password"
+	},
+	"i0e3rh4": {
+		"zh-cn": "解锁成功",
+		"en": "Unlock success"
+	},
+	"yyf1w1a": {
+		"zh-cn": "密码错误，请重新输入",
+		"en": "The password is incorrect. Please re-enter"
+	},
+	"i1md0l8": {
+		"zh-cn": "解锁失败，请重试",
+		"en": "Unlock failed. Please try again"
+	},
+	"jd4srzg9": {
+		"zh-cn": "<div class=\"user-info\" data-v-inspector=\"src/components/core/LockScreen.vue:20:21\" data-v-5eff4b57><div class=\"user-avatar\" data-v-inspector=\"src/components/core/LockScreen.vue:21:25\" data-v-5eff4b57><img src=\"https://api.dicebear.com/7.x/avataaars/svg?seed=Super\" alt=\"用户头像\" data-v-inspector=\"src/components/core/LockScreen.vue:22:29\" data-v-5eff4b57></div><div class=\"user-name\" data-v-inspector=\"src/components/core/LockScreen.vue:24:25\" data-v-5eff4b57>Super</div><div class=\"lock-tip\" data-v-inspector=\"src/components/core/LockScreen.vue:25:25\" data-v-5eff4b57>请输入密码解锁</div></div>",
+		"en": "<div class=\"user-info\" data-v-inspector=\"src/components/core/LockScreen.vue:20:21\" data-v-5eff4b57><div class=\"user-avatar\" data-v-inspector=\"src/components/core/LockScreen.vue:21:25\" data-v-5eff4b57><img SRC = \"https://api.dicebear.com/7.x/avataaars/svg?seed=Super\" Alt = \"avatars\" data-v-inspector=\"src/components/core/LockScreen.vue:22:29\" data-v-5eff4b57></div><div class=\"user-name\" data-v-inspector=\"src/components/core/LockScreen.vue:24:25\" data-v-5eff4b57>Super</div><div class=\"lock-tip\" Data - v - inspector = \"SRC/components/core/LockScreen. Vue:\" when data - v - 5 eff4b57 > please enter the password to unlock < / div > < / div >"
+	},
+	"lguo24": {
+		"zh-cn": " 解锁 ",
+		"en": "Unlock"
+	},
+	"bk965x7x": {
+		"zh-cn": "<div class=\"user-info\" data-v-5eff4b57><div class=\"user-avatar\" data-v-5eff4b57><img src=\"https://api.dicebear.com/7.x/avataaars/svg?seed=Super\" alt=\"用户头像\" data-v-5eff4b57></div><div class=\"user-name\" data-v-5eff4b57>Super</div><div class=\"lock-tip\" data-v-5eff4b57>请输入密码解锁</div></div>",
+		"en": "<div class=\"user-info\" data-v-5eff4b57><div class=\"user-avatar\" data-v-5eff4b57><img SRC = \"https://api.dicebear.com/7.x/avataaars/svg?seed=Super\" Alt = \"avatars\" data - v - 5 eff4b57 > < / div > < div class = \"user - the name\" data-v-5eff4b57>Super</div><div class=\"lock-tip\" data-v-5eff4b57> Please enter the password to unlock </div></div>"
+	},
+	"i0d6uc4": {
+		"zh-cn": "解锁屏幕",
+		"en": "Unlock the screen"
+	},
+	"lg4h9a7": {
+		"zh-cn": "请输入密码解锁",
+		"en": "Please enter the password to unlock"
+	},
+	"2j5veu6": {
+		"zh-cn": "点击屏幕解锁",
+		"en": "Click the screen to unlock"
+	},
+	"iid7444": {
+		"zh-cn": "返回登录",
+		"en": "Return to Login"
+	},
+	"c30egh4": {
+		"zh-cn": "密码错误",
+		"en": "Incorrect password"
+	},
+	"4f8l7ha": {
+		"zh-cn": "解锁失败，请检查密码",
+		"en": "Unlock failed. Please check your password"
+	},
+	"i0cx024": {
+		"zh-cn": "解锁失败",
+		"en": "Unlock failed"
+	},
+	"d5mowj4": {
+		"zh-cn": "搜索页面",
+		"en": "Search page"
+	},
+	"o120sj8": {
+		"zh-cn": " 还未开始搜索 ",
+		"en": "The search has not started yet"
+	},
+	"8xtwwca": {
+		"zh-cn": "输入关键字开始搜索吧",
+		"en": "Enter the keywords to start the search"
+	},
+	"macl28d": {
+		"zh-cn": "输入‘’’关键字开始搜索吧",
+		"en": "Enter the keyword \"\" to start the search"
+	},
+	"wf5p0ge": {
+		"zh-cn": "输入‘页面’关键字开始搜索吧",
+		"en": "Enter the keyword \"page\" to start the search"
+	},
+	"ul8zn8c": {
+		"zh-cn": "输入''关键字开始搜索吧",
+		"en": "Enter the keyword \"\" to start the search"
+	},
+	"evuqove": {
+		"zh-cn": "输入'页面'关键字开始搜索吧",
+		"en": "Enter the keyword \"page\" to start the search"
+	},
+	"p1j42": {
+		"zh-cn": "选择",
+		"en": "\"Choose\""
+	},
+	"oxyy2": {
+		"zh-cn": "退出",
+		"en": "Exit"
+	},
+	"chflx3": {
+		"zh-cn": "切换 ",
+		"en": "Switch"
+	},
+	"ehx72": {
+		"zh-cn": "切换",
+		"en": "Switch"
+	},
+	"anm37o4": {
+		"zh-cn": "全屏布局",
+		"en": "Full-screen layout"
+	},
+	"jwt6vvn": {
+		"zh-cn": "沉浸式全屏内容展示布局，适合专注阅读和内容展示",
+		"en": "Immersive full-screen content display layout, suitable for focused reading and content presentation"
+	},
+	"oxvu2": {
+		"zh-cn": "返回",
+		"en": "Return"
+	},
+	"e55m2": {
+		"zh-cn": "主页",
+		"en": "\"Home Page"
+	},
+	"ogvk2": {
+		"zh-cn": "设置",
+		"en": "\"Settings"
+	},
+	"fr3uq37": {
+		"zh-cn": "正在加载新布局",
+		"en": "A new layout is being loaded"
+	},
+	"4db4xpa": {
+		"zh-cn": "正在加载新布局...",
+		"en": "Loading a new layout..."
+	},
+	"9cnsyj6": {
+		"zh-cn": " 内容全屏 ",
+		"en": "Full screen content"
+	},
+	"2oyl4n7": {
+		"zh-cn": " 新窗口打开 ",
+		"en": "A new window opens."
+	},
+	"28aed06": {
+		"zh-cn": " 关闭当前 ",
+		"en": "Close the current"
+	},
+	"fhiak3": {
+		"zh-cn": "新窗口",
+		"en": "New window"
+	},
+	"ii96jl4": {
+		"zh-cn": "退出全屏",
+		"en": "Exit full screen"
+	},
+	"anzdff4": {
+		"zh-cn": "内容全屏",
+		"en": "Full screen content"
+	},
+	"n8ks08e": {
+		"zh-cn": " 您的浏览器不支持视频播放 ",
+		"en": "Your browser does not support video playback"
+	},
+	"wsnp4e8": {
+		"zh-cn": "确认退出登录吗？",
+		"en": "Are you sure you are logging out?"
+	},
+	"kzjg2": {
+		"zh-cn": "确定",
+		"en": "\"Sure\""
+	},
+	"bdb1pq9": {
+		"zh-cn": "请输入用户名和密码",
+		"en": "Please enter your username and password"
+	},
+	"fcewjt4": {
+		"zh-cn": "登录成功",
+		"en": "Login successful"
+	},
+	"fcdpse4": {
+		"zh-cn": "登录失败",
+		"en": "Login failed"
+	},
+	"kulhu3": {
+		"zh-cn": "记住我",
+		"en": "Remember me"
+	},
+	"koca2": {
+		"zh-cn": "登录",
+		"en": "Log in"
+	},
+	"atzvi44": {
+		"zh-cn": "动态背景",
+		"en": "Dynamic background"
+	},
+	"e8fviz4": {
+		"zh-cn": "渐变动画",
+		"en": "Gradient animation"
+	},
+	"jhwbu34": {
+		"zh-cn": "静态背景",
+		"en": "Static background"
+	},
+	"gept2": {
+		"zh-cn": "左侧",
+		"en": "On the left"
+	},
+	"g4g82": {
+		"zh-cn": "居中",
+		"en": "In the middle"
+	},
+	"epsk2": {
+		"zh-cn": "右侧",
+		"en": "Right side"
+	},
+	"qxpgkp7": {
+		"zh-cn": "🇨🇳 中文",
+		"en": "🇨🇳"
+	},
+	"e8nn574": {
+		"zh-cn": "渐变背景",
+		"en": "Gradient background"
+	},
+	"fs68tu4": {
+		"zh-cn": "科技背景",
+		"en": "\"Technological background\""
+	},
+	"gv3h674": {
+		"zh-cn": "自然背景",
+		"en": "Natural background"
+	},
+	"aich314": {
+		"zh-cn": "优美流动",
+		"en": "Graceful flow"
+	},
+	"38ptbb6": {
+		"zh-cn": "流体动画效果",
+		"en": "Fluid animation effect"
+	},
+	"dwp9ht4": {
+		"zh-cn": "模糊渐变",
+		"en": "Blurred gradient"
+	},
+	"qmrg4b6": {
+		"zh-cn": "渐变模糊效果",
+		"en": "Gradient blur effect"
+	},
+	"jd0g63": {
+		"zh-cn": "背景光",
+		"en": "Background light"
+	},
+	"xdyms75": {
+		"zh-cn": "环境光效果",
+		"en": "Ambient light effect"
+	},
+	"d1eekx4": {
+		"zh-cn": "抽象曲线",
+		"en": "Abstract curve"
+	},
+	"q3i2a46": {
+		"zh-cn": "抽象几何动画",
+		"en": "Abstract Geometric animation"
+	},
+	"dwli4c4": {
+		"zh-cn": "模糊圆点",
+		"en": "Blurred dot"
+	},
+	"739bu86": {
+		"zh-cn": "圆点模糊效果",
+		"en": "Dot blur effect"
+	},
+	"vt49qnc": {
+		"zh-cn": " 欢迎登录后台管理系统 ",
+		"en": "Welcome to log in to the background management system"
+	},
+	"y3ouj28": {
+		"zh-cn": " 还没有账号？ ",
+		"en": "Don't have an account yet?"
+	},
+	"9150pg6": {
+		"zh-cn": " 立即注册 ",
+		"en": "Register now"
+	},
+	"n9uy2": {
+		"zh-cn": "薄暮",
+		"en": "Dusk"
+	},
+	"jmna2": {
+		"zh-cn": "火山",
+		"en": "Volcano"
+	},
+	"hw892": {
+		"zh-cn": "日暮",
+		"en": "Sunset"
+	},
+	"fm37g3": {
+		"zh-cn": "极客蓝",
+		"en": "Geek Blue"
+	},
+	"pfbu2": {
+		"zh-cn": "酱紫",
+		"en": "Soy sauce purple"
+	},
+	"qcv8dp6": {
+		"zh-cn": " 欢迎回来 ",
+		"en": "Welcome back"
+	},
+	"rld5lqk": {
+		"zh-cn": " 请输入您的账户信息以开始管理您的项目 ",
+		"en": "Please enter your account information to start managing your project"
+	},
+	"il44g34": {
+		"zh-cn": "选择组织",
+		"en": "Select an organization"
+	},
+	"rjfne37": {
+		"zh-cn": "请按住滑块拖动",
+		"en": "Please hold down the slider and drag"
+	},
+	"3o0q6o6": {
+		"zh-cn": " 记住账号 ",
+		"en": "Remember the account"
+	},
+	"xfie5w5": {
+		"zh-cn": "忘记密码?",
+		"en": "Forgot password?"
+	},
+	"shgaim5": {
+		"zh-cn": "手机号登录",
+		"en": "Login with mobile phone number"
+	},
+	"cx12uo4": {
+		"zh-cn": "扫码登录",
+		"en": "Scan the code to log in"
+	},
+	"v1a1806": {
+		"zh-cn": "其他登录方式",
+		"en": "Other login methods"
+	},
+	"arefbk4": {
+		"zh-cn": "创建账号",
+		"en": "Create an account"
+	},
+	"2eg6iu5": {
+		"zh-cn": "请选择组织",
+		"en": "Please select an organization"
+	},
+	"vhgvmj9": {
+		"zh-cn": " 欢迎回来 👋 ",
+		"en": "Welcome back 👋"
+	},
+	"vkl7en6": {
+		"zh-cn": "选择用户类型",
+		"en": "Select the user type"
+	},
+	"7b32n16": {
+		"zh-cn": "请输入验证码",
+		"en": "Please enter the verification code"
+	},
+	"1lyolw7": {
+		"zh-cn": " 忘记密码？ ",
+		"en": "Forgot password?"
+	},
+	"cucczi7": {
+		"zh-cn": " 手机号登录 ",
+		"en": "Login with mobile phone number"
+	},
+	"alaysw6": {
+		"zh-cn": " 扫码登录 ",
+		"en": "Scan the code to log in"
+	},
+	"v9g6288": {
+		"zh-cn": " 其他登录方式 ",
+		"en": "Other login methods"
+	},
+	"6ep6a86": {
+		"zh-cn": " 创建账号 ",
+		"en": "Create an account"
+	},
+	"yzjyba7": {
+		"zh-cn": "请选择用户类型",
+		"en": "Please select the user type"
+	},
+	"sua2rea": {
+		"zh-cn": "密码长度不能少于6位",
+		"en": "The password length must not be less than 6 characters"
+	},
+	"pxabvl6": {
+		"zh-cn": "验证码已刷新",
+		"en": "The verification code has been refreshed"
+	},
+	"72b4s77": {
+		"zh-cn": "请滑动滑块验证",
+		"en": "Please slide the slider to verify"
+	},
+	"9hegdm7": {
+		"zh-cn": "请完成滑块验证",
+		"en": "Please complete the slider verification"
+	},
+	"k2omx04": {
+		"zh-cn": "验证成功",
+		"en": "Verification successful"
+	},
+	"tgazdw8": {
+		"zh-cn": "验证失败，请重试",
+		"en": "Verification failed. Please try again"
+	},
+	"gz30v65": {
+		"zh-cn": "验证已重置",
+		"en": "Verification has been reset."
+	},
+	"f5bkbc9": {
+		"zh-cn": "请拖动滑块完成验证",
+		"en": "Please drag the slider to complete the verification"
+	},
+	"1tcupw6": {
+		"zh-cn": " 验证成功 ",
+		"en": "Verification successful"
+	},
+	"mluml8a": {
+		"zh-cn": " 验证失败，请重试 ",
+		"en": "Verification failed. Please try again"
+	},
+	"k2wswy4": {
+		"zh-cn": "验证通过",
+		"en": "Verification passed"
+	},
+	"1mborm6": {
+		"zh-cn": " 验证通过 ",
+		"en": "Verification passed"
+	},
+	"pnnxwr6": {
+		"zh-cn": " 注册账号 ",
+		"en": "Register an account"
+	},
+	"ia2hkj6": {
+		"zh-cn": " 忘记密码 ",
+		"en": "Forget the password"
+	},
+	"1krbw47": {
+		"zh-cn": " 忘记密码? ",
+		"en": "Forgot password?"
+	},
+	"ahgyeie": {
+		"zh-cn": "开箱即用的大型中后台管理系统",
+		"en": "A large-scale middle and back-end management system ready to use out of the box"
+	},
+	"48tflch": {
+		"zh-cn": "工程化、高性能、跨组件库的前端模版",
+		"en": "Engineering-oriented, high-performance, cross-component library front-end templates"
+	},
+	"hil7d3": {
+		"zh-cn": "玻璃态",
+		"en": "Glassy state"
+	},
+	"b2optf6": {
+		"zh-cn": "玻璃质感效果",
+		"en": "Glass texture effect"
+	},
+	"jktewr4": {
+		"zh-cn": "非玻璃态",
+		"en": "Non-glassy state"
+	},
+	"346od96": {
+		"zh-cn": "普通背景效果",
+		"en": "Ordinary background effect"
+	},
+	"hyhv014": {
+		"zh-cn": "视觉风格",
+		"en": "Visual style"
+	},
+	"ebql8d4": {
+		"zh-cn": "混沌波浪",
+		"en": "Chaotic wave"
+	},
+	"avpo194": {
+		"zh-cn": "卷卷曲线",
+		"en": "Rolling curve"
+	},
+	"d1io2v4": {
+		"zh-cn": "抽象背景",
+		"en": "Abstract background"
+	},
+	"dwsjvw4": {
+		"zh-cn": "模糊背景",
+		"en": "Blurred background"
+	},
+	"he196e4": {
+		"zh-cn": "薄荷清晨",
+		"en": "Mint morning"
+	},
+	"esjtd44": {
+		"zh-cn": "焦糖日落",
+		"en": "Caramel sunset"
+	},
+	"de8v5m4": {
+		"zh-cn": "星空絮语",
+		"en": "Starry Sky Whispers"
+	},
+	"bl1wx94": {
+		"zh-cn": "复古唱片",
+		"en": "Retro record"
+	},
+	"dy1xl64": {
+		"zh-cn": "樱花雾雨",
+		"en": "Cherry blossom mist and rain"
+	},
+	"dre1vw4": {
+		"zh-cn": "森系苔藓",
+		"en": "Forest-like moss"
+	},
+	"erukg68": {
+		"zh-cn": "请填写完整信息！",
+		"en": "Please fill in the complete information!"
+	},
+	"io38z3": {
+		"zh-cn": "管理员",
+		"en": "Administrator"
+	},
+	"dkmpd3": {
+		"zh-cn": "大模型",
+		"en": "Large model"
+	},
+	"borjvk4": {
+		"zh-cn": "大模型1",
+		"en": ""
+	},
+	"borjvl4": {
+		"zh-cn": "大模型2",
+		"en": "\"Large Model 2"
+	},
+	"63q2kt6": {
+		"zh-cn": "大语言模型1",
+		"en": "Large Language Model 1"
+	},
+	"63q2ku6": {
+		"zh-cn": "大语言模型2",
+		"en": "Large Language Model 2"
+	},
+	"vwpj0r8": {
+		"zh-cn": "正在加数据...",
+		"en": "Data is being added..."
+	},
+	"8csu269": {
+		"zh-cn": "正在加载数据...",
+		"en": "Loading data..."
+	},
+	"5u04jg8": {
+		"zh-cn": "数据加载中...",
+		"en": "Data loading in progress..."
+	},
+	"adiweu4": {
+		"zh-cn": "任意路由",
+		"en": "Arbitrary routing"
+	},
+	"7b462b9": {
+		"zh-cn": "抱歉，页面不见了～",
+		"en": "Sorry, the page is gone ~"
+	},
+	"b4t4775": {
+		"zh-cn": " 侧边栏 ",
+		"en": "Sidebar"
+	},
+	"xfkedl6": {
+		"zh-cn": " 对话区域 ",
+		"en": "Dialogue area"
+	},
+	"gixti4": {
+		"zh-cn": " 模型 ",
+		"en": "Model"
+	},
+	"gvke5w7": {
+		"zh-cn": " 主内容区域 ",
+		"en": "Main content area"
+	},
+	"2j6zg05": {
+		"zh-cn": "请输入消息",
+		"en": "Please enter the message"
+	},
+	"eff133": {
+		"zh-cn": "很好听",
+		"en": "It sounds very nice."
+	},
+	"lqsqee6": {
+		"zh-cn": "很高兴认识你",
+		"en": "Nice to meet you"
+	},
+	"m1swmfl": {
+		"zh-cn": "你好，我是AI助手，有什么可以帮助你的吗？",
+		"en": "Hello, I'm an AI assistant. How can I help you?"
+	},
+	"lmgu7a6": {
+		"zh-cn": "你能做什么？",
+		"en": "What can you do?"
+	},
+	"kiffb3t": {
+		"zh-cn": "我可以回答问题、提供信息、帮助解决问题等。请随时向我提问！",
+		"en": "I can answer questions, provide information, help solve problems, etc. Please feel free to ask me questions at any time!"
+	},
+	"hj3n0ij": {
+		"zh-cn": "你好，我是用户，有什么可以帮助你的吗？",
+		"en": "Hello, I'm a user. How can I help you?"
+	},
+	"invhjud": {
+		"zh-cn": "抱歉，连接出现错误，请重试",
+		"en": "Sorry, there was an error in the connection. Please try again"
+	},
+	"mgdvcx5": {
+		"zh-cn": "已中断回复",
+		"en": "The reply was interrupted."
+	},
+	"engzff6": {
+		"zh-cn": "接收数据异常",
+		"en": "Abnormal received data"
+	},
+	"sbexy46": {
+		"zh-cn": "消息接收完成",
+		"en": "Message reception completed"
+	},
+	"pw13rqa": {
+		"zh-cn": "连接中断，正在尝试第",
+		"en": "The connection is interrupted. We are trying"
+	},
+	"6c97ks6": {
+		"zh-cn": "次重连...",
+		"en": "Second reconnection..."
+	},
+	"vivye8g": {
+		"zh-cn": "连接已中断，多次重连失败，请重试",
+		"en": "The connection has been interrupted. Multiple attempts to reconnect have failed. Please try again"
+	},
+	"2q9vcxc": {
+		"zh-cn": "无法建立连接，请稍后重试",
+		"en": "The connection cannot be established. Please try again later"
+	},
+	"n78apg5": {
+		"zh-cn": "已取消发送",
+		"en": "Canceled from sending"
+	},
+	"l5chm76": {
+		"zh-cn": " 中断回复 ",
+		"en": "Interrupted reply"
+	},
+	"q6ev1we": {
+		"zh-cn": "\n\n(连接出错，请重试)",
+		"en": "(Connection error. Please try again."
+	},
+	"vxndzb8": {
+		"zh-cn": "连接出错，请重试",
+		"en": "Connection error. Please try again"
+	},
+	"m29g0fh": {
+		"zh-cn": "连接失败，请检查服务器是否正常运行",
+		"en": "Connection failed. Please check if the server is operating normally"
+	},
+	"ika8634": {
+		"zh-cn": "连接失败",
+		"en": "Connection failed"
+	},
+	"ur2b1h1t": {
+		"zh-cn": "抱歉，连接服务器失败。请检查：\n1. 后端服务是否运行在8201端口\n2. 是否存在CORS跨域问题\n3. 网络连接是否正常",
+		"en": "Sorry, the connection to the server failed. Please check\nWhether the backend service is running on port 8201\n2. Are there any cross-domain issues with CORS\n3. Whether the network connection is normal"
+	},
+	"apqc016": {
+		"zh-cn": "连接失败: ",
+		"en": "Connection failed"
+	},
+	"wa1z4cg": {
+		"zh-cn": "连接异常，请重试或检查服务器状态",
+		"en": "Connection is abnormal. Please try again or check the server status"
+	},
+	"ikayil4": {
+		"zh-cn": "连接异常",
+		"en": "Connection exception"
+	},
+	"um2erk8": {
+		"zh-cn": "创建连接失败: ",
+		"en": "Connection creation failed"
+	},
+	"9n8ihm6": {
+		"zh-cn": "连接创建失败",
+		"en": "Connection creation failed"
+	},
+	"8juv41d": {
+		"zh-cn": "HTTP错误! 状态码: ",
+		"en": "\"HTTP error!\" Status code"
+	},
+	"450wa56": {
+		"zh-cn": "响应体不可读",
+		"en": "The response body is unreadable"
+	},
+	"2pye9me": {
+		"zh-cn": "抱歉，获取回复时出现错误: ",
+		"en": "Sorry, an error occurred when obtaining the reply"
+	},
+	"gl6sc08": {
+		"zh-cn": "连接异常，请重试",
+		"en": "Connection is abnormal. Please try again"
+	},
+	"xw8tqna": {
+		"zh-cn": "连接异常，请稍后重试",
+		"en": "Connection is abnormal. Please try again later"
+	},
+	"sn9zl26": {
+		"zh-cn": "创建连接失败",
+		"en": "Failed to create the connection"
+	},
+	"b65a734": {
+		"zh-cn": "发送成功",
+		"en": "Sent successfully"
+	},
+	"b643fo4": {
+		"zh-cn": "发送失败",
+		"en": "Failed to send"
+	},
+	"h245jp7": {
+		"zh-cn": "服务器处理出错",
+		"en": "Server processing error"
+	},
+	"ik8eb94": {
+		"zh-cn": "连接信息",
+		"en": "Connection information"
+	},
+	"so8hxn6": {
+		"zh-cn": "当前状态: ",
+		"en": "Current status"
+	},
+	"1oxzag8": {
+		"zh-cn": "\\n重连次数: ",
+		"en": "\\n reconnection times:"
+	},
+	"csik03": {
+		"zh-cn": "加载中",
+		"en": "Loading"
+	},
+	"gdll2": {
+		"zh-cn": "就绪",
+		"en": "Ready"
+	},
+	"jb7xng7": {
+		"zh-cn": "请输入消息内容",
+		"en": "Please enter the message content"
+	},
+	"me372lc": {
+		"zh-cn": "连接中断，正在重连...",
+		"en": "The connection was interrupted and is being reconnected..."
+	},
+	"llzo3": {
+		"zh-cn": " 第 ",
+		"en": "The first"
+	},
+	"jogucq9": {
+		"zh-cn": " 次重试中... ",
+		"en": "In this retry..."
+	},
+	"xg2xln6": {
+		"zh-cn": " 重置对话 ",
+		"en": "Reset the conversation"
+	},
+	"mbrsiz6": {
+		"zh-cn": " 连接信息 ",
+		"en": "Connection information"
+	},
+	"i9kcyr6": {
+		"zh-cn": "连接错误: ",
+		"en": "Connection error"
+	},
+	"pkfc2": {
+		"zh-cn": "重试",
+		"en": "Retry"
+	},
+	"49svcre": {
+		"zh-cn": "连接中断，正在重连... (",
+		"en": "The connection was interrupted and is being reconnected... ("
+	},
+	"pqqsfp8": {
+		"zh-cn": "消息内容不能为空",
+		"en": "The content of the message cannot be empty"
+	},
+	"3l7fqj8": {
+		"zh-cn": "重新连接中...",
+		"en": "Reconnecting..."
+	},
+	"8jbgcq6": {
+		"zh-cn": "发送失败: ",
+		"en": "Failed to send"
+	},
+	"qht4gb6": {
+		"zh-cn": "消息发送失败",
+		"en": "Message sending failed"
+	},
+	"mho6lc5": {
+		"zh-cn": "对话已取消",
+		"en": "The conversation has been cancelled."
+	},
+	"9o29n6a": {
+		"zh-cn": "没有找到可重试的消息",
+		"en": "No reachable message was found"
+	},
+	"ikiwuw4": {
+		"zh-cn": "连接超时",
+		"en": "Connection timeout"
+	},
+	"mhytkf5": {
+		"zh-cn": "对话已重置",
+		"en": "The conversation has been reset."
+	},
+	"6y8iv95": {
+		"zh-cn": "请求失败：",
+		"en": "Request failed"
+	},
+	"ogghtbr": {
+		"zh-cn": "后端未返回流式数据（response.body 为空）",
+		"en": "The backend does not return streaming data (response.body is empty)"
+	},
+	"42dnckc": {
+		"zh-cn": "\n（请求已被手动停止）",
+		"en": "(The request has been manually stopped."
+	},
+	"diprg14": {
+		"zh-cn": "未知错误",
+		"en": "Unknown error"
+	},
+	"henewq5": {
+		"zh-cn": "对接失败：",
+		"en": "Docking failed"
+	},
+	"krj1ro5": {
+		"zh-cn": "[错误] ",
+		"en": "\"Error"
+	},
+	"2f7fob6": {
+		"zh-cn": "请求失败: ",
+		"en": "Request failed"
+	},
+	"h5hcsjq": {
+		"zh-cn": "后端未返回流式数据（response.body为空）",
+		"en": "The backend does not return streaming data (response.body is empty)"
+	},
+	"kmizmg6": {
+		"zh-cn": "AI返回错误",
+		"en": "AI returns an error"
+	},
+	"8tj1iy9": {
+		"zh-cn": "\n（请求已取消）",
+		"en": "(The request has been cancelled"
+	},
+	"gru5iyj": {
+		"zh-cn": "连接异常，请重试（已超过最大重连次数）",
+		"en": "Connection is abnormal. Please try again (the maximum number of reconnections has been exceeded)."
+	},
+	"enlj4ac": {
+		"zh-cn": "\n（连接异常，已停止）",
+		"en": "(Connection abnormal, stopped)"
+	},
+	"yoek5uh": {
+		"zh-cn": "XStream连接异常，已停止重连",
+		"en": "XStream connection exception. Reconnection has been stopped"
+	},
+	"ura0f68": {
+		"zh-cn": "请输入消息...",
+		"en": "Please enter the message..."
+	},
+	"jx65og7": {
+		"zh-cn": "已复制到剪贴板",
+		"en": "It has been copied to the clipboard"
+	},
+	"bktvvh4": {
+		"zh-cn": "复制失败",
+		"en": "Copy failed"
+	},
+	"jdhqxo4": {
+		"zh-cn": "错误: ",
+		"en": "Error"
+	},
+	"u4uuge8": {
+		"zh-cn": "连接失败，请重试",
+		"en": "Connection failed. Please try again"
+	},
+	"84pbjx7": {
+		"zh-cn": "AI 智能助手",
+		"en": "AI Intelligent assistant"
+	},
+	"f2pi3p15": {
+		"zh-cn": "我是您的AI助手，可以帮助您解答问题、提供建议和进行对话。请输入您的问题开始对话。",
+		"en": "I'm your AI assistant, capable of helping you answer questions, offer advice and engage in conversations. Please enter your question to start the conversation."
+	},
+	"dzz9z4": {
+		"zh-cn": " 复制 ",
+		"en": "Copy"
+	},
+	"ml0t44": {
+		"zh-cn": " 重试 ",
+		"en": "Retry"
+	},
+	"127acha": {
+		"zh-cn": "请输入您的问题...",
+		"en": "Please enter your question..."
+	},
+	"ix59tx4": {
+		"zh-cn": "重置对话",
+		"en": "Reset the conversation"
+	},
+	"miwv34": {
+		"zh-cn": " 重置 ",
+		"en": "Reset"
+	},
+	"irpx08": {
+		"zh-cn": "正在思考中...",
+		"en": "I'm thinking..."
+	},
+	"8pzw2sd": {
+		"zh-cn": "抱歉，请求失败了，请重试。",
+		"en": "Sorry, the request failed. Please try again."
+	},
+	"am6vwq1m4": {
+		"zh-cn": "学习Spring Boot的路线可以按照以下阶段进行，从基础到进阶，逐步掌握相关技能。以下是详细的路线规划### **一、Java 基础（必备前置1. **核心语法**   - 数据类型、流程控制、面向对象（封装、继承、多态   - 集合框架（List、Map、Set）、异常处理、IO流2. **Java 8+ 新特性**   - Lambda表达式、Stream API、Optional、时间API（Local3. **Maven/Gradle**   - 依赖管理、项目构建、多### **二、Spring 框架1. **Spring Core   - IOC（控制反转）与 DI（依赖注入   - Bean的生命周期、作用域（Singleton、Prot2. **Spring MVC   - 控制器（@Controller）、RESTful API设计（@RestController   - 请求映射（@RequestMapping）、参数绑定（@RequestParam、@PathVariable### **三、Spring Boot1. **入门与项目搭建**   - 使用 [Spring Initializr](https://start.spring.io/) 快速生成   - 理解自动配置（Auto-Configuration）原理2. **核心注解   - `@SpringBootApplication`、`@Configuration`、`@Bean   - `@Autowired`、`@Component`、`@Service`、`@Repository3. **配置文件   - `application.properties`/`application   - 多环境配置（Profile）与外部4. **Web开发**   - 静态资源处理、模板引擎（Thymeleaf/Freemarker   - 拦截器（Interceptor）、过滤器5. **数据访问   - Spring Data JPA（Hibernate）或 My   - 事务管理（@Transactional）、分页查询### **四、Spring Boot 进阶1. **RESTful API    - 统一响应封装、全局异常处理（@Controller   - 接口文档工具：Swagger/2. **安全控制   - Spring Security（认证与授权）、JWT（无状态登录3. **缓存   - Spring Cache抽象（Redis、C4. **消息队列**   - 集成RabbitMQ/Kafka（异步解5. **定时任务**   - `@Scheduled`、分布式任务调度（Quartz/XXL-JOB### **五、微服务与云1. **Spring Cloud    - 服务注册与发现（Eureka/N   - 负载均衡（Ribbon/OpenFeign）、网关（Gateway/Z   - 配置中心（Config/Nacos）、熔断（Hystrix/Sentinel2. **Docker 与 Kubernetes**   - 容器化部署、编写Dockerfile   - Kubernetes基础概念（Pod、Deployment、Service3. **监控与运维   - Actuator健康检查、Prometheus + Grafana监控### **六、项目实战与1. **完整项目开发   - 开发一个博客系统、电商后台或OA   - 技术栈：Spring Boot + MyBatis + Redis +2. **性能优化**   - 数据库索引优化、SQL调   - 缓存穿透/雪崩解决方案、异步化3. **测试与   - 单元测试（JUnit 5 +   - CI/CD（Jenkins/GitHub### **七、扩展1. **响应式编程   - Spring WebFlux（Reactive编程2. **GraphQL**   - 替代REST的API查询语言3. **源码深度**   - 阅读Spring Boot启动流程源码（Spring### **- **文档  - [Spring Boot官方文档](https://spring.io/projects/spring- **书籍**  - 《Spring Boot实战》、《Spring揭秘- **视频  - B站/慕课网Spring Boot教程（推荐尚硅谷、雷神的- **社区  - Stack Overflow、掘金、Spring中文网### **学习建议1. **循序渐进**：先跑通Demo，再深入2. **动手实践**：每个知识点配合小项目练习（如用户3. **参与开源**：GitHub上阅读优秀项目（如`spring-petcl通过以上路线，你可以在3-6个月内系统掌握Spring Boot，并根据兴趣向微服务或云原生方向扩展。",
+		"en": "The learning route of Spring Boot can be carried out in the following stages, from the basics to the advanced level, gradually mastering the relevant skills. The following is a detailed route plan. 1. Java Basics (Essential prerequisites) 1. Core Syntax - Data types, flow Control, object-oriented programming (Encapsulation, inheritance, Polymorphism) - Collection Framework (List, Map, Set), exception handling, IO Flow 2. Java 8+ New Features - Lambda expressions, Stream API, Optional, time API (Local3). **Maven/Gradle** - Dependency management, project build, multiple ### ** II. Spring Framework 1. **Spring Core - IOC (Inversion of Control) and DI (Dependency Injection) - Bean lifecycle, scope (Singleton, Prot2). **Spring MVC - controller (@Controller), RESTful API design (@RestController - RequestMapping (@RequestMapping), Parameter Binding (@RequestParam, @Pathvariable) ### ** III. Spring Boot1. ** Introduction and Project Setup ** - Using [Spring Initializr](https://start.spring.io/) quick generation - understanding the principle of Auto-Configuration 2. ** core annotation - '@SpringBootApplication', '@Configuration', '@Bean -' @Autowired ', '@Component', '@Service', '@Repository3. ** Configuration file - 'application.properties'/' application - Multi-environment configuration (Profile) and external 4. **Web Development ** - Static resource processing, template engine (Thymeleaf/Freemarker) Interceptor, Filter 5. ** Data Access - Spring Data JPA (Hibernate) or My - Transaction Management (@Transactional), Pagination Query ### ** Four, Advanced Spring Boot 1. RESTful API - Unified Response Encapsulation, Global Exception Handling (@Controller - Interface Documentation Tool: Swagger/2. ** Security Control - Spring Security (Authentication and Authorization), JWT (Stateless Login) 3. ** Cache - Spring Cache Abstraction (Redis, C4. ** Message Queue ** - Integrated RabbitMQ/Kafka (asynchronous solution 5. Scheduled tasks ** - '@Scheduled', distributed task scheduling (Quartz/ XXl-job ### 5. Microservices and Cloud 1. Spring Cloud - Service registration and discovery (Eureka/ N-load balancing (Ribbon/OpenFeign), Gateway (Gateway/ Z-configuration center (Config/Nacos), circuit breaker (Hystrix/Sentinel2. **Docker and Kubernetes** - Containerized Deployment, writing Dockerfile - Basic concepts of Kubernetes (Pod, Deployment, Service3). ** Monitoring and Operations - Actuator Health Check, Prometheus + Grafana Monitoring ### ** VI. Project Practice and 1. Complete Project Development - Developing a Blog System, e-commerce Backend or OA - Technical Stack: Spring Boot + MyBatis + Redis +2. ** Performance Optimization ** - Database Index optimization, SQL invocation - Cache penetration/avalanche solution, Asynchronous 3. ** Testing and - Unit Testing (JUnit 5 + - CI/CD (Jenkins/ Github) ### ** Seven Extensions 1. ** Reactive Programming - Spring WebFlux (Reactive Programming) 2. **GraphQL** - An API query language to replace REST 3. ** Source Code Depth ** Reading Spring Boot startup process source (Spring# # # * * - * * document - [Spring Boot official documentation] books (https://spring.io/projects/spring- * * * * - the Spring \"Boot Practice\", \"Spring Unveiling - ** Video - Bilibili/MOOCs Spring Boot Tutorial (Recommended: Shangguigu, Leishen - ** Community - Stack Overflow, Juejin, Spring Chinese Website ### ** Learning suggestions 1. ** Proceed step by step ** First, run the Demo thoroughly, and then delve deeper. 2. ** Hands-on practice ** : Each knowledge point is combined with small project exercises (for example, user 3. ** Participation in open source ** Read excellent projects on GitHub (such as' Spring-petcl '). Through the above route, you can systematically master Spring Boot within 3 to 6 months and expand in the direction of microservices or cloud-native according to your interests."
+	},
+	"ljpghc1m5": {
+		"zh-cn": "学习Spring Boot的路线可以按照以下阶段进行，从基础到进阶，逐步掌握相关技能。以下是详细的路线规划 ### **一、Java 基础（必备前置1. **核心语法**   - 数据类型、流程控制、面向对象（封装、继承、多态   - 集合框架（List、Map、Set）、异常处理、IO流2. **Java 8+ 新特性**   - Lambda表达式、Stream API、Optional、时间API（Local3. **Maven/Gradle**   - 依赖管理、项目构建、多### **二、Spring 框架1. **Spring Core   - IOC（控制反转）与 DI（依赖注入   - Bean的生命周期、作用域（Singleton、Prot2. **Spring MVC   - 控制器（@Controller）、RESTful API设计（@RestController   - 请求映射（@RequestMapping）、参数绑定（@RequestParam、@PathVariable### **三、Spring Boot1. **入门与项目搭建**   - 使用 [Spring Initializr](https://start.spring.io/) 快速生成   - 理解自动配置（Auto-Configuration）原理2. **核心注解   - `@SpringBootApplication`、`@Configuration`、`@Bean   - `@Autowired`、`@Component`、`@Service`、`@Repository3. **配置文件   - `application.properties`/`application   - 多环境配置（Profile）与外部4. **Web开发**   - 静态资源处理、模板引擎（Thymeleaf/Freemarker   - 拦截器（Interceptor）、过滤器5. **数据访问   - Spring Data JPA（Hibernate）或 My   - 事务管理（@Transactional）、分页查询### **四、Spring Boot 进阶1. **RESTful API    - 统一响应封装、全局异常处理（@Controller   - 接口文档工具：Swagger/2. **安全控制   - Spring Security（认证与授权）、JWT（无状态登录3. **缓存   - Spring Cache抽象（Redis、C4. **消息队列**   - 集成RabbitMQ/Kafka（异步解5. **定时任务**   - `@Scheduled`、分布式任务调度（Quartz/XXL-JOB### **五、微服务与云1. **Spring Cloud    - 服务注册与发现（Eureka/N   - 负载均衡（Ribbon/OpenFeign）、网关（Gateway/Z   - 配置中心（Config/Nacos）、熔断（Hystrix/Sentinel2. **Docker 与 Kubernetes**   - 容器化部署、编写Dockerfile   - Kubernetes基础概念（Pod、Deployment、Service3. **监控与运维   - Actuator健康检查、Prometheus + Grafana监控### **六、项目实战与1. **完整项目开发   - 开发一个博客系统、电商后台或OA   - 技术栈：Spring Boot + MyBatis + Redis +2. **性能优化**   - 数据库索引优化、SQL调   - 缓存穿透/雪崩解决方案、异步化3. **测试与   - 单元测试（JUnit 5 +   - CI/CD（Jenkins/GitHub### **七、扩展1. **响应式编程   - Spring WebFlux（Reactive编程2. **GraphQL**   - 替代REST的API查询语言3. **源码深度**   - 阅读Spring Boot启动流程源码（Spring### **- **文档  - [Spring Boot官方文档](https://spring.io/projects/spring- **书籍**  - 《Spring Boot实战》、《Spring揭秘- **视频  - B站/慕课网Spring Boot教程（推荐尚硅谷、雷神的- **社区  - Stack Overflow、掘金、Spring中文网### **学习建议1. **循序渐进**：先跑通Demo，再深入2. **动手实践**：每个知识点配合小项目练习（如用户3. **参与开源**：GitHub上阅读优秀项目（如`spring-petcl通过以上路线，你可以在3-6个月内系统掌握Spring Boot，并根据兴趣向微服务或云原生方向扩展。",
+		"en": "The learning route of Spring Boot can be carried out in the following stages, from the basics to the advanced level, gradually mastering the relevant skills. The following is a detailed route plan. 1. Java Basics (Essential prerequisites) 1. Core Syntax - Data types, flow Control, object-oriented programming (Encapsulation, inheritance, Polymorphism) - Collection Framework (List, Map, Set), exception handling, IO Flow 2. Java 8+ New Features - Lambda expressions, Stream API, Optional, time API (Local3). **Maven/Gradle** - Dependency management, project build, multiple ### ** II. Spring Framework 1. **Spring Core - IOC (Inversion of Control) and DI (Dependency Injection) - Bean lifecycle, scope (Singleton, Prot2). **Spring MVC - controller (@Controller), RESTful API design (@RestController - RequestMapping (@RequestMapping), Parameter Binding (@RequestParam, @Pathvariable) ### ** III. Spring Boot1. ** Introduction and Project Setup ** - Using [Spring Initializr](https://start.spring.io/) quick generation - understanding the principle of Auto-Configuration 2. ** core annotation - '@SpringBootApplication', '@Configuration', '@Bean -' @Autowired ', '@Component', '@Service', '@Repository3. ** Configuration file - 'application.properties'/' application - Multi-environment configuration (Profile) and external 4. **Web Development ** - Static resource processing, template engine (Thymeleaf/Freemarker) Interceptor, Filter 5. ** Data Access - Spring Data JPA (Hibernate) or My - Transaction Management (@Transactional), Pagination Query ### ** Four, Advanced Spring Boot 1. RESTful API - Unified Response Encapsulation, Global Exception Handling (@Controller - Interface Documentation Tool: Swagger/2. ** Security Control - Spring Security (Authentication and Authorization), JWT (Stateless Login) 3. ** Cache - Spring Cache Abstraction (Redis, C4. ** Message Queue ** - Integrated RabbitMQ/Kafka (asynchronous solution 5. Scheduled tasks ** - '@Scheduled', distributed task scheduling (Quartz/ XXl-job ### 5. Microservices and Cloud 1. Spring Cloud - Service registration and discovery (Eureka/ N-load balancing (Ribbon/OpenFeign), Gateway (Gateway/ Z-configuration center (Config/Nacos), circuit breaker (Hystrix/Sentinel2. **Docker and Kubernetes** - Containerized Deployment, writing Dockerfile - Basic concepts of Kubernetes (Pod, Deployment, Service3). ** Monitoring and Operations - Actuator Health Check, Prometheus + Grafana Monitoring ### ** VI. Project Practice and 1. Complete Project Development - Developing a Blog System, e-commerce Backend or OA - Technical Stack: Spring Boot + MyBatis + Redis +2. ** Performance Optimization ** - Database Index optimization, SQL invocation - Cache penetration/avalanche solution, Asynchronous 3. ** Testing and - Unit Testing (JUnit 5 + - CI/CD (Jenkins/ Github) ### ** Seven Extensions 1. ** Reactive Programming - Spring WebFlux (Reactive Programming) 2. **GraphQL** - An API query language to replace REST 3. ** Source Code Depth ** Reading Spring Boot startup process source (Spring# # # * * - * * document - [Spring Boot official documentation] books (https://spring.io/projects/spring- * * * * - the Spring \"Boot Practice\", \"Spring Unveiling - ** Video - Bilibili/MOOCs Spring Boot Tutorial (Recommended: Shangguigu, Leishen - ** Community - Stack Overflow, Juejin, Spring Chinese Website ### ** Learning suggestions 1. ** Proceed step by step ** First, run the Demo thoroughly, and then delve deeper. 2. ** Hands-on practice ** : Each knowledge point is combined with small project exercises (for example, user 3. ** Participation in open source ** Read excellent projects on GitHub (such as' Spring-petcl '). Through the above route, you can systematically master Spring Boot within 3 to 6 months and expand in the direction of microservices or cloud-native according to your interests."
+	},
+	"evzsq1135": {
+		"zh-cn": "#Spring Boot 学习路线 ## 基础知识阶段 1. **Java基础巩固** - Java8+核心特性（Lambda、Stream API等） - 面向对象编程概念 -集合框架 - 异常处理 - IO/NIO 2. **Maven/Gradle构建工具** - 依赖管理 - 项目结构 - 常用插件 3. **Spring框架核心** - IoC容器 -AOP编程 -Spring MVC -事务管理 ## SpringBoot核心学习 1. **入门与基础** -Spring Boot简介与优势 - 创建第一个Spring Boot应用 -自动配置原理 - Starter依赖 2. **核心特性** -配置文件（application.properties/yaml） - Profile多环境配置 - 日志配置（Logback/SLF4J） - 条件注解（@Conditional） 3.**Web开发** -RESTful API设计 - 控制器（@RestController） -请求映射与参数绑定 - 静态资源处理 -模板引擎（Thymeleaf/FreeMarker） ## 数据持久化 1. **Spring Data JPA** - 实体映射 - Repository接口 - 查询方法 - 分页与排序 2. **MyBatis/MyBatis-Plus** - XML与注解配置 - 动态SQL - 关联查询 3. **数据库连接** - JDBC - 连接池（HikariCP） - 多数据源配置 ## 高级特性 1. **安全认证** - Spring Security基础 -OAuth2 -JWT实现 2.**微服务相关** - SpringCloud初步 - 服务注册与发现（Eureka/Nacos） - 配置中心 - 服务调用（Feign/RestTemplate） 3. **消息中间件** - RabbitMQ集成 - Kafka集成 -消息队列模式 4. **缓存技术** - Redis集成 -缓存注解（@Cacheable） -分布式锁 ## 运维与部署 1.**监控与管理** - Actuator端点 -健康检查 - 自定义指标 2. **测试** - 单元测试（JUnit 5） - Mock测试（Mockito） - 集成测试 3. **部署** - 打包与运行（JAR/WAR） - Docker容器化 - CI/CD集成 ## 实战项目建议 1.博客系统 2. 电商系统（简化版） 3. 权限管理系统 4.即时通讯系统（简化版） ## 学习资源推荐 - 官方文档：[Spring Boot ReferenceGuide](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) - 书籍：《Spring Boot实战》、《Spring Boot编程思想》 -在线课程：B站、慕课网、Coursera相关课程 -社区：Spring官方论坛、StackOverflow、掘金、CSDN ## 进阶方向 - 源码分析 - 性能优化 -架构设计 -响应式编程（WebFlux） 按照这个路线循序渐进学习，同时配合实际项目练习，可以系统掌握Spring Boot开发技能。",
+		"en": "#Spring Boot Learning Route ## Basic Knowledge Stage 1. ** Consolidation of Java Basics ** - Core Features of Java8+ (Lambda, Stream API, etc.) - Object-oriented Programming Concepts - Collection Framework - Exception Handling - IO/NIO 2. **Maven/Gradle Build Tools ** - Dependency Management - Project Structure - Common Plugins 3. **Spring Framework Core ** - IoC Container -AOP Programming -Spring MVC - Transaction Management ## SpringBoot Core Learning 1. * * * * primer and foundation - Spring Boot introduction and advantages - the creation of the first Spring Boot applications - automatic configuration principle - the Starter rely on 2. * * - * * core feature configuration files (application. The properties/yaml) Profile Multi-environment Configuration - Log Configuration (Logback/SLF4J) - Conditional Annotation (@Conditional) 3.**Web Development ** -RESTful API Design - Controller (@RestController) - Request Mapping and Parameter Binding Static resource processing - Template Engine (Thymeleaf/FreeMarker) ## Data persistence 1. **Spring Data JPA** - Entity Mapping - Repository Interface - Query Methods - Pagination and sorting 2. **MyBatis/MyBatis-Plus** - XML and Annotation Configuration - Dynamic SQL - Associated Query 3. ** Database Connection ** - JDBC - Connection Pool (HikariCP) - Multi-data Source Configuration ## Advanced Features 1. ** Security Authentication ** - Spring Security Basics -OAuth2 -JWT Implementation 2.** Microservice-related ** - SpringCloud Introduction - Service Registration and Discovery (Eureka/Nacos) - Configuration Center - Service Invocation (Feign/RestTemplate) 3. ** Message Middleware ** - RabbitMQ Integration - Kafka Integration - Message Queue Mode 4. ** Cache Technology ** - Redis Integration - Cache Annotation (@Cacheable) - Distributed Lock ## Operation and Deployment 1.** Monitoring and Management ** Actuator Endpoint - Health Check - Custom Metrics 2. ** Testing ** - Unit Testing (JUnit 5) - Mock Testing (Mockito) - Integration Testing 3. ** Deployment ** - Packaging and Running (JAR/WAR) - Docker Containerization CI/CD Integration ## Practical Project Suggestions 1 Blog System 2. E-commerce System (Simplified Version) 3. Permission Management System 4 Instant Messaging System (Simplified Version) ## Learning Resource Recommendation - Official Documentation: [Spring Boot ReferenceGuide] (https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) - books: \"Spring Boot in Practice\", \"Spring Boot Programming Thought\" - Online courses: Bilibili, MOOC, Coursera Related courses - Community: Spring Official Forum, StackOverflow, Juejin, CSDN ## Advanced Directions - Source Code Analysis - Performance Optimization - Architecture Design - Reactive Programming (WebFlux) Learn step by step along this route, while practicing with actual projects Be able to systematically master the development skills of Spring Boot."
+	},
+	"qg5k0d6": {
+		"zh-cn": " 欢迎消息 ",
+		"en": "Welcome message"
+	},
+	"xbo8ln6": {
+		"zh-cn": " 对话消息 ",
+		"en": "Dialogue Message"
+	},
+	"3lery4d": {
+		"zh-cn": " 消息发送区：固定在底部 ",
+		"en": "Message sending area: Fixed at the bottom"
+	},
+	"dzq52": {
+		"zh-cn": "你好",
+		"en": "Hello"
+	},
+	"jokgtb13b": {
+		"zh-cn": "Spring Boot学习## 一、基础阶段### 1.- 掌握Java核心语法- 理解面向对象编程- 熟悉集合框架、IO流、多线程等- JDK8+新特性(Lambda表达式、Stream API### 2. Spring Framework基础- 理解IoC(控制反转)和DI(- 学习Spring核心模块(Beans, Core- 了解AOP(面向切面编程- Spring### 3. Spring- Spring Boot简介与- 创建第一个Spring Boot项目- 理解自动配置- 使用Spring Initial- 了解Spring Boot Starter## 二、核心技能### 1. Web- RESTful API- 控制器(Controller)- 请求处理与响应- 参数校验(- 异常处理- 文件上传下载### 2. 数据访问- Spring Data JPA- MyBatis/MyBatis-Plus集成- - 数据库迁移工具(Flyway/Liquibase- Redis集成- MongoDB集成(### 3. 配置管理- 多环境配置(dev/test- 外部化配置- @ConfigurationProperties使用- 配置刷新(Spring Cloud Config### 4. 安全控制- Spring Security基础- 认证与授权- JWT实现- OAuth2.0(- CSRF防护## 三、进阶内容### 1. 微服务相关- Spring Cloud基础- 服务注册与发现(Eureka/N- 负载均衡(R- 声明式REST客户端(Feign- 网关(Gateway- 分布式配置中心- 熔断与限流(Hystrix/S### 2. 消息- RabbitMQ- Kafka集成(可选- 消息可靠### 3. 缓存技术- Spring- Redis缓存实现- 缓存一致性### 4. 测试相关- 单元测试(JUnit5- Mock测试(M- 集成- 测试覆盖率(Ja## 四、运维与部署### 1. 监控与管理- Actuator端点- 健康- 指标监控(P- 链路追踪(Sleuth+### 2. 容器- Docker基础- Dockerfile编写- Docker- Kubernetes基础### 3. 部署方式- 传统jar- 云原生- CI/CD流水## 五、最佳### 1. 项目- 分层- 模块化开发- ### 2. 性能- JVM调- SQL- 缓存- 异步### 3. 设计- 常用设计模式在Spring中的应用- Spring中的典型模式## 学习资源### 官方- [Spring Boot官方文档](https://spring.io/projects/spring-boot- [Spring Framework文档](https://spring.io/projects/spring-framework### 书籍- 《Spring Boot- 《Spring微服务实战- 《Spring揭秘### - Spring官方教程- B站/慕课网/极客时间相关### 实践建议1. 从简单项目开始，逐步增加2. 参与开源项目或自己构建完整3. 保持编码习惯，每天至少1小时按照这个路线系统学习，配合实际项目练习，可以逐步掌握Spring Boot开发技能。",
+		"en": "Spring Boot Learning ## I. Basic Stage ### 1.- Master Java Core Syntax - Understand object-oriented Programming - Be familiar with collection framework, IO Stream, multithreading, etc.- New Features of JDK8+ (Lambda expression, Stream API) ### 2. Spring Framework Basics - Understanding IoC(Inversion of Control) and DI(- Learning Spring Core Modules (Beans) Core- Understanding AOP(Aspect-Oriented Programming) - Spring### 3. Spring- Introduction to Spring Boot - Creating the First Spring Boot Project - Understanding Auto-configuration - Using Spring Initial- Understanding Spring Boot Starter## II. Core Skills ### 1. Web- RESTful API- Controller - Request Processing and Response - Parameter Verification (- Exception Handling - File Upload and Download) 2. Data access - Spring Data JPA- MyBatis/MyBatis-Plus Integration - Database Migration tools (Flyway/Liquibase- Redis integration - MongoDB integration) Configuration Management - Multi-environment configuration (dev/test- Externalized configuration - @ConfigurationProperties usage - Configuration refresh (Spring Cloud Config### 4) Security Control - Spring Security Basics - Authentication and Authorization - JWT Implementation - OAuth2.0(- CSRF Protection) ## III. Advanced Content ### 1. Microservice-related - Spring Cloud Basics - Service Registration and Discovery (Eureka/N- Load balancing (R- Declarative REST Client) (Feign- Gateway (Gateway) - Distributed Configuration Center - Circuit Breaking and Rate Limiting (Hystrix/S) ### 2. Message - RabbitMQ-Kafka Integration (Optional - Reliable Messages ### 3 Cache Technology - Spring-Redis Cache Implementation - Cache Consistency ### 4. Test-related - Unit Testing (JUnit5- Mock Testing (M- Integration - Test Coverage (JA) ## 4. Operations and Deployment ### 1. Monitoring and Management - Actuator Endpoint - Health - Metric Monitoring (P- Link Tracing (Sleuth+### 2. Container - Docker Basics - Dockerfile Writing - Docker- Kubernetes Basics ### 3. Deployment Method - Traditional jar- Cloud-Native - CI/CD Flow ## Five, Best ### 1. Project - layered modular development - # # # 2. Performance -- the JVM tuning SQL cache - asynchronous # # # 3. Design - design pattern commonly used in the application of Spring - Spring typical pattern # # # # # learning resources official - [Spring Boot official documentation] (HTTP: / / https://spring.io/projects/spring-boot- / Spring Framework document] (https://spring.io/projects/spring-framework### books - \"Spring Boot -\" Spring micro service actual combat - \"Spring reveal official tutorial - # # # - Spring Bilibili/MOOC/Geek Time related ### Practical suggestions: 1. Start with simple projects and gradually increase. 2. Participate in open source projects or build a complete one by yourself. 3. Keep the coding habit and study systematically along this route for at least one hour every day. Practice with actual projects, and you can gradually master the Spring Boot development skills."
+	},
+	"f1ow2": {
+		"zh-cn": "发送",
+		"en": "Send"
+	},
+	"f0s7em8": {
+		"zh-cn": "对话加载中...",
+		"en": "The dialogue is loading..."
+	},
+	"27k1ha6": {
+		"zh-cn": "加载中...",
+		"en": "Loading..."
+	},
+	"faf1v3": {
+		"zh-cn": "新会话",
+		"en": "New conversation"
+	},
+	"fclv83": {
+		"zh-cn": "新对话",
+		"en": "New Dialogue"
+	},
+	"d83aha4": {
+		"zh-cn": "新建对话",
+		"en": "Create a new dialogue"
+	},
+	"v6h1z96": {
+		"zh-cn": " 深度思考 ",
+		"en": "Deep thinking"
+	},
+	"ftlbu4": {
+		"zh-cn": " 搜索 ",
+		"en": "Search"
+	},
+	"yuqwrn6": {
+		"zh-cn": " 联网搜索 ",
+		"en": "Online search"
+	},
+	"dx6ylj6": {
+		"zh-cn": "思考中...",
+		"en": "Thinking..."
+	},
+	"qfn30t5": {
+		"zh-cn": "已深度思考",
+		"en": "Have thought deeply"
+	},
+	"axnmqgc": {
+		"zh-cn": "思考完毕，这是我的答案。",
+		"en": "After thinking it through, here is my answer."
+	},
+	"e7hbq3": {
+		"zh-cn": "已完成",
+		"en": "Completed"
+	},
+	"b6ehmi4": {
+		"zh-cn": "发送问题",
+		"en": "Send a question"
+	},
+	"ep0873": {
+		"zh-cn": "思考中",
+		"en": "In thought"
+	},
+	"lq5q43": {
+		"zh-cn": "进行中",
+		"en": "In progress"
+	},
+	"dbgdz3": {
+		"zh-cn": "回答中",
+		"en": "In the answer"
+	},
+	"m9ibtw16": {
+		"zh-cn": "嗯，用户在向我问候，我应该诚恳的向用户回应...，这是我的思考内容，最后回复 你好！",
+		"en": "Well, the user is greeting me, and I should respond sincerely to the user... This is my thought. Finally, I reply to you!"
+	},
+	"uwzwt0f": {
+		"zh-cn": "你好，我是AI助手，进来可好！",
+		"en": "Hello, I'm the AI assistant. Could you come in?"
+	},
+	"cnk9ne4": {
+		"zh-cn": "思考内容",
+		"en": "Thought content"
+	},
+	"eps8kb6": {
+		"zh-cn": "思考内容()",
+		"en": "Thought content ("
+	},
+	"7mzydp8": {
+		"zh-cn": "思考内容(用时)",
+		"en": "Thought content (time taken)"
+	},
+	"npmg4y9": {
+		"zh-cn": "思考内容(用时3)",
+		"en": "Thought content (takes 3 hours"
+	},
+	"ors1ima": {
+		"zh-cn": "思考内容(用时3秒)",
+		"en": "Thought content (within 3 seconds)"
+	},
+	"d9tyg1b": {
+		"zh-cn": "已深度思考(用时3秒)",
+		"en": "Thought deeply (took 3 seconds)"
+	},
+	"lrmwt3": {
+		"zh-cn": "重命名",
+		"en": "Rename"
+	},
+	"mifc2": {
+		"zh-cn": "置顶",
+		"en": "Top position"
+	},
+	"edt12": {
+		"zh-cn": "分享",
+		"en": "Share"
+	},
+	"xfji286": {
+		"zh-cn": " 对话历史 ",
+		"en": "Dialogue with History"
+	},
+	"gmcv2": {
+		"zh-cn": "开启",
+		"en": "\"Start\""
+	},
+	"rc5kx15": {
+		"zh-cn": "开启新对话",
+		"en": "Start a new conversation"
+	},
+	"g85n2": {
+		"zh-cn": "展开",
+		"en": "\"Unfold"
+	},
+	"ct291f4": {
+		"zh-cn": "打开边栏",
+		"en": "Open the sidebar"
+	},
+	"t5qjlv5": {
+		"zh-cn": "打开边栏 ",
+		"en": "Open the sidebar"
+	},
+	"mifxns5": {
+		"zh-cn": "畅聊xin",
+		"en": "\"Chat Freely xin"
+	},
+	"m36mzy5": {
+		"zh-cn": "畅聊新天地",
+		"en": "Chat freely about the new world"
+	},
+	"8e03yia": {
+		"zh-cn": " div 深度思考 ",
+		"en": "\"div Deep Thinking\""
+	},
+	"gptuwz4": {
+		"zh-cn": "联网搜索",
+		"en": "Online search"
+	},
+	"e9jehn4": {
+		"zh-cn": "深度思考",
+		"en": "Deep thinking"
+	},
+	"fjfv03": {
+		"zh-cn": "机器人",
+		"en": "Robot"
+	},
+	"hsgw2": {
+		"zh-cn": "明亮",
+		"en": "Bright"
+	},
+	"ibkq2": {
+		"zh-cn": "暗黑",
+		"en": "\"Dark\""
+	},
+	"c76fp3": {
+		"zh-cn": "主题色",
+		"en": "Theme color"
+	},
+	"ikni2": {
+		"zh-cn": "模式",
+		"en": "\"Mode\""
+	},
+	"qka62": {
+		"zh-cn": "风格",
+		"en": "Style"
+	},
+	"192xqj6": {
+		"zh-cn": "侧边栏/顶栏",
+		"en": "Sidebar/top sidebar"
+	},
+	"fmh22": {
+		"zh-cn": "基础",
+		"en": "\"Basic\""
+	},
+	"hrqo2": {
+		"zh-cn": "文字",
+		"en": "Text"
+	},
+	"fk3w2": {
+		"zh-cn": "圆角",
+		"en": "Rounded corner"
+	},
+	"jutwww4": {
+		"zh-cn": "页面动画",
+		"en": "Page animation"
+	},
+	"ghwd2": {
+		"zh-cn": "布局",
+		"en": "Layout"
+	},
+	"e56l2": {
+		"zh-cn": "主题",
+		"en": "Theme"
+	},
+	"gar1ro4": {
+		"zh-cn": "系统设置",
+		"en": "System Settings"
+	},
+	"n6y1n06": {
+		"zh-cn": " 系统设置 ",
+		"en": "System Settings"
+	},
+	"h3zv4z4": {
+		"zh-cn": "蒙层关闭",
+		"en": "Mask closure"
+	},
+	"h44vb54": {
+		"zh-cn": "蒙层滤镜",
+		"en": "Mask filter"
+	},
+	"7lj2yt6": {
+		"zh-cn": "点击蒙层关闭",
+		"en": "Click to close the mask"
+	},
+	"n7rct76": {
+		"zh-cn": " 系统配置 ",
+		"en": "System configuration"
+	},
+	"b67do8": {
+		"zh-cn": "搜索全局菜单页面",
+		"en": "Search the global menu page"
+	},
+	"9du5916": {
+		"zh-cn": "搜索全局页面",
+		"en": "Search the global page"
+	},
+	"vybskc7": {
+		"zh-cn": " 深色侧边栏 ",
+		"en": "Dark sidebar"
+	},
+	"z3yika6": {
+		"zh-cn": " 深色顶栏 ",
+		"en": "Dark top bar"
+	},
+	"ldlucb8": {
+		"zh-cn": " 点击蒙层关闭 ",
+		"en": "Click to close the mask"
+	},
+	"ibtgu3": {
+		"zh-cn": "科技蓝",
+		"en": "\"Tech Blue\""
+	},
+	"dia793": {
+		"zh-cn": "奢华金",
+		"en": "Luxurious gold"
+	},
+	"hca0h3": {
+		"zh-cn": "环保绿",
+		"en": "Environmental protection and green"
+	},
+	"fdzj93": {
+		"zh-cn": "时尚粉",
+		"en": "Fashion fan"
+	},
+	"btl2h3": {
+		"zh-cn": "专业灰",
+		"en": "Professional grey"
+	},
+	"jp21f3": {
+		"zh-cn": "苹果银",
+		"en": "Apple Silver"
+	},
+	"cl9iu3": {
+		"zh-cn": "华为红",
+		"en": "Huawei Red"
+	},
+	"d9uvt54": {
+		"zh-cn": "星巴克绿",
+		"en": "Starbucks Green"
+	},
+	"hh3hl3": {
+		"zh-cn": "理想银",
+		"en": "Ideal Silver"
+	},
+	"mpmks3": {
+		"zh-cn": "阿里橙",
+		"en": "Ali Orange"
+	},
+	"d3fr554": {
+		"zh-cn": "支付宝蓝",
+		"en": "Alipay Blue"
+	},
+	"j5ywm3": {
+		"zh-cn": "耐克黑",
+		"en": "Nike Black"
+	},
+	"dviwa3": {
+		"zh-cn": "宜家黄",
+		"en": "Ikea Yellow"
+	},
+	"18x84f5": {
+		"zh-cn": "OPPO绿",
+		"en": "OPPO Green"
+	},
+	"meen73": {
+		"zh-cn": "阳光橙",
+		"en": "Sunshine Orange"
+	},
+	"cqlxm3": {
+		"zh-cn": "华润红",
+		"en": "China Resources Red"
+	},
+	"msv4y3": {
+		"zh-cn": "零跑蓝",
+		"en": "Zero Run Blue"
+	},
+	"k8uly3": {
+		"zh-cn": "薰衣草",
+		"en": "Lavender"
+	},
+	"gco153": {
+		"zh-cn": "水晶紫",
+		"en": "Crystal Purple"
+	},
+	"fhxat3": {
+		"zh-cn": "月光银",
+		"en": "Moonlight Silver"
+	},
+	"gtp4f3": {
+		"zh-cn": "淡青柠",
+		"en": "Light lime"
+	},
+	"gjo7g3": {
+		"zh-cn": "浅湖蓝",
+		"en": "Shallow lake blue"
+	},
+	"gigp43": {
+		"zh-cn": "浅杏色",
+		"en": "Light apricot color"
+	},
+	"fmjpt3": {
+		"zh-cn": "柔和粉",
+		"en": "Soft pink"
+	},
+	"fv1bv3": {
+		"zh-cn": "柔蜜桃",
+		"en": "Soft honey peach"
+	},
+	"gm85i3": {
+		"zh-cn": "淡水仙",
+		"en": "Narcissus"
+	},
+	"ebdxa3": {
+		"zh-cn": "建军绿",
+		"en": "\"Jianjun Green\""
+	},
+	"dq6o2": {
+		"zh-cn": "个人",
+		"en": "\"Personal"
+	},
+	"qylb2": {
+		"zh-cn": "首页",
+		"en": "Home Page"
+	},
+	"dnhnle4": {
+		"zh-cn": "权限管理",
+		"en": "Permission management"
+	},
+	"f6y6dw4": {
+		"zh-cn": "用户管理",
+		"en": "User Management"
+	},
+	"hxhx7p4": {
+		"zh-cn": "角色管理",
+		"en": "Role Management"
+	},
+	"gzj3um4": {
+		"zh-cn": "菜单管理",
+		"en": "Menu Management"
+	},
+	"vu42ov6": {
+		"zh-cn": "用户管理页面",
+		"en": "User Management Page"
+	},
+	"ta6y4u6": {
+		"zh-cn": "角色管理页面",
+		"en": "Role Management Page"
+	},
+	"cm42ph6": {
+		"zh-cn": "菜单管理页面",
+		"en": "Menu Management page"
+	},
+	"gao8uh4": {
+		"zh-cn": "系统管理",
+		"en": "System Management"
+	},
+	"amniw34": {
+		"zh-cn": "公告管理",
+		"en": "Announcement Management"
+	},
+	"d9axsn4": {
+		"zh-cn": "日志管理",
+		"en": "Log Management"
+	},
+	"wzbvcs6": {
+		"zh-cn": "字典数据管理",
+		"en": "Dictionary data management"
+	},
+	"bv9v7q4": {
+		"zh-cn": "字典管理",
+		"en": "Dictionary management"
+	},
+	"dphuj46": {
+		"zh-cn": "公告管理页面",
+		"en": "Announcement Management Page"
+	},
+	"qul3dw6": {
+		"zh-cn": "日志管理页面",
+		"en": "Log management page"
+	},
+	"fawrn38": {
+		"zh-cn": "字典数据管理页面",
+		"en": "Dictionary data management page"
+	},
+	"u3ztf16": {
+		"zh-cn": "字典管理页面",
+		"en": "Dictionary Management Page"
+	},
+	"bv601r4": {
+		"zh-cn": "字典数据",
+		"en": "Dictionary data"
+	},
+	"nr1d005": {
+		"zh-cn": "页面不存在",
+		"en": "The page does not exist."
+	},
+	"u7s915": {
+		"zh-cn": "404页面",
+		"en": "\"404 page"
+	}
+}

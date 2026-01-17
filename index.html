@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    /* 旋转动画 */
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(180deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* 加载器容器 */
+    .loader-container {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: linear-gradient(to right bottom, #d5dafe, #c7cefe, #b9c2fd, #abb7fd, #9cabfc, #91a2fc, #869afb, #7a91fb, #6f89fb, #6481fa, #587afa, #4a72f9);
+    }
+
+    /* 加载动画 */
+    .loader {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      display: block;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .loader div {
+      height: 100%;
+    }
+
+    .loader_,
+    .loader_ div {
+      border-radius: 50%;
+      padding: 6px;
+      border: 3px solid transparent;
+      animation: rotate linear 3.5s infinite;
+    }
+
+    .loader_,
+    .loader_ div {
+      border-top-color: #fff;
+      border-bottom-color: #fff;
+    }
+
+    .loader,
+    .loader * {
+      will-change: transform;
+    }
+
+    /* 加载提示文字 */
+    .load_title {
+      font-family: 'Open Sans', 'Microsoft YaHei', sans-serif;
+      color: #FFF;
+      font-size: 18px;
+      text-align: center;
+      opacity: 1;
+      line-height: 1.5;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      white-space: nowrap;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .loader {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+      }
+
+      .load_title {
+        font-size: 16px;
+        padding: 0 20px;
+        white-space: normal;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div id="app">
+    <div class="loader-container">
+      <div class='loader loader_'>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="load_title">正在加载系统资源，请耐心等待</div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

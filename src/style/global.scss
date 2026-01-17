@@ -1,0 +1,31 @@
+//页面背景主色
+$bg-color: #181818;
+
+//组件容器背景色
+$component-bg-color: #242424;
+
+// 左侧菜单宽度，如果这里修改了，将需要修改settings.js中的sidebarWidth
+$sidebar-width: 228px;
+
+//左侧菜单收缩后的宽度，如果这里修改了，将需要修改settings.js中的sidebarWidthCollapsed
+$sidebar-width-collapsed: 48px;
+
+//顶部高度
+$top-height: 52px;
+
+//顶栏内边距
+$top-padding: 20px;
+
+//内容区内边距
+$content-padding: 20px;
+
+//双列布局中的首列宽度，需要同步修改settings.js中的firstColumnWidth
+$first-column-width: 70px;
+
+//双列布局中的第二列宽度，需要同步修改settings.js中的secondColumnWidth
+$second-column-width: 210px;
+
+//页签高度
+$tab-height: 36px;
+
+

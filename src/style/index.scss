@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 配合主题切换动效使用 */
+::view-transition-new(root),
+::view-transition-old(root) {
+  /* 关闭默认动画，否则影响自定义动画的执行 */
+  animation: none !important;
+  /* transform: none !important; */
+}
+
+[theme-mode="dark"]::view-transition-old(root) {
+  z-index: 99;
+}
+
+:where(.ant-menu-horizontal) {
+  border: none !important;
+}
+
+:where(.ant-menu.ant-menu-root.ant-menu-inline),
+:where(.ant-menu.ant-menu-root.ant-menu-vertical) {
+  border: none !important;
+}
+
+:where(.ant-layout .ant-layout-header) {
+  padding: 0 $top-padding !important;
+}
+
+:where(.ant-layout .ant-layout-header .ant-menu) {
+  line-height: 34px !important;
+}
+
+:where(.ant-menu.ant-menu-horizontal > .ant-menu-item-selected),
+:where(.ant-menu.ant-menu-horizontal > .ant-menu-submenu-selected) {
+  &::after {
+    display: none !important;
+  }
+}
+
+:where(.ant-menu-dark) {
+  background: $component-bg-color !important;
+}
+
+:where(.ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline) {
+  background: $component-bg-color !important;
+}
+
+:where(.ant-menu.ant-menu-inline .ant-menu-sub.ant-menu-inline) {
+  background: transparent !important;
+}
+:where(.ant-menu-dark.ant-menu-inline .ant-menu-item):not(.ant-menu-item-selected):hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+:where(.ant-menu-dark.ant-menu-submenu > .ant-menu) {
+  background: $component-bg-color !important;
+}
+
+:where(.ant-modal-root .ant-modal-mask){
+  backdrop-filter: blur(4px);
+}
+
+:where(.ant-drawer .ant-drawer-mask){
+    backdrop-filter: blur(4px);
+}

@@ -1,1 +1,0 @@
-<template>字典数据管理</template>

@@ -382,8 +382,6 @@ const doLogin = async () => {
       if (loginSuccess) {
         // 登录成功，跳转到后台首页
         router.push('/')
-      } else {
-        message.error('用户名或密码错误！')
       }
     } finally {
       loading.value = false

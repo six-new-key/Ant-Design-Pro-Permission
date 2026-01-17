@@ -2298,5 +2298,465 @@
 	"u7s915": {
 		"zh-cn": "404页面",
 		"en": "\"404 page"
+	},
+	"padf2": {
+		"zh-cn": "邮箱",
+		"en": "Email"
+	},
+	"ewbd43": {
+		"zh-cn": "手机号",
+		"en": "Mobile phone number"
+	},
+	"a2vi1e7": {
+		"zh-cn": "用户名不能为空",
+		"en": "The username cannot be empty"
+	},
+	"rh88gkd": {
+		"zh-cn": "用户名长度为3-20个字符",
+		"en": "The length of the username should be 3 to 20 characters"
+	},
+	"bbe7jh6": {
+		"zh-cn": "邮箱不能为空",
+		"en": "The mailbox cannot be empty"
+	},
+	"anks06a": {
+		"zh-cn": "请输入正确的邮箱格式",
+		"en": "Please enter the correct email format"
+	},
+	"vxswh47": {
+		"zh-cn": "手机号不能为空",
+		"en": "The mobile phone number cannot be empty"
+	},
+	"w8axw89": {
+		"zh-cn": "请输入正确的手机号",
+		"en": "Please enter the correct mobile phone number"
+	},
+	"pcjrt76": {
+		"zh-cn": "密码不能为空",
+		"en": "The password cannot be empty"
+	},
+	"kzoyesc": {
+		"zh-cn": "密码长度为6-20个字符",
+		"en": "The password length should be 6 to 20 characters"
+	},
+	"vau9z58": {
+		"zh-cn": "确认密码不能为空",
+		"en": "Confirm that the password cannot be empty"
+	},
+	"785btda": {
+		"zh-cn": "两次输入的密码不一致",
+		"en": "The passwords entered twice are inconsistent"
+	},
+	"vcj2dh7": {
+		"zh-cn": "新密码不能为空",
+		"en": "The new password cannot be empty"
+	},
+	"azeh8z4": {
+		"zh-cn": "删除成功",
+		"en": "\"Deleted successfully"
+	},
+	"h971lx9": {
+		"zh-cn": "请选择要删除的用户",
+		"en": "Please select the user you want to delete"
+	},
+	"qmpy5s6": {
+		"zh-cn": "确认批量删除",
+		"en": "Confirm batch deletion"
+	},
+	"9kg3rb9": {
+		"zh-cn": "确定要删除选中的 ",
+		"en": "Make sure to delete the selected ones"
+	},
+	"hah3eae": {
+		"zh-cn": " 个用户吗？此操作不可撤销。",
+		"en": "Is that a user? This operation is irrevocable."
+	},
+	"fknink4": {
+		"zh-cn": "确定删除",
+		"en": "Confirm deletion"
+	},
+	"fgbrrd6": {
+		"zh-cn": "批量删除成功",
+		"en": "Batch deletion successful"
+	},
+	"lb5z2": {
+		"zh-cn": "禁用",
+		"en": "Disabled"
+	},
+	"eymx2": {
+		"zh-cn": "启用",
+		"en": "Enabled"
+	},
+	"frrm3p4": {
+		"zh-cn": "确认操作",
+		"en": "Confirm operation"
+	},
+	"i3cwl3": {
+		"zh-cn": "确定要",
+		"en": "\"Sure to"
+	},
+	"f6cj814": {
+		"zh-cn": "用户 \"",
+		"en": "\"User\""
+	},
+	"122li4": {
+		"zh-cn": "\" 吗？",
+		"en": "\"?\""
+	},
+	"h4sv2": {
+		"zh-cn": "成功",
+		"en": "Success"
+	},
+	"i2ik2": {
+		"zh-cn": "更新",
+		"en": "Update"
+	},
+	"ehj32": {
+		"zh-cn": "创建",
+		"en": "\"Create"
+	},
+	"yf34ga6": {
+		"zh-cn": "角色分配成功",
+		"en": "Role allocation was successful."
+	},
+	"xw1a176": {
+		"zh-cn": "密码重置成功",
+		"en": "Password reset successful"
+	},
+	"7ji3y96": {
+		"zh-cn": "请输入手机号",
+		"en": "Please enter your mobile phone number"
+	},
+	"fvpaq4": {
+		"zh-cn": " 新增 ",
+		"en": "New addition"
+	},
+	"db22k4": {
+		"zh-cn": " 删除 ",
+		"en": "Delete"
+	},
+	"juz394": {
+		"zh-cn": " 编辑 ",
+		"en": "\"Editor"
+	},
+	"zdnopq9": {
+		"zh-cn": "确认删除该用户吗？",
+		"en": "Are you sure to delete this user?"
+	},
+	"aye2av4": {
+		"zh-cn": "分配角色",
+		"en": "Assign roles"
+	},
+	"ix54os4": {
+		"zh-cn": "重置密码",
+		"en": "Reset password"
+	},
+	"gmn8ui4": {
+		"zh-cn": "编辑用户",
+		"en": "\"Edit User\""
+	},
+	"d79ta54": {
+		"zh-cn": "新增用户",
+		"en": "New user"
+	},
+	"2j0utw5": {
+		"zh-cn": "请输入邮箱",
+		"en": "Please enter your email address."
+	},
+	"frqaup4": {
+		"zh-cn": "确认密码",
+		"en": "Confirm password"
+	},
+	"pyymjc7": {
+		"zh-cn": "请再次输入密码",
+		"en": "Please enter the password again"
+	},
+	"auez6f5": {
+		"zh-cn": " 为用户 ",
+		"en": "For users"
+	},
+	"c14kz77": {
+		"zh-cn": " 分配角色： ",
+		"en": "Assign roles"
+	},
+	"n4hqu15": {
+		"zh-cn": "已分配角色",
+		"en": "Assigned roles"
+	},
+	"fbw3tx9": {
+		"zh-cn": " 暂无已分配角色 ",
+		"en": "There are no assigned roles yet"
+	},
+	"g0qxyi5": {
+		"zh-cn": "可分配角色",
+		"en": "Assignable roles"
+	},
+	"9cboug9": {
+		"zh-cn": " 暂无可分配角色 ",
+		"en": "There are no assigned roles for the time being"
+	},
+	"c0ybt3": {
+		"zh-cn": "为用户",
+		"en": "For users"
+	},
+	"fcgq33": {
+		"zh-cn": "新密码",
+		"en": "New password"
+	},
+	"7j1yla6": {
+		"zh-cn": "请输入新密码",
+		"en": "Please enter the new password"
+	},
+	"nswxpq8": {
+		"zh-cn": "请再次输入新密码",
+		"en": "Please enter the new password again"
+	},
+	"ley52kr": {
+		"zh-cn": "密码长度为6-20个字符，建议包含字母、数字和特殊字符",
+		"en": "The password length should be 6 to 20 characters. It is recommended to include letters, numbers and special characters"
+	},
+	"lq5atea": {
+		"zh-cn": " 测试样式是否生效 ",
+		"en": "Test whether the style takes effect"
+	},
+	"hxb80z4": {
+		"zh-cn": "角色名称",
+		"en": "Character name"
+	},
+	"hxij634": {
+		"zh-cn": "角色编码",
+		"en": "Role coding"
+	},
+	"xnzawj8": {
+		"zh-cn": "角色名称不能为空",
+		"en": "The character name cannot be empty"
+	},
+	"5p6zowe": {
+		"zh-cn": "角色名称长度为2-20个字符",
+		"en": "The character name should be 2 to 20 characters long"
+	},
+	"dx4n398": {
+		"zh-cn": "角色编码不能为空",
+		"en": "The role code cannot be empty"
+	},
+	"kmptuge": {
+		"zh-cn": "角色编码长度为2-20个字符",
+		"en": "The character encoding length is 2 to 20 characters"
+	},
+	"b2jo2k8": {
+		"zh-cn": "加载权限数据失败",
+		"en": "Failed to load the permission data"
+	},
+	"h9aqie9": {
+		"zh-cn": "请选择要删除的角色",
+		"en": "Please select the character you want to delete"
+	},
+	"9i6rybe": {
+		"zh-cn": " 个角色吗？此操作不可撤销。",
+		"en": "Is it a role? This operation is irrevocable."
+	},
+	"dxfazia": {
+		"zh-cn": "获取角色权限数据失败",
+		"en": "Failed to obtain the character permission data"
+	},
+	"flrstw7": {
+		"zh-cn": "请输入角色名称",
+		"en": "Please enter the role name"
+	},
+	"flkhos7": {
+		"zh-cn": "请输入角色编码",
+		"en": "Please enter the role code"
+	},
+	"wn3xvx9": {
+		"zh-cn": "确认删除该角色吗？",
+		"en": "Are you sure to delete this character?"
+	},
+	"iz8dw6": {
+		"zh-cn": " 分配权限 ",
+		"en": "Assign permissions"
+	},
+	"hwwa1u4": {
+		"zh-cn": "角色 \"",
+		"en": "\"Role\""
+	},
+	"gmqxqz4": {
+		"zh-cn": "编辑角色",
+		"en": "\"Editing role\""
+	},
+	"d7di6m4": {
+		"zh-cn": "新增角色",
+		"en": "New character added"
+	},
+	"proqbh6": {
+		"zh-cn": "权限分配成功",
+		"en": "Permission allocation successful"
+	},
+	"ay8alw4": {
+		"zh-cn": "分配权限",
+		"en": "Assign permissions"
+	},
+	"dujxbp7": {
+		"zh-cn": " 正在为角色 ",
+		"en": "Currently working on a role"
+	},
+	"dcor414": {
+		"zh-cn": "收起全部",
+		"en": "\"Pack up everything\""
+	},
+	"c1kdmz4": {
+		"zh-cn": "展开全部",
+		"en": "Expand all"
+	},
+	"b147f74": {
+		"zh-cn": "取消全选",
+		"en": "Cancel all selections"
+	},
+	"emxt2": {
+		"zh-cn": "全选",
+		"en": "select all"
+	},
+	"ii9i2n4": {
+		"zh-cn": "退出半屏",
+		"en": "Exit halfway screen"
+	},
+	"eo912": {
+		"zh-cn": "半屏",
+		"en": "Half a screen"
+	},
+	"8rjyhtb": {
+		"zh-cn": "正在加载权限数据...",
+		"en": "Permission data is being loaded..."
+	},
+	"r0pys78": {
+		"zh-cn": " 暂无权限数据 ",
+		"en": "There is no permission data for the time being"
+	},
+	"gzcenw4": {
+		"zh-cn": "菜单名称",
+		"en": "Menu name"
+	},
+	"lnjk2": {
+		"zh-cn": "类型",
+		"en": "Type"
+	},
+	"ie1p9h4": {
+		"zh-cn": "路由名称",
+		"en": "Route name"
+	},
+	"gbuf8n4": {
+		"zh-cn": "组件路径",
+		"en": "Component path"
+	},
+	"dneg984": {
+		"zh-cn": "权限标识",
+		"en": "Permission identifier"
+	},
+	"is6gk8": {
+		"zh-cn": "菜单名称不能为空",
+		"en": "The menu name cannot be empty"
+	},
+	"u5vcaze": {
+		"zh-cn": "菜单名称长度为1-50个字符",
+		"en": "The menu name should be 1 to 50 characters long"
+	},
+	"6do1ix8": {
+		"zh-cn": "菜单类型不能为空",
+		"en": "The menu type cannot be empty"
+	},
+	"pfcduxc": {
+		"zh-cn": "菜单名称（英文）不能为空",
+		"en": "The menu name (in English) cannot be empty"
+	},
+	"3sm6rt8": {
+		"zh-cn": "组件路径不能为空",
+		"en": "The component path cannot be empty"
+	},
+	"uc1zc48": {
+		"zh-cn": "权限标识不能为空",
+		"en": "The permission identifier cannot be empty"
+	},
+	"deua4r4": {
+		"zh-cn": "更新成功",
+		"en": "Update successful"
+	},
+	"ar737y4": {
+		"zh-cn": "创建成功",
+		"en": "\"Created successfully"
+	},
+	"kr3b2": {
+		"zh-cn": "目录",
+		"en": "Directory"
+	},
+	"mvw92": {
+		"zh-cn": "菜单",
+		"en": "Menu"
+	},
+	"hnt12": {
+		"zh-cn": "按钮",
+		"en": "Button"
+	},
+	"i7ej2": {
+		"zh-cn": "未知",
+		"en": "Unknown"
+	},
+	"gjqm6z7": {
+		"zh-cn": "请输入菜单名称",
+		"en": "Please enter the menu name"
+	},
+	"y8z6747": {
+		"zh-cn": "请选择菜单类型",
+		"en": "Please select the menu type"
+	},
+	"hzpd2": {
+		"zh-cn": "收起",
+		"en": "\"Collapse"
+	},
+	"xl2r909": {
+		"zh-cn": "确认删除该菜单吗？",
+		"en": "Are you sure you want to delete this menu?"
+	},
+	"1xdm3u6": {
+		"zh-cn": " 新增下级 ",
+		"en": "\"New subordinate\""
+	},
+	"gmpnxw4": {
+		"zh-cn": "编辑菜单",
+		"en": "Edit menu"
+	},
+	"d7c8dj4": {
+		"zh-cn": "新增菜单",
+		"en": "New menu added"
+	},
+	"adj5w64": {
+		"zh-cn": "上级菜单",
+		"en": "\"Superior menu\""
+	},
+	"3pq775h": {
+		"zh-cn": "请输入上级菜单名称（0为顶级菜单）",
+		"en": "Please enter the name of the upper-level menu (0 is the top-level menu)"
+	},
+	"gzj3ft4": {
+		"zh-cn": "菜单类型",
+		"en": "Menu type"
+	},
+	"lt8fuv8": {
+		"zh-cn": "菜单名称（英文）",
+		"en": "Menu Name (English"
+	},
+	"t6pphsb": {
+		"zh-cn": "请输入菜单名称（英文）",
+		"en": "Please enter the menu name (in English"
+	},
+	"4lfvt1k": {
+		"zh-cn": "请输入组件路径：/xxx/xxx/xxx",
+		"en": "Please enter the component path: /xxx/xxx/xxx"
+	},
+	"jvokln7": {
+		"zh-cn": "请输入权限标识",
+		"en": "Please enter the permission identifier"
+	},
+	"gzhhac4": {
+		"zh-cn": "菜单状态",
+		"en": "Menu status"
 	}
 }

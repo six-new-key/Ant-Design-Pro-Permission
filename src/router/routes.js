@@ -115,7 +115,7 @@ export const asyncRoutes = [
     path: "/system",
     name: "System",
     component: LayoutManager,
-    redirect: "/system/notice",
+    redirect: "/system/config",
     meta: {
       title: "系统管理",
       icon: "SettingOutlined",
@@ -123,42 +123,22 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: "/system/notice",
-        name: "Notice",
-        component: () => import("@/views/system/notice/Notice.vue"),
+        path: "/system/config",
+        name: "SystemConfig",
+        component: () => import("@/views/system/config/SystemConfig.vue"),
         meta: {
-          title: "公告管理",
-          icon: "SettingOutlined",
+          title: "系统配置",
+          icon: "ControlOutlined",
           hidden: false,
         },
       },
       {
-        path: "/system/log",
-        name: "Log",
-        component: () => import("@/views/system/log/Log.vue"),
+        path: "/system/iprule",
+        name: "IpRule",
+        component: () => import("@/views/system/iprule/IpRule.vue"),
         meta: {
-          title: "日志管理",
-          icon: "SettingOutlined",
-          hidden: false,
-        },
-      },
-      {
-        path: "/system/dict_data",
-        name: "DictData",
-        component: () => import("@/views/system/dict_data/DictData.vue"),
-        meta: {
-          title: "字典数据",
-          icon: "SettingOutlined",
-          hidden: false,
-        },
-      },
-      {
-        path: "/system/dict",
-        name: "Dict",
-        component: () => import("@/views/system/dict/Dict.vue"),
-        meta: {
-          title: "字典管理",
-          icon: "SettingOutlined",
+          title: "规则管理",
+          icon: "SafetyOutlined",
           hidden: false,
         },
       },

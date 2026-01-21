@@ -1,7 +1,10 @@
 import Cookies from "js-cookie";
 
 // Token 相关配置
-const TOKEN_KEY = "Authorization";
+const ACCESS_TOKEN_KEY = "access_token";
+const REFRESH_TOKEN_KEY = "refresh_token";
+const ACCESS_TOKEN_EXPIRE_KEY = "access_token_expire";
+const REFRESH_TOKEN_EXPIRE_KEY = "refresh_token_expire";
 
 // Cookie 配置选项
 const COOKIE_OPTIONS = {
@@ -11,81 +14,237 @@ const COOKIE_OPTIONS = {
 };
 
 /**
- * 认证工具类
+ * 认证工具类（双 Token 机制）
  */
 export class AuthUtils {
+  // ==================== Access Token 管理 ====================
+  
   /**
-   * 设置认证 Token
-   * @param {string} token - 认证令牌
+   * 设置 Access Token（存储到 sessionStorage）
+   * @param {string} token - Access Token
+   */
+  static setAccessToken(token) {
+    sessionStorage.setItem(ACCESS_TOKEN_KEY, token);
+  }
+
+  /**
+   * 获取 Access Token
+   * @returns {string|null} Access Token
+   */
+  static getAccessToken() {
+    return sessionStorage.getItem(ACCESS_TOKEN_KEY);
+  }
+
+  /**
+   * 移除 Access Token
+   */
+  static removeAccessToken() {
+    sessionStorage.removeItem(ACCESS_TOKEN_KEY);
+  }
+
+  // ==================== Refresh Token 管理 ====================
+  
+  /**
+   * 设置 Refresh Token（存储到 Cookie）
+   * @param {string} token - Refresh Token
+   * @param {boolean} remember - 是否记住我
    * @param {Object} options - Cookie 选项
    */
-  static setToken(token, options = {}) {
-    const cookieOptions = { ...COOKIE_OPTIONS, ...options };
-    Cookies.set(TOKEN_KEY, token, cookieOptions);
+  static setRefreshToken(token, remember = false, options = {}) {
+    // 根据"记住我"状态设置不同的过期时间
+    const expires = remember ? 30 : 7; // 记住我：30天，否则：7天
+    
+    const cookieOptions = { 
+      ...COOKIE_OPTIONS, 
+      expires, // 覆盖默认的过期时间
+      ...options 
+    };
+    Cookies.set(REFRESH_TOKEN_KEY, token, cookieOptions);
   }
 
   /**
-   * 获取认证 Token
-   * @returns {string|undefined} 认证令牌
+   * 获取 Refresh Token
+   * @returns {string|undefined} Refresh Token
    */
-  static getToken() {
-    return Cookies.get(TOKEN_KEY);
+  static getRefreshToken() {
+    return Cookies.get(REFRESH_TOKEN_KEY);
   }
 
   /**
-   * 移除认证 Token
+   * 移除 Refresh Token
    */
-  static removeToken() {
-    Cookies.remove(TOKEN_KEY);
+  static removeRefreshToken() {
+    Cookies.remove(REFRESH_TOKEN_KEY);
+  }
+
+  // ==================== Token 过期时间管理 ====================
+  
+  /**
+   * 设置 Token 过期时间
+   * @param {number} accessExpire - Access Token 过期时间（时间戳，毫秒）
+   * @param {number} refreshExpire - Refresh Token 过期时间（时间戳，毫秒）
+   */
+  static setTokenExpireTime(accessExpire, refreshExpire) {
+    sessionStorage.setItem(ACCESS_TOKEN_EXPIRE_KEY, accessExpire.toString());
+    sessionStorage.setItem(REFRESH_TOKEN_EXPIRE_KEY, refreshExpire.toString());
   }
 
   /**
-   * 检查 Token 是否即将过期
+   * 获取 Access Token 过期时间
+   * @returns {number|null} 过期时间（时间戳，毫秒）
+   */
+  static getAccessTokenExpireTime() {
+    const expire = sessionStorage.getItem(ACCESS_TOKEN_EXPIRE_KEY);
+    return expire ? parseInt(expire) : null;
+  }
+
+  /**
+   * 获取 Refresh Token 过期时间
+   * @returns {number|null} 过期时间（时间戳，毫秒）
+   */
+  static getRefreshTokenExpireTime() {
+    const expire = sessionStorage.getItem(REFRESH_TOKEN_EXPIRE_KEY);
+    return expire ? parseInt(expire) : null;
+  }
+
+  /**
+   * 移除 Token 过期时间
+   */
+  static removeTokenExpireTime() {
+    sessionStorage.removeItem(ACCESS_TOKEN_EXPIRE_KEY);
+    sessionStorage.removeItem(REFRESH_TOKEN_EXPIRE_KEY);
+  }
+
+  // ==================== Token 状态检查 ====================
+  
+  /**
+   * 判断 Access Token 是否过期
+   * @returns {boolean} true=已过期，false=未过期
+   */
+  static isAccessTokenExpired() {
+    const expireTime = this.getAccessTokenExpireTime();
+    if (!expireTime) return true;
+    
+    // 提前 30 秒判断为过期，避免临界状态
+    // return Date.now() >= (expireTime - 30000);
+    // 测试配置（改为）：提前 5 秒判断为过期
+    return Date.now() >= (expireTime - 3000);
+  }
+
+  /**
+   * 判断 Refresh Token 是否过期
+   * @returns {boolean} true=已过期，false=未过期
+   */
+  static isRefreshTokenExpired() {
+    const expireTime = this.getRefreshTokenExpireTime();
+    if (!expireTime) return true;
+    
+    return Date.now() >= expireTime;
+  }
+
+  /**
+   * 检查 Access Token 是否即将过期
    * @param {number} threshold - 提前检查的时间（分钟）
    * @returns {boolean} 是否即将过期
    */
-  static isTokenExpiringSoon(threshold = 30) {
-    // 这里需要根据实际的 Token 结构来实现
-    // 如果是 JWT，可以解析 payload 中的 exp 字段
-    const token = this.getToken();
-    if (!token) return true;
+  static isAccessTokenExpiringSoon(threshold = 5) {
+    const expireTime = this.getAccessTokenExpireTime();
+    if (!expireTime) return true;
 
-    // 简单示例：检查 Cookie 的剩余时间
-    // 实际项目中应该解析 JWT 的过期时间
-    return false;
+    const thresholdMs = threshold * 60 * 1000;
+    return Date.now() >= (expireTime - thresholdMs);
+  }
+
+  // ==================== 统一 Token 管理 ====================
+  
+  /**
+   * 设置双 Token 和过期时间
+   * @param {Object} tokenData - Token 数据对象
+   * @param {string} tokenData.accessToken - Access Token
+   * @param {string} tokenData.refreshToken - Refresh Token
+   * @param {number} tokenData.accessTokenExpireTime - Access Token 过期时间
+   * @param {number} tokenData.refreshTokenExpireTime - Refresh Token 过期时间
+   * @param {boolean} remember - 是否记住我（可选，用于设置 Cookie 过期时间）
+   */
+  static setTokens(tokenData, remember = false) {
+    const { accessToken, refreshToken, accessTokenExpireTime, refreshTokenExpireTime } = tokenData;
+    
+    this.setAccessToken(accessToken);
+    this.setRefreshToken(refreshToken, remember);
+    this.setTokenExpireTime(accessTokenExpireTime, refreshTokenExpireTime);
   }
 
   /**
-   * 刷新 Token
-   * @param {string} refreshToken - 刷新令牌
-   * @returns {Promise<string>} 新的访问令牌
+   * 移除所有 Token 和过期时间
    */
-  static async refreshToken(refreshToken) {
-    // 这里应该调用后端 API 刷新 Token
-    // 示例实现
-    try {
-      // const response = await api.post('/auth/refresh', { refreshToken })
-      // const newToken = response.data.token
-      // this.setToken(newToken)
-      // return newToken
+  static removeAllTokens() {
+    this.removeAccessToken();
+    this.removeRefreshToken();
+    this.removeTokenExpireTime();
+  }
 
-      console.log("Token 刷新功能需要后端 API 支持");
-      return null;
-    } catch (error) {
-      console.error("Token 刷新失败:", error);
-      this.logout(); // 刷新失败则登出
-      throw error;
-    }
+  /**
+   * 检查是否已登录（有有效的 Access Token 或 Refresh Token）
+   * @returns {boolean} 是否已登录
+   */
+  static isLoggedIn() {
+    const accessToken = this.getAccessToken();
+    const refreshToken = this.getRefreshToken();
+    
+    // 如果有 Access Token 且未过期，或者有 Refresh Token 且未过期
+    return (accessToken && !this.isAccessTokenExpired()) || 
+           (refreshToken && !this.isRefreshTokenExpired());
+  }
+
+  // ==================== 兼容旧方法（保持向后兼容） ====================
+  
+  /**
+   * 设置 Token（兼容旧代码，实际设置 Access Token）
+   * @deprecated 请使用 setTokens() 方法
+   */
+  static setToken(token, options = {}) {
+    this.setAccessToken(token);
+  }
+
+  /**
+   * 获取 Token（兼容旧代码，实际获取 Access Token）
+   * @deprecated 请使用 getAccessToken() 方法
+   */
+  static getToken() {
+    return this.getAccessToken();
+  }
+
+  /**
+   * 移除 Token（兼容旧代码，实际移除所有 Token）
+   * @deprecated 请使用 removeAllTokens() 方法
+   */
+  static removeToken() {
+    this.removeAllTokens();
   }
 }
 
 // 导出便捷方法
 export const {
+  setAccessToken,
+  getAccessToken,
+  removeAccessToken,
+  setRefreshToken,
+  getRefreshToken,
+  removeRefreshToken,
+  setTokenExpireTime,
+  getAccessTokenExpireTime,
+  getRefreshTokenExpireTime,
+  removeTokenExpireTime,
+  isAccessTokenExpired,
+  isRefreshTokenExpired,
+  isAccessTokenExpiringSoon,
+  setTokens,
+  removeAllTokens,
+  isLoggedIn,
+  // 兼容旧方法
   setToken,
   getToken,
   removeToken,
-  isTokenExpiringSoon,
-  refreshToken,
 } = AuthUtils;
 
 // 默认导出

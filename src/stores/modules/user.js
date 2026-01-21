@@ -19,11 +19,10 @@ export const useUserStore = defineStore(
       // 调用登录接口
       const res = await login(data);
       if (res.code === 200) {
-        // 使用认证工具类保存用户token
-        AuthUtils.setToken(res.data, {
-          expires: 7, // Token 7天过期
-          secure: process.env.NODE_ENV === "production",
-        });
+        // 使用认证工具类保存双 Token
+        const tokenData = res.data;
+        const remember = data.remember || false; // 获取"记住我"状态
+        AuthUtils.setTokens(tokenData, remember);
 
         return true;
       } else {
@@ -80,18 +79,27 @@ export const useUserStore = defineStore(
     };
 
     //退出登录
-    const handleLogout = () => {
-      // 使用认证工具类清除登录信息
-      AuthUtils.removeToken();
-      router.push("/login");
-      message.success("退出登录成功");
-
-      // 清除用户数据
-      userData.value = null;
-      // 清除权限
-      permissions.value = [];
-      // 清除菜单路由
-      menuRoutes.value = constantRoutes;
+    const handleLogout = async () => {
+      try {
+        // 尝试调用后端登出接口（如果 Token 有效）
+        if (AuthUtils.isLoggedIn()) {
+          await logout();
+        }
+      } catch (error) {
+        // 登出接口失败（如 Token 过期）也继续执行本地清理
+        console.log("后端登出接口调用失败，继续执行本地清理:", error.message);
+      } finally {
+        // 无论后端接口是否成功，都清除本地 Token 和数据
+        AuthUtils.removeAllTokens();
+        router.push("/login");
+        
+        // 清除用户数据
+        userData.value = null;
+        // 清除权限
+        permissions.value = [];
+        // 清除菜单路由
+        menuRoutes.value = constantRoutes;
+      }
     };
 
     // 根据路由名称数组过滤异步路由

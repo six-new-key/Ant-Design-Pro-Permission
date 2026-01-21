@@ -99,14 +99,11 @@ const updateTime = () => {
 // 返回登录
 const handleReturnLogin = async () => {
 
-  // 调用退出登录接口
-  await logout()
-
   // 清除锁屏状态和密码
   appStore.clearLockScreen()
 
-  // 重置登录状态
-  userStore.handleLogout()
+  // 调用退出登录（已包含后端接口调用和本地清理）
+  await userStore.handleLogout()
 
   // 清空输入框和重置表单
   formData.unlockPassword = ''

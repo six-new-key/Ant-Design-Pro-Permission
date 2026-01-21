@@ -14,7 +14,7 @@ export function addRole(data) {
 // 修改角色
 export function updateRole(data) {
   return request({
-    url: `${PREFIX}/update`,
+    url: `${PREFIX}/edit`,
     method: 'PUT',
     data
   })
@@ -23,7 +23,7 @@ export function updateRole(data) {
 // 修改角色状态
 export function updateRoleStatus(id) {
   return request({
-    url: `${PREFIX}/update/status/${id}`,
+    url: `${PREFIX}/edit/status/${id}`,
     method: 'PUT'
   })
 }

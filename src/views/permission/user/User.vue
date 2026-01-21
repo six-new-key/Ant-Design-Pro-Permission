@@ -66,6 +66,12 @@
               {{ record.status === 1 ? '启用' : '禁用' }}
             </a-tag>
           </template>
+          <template v-if="column.key === 'lastLoginIp'">
+            <span>{{ record.lastLoginIp || '-' }}</span>
+          </template>
+          <template v-if="column.key === 'lastLoginTime'">
+            <span>{{ record.lastLoginTime || '-' }}</span>
+          </template>
           <template v-if="column.key === 'operation'">
             <a-space>
               <a-button type="link" size="small" :disabled="record.id === 1" @click="handleEdit(record)">
@@ -94,6 +100,7 @@
                     <a-menu-item key="resetPassword">重置密码</a-menu-item>
                     <a-menu-divider />
                     <a-menu-item key="toggleStatus">{{ record.status === 1 ? '禁用' : '启用' }}</a-menu-item>
+                    <a-menu-item key="kickout" :style="{ color: 'var(--color-warning)' }">踢人下线</a-menu-item>
                   </a-menu>
                 </template>
               </a-dropdown>
@@ -246,7 +253,8 @@ import {
   echoUserById,
   queryUserRoles,
   saveUserRoles,
-  resetUserPassword
+  resetUserPassword,
+  kickoutUser
 } from '@/api/user'
 import { queryRoleList } from '@/api/role'
 
@@ -286,6 +294,7 @@ const cssVars = computed(() => {
     '--color-warning-bg': t.colorWarningBg,
     '--color-warning-border': t.colorWarningBorder,
     '--color-warning': t.colorWarning,
+    '--color-success': t.colorSuccess,
   }
 })
 
@@ -381,6 +390,18 @@ const columns = [
     width: 100
   },
   {
+    title: '最后登录IP',
+    dataIndex: 'lastLoginIp',
+    key: 'lastLoginIp',
+    width: 140
+  },
+  {
+    title: '最后登录时间',
+    dataIndex: 'lastLoginTime',
+    key: 'lastLoginTime',
+    width: 180
+  },
+  {
     title: '创建时间',
     dataIndex: 'createTime',
     key: 'createTime',
@@ -389,7 +410,7 @@ const columns = [
   {
     title: '操作',
     key: 'operation',
-    width: 220,
+    width: 280,
     fixed: 'right'
   }
 ]
@@ -671,7 +692,27 @@ const handleOperationClick = ({ key }, record) => {
     case 'resetPassword':
       handleResetPassword(record)
       break
+    case 'kickout':
+      handleKickout(record)
+      break
   }
+}
+
+const handleKickout = (record) => {
+  Modal.confirm({
+    title: '确认踢人下线',
+    content: `确定要强制用户 "${record.userName}" 下线吗？该用户需要重新登录。`,
+    okText: '确定',
+    cancelText: '取消',
+    okType: 'danger',
+    centered: true,
+    onOk: async () => {
+      const response = await kickoutUser(record.id)
+      if (response.code === 200) {
+        Message.success('已强制用户下线')
+      }
+    }
+  })
 }
 
 const handleFullscreenChange = () => {

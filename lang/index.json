@@ -2758,5 +2758,645 @@
 	"gzhhac4": {
 		"zh-cn": "菜单状态",
 		"en": "Menu status"
+	},
+	"hio20v6": {
+		"zh-cn": "IP规则管理",
+		"en": "IP rule management"
+	},
+	"1rkhj4": {
+		"zh-cn": "IP地址",
+		"en": "IP address"
+	},
+	"fqo12": {
+		"zh-cn": "备注",
+		"en": "Remarks"
+	},
+	"8fm48p8": {
+		"zh-cn": "IP地址不能为空",
+		"en": "The IP address cannot be empty"
+	},
+	"40npz2z": {
+		"zh-cn": "请输入正确的IP地址或CIDR格式（如：192.168.1.0/24）",
+		"en": "Please enter the correct IP address or CIDR format (e.g. 192.168.1.0/24)"
+	},
+	"2egs9l5": {
+		"zh-cn": "请选择类型",
+		"en": "Please select the type"
+	},
+	"h5gsk2b": {
+		"zh-cn": "请选择要删除的IP规则",
+		"en": "Please select the IP rule you want to delete"
+	},
+	"hnk1xyg": {
+		"zh-cn": " 条IP规则吗？此操作不可撤销。",
+		"en": "Is there an IP rule? This operation is irrevocable."
+	},
+	"1nwi4t6": {
+		"zh-cn": "缓存刷新成功",
+		"en": "Cache refresh successful"
+	},
+	"hrjfp3": {
+		"zh-cn": "白名单",
+		"en": "Whitelist"
+	},
+	"no6t53": {
+		"zh-cn": "黑名单",
+		"en": "Blacklist"
+	},
+	"56uwou6": {
+		"zh-cn": " 刷新缓存 ",
+		"en": "Refresh the cache"
+	},
+	"s2a08hb": {
+		"zh-cn": "确认删除该IP规则吗？",
+		"en": "Are you sure to delete this IP rule?"
+	},
+	"gk5jih6": {
+		"zh-cn": "编辑IP规则",
+		"en": "Edit IP rules"
+	},
+	"sikisq6": {
+		"zh-cn": "新增IP规则",
+		"en": "New IP rules"
+	},
+	"oxb74t1c": {
+		"zh-cn": "支持单个IP（如：192.168.1.100）或CIDR格式（如：192.168.1.0/24）",
+		"en": "Supports a single IP (e.g. 192.168.1.100) or CIDR format (e.g. 192.168.1.0/24)"
+	},
+	"r8h2kmj": {
+		"zh-cn": " 支持精确IP匹配和CIDR网段格式 ",
+		"en": "Supports precise IP matching and CIDR segment format"
+	},
+	"nyp45rd": {
+		"zh-cn": " 黑名单优先级高于白名单 ",
+		"en": "The blacklist has a higher priority than the whitelist"
+	},
+	"lui19k7": {
+		"zh-cn": "请输入备注信息",
+		"en": "Please enter the remarks information"
+	},
+	"hq61p64": {
+		"zh-cn": "规则管理",
+		"en": "Rule management"
+	},
+	"s5e6t76": {
+		"zh-cn": "路径不能为空",
+		"en": "The path cannot be empty"
+	},
+	"rjeff9a": {
+		"zh-cn": "路径必须以 / 开头",
+		"en": "The path must start with /"
+	},
+	"kptk486": {
+		"zh-cn": "该路径已存在",
+		"en": "This path already exists"
+	},
+	"p096m07": {
+		"zh-cn": "IP规则功能已",
+		"en": "The IP rule function is available"
+	},
+	"37my7vm": {
+		"zh-cn": "路径添加成功，请点击\"保存路径配置\"按钮保存",
+		"en": "The path has been added successfully. Please click the \"Save Path Configuration\" button to save"
+	},
+	"frotru4": {
+		"zh-cn": "确认删除",
+		"en": "Confirm deletion"
+	},
+	"9s0c349": {
+		"zh-cn": "确定要删除路径 \"",
+		"en": "Make sure to delete the path"
+	},
+	"f5dzr0m": {
+		"zh-cn": "路径删除成功，请点击\"保存路径配置\"按钮保存",
+		"en": "The path has been successfully deleted. Please click the \"Save Path Configuration\" button to save"
+	},
+	"qijn6z9": {
+		"zh-cn": "没有需要保存的修改",
+		"en": "There are no modifications to save"
+	},
+	"cg563k8": {
+		"zh-cn": "路径配置保存成功",
+		"en": "The path configuration has been saved successfully"
+	},
+	"frryvm4": {
+		"zh-cn": "确认撤销",
+		"en": "Confirmation of revocation"
+	},
+	"ib1bxwf": {
+		"zh-cn": "确定要撤销所有未保存的修改吗？",
+		"en": "Are you sure you want to undo all unsaved modifications?"
+	},
+	"phag9l5": {
+		"zh-cn": "已撤销修改",
+		"en": "The modification has been revoked."
+	},
+	"642h518": {
+		"zh-cn": "IP规则功能配置",
+		"en": "IP rule function configuration"
+	},
+	"ayi6up4": {
+		"zh-cn": "功能开关",
+		"en": "Function switch"
+	},
+	"vt52d9l": {
+		"zh-cn": "启用后，系统将对受保护路径进行IP规则校验",
+		"en": "After enabling, the system will perform IP rule verification on the protected path"
+	},
+	"cdfx7p4": {
+		"zh-cn": "当前状态",
+		"en": "Current status"
+	},
+	"vd95gc9": {
+		"zh-cn": "IP规则校验已启用",
+		"en": "IP rule verification has been enabled"
+	},
+	"vd2sxa9": {
+		"zh-cn": "IP规则校验已禁用",
+		"en": "IP rule verification has been disabled"
+	},
+	"2xfcs47": {
+		"zh-cn": "受保护路径配置",
+		"en": "Protected path configuration"
+	},
+	"tzxp8m6": {
+		"zh-cn": " 添加路径 ",
+		"en": "Add path"
+	},
+	"2q4yqb13": {
+		"zh-cn": "配置需要进行IP规则校验的路径，支持Ant风格路径匹配（如：/user/**）",
+		"en": "Configure the path that requires IP rule verification, supporting Ant-style path matching (e.g., /user/**)"
+	},
+	"eafq1h7": {
+		"zh-cn": "暂无受保护路径",
+		"en": "There is no protected path for the time being"
+	},
+	"v22qnl8": {
+		"zh-cn": " 保存路径配置 ",
+		"en": "Save path configuration"
+	},
+	"1llgjd6": {
+		"zh-cn": " 撤销修改 ",
+		"en": "Revoke the modification"
+	},
+	"1i36co8": {
+		"zh-cn": "路径匹配规则说明",
+		"en": "Explanation of path matching rules"
+	},
+	"7g1ypqc": {
+		"zh-cn": "匹配任意字符（包括 /）",
+		"en": "Match any character (including /)"
+	},
+	"ojkdze11": {
+		"zh-cn": "示例：/user/** 匹配 /user/list、/user/add/1",
+		"en": "Example: /user/** matches /user/list and /user/add/1"
+	},
+	"i9elqc": {
+		"zh-cn": "匹配除 / 外的任意字符",
+		"en": "Match any character except /"
+	},
+	"cfqw3v15": {
+		"zh-cn": "示例：/user/* 匹配 /user/list，不匹配 /user/list/1",
+		"en": "Example: /user/* matches /user/list, does not match /user/list/1"
+	},
+	"19pwtc": {
+		"zh-cn": "匹配除 / 外的单个字符",
+		"en": "Match a single character other than /"
+	},
+	"pyexn4y": {
+		"zh-cn": "示例：/user/? 匹配 /user/1，不匹配 /user/10",
+		"en": "Example: /user/? Match /user/1, do not match /user/10"
+	},
+	"iuw1v94": {
+		"zh-cn": "配置建议",
+		"en": "Configuration suggestions"
+	},
+	"cr0mis1b": {
+		"zh-cn": "建议使用 /** 通配符保护整个模块，如 /user/**、/role/**、/menu/**",
+		"en": "It is recommended to use the /** wildcard to protect the entire module, such as /user/**, /role/**, /menu/**"
+	},
+	"osghgy7": {
+		"zh-cn": "添加受保护路径",
+		"en": "Add a protected path"
+	},
+	"onzp2": {
+		"zh-cn": "路径",
+		"en": "\"Path\""
+	},
+	"h2tf6h": {
+		"zh-cn": "请输入路径（如：/user/**）",
+		"en": "Please enter the path (e.g. /user/**)"
+	},
+	"6w9o5s17": {
+		"zh-cn": " 支持Ant风格路径匹配：** 匹配任意字符，* 匹配除/外的字符，? 匹配单个字符 ",
+		"en": "Support Ant-style path matching: ** Match any character, * match characters other than /,? Match a single character"
+	},
+	"4519dq8": {
+		"zh-cn": "IP黑名单功能已",
+		"en": "The IP blacklist function is available"
+	},
+	"dqegs19": {
+		"zh-cn": "IP黑名单功能配置",
+		"en": "Configuration of the IP blacklist function"
+	},
+	"1yc41et": {
+		"zh-cn": "启用后，系统将对所有接口进行IP黑名单校验（静态资源除外）",
+		"en": "After enabling, the system will perform IP blacklist verification on all interfaces (except static resources)."
+	},
+	"fmfm7ia": {
+		"zh-cn": "IP黑名单校验已启用",
+		"en": "The IP blacklist verification has been enabled"
+	},
+	"fmlyqka": {
+		"zh-cn": "IP黑名单校验已禁用",
+		"en": "The IP blacklist check has been disabled"
+	},
+	"c6dj8e4": {
+		"zh-cn": "工作原理",
+		"en": "Working principle"
+	},
+	"7gi74e6": {
+		"zh-cn": "默认允许策略",
+		"en": "Default allowed policy"
+	},
+	"vdzdju1j": {
+		"zh-cn": "系统采用默认允许策略：只有在黑名单中的IP才会被拒绝访问，其他所有IP都允许访问。这种设计适合对外开放的系统。",
+		"en": "The system adopts a default permission policy: only ips on the blacklist will be denied access, while all other ips are allowed to access. This design is suitable for open systems."
+	},
+	"aisqn74": {
+		"zh-cn": "使用说明",
+		"en": "Instructions for Use"
+	},
+	"ayhlm94": {
+		"zh-cn": "功能定位",
+		"en": "Functional positioning"
+	},
+	"qhiwrzl": {
+		"zh-cn": "IP黑名单用于拦截恶意IP，防止攻击和滥用",
+		"en": "The IP blacklist is used to block malicious ips to prevent attacks and abuse"
+	},
+	"inh07v4": {
+		"zh-cn": "适用场景",
+		"en": "Applicable scenarios"
+	},
+	"l0yih0q": {
+		"zh-cn": "对外开放的系统，如电商网站、社交平台、SaaS服务等",
+		"en": "Open systems to the public, such as e-commerce websites, social platforms, SaaS services, etc"
+	},
+	"kmawm34": {
+		"zh-cn": "默认策略",
+		"en": "Default policy"
+	},
+	"46s67tk": {
+		"zh-cn": "默认允许访问，只有黑名单中的IP才被拒绝",
+		"en": "By default, access is allowed. Only ips on the blacklist are denied"
+	},
+	"cnvcc44": {
+		"zh-cn": "性能优化",
+		"en": "Performance optimization"
+	},
+	"9gw3u012": {
+		"zh-cn": "使用Filter实现，在Servlet之前执行，性能更好；静态资源不检查IP",
+		"en": "It is implemented using a Filter and executed before the Servlet, which offers better performance. Static resources do not check IP addresses"
+	},
+	"gevi5d4": {
+		"zh-cn": "缓存机制",
+		"en": "Caching mechanism"
+	},
+	"9df8xyz": {
+		"zh-cn": "黑名单数据缓存在Redis中（5分钟），修改后需刷新缓存或等待自动过期",
+		"en": "The blacklist data is cached in Redis for 5 minutes. After modification, the cache needs to be refreshed or wait for it to expire automatically"
+	},
+	"i9sr6w1s": {
+		"zh-cn": "建议在IP规则管理页面添加恶意IP到黑名单，并填写原因方便后续管理。如果需要临时禁用某个IP，可以将其状态设置为禁用而不是删除。",
+		"en": "It is recommended to add malicious ips to the blacklist on the IP rule management page and fill in the reasons for subsequent management. If it is necessary to temporarily disable a certain IP, its status can be set to disabled instead of deleted."
+	},
+	"ep7l2": {
+		"zh-cn": "原因",
+		"en": "Reason"
+	},
+	"ykrzvgc": {
+		"zh-cn": "请选择要删除的IP黑名单",
+		"en": "Please select the blacklist of ips you want to delete"
+	},
+	"nl97oqh": {
+		"zh-cn": " 条IP黑名单吗？此操作不可撤销。",
+		"en": "Is there a blacklist of ips? This operation is irrevocable."
+	},
+	"63ar8xc": {
+		"zh-cn": "确认删除该IP黑名单吗？",
+		"en": "Are you sure you have removed this IP from the blacklist?"
+	},
+	"g1vmnd7": {
+		"zh-cn": "编辑IP黑名单",
+		"en": "Edit the IP blacklist"
+	},
+	"vpfbgk7": {
+		"zh-cn": "新增IP黑名单",
+		"en": "New IP blacklist added"
+	},
+	"ljngawp": {
+		"zh-cn": "请输入加入黑名单的原因（如：恶意攻击、暴力破解等）",
+		"en": "Please enter the reason for being blacklisted (such as: malicious attack, brute force cracking, etc.)"
+	},
+	"vk21rnf": {
+		"zh-cn": " 建议填写原因，方便后续管理 ",
+		"en": "It is recommended to fill in the reason for convenient subsequent management"
+	},
+	"yi4cb47": {
+		"zh-cn": "IP黑名单功能",
+		"en": "IP blacklist function"
+	},
+	"7gbszu1i": {
+		"zh-cn": "启用后，系统将对所有接口进行IP黑名单校验（静态资源除外）。默认允许策略：只有黑名单中的IP才会被拒绝访问。",
+		"en": "After enabling, the system will perform IP blacklist verification on all interfaces (except for static resources). Default permission policy: Only ips on the blacklist will be denied access."
+	},
+	"iuu3gk4": {
+		"zh-cn": "配置名称",
+		"en": "Configuration name"
+	},
+	"iv0r694": {
+		"zh-cn": "配置类别",
+		"en": "Configuration category"
+	},
+	"iv3huj4": {
+		"zh-cn": "配置说明",
+		"en": "Configuration Description"
+	},
+	"ed2xu3": {
+		"zh-cn": "当前值",
+		"en": "Current value"
+	},
+	"ik21": {
+		"zh-cn": "已",
+		"en": "has"
+	},
+	"al0jkc6": {
+		"zh-cn": "配置更新成功",
+		"en": "Configuration update successful"
+	},
+	"bw97nk4": {
+		"zh-cn": "安全配置",
+		"en": "Security configuration"
+	},
+	"co6uif4": {
+		"zh-cn": "性能配置",
+		"en": "Performance configuration"
+	},
+	"avgk9c4": {
+		"zh-cn": "全部类别",
+		"en": "All categories"
+	},
+	"eo8xeb7": {
+		"zh-cn": "请输入配置名称",
+		"en": "Please enter the configuration name"
+	},
+	"y46l1m6": {
+		"zh-cn": "系统配置列表",
+		"en": "System configuration list"
+	},
+	"e6c0b3": {
+		"zh-cn": "已启用",
+		"en": "Enabled"
+	},
+	"ecojd3": {
+		"zh-cn": "已禁用",
+		"en": "Disabled"
+	},
+	"ljrfq4": {
+		"zh-cn": " 说明 ",
+		"en": "Explanation"
+	},
+	"iej0bi5": {
+		"zh-cn": "编辑配置：",
+		"en": "Edit configuration"
+	},
+	"lwa6z3": {
+		"zh-cn": "配置值",
+		"en": "Configuration value"
+	},
+	"7ci54e6": {
+		"zh-cn": "请输入配置值",
+		"en": "Please enter the configuration value"
+	},
+	"lwnt93": {
+		"zh-cn": "配置键",
+		"en": "Configuration key"
+	},
+	"iv0s8h4": {
+		"zh-cn": "配置类型",
+		"en": "Configuration type"
+	},
+	"devbay4": {
+		"zh-cn": "更新时间",
+		"en": "Update time"
+	},
+	"chj483c": {
+		"zh-cn": "网络错误，请检查网络连接",
+		"en": "Network error. Please check your network connection"
+	},
+	"c45ic04": {
+		"zh-cn": "封禁类型",
+		"en": "Type of ban"
+	},
+	"mjum2": {
+		"zh-cn": "自动",
+		"en": "\"Automatic"
+	},
+	"h67x2": {
+		"zh-cn": "手动",
+		"en": "Manual"
+	},
+	"c43w6j4": {
+		"zh-cn": "封禁状态",
+		"en": "\"Banned status\""
+	},
+	"s1wnbl6": {
+		"zh-cn": "最后登录IP",
+		"en": "Finally log in to the IP address"
+	},
+	"s1ej5m6": {
+		"zh-cn": "最后登录时间",
+		"en": "Last login time"
+	},
+	"fcgjs94": {
+		"zh-cn": "登录次数",
+		"en": "Number of logins"
+	},
+	"uay9u98": {
+		"zh-cn": "封禁原因不能为空",
+		"en": "The reason for the ban cannot be empty"
+	},
+	"s8bg8cf": {
+		"zh-cn": "封禁原因长度为2-200个字符",
+		"en": "The length of the ban reason is 2 to 200 characters"
+	},
+	"mpl8q18": {
+		"zh-cn": "封禁天数不能为空",
+		"en": "The number of days of the ban cannot be empty"
+	},
+	"vv46w26": {
+		"zh-cn": "确认踢人下线",
+		"en": "Confirm kicking the person offline"
+	},
+	"u024te9": {
+		"zh-cn": "确定要强制用户 \"",
+		"en": "Make sure to force users"
+	},
+	"i79cjag": {
+		"zh-cn": "\" 下线吗？该用户需要重新登录。",
+		"en": "\"Offline?\" This user needs to log in again."
+	},
+	"8e16un7": {
+		"zh-cn": "已强制用户下线",
+		"en": "The user has been forced to log off"
+	},
+	"oor8ow6": {
+		"zh-cn": "账号封禁成功",
+		"en": "The account has been successfully banned"
+	},
+	"ve2mit6": {
+		"zh-cn": "确认解封账号",
+		"en": "Confirm the unblocking of the account"
+	},
+	"h6r5r09": {
+		"zh-cn": "确定要解封用户 \"",
+		"en": "Make sure to unblock the user"
+	},
+	"lldd027": {
+		"zh-cn": "管理员手动解封",
+		"en": "The administrator manually unblocks"
+	},
+	"j0qoo26": {
+		"zh-cn": "账号解封成功",
+		"en": "The account has been successfully unblocked"
+	},
+	"e7or63": {
+		"zh-cn": "已封禁",
+		"en": "Banned"
+	},
+	"is6t2": {
+		"zh-cn": "正常",
+		"en": "Normal"
+	},
+	"i9ag304": {
+		"zh-cn": "踢人下线",
+		"en": "Kick someone and log off"
+	},
+	"c48box4": {
+		"zh-cn": "封禁账号",
+		"en": "\"Account ban\""
+	},
+	"hs8vpr4": {
+		"zh-cn": "解封账号",
+		"en": "Unblock the account"
+	},
+	"c44blb4": {
+		"zh-cn": "封禁用户",
+		"en": "\"Ban users\""
+	},
+	"c3yk014": {
+		"zh-cn": "封禁原因",
+		"en": "Reason for ban"
+	},
+	"lf4guu7": {
+		"zh-cn": "请输入封禁原因",
+		"en": "Please enter the reason for the ban"
+	},
+	"c420o94": {
+		"zh-cn": "封禁时长",
+		"en": "Duration of ban"
+	},
+	"is82": {
+		"zh-cn": "1天",
+		"en": "One day"
+	},
+	"ity2": {
+		"zh-cn": "3天",
+		"en": "Three days"
+	},
+	"ixe2": {
+		"zh-cn": "7天",
+		"en": "Seven days"
+	},
+	"1kks3": {
+		"zh-cn": "30天",
+		"en": "30 days"
+	},
+	"dzapnx4": {
+		"zh-cn": "永久封禁",
+		"en": "Permanent ban"
+	},
+	"3cgd9do": {
+		"zh-cn": "封禁后该用户将无法登录系统，封禁期间可以手动解封",
+		"en": "After the ban, the user will not be able to log in to the system. During the ban period, the ban can be manually unblocked"
+	},
+	"cxf4cz4": {
+		"zh-cn": "接口路径",
+		"en": "Interface path"
+	},
+	"dfdt2b8": {
+		"zh-cn": "接口路径不能为空",
+		"en": "The interface path cannot be empty"
+	},
+	"yhq3lag": {
+		"zh-cn": "接口路径格式不正确，必须以/开头",
+		"en": "The interface path format is incorrect. It must start with /"
+	},
+	"ieg4mgr": {
+		"zh-cn": "请输入权限标识：permission:user:add",
+		"en": "Please enter the permission identifier: permission:user:add"
+	},
+	"40jecuh": {
+		"zh-cn": "请输入接口路径：/user/add",
+		"en": "Please enter the interface path: /user/add"
+	},
+	"alq5fgg": {
+		"zh-cn": "Token 刷新失败，请重新登录",
+		"en": "Token refresh failed. Please log in again"
+	},
+	"h68agh8": {
+		"zh-cn": "Token 无效",
+		"en": "Token invalid"
+	},
+	"la5bjlh": {
+		"zh-cn": "Refresh Token 不存在",
+		"en": "The Refresh Token does not exist"
+	},
+	"z6an199": {
+		"zh-cn": "Token 已过期",
+		"en": "The Token has expired."
+	},
+	"qly19oa": {
+		"zh-cn": "Token 刷新失败",
+		"en": "Token refresh failed"
+	},
+	"datdkh4": {
+		"zh-cn": "无此权限",
+		"en": "No such permission"
+	},
+	"6ri3115": {
+		"zh-cn": "请求被拒绝",
+		"en": "The request was rejected."
+	},
+	"9x73yna": {
+		"zh-cn": "您没有权限执行此操作",
+		"en": "You do not have the permission to perform this operation"
+	},
+	"vmz8iaa": {
+		"zh-cn": "系统异常，请稍后重试",
+		"en": "System anomaly. Please try again later"
+	},
+	"gaj9a24": {
+		"zh-cn": "系统异常",
+		"en": "System anomaly"
+	},
+	"3kj03q5": {
+		"zh-cn": "账户已锁定",
+		"en": "The account has been locked."
+	},
+	"zi0tf56": {
+		"zh-cn": "用户已被禁用",
+		"en": "The user has been disabled"
 	}
 }

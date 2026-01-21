@@ -237,9 +237,8 @@ const doLogout = () => {
         okType: 'primary',
         centered: true,
         onOk: async () => {
-            // 调用退出登录接口
-            await logout()
-            userStore.handleLogout()
+            // 调用退出登录（已包含后端接口调用和本地清理）
+            await userStore.handleLogout()
         }
     })
 }

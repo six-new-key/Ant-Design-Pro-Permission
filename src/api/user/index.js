@@ -12,6 +12,14 @@ export function login(data) {
   });
 }
 
+export function refreshToken(refreshToken) {
+  return request({
+    url: `${PREFIX}/refresh`,
+    method: "POST",
+    data: { refreshToken },
+  });
+}
+
 export function querySelf() {
   return request({
     //模板字符串拼接参数
@@ -40,7 +48,7 @@ export function addUser(data) {
 // 修改用户
 export function updateUser(data) {
   return request({
-    url: `${PREFIX}/update`,
+    url: `${PREFIX}/edit`,
     method: 'PUT',
     data
   })
@@ -49,7 +57,7 @@ export function updateUser(data) {
 // 修改用户状态
 export function updateUserStatus(id) {
   return request({
-    url: `${PREFIX}/update/status/${id}`,
+    url: `${PREFIX}/edit/status/${id}`,
     method: 'PUT'
   })
 }
@@ -57,7 +65,7 @@ export function updateUserStatus(id) {
 // 批量删除用户
 export function batchDeleteUser(ids) {
   return request({
-    url: `${PREFIX}/batch/delete/${ids.join(',')}`,
+    url: `${PREFIX}/batch/remove/${ids.join(',')}`,
     method: 'DELETE'
   })
 }
@@ -102,5 +110,13 @@ export function resetUserPassword(data) {
     url: `${PREFIX}/reset/pwd`,
     method: 'POST',
     data
+  })
+}
+
+// 踢人下线
+export function kickoutUser(userId) {
+  return request({
+    url: `${PREFIX}/kickout/${userId}`,
+    method: 'POST'
   })
 }

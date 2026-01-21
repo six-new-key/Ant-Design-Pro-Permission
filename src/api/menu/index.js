@@ -14,7 +14,7 @@ export function addMenu(data) {
 // 修改菜单
 export function updateMenu(data) {
   return request({
-    url: `${PREFIX}/update`,
+    url: `${PREFIX}/edit`,
     method: 'PUT',
     data
   })
@@ -23,7 +23,7 @@ export function updateMenu(data) {
 // 删除菜单
 export function deleteMenu(id) {
   return request({
-    url: `${PREFIX}/delete`,
+    url: `${PREFIX}/remove`,
     method: 'DELETE',
     params: { id }
   })

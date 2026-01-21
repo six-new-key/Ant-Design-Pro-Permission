@@ -15,7 +15,7 @@ export default defineConfig(({ command, mode }) => {
   //加载各环境下的配置
   let env = loadEnv(mode, process.cwd());
   return {
-    base: "/", // 开发或生产环境服务的公共基础路径
+    base: "./", // 开发或生产环境服务的公共基础路径
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"), // 路径别名

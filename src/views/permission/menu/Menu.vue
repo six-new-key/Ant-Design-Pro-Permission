@@ -179,12 +179,20 @@
              </a-col>
           </a-row>
 
-          <a-row :gutter="24">
-             <a-col :span="12" v-if="menuForm.type === 2">
+          <a-row :gutter="24" v-if="menuForm.type === 2">
+             <a-col :span="12">
                 <a-form-item label="权限标识" name="permission">
-                  <a-input v-model:value="menuForm.permission" placeholder="请输入权限标识" />
+                  <a-input v-model:value="menuForm.permission" placeholder="请输入权限标识：permission:user:add" />
                 </a-form-item>
              </a-col>
+             <a-col :span="12">
+                <a-form-item label="接口路径" name="apiPath">
+                  <a-input v-model:value="menuForm.apiPath" placeholder="请输入接口路径：/user/add" />
+                </a-form-item>
+             </a-col>
+          </a-row>
+
+          <a-row :gutter="24">
              <a-col :span="12">
                 <a-form-item label="菜单状态" name="status">
                   <a-radio-group v-model:value="menuForm.status">
@@ -276,6 +284,7 @@ const menuForm = reactive({
   type: 0,
   name: '',
   permission: '',
+  apiPath: '',
   component: '',
   status: 1
 })
@@ -316,6 +325,13 @@ const columns = [
     ellipsis: true
   },
   {
+    title: '接口路径',
+    dataIndex: 'apiPath',
+    key: 'apiPath',
+    width: 200,
+    ellipsis: true
+  },
+  {
     title: '状态',
     dataIndex: 'status',
     key: 'status',
@@ -346,6 +362,10 @@ const menuFormRules = {
   ],
   permission: [
     { required: true, message: '权限标识不能为空', trigger: 'blur' }
+  ],
+  apiPath: [
+    { required: true, message: '接口路径不能为空', trigger: 'blur' },
+    { pattern: /^\/[a-zA-Z0-9\-_/]*$/, message: '接口路径格式不正确，必须以/开头', trigger: 'blur' }
   ]
 }
 
@@ -516,8 +536,10 @@ const handleTypeChange = (e) => {
   } else if (value === 0) {
     menuForm.component = ''
     menuForm.permission = ''
+    menuForm.apiPath = ''
   } else if (value === 1) {
     menuForm.permission = ''
+    menuForm.apiPath = ''
   }
 }
 
@@ -551,6 +573,7 @@ const resetMenuForm = () => {
     type: 0,
     name: '',
     permission: '',
+    apiPath: '',
     component: '',
     status: 1
   })

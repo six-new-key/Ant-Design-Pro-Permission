@@ -1,5 +1,3 @@
-import { asyncRoutes } from '@/router/routes'
-
 /**
  * 递归扁平化路由数据，提取所有可搜索的菜单项
  * @param {Array} routes - 路由数组
@@ -45,10 +43,11 @@ const flattenRoutes = (routes, result = [], parentPath = '') => {
 
 /**
  * 获取所有可搜索的菜单项
+ * @param {Array} routes - 路由数组（从外部传入，避免循环依赖）
  * @returns {Array} 菜单项数组
  */
-export const getAllMenuItems = () => {
-  const menuItems = flattenRoutes(asyncRoutes)
+export const getAllMenuItems = (routes = []) => {
+  const menuItems = flattenRoutes(routes)
   
   // 按order排序
   return menuItems.sort((a, b) => {

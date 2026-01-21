@@ -168,13 +168,57 @@
 
           <a-row :gutter="24" v-if="menuForm.type !== 2">
              <a-col :span="12">
-                <a-form-item label="菜单名称（英文）" name="name">
-                  <a-input v-model:value="menuForm.name" placeholder="请输入菜单名称（英文）" />
+                <a-form-item label="路由名称" name="name">
+                  <a-input v-model:value="menuForm.name" placeholder="请输入路由名称（如：User）" />
+                  <div style="font-size: 12px; color: #999; margin-top: 4px;">
+                    必须以大写字母开头，如：User、Role、Menu
+                  </div>
+                </a-form-item>
+             </a-col>
+             <a-col :span="12">
+                <a-form-item label="路由路径" name="path">
+                  <a-input v-model:value="menuForm.path" placeholder="请输入路由路径（如：/permission/user）" />
+                  <div style="font-size: 12px; color: #999; margin-top: 4px;">
+                    必须以/开头，如：/permission/user
+                  </div>
+                </a-form-item>
+             </a-col>
+          </a-row>
+
+          <a-row :gutter="24" v-if="menuForm.type !== 2">
+             <a-col :span="12">
+                <a-form-item label="菜单图标" name="icon">
+                  <a-input v-model:value="menuForm.icon" placeholder="请输入图标名称（如：UserOutlined）" />
+                  <div style="font-size: 12px; color: #999; margin-top: 4px;">
+                    Ant Design 图标，如：UserOutlined、SettingOutlined
+                  </div>
                 </a-form-item>
              </a-col>
              <a-col :span="12" v-if="menuForm.type === 1">
                 <a-form-item label="组件路径" name="component">
-                  <a-input v-model:value="menuForm.component" placeholder="请输入组件路径：/xxx/xxx/xxx" />
+                  <a-input v-model:value="menuForm.component" placeholder="请输入组件路径（如：/permission/user/User）" />
+                  <div style="font-size: 12px; color: #999; margin-top: 4px;">
+                    相对于 src/views 的路径，如：/permission/user/User
+                  </div>
+                </a-form-item>
+             </a-col>
+             <a-col :span="12" v-if="menuForm.type === 0">
+                <a-form-item label="重定向路径" name="redirect">
+                  <a-input v-model:value="menuForm.redirect" placeholder="请输入重定向路径（如：/permission/user）" />
+                  <div style="font-size: 12px; color: #999; margin-top: 4px;">
+                    目录的默认跳转路径，通常指向第一个子菜单
+                  </div>
+                </a-form-item>
+             </a-col>
+          </a-row>
+
+          <a-row :gutter="24" v-if="menuForm.type !== 2">
+             <a-col :span="12">
+                <a-form-item label="排序" name="sort">
+                  <a-input-number v-model:value="menuForm.sort" :min="0" placeholder="请输入排序" style="width: 100%" />
+                  <div style="font-size: 12px; color: #999; margin-top: 4px;">
+                    数字越小越靠前
+                  </div>
                 </a-form-item>
              </a-col>
           </a-row>
@@ -182,12 +226,18 @@
           <a-row :gutter="24" v-if="menuForm.type === 2">
              <a-col :span="12">
                 <a-form-item label="权限标识" name="permission">
-                  <a-input v-model:value="menuForm.permission" placeholder="请输入权限标识：permission:user:add" />
+                  <a-input v-model:value="menuForm.permission" placeholder="请输入权限标识（如：permission:user:add）" />
+                  <div style="font-size: 12px; color: #999; margin-top: 4px;">
+                    格式：模块:资源:操作，如：permission:user:add
+                  </div>
                 </a-form-item>
              </a-col>
              <a-col :span="12">
                 <a-form-item label="接口路径" name="apiPath">
-                  <a-input v-model:value="menuForm.apiPath" placeholder="请输入接口路径：/user/add" />
+                  <a-input v-model:value="menuForm.apiPath" placeholder="请输入接口路径（如：/user/add）" />
+                  <div style="font-size: 12px; color: #999; margin-top: 4px;">
+                    后端接口路径，用于权限校验
+                  </div>
                 </a-form-item>
              </a-col>
           </a-row>
@@ -199,6 +249,17 @@
                     <a-radio :value="1">启用</a-radio>
                     <a-radio :value="0">禁用</a-radio>
                   </a-radio-group>
+                </a-form-item>
+             </a-col>
+             <a-col :span="12" v-if="menuForm.type !== 2">
+                <a-form-item label="是否隐藏" name="hidden">
+                  <a-radio-group v-model:value="menuForm.hidden">
+                    <a-radio :value="0">否</a-radio>
+                    <a-radio :value="1">是</a-radio>
+                  </a-radio-group>
+                  <div style="font-size: 12px; color: #999; margin-top: 4px;">
+                    隐藏后不在菜单中显示，但路由仍可访问
+                  </div>
                 </a-form-item>
              </a-col>
           </a-row>
@@ -283,9 +344,14 @@ const menuForm = reactive({
   title: '',
   type: 0,
   name: '',
+  path: '',
+  component: '',
+  icon: '',
+  redirect: '',
   permission: '',
   apiPath: '',
-  component: '',
+  hidden: 0,
+  sort: 0,
   status: 1
 })
 
@@ -295,14 +361,27 @@ const columns = [
     title: '菜单名称',
     dataIndex: 'title',
     key: 'title',
-    width: 250,
+    width: 200,
     fixed: 'left'
+  },
+  {
+    title: '图标',
+    dataIndex: 'icon',
+    key: 'icon',
+    width: 80
   },
   {
     title: '类型',
     dataIndex: 'type',
     key: 'type',
     width: 100
+  },
+  {
+    title: '路由路径',
+    dataIndex: 'path',
+    key: 'path',
+    width: 180,
+    ellipsis: true
   },
   {
     title: '路由名称',
@@ -321,15 +400,14 @@ const columns = [
     title: '权限标识',
     dataIndex: 'permission',
     key: 'permission',
-    width: 200,
+    width: 180,
     ellipsis: true
   },
   {
-    title: '接口路径',
-    dataIndex: 'apiPath',
-    key: 'apiPath',
-    width: 200,
-    ellipsis: true
+    title: '排序',
+    dataIndex: 'sort',
+    key: 'sort',
+    width: 80
   },
   {
     title: '状态',
@@ -346,28 +424,75 @@ const columns = [
 ]
 
 // ==================== 表单验证规则 ====================
-const menuFormRules = {
-  title: [
-    { required: true, message: '菜单名称不能为空', trigger: 'blur' },
-    { min: 1, max: 50, message: '菜单名称长度为1-50个字符', trigger: 'blur' }
-  ],
-  type: [
-    { required: true, message: '菜单类型不能为空', trigger: 'change' }
-  ],
-  name: [
-    { required: true, message: '菜单名称（英文）不能为空', trigger: 'blur' }
-  ],
-  component: [
-    { required: true, message: '组件路径不能为空', trigger: 'blur' }
-  ],
-  permission: [
-    { required: true, message: '权限标识不能为空', trigger: 'blur' }
-  ],
-  apiPath: [
-    { required: true, message: '接口路径不能为空', trigger: 'blur' },
-    { pattern: /^\/[a-zA-Z0-9\-_/]*$/, message: '接口路径格式不正确，必须以/开头', trigger: 'blur' }
-  ]
+const getMenuFormRules = () => {
+  const baseRules = {
+    title: [
+      { required: true, message: '菜单名称不能为空', trigger: 'blur' },
+      { min: 1, max: 50, message: '菜单名称长度为1-50个字符', trigger: 'blur' }
+    ],
+    type: [
+      { required: true, message: '菜单类型不能为空', trigger: 'change' }
+    ],
+    icon: [
+      { pattern: /^[A-Z][a-zA-Z]*(Outlined|Filled|TwoTone)$/, message: '图标名称格式：大写字母开头+Outlined/Filled/TwoTone结尾', trigger: 'blur' }
+    ],
+    sort: [
+      { type: 'number', message: '排序必须是数字', trigger: 'blur' }
+    ]
+  }
+  
+  // 根据菜单类型动态添加规则
+  if (menuForm.type === 0) {
+    // 目录：需要路由名称、路由路径、重定向
+    return {
+      ...baseRules,
+      name: [
+        { required: true, message: '路由名称不能为空', trigger: 'blur' },
+        { pattern: /^[A-Z][a-zA-Z0-9]*$/, message: '路由名称必须以大写字母开头，只能包含字母和数字', trigger: 'blur' }
+      ],
+      path: [
+        { required: true, message: '路由路径不能为空', trigger: 'blur' },
+        { pattern: /^\/[a-z0-9\-/]*$/, message: '路由路径必须以/开头，只能包含小写字母、数字、-和/', trigger: 'blur' }
+      ],
+      redirect: [
+        { pattern: /^\/[a-z0-9\-/]*$/, message: '重定向路径必须以/开头', trigger: 'blur' }
+      ]
+    }
+  } else if (menuForm.type === 1) {
+    // 菜单：需要路由名称、路由路径、组件路径，不需要权限标识和接口路径
+    return {
+      ...baseRules,
+      name: [
+        { required: true, message: '路由名称不能为空', trigger: 'blur' },
+        { pattern: /^[A-Z][a-zA-Z0-9]*$/, message: '路由名称必须以大写字母开头，只能包含字母和数字', trigger: 'blur' }
+      ],
+      path: [
+        { required: true, message: '路由路径不能为空', trigger: 'blur' },
+        { pattern: /^\/[a-z0-9\-/]*$/, message: '路由路径必须以/开头，只能包含小写字母、数字、-和/', trigger: 'blur' }
+      ],
+      component: [
+        { required: true, message: '组件路径不能为空', trigger: 'blur' }
+      ]
+    }
+  } else if (menuForm.type === 2) {
+    // 按钮：需要权限标识和接口路径
+    return {
+      ...baseRules,
+      permission: [
+        { required: true, message: '权限标识不能为空', trigger: 'blur' },
+        { pattern: /^[a-z]+:[a-z]+:[a-z]+$/, message: '权限标识格式：模块:资源:操作（如 permission:user:add）', trigger: 'blur' }
+      ],
+      apiPath: [
+        { required: true, message: '接口路径不能为空', trigger: 'blur' },
+        { pattern: /^\/[a-zA-Z0-9\-_/]*$/, message: '接口路径格式不正确，必须以/开头', trigger: 'blur' }
+      ]
+    }
+  }
+  
+  return baseRules
 }
+
+const menuFormRules = computed(() => getMenuFormRules())
 
 // ==================== 计算属性 ====================
 const tableMaxHeight = computed(() => {
@@ -532,14 +657,23 @@ const handleDelete = async (row) => {
 const handleTypeChange = (e) => {
   const value = e.target.value
   if (value === 2) {
+    // 按钮：清空路由相关字段，保留权限标识和接口路径
+    menuForm.name = ''
+    menuForm.path = ''
     menuForm.component = ''
+    menuForm.icon = ''
+    menuForm.redirect = ''
+    menuForm.hidden = 0
   } else if (value === 0) {
-    menuForm.component = ''
+    // 目录：清空权限相关字段，组件路径固定为 LayoutManager
+    menuForm.component = 'LayoutManager'
     menuForm.permission = ''
     menuForm.apiPath = ''
   } else if (value === 1) {
+    // 菜单：清空权限相关字段和重定向
     menuForm.permission = ''
     menuForm.apiPath = ''
+    menuForm.redirect = ''
   }
 }
 
@@ -547,12 +681,34 @@ const handleMenuSubmit = () => {
   menuFormRef.value.validate().then(async () => {
     submitLoading.value = true
     
-    // Ensure parent is set correctly from parentName (which might be '0' or a title)
-    // The demo does: menuForm.parent = parentName.value
+    // 设置 parent 字段
     menuForm.parent = parentName.value
+    
+    // 根据类型清理不需要的字段
+    const submitData = { ...menuForm }
+    
+    if (menuForm.type === 0) {
+      // 目录：清空权限相关字段
+      submitData.permission = ''
+      submitData.apiPath = ''
+    } else if (menuForm.type === 1) {
+      // 菜单：清空权限相关字段和重定向
+      submitData.permission = ''
+      submitData.apiPath = ''
+      submitData.redirect = ''
+    } else if (menuForm.type === 2) {
+      // 按钮：清空路由相关字段，sort 设置为 0
+      submitData.name = ''
+      submitData.path = ''
+      submitData.component = ''
+      submitData.icon = ''
+      submitData.redirect = ''
+      submitData.hidden = 0
+      submitData.sort = 0
+    }
 
     const apiMethod = isEdit.value ? updateMenu : addMenu
-    const response = await apiMethod(menuForm)
+    const response = await apiMethod(submitData)
 
     if (response.code === 200) {
       Message.success(isEdit.value ? '更新成功' : '创建成功')
@@ -572,9 +728,14 @@ const resetMenuForm = () => {
     title: '',
     type: 0,
     name: '',
+    path: '',
+    component: '',
+    icon: '',
+    redirect: '',
     permission: '',
     apiPath: '',
-    component: '',
+    hidden: 0,
+    sort: 0,
     status: 1
   })
   parentName.value = ''

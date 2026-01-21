@@ -150,6 +150,6 @@ export const useThemeStore = defineStore('theme', () => {
   persist: {
     key: 'theme-store',
     storage: localStorage,
-    paths: ['primaryColor', 'customColors', 'colorMode', 'selectedPresetIndex', 'baseConfig']
+    pick: ['primaryColor', 'customColors', 'colorMode', 'selectedPresetIndex', 'baseConfig']
   }
 })

@@ -187,7 +187,7 @@ export const useAppStore = defineStore(
   {
     persist: {
       storage: localStorage,
-      paths: [
+      pick: [
         "themeMode",
         "sidebarTheme",
         "headerTheme",

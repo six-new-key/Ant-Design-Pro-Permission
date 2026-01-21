@@ -24,21 +24,25 @@ router.beforeEach(async (to, from, next) => {
     if (to.path === "/login") {
       next("/");
     } else {
-      if (userStore.userData) {
-        next();
+      // 使用 hasAddedRoutes 标志位判断动态路由是否已添加
+      if (userStore.hasAddedRoutes) {
+        // 动态路由已添加，直接放行
+        next()
       } else {
+        // 动态路由未添加，需要获取用户信息并添加路由
         try {
-          const result = await userStore.getUserInfo();
+          const result = await userStore.getUserInfo()
           if (result === 'ok') {
+            // 使用 next({ ...to, replace: true }) 重新导航，确保动态路由已完全加载
             next({ ...to, replace: true })
           } else {
-            // 获取用户信息失败，清除token并跳转到登录页
             userStore.handleLogout()
             next(`/login?redirect=${to.path}`)
           }
         } catch (error) {
-          userStore.handleLogout();
-          next({ path: "/login", query: { redirect: to.path } });
+          console.error('获取用户信息失败:', error)
+          userStore.handleLogout()
+          next({ path: "/login", query: { redirect: to.path } })
         }
       }
     }

@@ -198,7 +198,7 @@ export const useTabsStore = defineStore('tabs', () => {
 }, {
   persist: {
     storage: localStorage,
-    paths: [
+    pick: [
       'tabs',
       'activeTabPath'
     ]

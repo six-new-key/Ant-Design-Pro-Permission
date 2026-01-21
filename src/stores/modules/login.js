@@ -201,7 +201,7 @@ export const useLoginStore = defineStore('login', () => {
 }, {
   persist: {
     storage: localStorage,
-    paths: [
+    pick: [
       'backgroundMode',
       'formPosition',
       'selectedStaticBg',

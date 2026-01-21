@@ -2,10 +2,12 @@ import { defineStore } from "pinia";
 import { AuthUtils } from "@/utils";
 import { ref } from "vue";
 import { login, querySelf, logout } from "@/api";
-import { message } from "@/utils";
 import router from "@/router";
-import { cloneDeep } from "lodash-es";
-import { constantRoutes, asyncRoutes, anyRoutes } from "@/router/routes";
+import { constantRoutes } from "@/router/routes";
+
+// 动态导入组件映射
+const modules = import.meta.glob('@/views/**/*.vue')
+const LayoutManager = () => import('@/layouts/LayoutManager.vue')
 
 export const useUserStore = defineStore(
   "user",
@@ -13,6 +15,7 @@ export const useUserStore = defineStore(
     const userData = ref(null);
     const menuRoutes = ref(constantRoutes);
     const permissions = ref([]);
+    const hasAddedRoutes = ref(false); // 标记动态路由是否已添加（不持久化）
 
     // 登录方法
     const handleLogin = async (data) => {
@@ -30,10 +33,62 @@ export const useUserStore = defineStore(
       }
     };
 
+    /**
+     * 解析组件路径
+     * @param {string} componentPath - 组件路径
+     * @returns {Function} 组件加载函数
+     */
+    const resolveComponent = (componentPath) => {
+      if (!componentPath) return null
+      
+      // 处理 LayoutManager
+      if (componentPath === 'LayoutManager') {
+        return LayoutManager
+      }
+      
+      // 处理普通组件（如 "/permission/user/User"）
+      const fullPath = `/src/views${componentPath}.vue`
+      const component = modules[fullPath]
+      
+      if (!component) {
+        console.warn(`组件未找到: ${fullPath}`)
+        return null
+      }
+      
+      return component
+    }
+
+    /**
+     * 递归处理路由配置
+     * @param {Array} routes - 后端返回的路由配置
+     * @returns {Array} 处理后的路由配置
+     */
+    const processRoutes = (routes) => {
+      if (!routes || routes.length === 0) return []
+      
+      return routes.map(route => {
+        const processedRoute = {
+          path: route.path,
+          name: route.name,
+          component: resolveComponent(route.component),
+          meta: route.meta || {}
+        }
+        
+        if (route.redirect) {
+          processedRoute.redirect = route.redirect
+        }
+        
+        if (route.children && route.children.length > 0) {
+          processedRoute.children = processRoutes(route.children)
+        }
+        
+        return processedRoute
+      })
+    }
+
     //获取用户信息
     const getUserInfo = async () => {
       try {
-        // 调用登录接口
         const res = await querySelf();
         if (res.code === 200) {
           const { user, routes, permissions: userPermissions } = res.data;
@@ -44,33 +99,33 @@ export const useUserStore = defineStore(
           // 设置权限
           permissions.value = userPermissions || [];
 
-          if (routes !== undefined) {
-            // 根据后端返回的路由名称过滤本地的asyncRoutes
-            const userAsyncRoutes = filterAsyncRoute(
-              cloneDeep(asyncRoutes),
-              routes
-            );
+          if (routes && routes.length > 0) {
+            // 递归处理后端返回的路由配置
+            const userAsyncRoutes = processRoutes(routes)
 
-            // 菜单需要的路由数据整理完毕，相当于数组合并
-            // (页面刷新白屏解决)一定要把任意路由加到数组最后
-            menuRoutes.value = [
-              ...constantRoutes,
-              ...userAsyncRoutes,
-              anyRoutes
-            ]
+            // 构建菜单路由
+            menuRoutes.value = [...constantRoutes, ...userAsyncRoutes]
 
-            //动态路由追加
-            userAsyncRoutes.forEach((route) => {
-              router.addRoute(route);
-            });
+            // 动态添加路由
+            userAsyncRoutes.forEach(route => router.addRoute(route))
 
-            router.addRoute(anyRoutes)
-
-            console.log("最终菜单数据===>",menuRoutes.value)
+            // 添加 404 路由（必须最后添加）
+            router.addRoute({
+              path: '/:pathMatch(.*)*',
+              redirect: '/404',
+              name: 'any',
+              meta: {
+                title: '任意路由',
+                hidden: true
+              }
+            })
           }
+          
+          // 标记动态路由已添加（无论是否有路由，都标记为已处理）
+          hasAddedRoutes.value = true
           return "ok";
         } else {
-          return Promise.reject(new Error(response.message));
+          return Promise.reject(new Error(res.message));
         }
       } catch (error) {
         console.error("获取用户信息失败:", error);
@@ -99,22 +154,9 @@ export const useUserStore = defineStore(
         permissions.value = [];
         // 清除菜单路由
         menuRoutes.value = constantRoutes;
+        // 重置动态路由标记
+        hasAddedRoutes.value = false;
       }
-    };
-
-    // 根据路由名称数组过滤异步路由
-    const filterAsyncRoute = (asyncRoutes, routes) => {
-      return asyncRoutes.filter((route) => {
-        // 检查当前路由是否在允许的名称列表中
-        if (routes.includes(route.name)) {
-          // 如果有子路由，递归过滤子路由
-          if (route.children && route.children.length > 0) {
-            route.children = filterAsyncRoute(route.children, routes);
-          }
-          return true;
-        }
-        return false;
-      });
     };
 
     return {
@@ -124,6 +166,7 @@ export const useUserStore = defineStore(
       userData,
       menuRoutes,
       permissions,
+      hasAddedRoutes,
     };
   },
   {
@@ -131,7 +174,7 @@ export const useUserStore = defineStore(
     persist: {
       key: "user-store",
       storage: localStorage,
-      paths: ["userData", "menuRoutes", "permissions"],
+      pick: ["userData", "permissions"], // 只持久化这两个字段
     },
   }
 );

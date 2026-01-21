@@ -196,7 +196,7 @@ import {
 import { message } from "@/utils";
 import { getAllMenuItems, searchMenuItems, highlightText } from "@/utils";
 import { theme } from "ant-design-vue";
-import {  useThemeStore } from "@/stores";
+import { useThemeStore, useUserStore } from "@/stores";
 
 // Props
 const props = defineProps({
@@ -207,6 +207,7 @@ const props = defineProps({
 });
 
 const themeStore = useThemeStore();
+const userStore = useUserStore();
 
 const { token } = theme.useToken();
 // Emits
@@ -230,7 +231,8 @@ const visible = computed({
 
 // 初始化菜单数据
 onMounted(() => {
-  menuItems.value = getAllMenuItems();
+  // 从 userStore 获取路由数据并传递给 getAllMenuItems
+  menuItems.value = getAllMenuItems(userStore.menuRoutes);
 });
 
 // 监听对话框打开状态

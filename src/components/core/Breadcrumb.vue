@@ -20,9 +20,10 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { DoubleRightOutlined, DashboardOutlined } from '@ant-design/icons-vue'
-import { routes as allRoutes } from '@/router/routes'
+import { useUserStore } from '@/stores'
 
 const route = useRoute()
+const userStore = useUserStore()
 
 // 定义props，允许外部传入自定义的面包屑生成策略
 const props = defineProps({
@@ -86,6 +87,9 @@ const breadcrumbItems = computed(() => {
     if (props.showHome) {
       items.push(props.homeConfig)
     }
+
+    // 从 userStore 获取动态路由
+    const allRoutes = userStore.menuRoutes || []
 
     // 查找路由层级
     const findRouteHierarchy = (routes, targetPath, hierarchy = []) => {

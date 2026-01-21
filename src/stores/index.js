@@ -9,6 +9,7 @@ pinia.use(
   createPersistedState({
     // 全局配置
     storage: localStorage, // 默认使用 localStorage
+    auto: false, // 关键：禁用自动持久化，只持久化明确配置的字段
     serializer: {
       serialize: JSON.stringify,
       deserialize: JSON.parse

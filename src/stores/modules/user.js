@@ -22,10 +22,9 @@ export const useUserStore = defineStore(
       // 调用登录接口
       const res = await login(data);
       if (res.code === 200) {
-        // 使用认证工具类保存双 Token
+        // 使用认证工具类保存 Token
         const tokenData = res.data;
-        const remember = data.remember || false; // 获取"记住我"状态
-        AuthUtils.setTokens(tokenData, remember);
+        AuthUtils.setTokens(tokenData);
 
         return true;
       } else {

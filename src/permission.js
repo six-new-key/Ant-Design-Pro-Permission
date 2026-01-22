@@ -18,8 +18,11 @@ router.beforeEach(async (to, from, next) => {
   // 获取用户存储实例
   const userStore = useUserStore();
   
-  // 检查是否已登录（有有效的 Access Token 或 Refresh Token）
-  if(AuthUtils.isLoggedIn()){
+  // 检查是否已登录（只检查 Access Token 是否存在，不检查是否过期）
+  // 如果 Access Token 过期，会在 API 请求时自动刷新
+  const hasAccessToken = !!AuthUtils.getAccessToken();
+  
+  if(hasAccessToken){
     //用户已登录
     if (to.path === "/login") {
       next("/");

@@ -12,11 +12,10 @@ export function login(data) {
   });
 }
 
-export function refreshToken(refreshToken) {
+export function refreshToken() {
   return request({
     url: `${PREFIX}/refresh`,
     method: "POST",
-    data: { refreshToken },
   });
 }
 

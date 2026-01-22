@@ -1,20 +1,14 @@
-import Cookies from "js-cookie";
-
 // Token 相关配置
 const ACCESS_TOKEN_KEY = "access_token";
-const REFRESH_TOKEN_KEY = "refresh_token";
 const ACCESS_TOKEN_EXPIRE_KEY = "access_token_expire";
-const REFRESH_TOKEN_EXPIRE_KEY = "refresh_token_expire";
-
-// Cookie 配置选项
-const COOKIE_OPTIONS = {
-  expires: 7, // 7天过期
-  secure: process.env.NODE_ENV === "production", // 生产环境使用 HTTPS
-  sameSite: "strict", // 防止 CSRF 攻击
-};
 
 /**
  * 认证工具类（双 Token 机制）
+ * 
+ * 安全优化说明：
+ * 1. Refresh Token 由后端通过 HttpOnly Cookie 管理，前端无法访问
+ * 2. Access Token 存储在 sessionStorage，关闭标签页即清除
+ * 3. 前端只管理 Access Token 和过期时间
  */
 export class AuthUtils {
   // ==================== Access Token 管理 ====================
@@ -42,51 +36,20 @@ export class AuthUtils {
     sessionStorage.removeItem(ACCESS_TOKEN_KEY);
   }
 
-  // ==================== Refresh Token 管理 ====================
+  // ==================== Refresh Token 管理（已移除，由后端管理） ====================
   
-  /**
-   * 设置 Refresh Token（存储到 Cookie）
-   * @param {string} token - Refresh Token
-   * @param {boolean} remember - 是否记住我
-   * @param {Object} options - Cookie 选项
-   */
-  static setRefreshToken(token, remember = false, options = {}) {
-    // 根据"记住我"状态设置不同的过期时间
-    const expires = remember ? 30 : 7; // 记住我：30天，否则：7天
-    
-    const cookieOptions = { 
-      ...COOKIE_OPTIONS, 
-      expires, // 覆盖默认的过期时间
-      ...options 
-    };
-    Cookies.set(REFRESH_TOKEN_KEY, token, cookieOptions);
-  }
-
-  /**
-   * 获取 Refresh Token
-   * @returns {string|undefined} Refresh Token
-   */
-  static getRefreshToken() {
-    return Cookies.get(REFRESH_TOKEN_KEY);
-  }
-
-  /**
-   * 移除 Refresh Token
-   */
-  static removeRefreshToken() {
-    Cookies.remove(REFRESH_TOKEN_KEY);
-  }
+  // ❌ 已移除 setRefreshToken() - Refresh Token 由后端通过 HttpOnly Cookie 管理
+  // ❌ 已移除 getRefreshToken() - 前端无法访问 HttpOnly Cookie
+  // ❌ 已移除 removeRefreshToken() - 由后端清除 Cookie
 
   // ==================== Token 过期时间管理 ====================
   
   /**
-   * 设置 Token 过期时间
+   * 设置 Access Token 过期时间
    * @param {number} accessExpire - Access Token 过期时间（时间戳，毫秒）
-   * @param {number} refreshExpire - Refresh Token 过期时间（时间戳，毫秒）
    */
-  static setTokenExpireTime(accessExpire, refreshExpire) {
+  static setTokenExpireTime(accessExpire) {
     sessionStorage.setItem(ACCESS_TOKEN_EXPIRE_KEY, accessExpire.toString());
-    sessionStorage.setItem(REFRESH_TOKEN_EXPIRE_KEY, refreshExpire.toString());
   }
 
   /**
@@ -99,20 +62,10 @@ export class AuthUtils {
   }
 
   /**
-   * 获取 Refresh Token 过期时间
-   * @returns {number|null} 过期时间（时间戳，毫秒）
-   */
-  static getRefreshTokenExpireTime() {
-    const expire = sessionStorage.getItem(REFRESH_TOKEN_EXPIRE_KEY);
-    return expire ? parseInt(expire) : null;
-  }
-
-  /**
    * 移除 Token 过期时间
    */
   static removeTokenExpireTime() {
     sessionStorage.removeItem(ACCESS_TOKEN_EXPIRE_KEY);
-    sessionStorage.removeItem(REFRESH_TOKEN_EXPIRE_KEY);
   }
 
   // ==================== Token 状态检查 ====================
@@ -125,21 +78,8 @@ export class AuthUtils {
     const expireTime = this.getAccessTokenExpireTime();
     if (!expireTime) return true;
     
-    // 提前 30 秒判断为过期，避免临界状态
-    // return Date.now() >= (expireTime - 30000);
-    // 测试配置（改为）：提前 5 秒判断为过期
-    return Date.now() >= (expireTime - 3000);
-  }
-
-  /**
-   * 判断 Refresh Token 是否过期
-   * @returns {boolean} true=已过期，false=未过期
-   */
-  static isRefreshTokenExpired() {
-    const expireTime = this.getRefreshTokenExpireTime();
-    if (!expireTime) return true;
-    
-    return Date.now() >= expireTime;
+    // 提前 5 秒判断为过期，避免临界状态
+    return Date.now() >= (expireTime - 5000);
   }
 
   /**
@@ -158,42 +98,44 @@ export class AuthUtils {
   // ==================== 统一 Token 管理 ====================
   
   /**
-   * 设置双 Token 和过期时间
+   * 设置 Token 和过期时间
    * @param {Object} tokenData - Token 数据对象
    * @param {string} tokenData.accessToken - Access Token
-   * @param {string} tokenData.refreshToken - Refresh Token
    * @param {number} tokenData.accessTokenExpireTime - Access Token 过期时间
-   * @param {number} tokenData.refreshTokenExpireTime - Refresh Token 过期时间
-   * @param {boolean} remember - 是否记住我（可选，用于设置 Cookie 过期时间）
+   * 
+   * 注意：Refresh Token 已由后端通过 HttpOnly Cookie 设置，前端不再处理
    */
-  static setTokens(tokenData, remember = false) {
-    const { accessToken, refreshToken, accessTokenExpireTime, refreshTokenExpireTime } = tokenData;
+  static setTokens(tokenData) {
+    const { accessToken, accessTokenExpireTime } = tokenData;
     
     this.setAccessToken(accessToken);
-    this.setRefreshToken(refreshToken, remember);
-    this.setTokenExpireTime(accessTokenExpireTime, refreshTokenExpireTime);
+    this.setTokenExpireTime(accessTokenExpireTime);
   }
 
   /**
    * 移除所有 Token 和过期时间
+   * 
+   * 注意：Refresh Token Cookie 由后端清除（调用 /user/logout 接口）
    */
   static removeAllTokens() {
     this.removeAccessToken();
-    this.removeRefreshToken();
     this.removeTokenExpireTime();
   }
 
   /**
-   * 检查是否已登录（有有效的 Access Token 或 Refresh Token）
+   * 检查是否已登录（只检查 Access Token 是否存在）
+   * 
+   * 注意：不检查 Access Token 是否过期，因为：
+   * 1. 如果 Access Token 过期，会在 API 请求时自动刷新
+   * 2. 只有当 Refresh Token 也过期时，才会真正退出登录
+   * 
    * @returns {boolean} 是否已登录
    */
   static isLoggedIn() {
     const accessToken = this.getAccessToken();
-    const refreshToken = this.getRefreshToken();
     
-    // 如果有 Access Token 且未过期，或者有 Refresh Token 且未过期
-    return (accessToken && !this.isAccessTokenExpired()) || 
-           (refreshToken && !this.isRefreshTokenExpired());
+    // 只检查 Access Token 是否存在（不检查是否过期）
+    return !!accessToken;
   }
 
   // ==================== 兼容旧方法（保持向后兼容） ====================
@@ -202,7 +144,7 @@ export class AuthUtils {
    * 设置 Token（兼容旧代码，实际设置 Access Token）
    * @deprecated 请使用 setTokens() 方法
    */
-  static setToken(token, options = {}) {
+  static setToken(token) {
     this.setAccessToken(token);
   }
 
@@ -228,15 +170,10 @@ export const {
   setAccessToken,
   getAccessToken,
   removeAccessToken,
-  setRefreshToken,
-  getRefreshToken,
-  removeRefreshToken,
   setTokenExpireTime,
   getAccessTokenExpireTime,
-  getRefreshTokenExpireTime,
   removeTokenExpireTime,
   isAccessTokenExpired,
-  isRefreshTokenExpired,
   isAccessTokenExpiringSoon,
   setTokens,
   removeAllTokens,

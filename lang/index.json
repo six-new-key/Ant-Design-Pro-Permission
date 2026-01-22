@@ -3546,5 +3546,9 @@
 	"mb1u2d13": {
 		"zh-cn": "权限标识格式：模块:资源:操作（如 permission:user:list）",
 		"en": "permission identifier format: Module: Resource: Operation (e.g. permission:user:list)"
+	},
+	"6wvw9kb": {
+		"zh-cn": "登录已过期，请重新登录",
+		"en": "Your login has expired. Please log in again"
 	}
 }

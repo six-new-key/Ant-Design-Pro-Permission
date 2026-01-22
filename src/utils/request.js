@@ -1,5 +1,6 @@
 //对于axios进行二次封装
 import axios from "axios";
+import { throttle } from "lodash";
 import { message, AuthUtils } from "@/utils";
 import { useUserStore } from "@/stores";
 import { refreshToken as refreshTokenApi } from "@/api/user";
@@ -17,6 +18,18 @@ const request = axios.create({
 let isRefreshing = false;
 // 待重试的请求队列
 let requestQueue = [];
+
+/**
+ * 节流的登出函数（1秒内只执行一次）
+ * 使用 throttle 而不是 debounce，因为需要立即执行第一次
+ */
+const throttledLogout = throttle(() => {
+  const userStore = useUserStore();
+  userStore.handleLogout();
+}, 1000, { 
+  leading: true,  // 立即执行第一次
+  trailing: false // 不执行最后一次
+});
 
 /**
  * 将请求加入队列
@@ -46,8 +59,7 @@ const retryQueue = (newAccessToken) => {
  */
 const clearQueueAndLogout = () => {
   requestQueue = [];
-  const userStore = useUserStore();
-  userStore.handleLogout();
+  throttledLogout();
 };
 
 //请求拦截器
@@ -68,7 +80,7 @@ request.interceptors.response.use(
     const code = res.code;
     const originalRequest = response.config;
     
-    // 401 错误：Token 已过期，自动刷新（不提示）
+    // 401 错误：Token 已过期，自动刷新
     if (code === 401) {
       // 如果是刷新接口本身返回 401，不再重试，直接登出
       if (originalRequest.url && originalRequest.url.includes('/user/refresh')) {
@@ -77,10 +89,9 @@ request.interceptors.response.use(
         return Promise.reject(new Error(res.message || 'Token 刷新失败'));
       }
       
-      // 如果是登出接口，直接清除 Token 并跳转登录页，不尝试刷新
+      // 如果是登出接口返回 401，说明 Token 已过期，直接清除本地数据即可
       if (originalRequest.url && originalRequest.url.includes('/user/logout')) {
-        const userStore = useUserStore();
-        userStore.handleLogout();
+        // 不显示提示，不调用 handleLogout()，避免循环
         return Promise.reject(new Error('Token 已过期'));
       }
       
@@ -101,18 +112,9 @@ request.interceptors.response.use(
       // 开始刷新 Token
       isRefreshing = true;
       
-      const refreshToken = AuthUtils.getRefreshToken();
-      
-      // 如果没有 Refresh Token，直接跳转登录页
-      if (!refreshToken) {
-        isRefreshing = false;
-        clearQueueAndLogout();
-        return Promise.reject(new Error('Refresh Token 不存在'));
-      }
-      
       try {
-        // 调用刷新接口
-        const refreshRes = await refreshTokenApi(refreshToken);
+        // 调用刷新接口（不传参数）
+        const refreshRes = await refreshTokenApi();
         
         if (refreshRes.code === 200) {
           const tokenData = refreshRes.data;
@@ -132,28 +134,31 @@ request.interceptors.response.use(
           // 重试当前请求
           return axios(originalRequest);
         } else {
-          // 刷新失败，清空队列并跳转登录页
+          // 刷新失败，显示提示并跳转登录页
           isRefreshing = false;
+          message.warning(refreshRes.message || '登录已过期，请重新登录');
           clearQueueAndLogout();
           return Promise.reject(new Error(refreshRes.message));
         }
       } catch (refreshError) {
-        // 刷新失败，清空队列并跳转登录页
+        // 刷新失败，显示提示并跳转登录页
         isRefreshing = false;
+        message.warning('登录已过期，请重新登录');
         clearQueueAndLogout();
         return Promise.reject(refreshError);
       }
     }
     
-    // 402 或 405 错误：强制登出（不提示，后面统一提示）
+    // 402 或 405 错误：Refresh Token 过期或权限不足，强制登出
     if (code === 402 || code === 405) {
-      const userStore = useUserStore();
-      userStore.handleLogout();
+      message.warning(res.message);
+      throttledLogout(); // 使用节流函数，1秒内只执行一次
+      return Promise.reject(new Error(res.message));
     }
     
     // 所有非 200 的错误：统一提示
     if (code !== 200) {
-      message.error(res.message);
+      message.warning(res.message);
       return Promise.reject(new Error(res.message));
     }
     
@@ -161,77 +166,13 @@ request.interceptors.response.use(
     return res;
   },
   async (error) => {
-    //响应失败的回调（HTTP 错误状态码）
+    // 响应失败的回调（HTTP 错误状态码）
     const originalRequest = error.config;
     
-    // 处理HTTP错误状态码（如401、403、404、500等）
+    // 处理HTTP错误状态码（如403、404、500等）
     if (error.response) {
       const status = error.response.status;
       const data = error.response.data;
-      
-      // HTTP 401 错误：未授权（备用处理，通常不会走到这里）
-      if (status === 401 && !originalRequest._retry) {
-        // 如果是登出接口，直接清除 Token 并跳转登录页
-        if (originalRequest.url && originalRequest.url.includes('/user/logout')) {
-          const userStore = useUserStore();
-          userStore.handleLogout();
-          return Promise.reject(error);
-        }
-        
-        // 标记该请求已经重试过，避免无限循环
-        originalRequest._retry = true;
-        
-        // 如果正在刷新 Token，将请求加入队列
-        if (isRefreshing) {
-          return addRequestToQueue(originalRequest);
-        }
-        
-        // 开始刷新 Token
-        isRefreshing = true;
-        
-        const refreshToken = AuthUtils.getRefreshToken();
-        
-        // 如果没有 Refresh Token，直接跳转登录页
-        if (!refreshToken) {
-          isRefreshing = false;
-          clearQueueAndLogout();
-          return Promise.reject(error);
-        }
-        
-        try {
-          // 调用刷新接口
-          const res = await refreshTokenApi(refreshToken);
-          
-          if (res.code === 200) {
-            const tokenData = res.data;
-            
-            // 更新 Token
-            AuthUtils.setTokens(tokenData);
-            
-            // 更新原请求的 Authorization 头
-            originalRequest.headers['Authorization'] = tokenData.accessToken;
-            
-            // 重试队列中的所有请求
-            retryQueue(tokenData.accessToken);
-            
-            // 重置刷新标志
-            isRefreshing = false;
-            
-            // 重试当前请求
-            return axios(originalRequest);
-          } else {
-            // 刷新失败，清空队列并跳转登录页
-            isRefreshing = false;
-            clearQueueAndLogout();
-            return Promise.reject(error);
-          }
-        } catch (refreshError) {
-          // 刷新失败，清空队列并跳转登录页
-          isRefreshing = false;
-          clearQueueAndLogout();
-          return Promise.reject(refreshError);
-        }
-      }
       
       // 如果后端返回了JSON格式的错误信息
       if (data && data.message) {

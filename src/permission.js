@@ -2,7 +2,8 @@ import router from '@/router'
 import { settings } from './settings'
 import { NProgress, initNProgress } from '@/utils'
 import { useUserStore } from '@/stores'
-import { AuthUtils } from "@/utils";
+import { AuthUtils } from "@/utils"
+import { HOME_PATH, LOGIN_PATH } from '@/constants/routes'
 
 // 初始化NProgress配置
 initNProgress()
@@ -24,8 +25,8 @@ router.beforeEach(async (to, from, next) => {
   
   if(hasAccessToken){
     //用户已登录
-    if (to.path === "/login") {
-      next("/");
+    if (to.path === LOGIN_PATH) {
+      next(HOME_PATH);
     } else {
       // 使用 hasAddedRoutes 标志位判断动态路由是否已添加
       if (userStore.hasAddedRoutes) {
@@ -40,20 +41,20 @@ router.beforeEach(async (to, from, next) => {
             next({ ...to, replace: true })
           } else {
             userStore.handleLogout()
-            next(`/login?redirect=${to.path}`)
+            next(`${LOGIN_PATH}?redirect=${to.path}`)
           }
         } catch (error) {
           console.error('获取用户信息失败:', error)
           userStore.handleLogout()
-          next({ path: "/login", query: { redirect: to.path } })
+          next({ path: LOGIN_PATH, query: { redirect: to.path } })
         }
       }
     }
   } else {
-    if(to.path === '/login'){
+    if(to.path === LOGIN_PATH){
       next()
     } else {
-      next('/login')
+      next(LOGIN_PATH)
     }
   }
 })

@@ -7,7 +7,7 @@
           <div style="margin-bottom: 30px">
             <span>抱歉，页面不见了～</span>
           </div>
-          <router-link to="/home">
+          <router-link :to="HOME_PATH">
             <a-button type="primary">返回</a-button>
           </router-link>
         </div>
@@ -18,7 +18,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { theme } from 'ant-design-vue';
+import { theme } from 'ant-design-vue'
+import { HOME_PATH } from '@/constants/routes'
 
 const { token } = theme.useToken();
 </script>

@@ -3550,5 +3550,77 @@
 	"6wvw9kb": {
 		"zh-cn": "登录已过期，请重新登录",
 		"en": "Your login has expired. Please log in again"
+	},
+	"nbcoc3": {
+		"zh-cn": "验证码",
+		"en": "Verification code"
+	},
+	"ll5n9ui": {
+		"zh-cn": "LayoutManager（固定值）",
+		"en": "LayoutManager (Fixed Value"
+	},
+	"76k5ei12": {
+		"zh-cn": "请输入组件路径（如：/views/permission/user/User）",
+		"en": "Please enter the path components (such as: / views/permission/user/user)"
+	},
+	"13k1hjr": {
+		"zh-cn": "目录固定为 LayoutManager，用于包裹子菜单",
+		"en": "The directory is fixed as LayoutManager and is used to wrap submenus"
+	},
+	"ofqun01b": {
+		"zh-cn": "相对于 src/views 的路径，如：/views/permission/user/User",
+		"en": "Relative to the path of the SRC/views, such as: / views/permission/user/user"
+	},
+	"drqqhvo": {
+		"zh-cn": "目录的组件路径必须为 LayoutManager",
+		"en": "The component path of the directory must be LayoutManager"
+	},
+	"92gg8b6": {
+		"zh-cn": "点击选择图标",
+		"en": "Click to select the icon"
+	},
+	"z6alglb": {
+		"zh-cn": " 点击输入框选择图标 ",
+		"en": "Click the input box to select the icon"
+	},
+	"ikx8eh4": {
+		"zh-cn": "选择图标",
+		"en": "Select icon"
+	},
+	"8dl0f89": {
+		"zh-cn": "搜索图标名称...",
+		"en": "Search for the icon name..."
+	},
+	"hri02": {
+		"zh-cn": "方向",
+		"en": "Direction"
+	},
+	"hn562": {
+		"zh-cn": "提示",
+		"en": "Hint"
+	},
+	"hsse2": {
+		"zh-cn": "数据",
+		"en": "\"Data"
+	},
+	"eae82": {
+		"zh-cn": "其他",
+		"en": "Others"
+	},
+	"6ox9fn8": {
+		"zh-cn": "未找到匹配的图标",
+		"en": "No matching icon was found"
+	},
+	"ee6wgl4": {
+		"zh-cn": "清空选择",
+		"en": "Clear the selection"
+	},
+	"duq72": {
+		"zh-cn": "共 ",
+		"en": "A total of"
+	},
+	"cfyhf4": {
+		"zh-cn": " 个图标",
+		"en": "An icon"
 	}
 }

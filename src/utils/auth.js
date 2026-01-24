@@ -36,12 +36,6 @@ export class AuthUtils {
     sessionStorage.removeItem(ACCESS_TOKEN_KEY);
   }
 
-  // ==================== Refresh Token 管理（已移除，由后端管理） ====================
-  
-  // ❌ 已移除 setRefreshToken() - Refresh Token 由后端通过 HttpOnly Cookie 管理
-  // ❌ 已移除 getRefreshToken() - 前端无法访问 HttpOnly Cookie
-  // ❌ 已移除 removeRefreshToken() - 由后端清除 Cookie
-
   // ==================== Token 过期时间管理 ====================
   
   /**
@@ -78,8 +72,8 @@ export class AuthUtils {
     const expireTime = this.getAccessTokenExpireTime();
     if (!expireTime) return true;
     
-    // 提前 5 秒判断为过期，避免临界状态
-    return Date.now() >= (expireTime - 5000);
+    // 提前 30 秒判断为过期，避免临界状态
+    return Date.now() >= (expireTime - 30000);
   }
 
   /**

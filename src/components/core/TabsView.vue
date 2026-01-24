@@ -63,7 +63,7 @@
                 刷新
               </a-menu-item>
 
-              <a-menu-item key="togglePin" :disabled="tabsStore.activeTab?.path === '/home'">
+              <a-menu-item key="togglePin" :disabled="tabsStore.activeTab?.path === HOME_PATH">
                 <template #icon>
                   <PushpinOutlined :rotate="-45" v-if="!tabsStore.activeTab?.pinned" />
                   <PushpinFilled :rotate="-45" v-else />
@@ -151,7 +151,7 @@
             刷新
           </a-menu-item>
 
-          <a-menu-item key="togglePin" :disabled="contextMenuTab?.path === '/home'">
+          <a-menu-item key="togglePin" :disabled="contextMenuTab?.path === HOME_PATH">
             <template #icon>
               <PushpinOutlined :rotate="-45" v-if="!contextMenuTab?.pinned" />
               <PushpinFilled :rotate="-45" v-else />
@@ -222,6 +222,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { useTabsStore, useAppStore, useThemeStore } from '@/stores'
 import { theme } from 'ant-design-vue'
 import { VueDraggable } from 'vue-draggable-plus'
+import { HOME_PATH } from '@/constants/routes'
 
 const router = useRouter()
 const route = useRoute()
@@ -291,8 +292,8 @@ const checkScrollState = () => {
 // 监听全局点击事件，点击其他地方时隐藏菜单
 onMounted(() => {
   tabsStore.initTabs()
-  // 添加当前路由为页签
-  if (route.path) {
+  // 添加当前路由为页签（首页已在 initTabs 中添加，无需重复添加）
+  if (route.path && route.path !== HOME_PATH) {
     tabsStore.addTab(route)
   }
 

@@ -159,7 +159,8 @@ request.interceptors.response.use(
     // 所有非 200 的错误：统一提示
     if (code !== 200) {
       message.warning(res.message);
-      return Promise.reject(new Error(res.message));
+      // 将完整的响应数据传递给 reject，包含 code
+      return Promise.reject({ code, message: res.message, data: res.data });
     }
     
     // 200 正常返回

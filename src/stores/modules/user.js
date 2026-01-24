@@ -4,6 +4,7 @@ import { ref } from "vue";
 import { login, querySelf, logout } from "@/api";
 import router from "@/router";
 import { constantRoutes } from "@/router/routes";
+import { HOME_PATH, LOGIN_PATH } from '@/constants/routes'
 
 // 动态导入组件映射
 const modules = import.meta.glob('@/views/**/*.vue')
@@ -19,16 +20,20 @@ export const useUserStore = defineStore(
 
     // 登录方法
     const handleLogin = async (data) => {
-      // 调用登录接口
-      const res = await login(data);
-      if (res.code === 200) {
-        // 使用认证工具类保存 Token
-        const tokenData = res.data;
-        AuthUtils.setTokens(tokenData);
-
-        return true;
-      } else {
-        return false;
+      try {
+        // 调用登录接口
+        const res = await login(data);
+        if (res.code === 200) {
+          // 使用认证工具类保存 Token
+          const tokenData = res.data;
+          AuthUtils.setTokens(tokenData);
+          return true;
+        } else {
+          return false;
+        }
+      } catch (error) {
+        // 抛出错误，让调用方处理（包含错误码）
+        throw error;
       }
     };
 
@@ -46,7 +51,7 @@ export const useUserStore = defineStore(
       }
       
       // 处理普通组件（如 "/permission/user/User"）
-      const fullPath = `/src/views${componentPath}.vue`
+      const fullPath = `/src${componentPath}.vue`
       const component = modules[fullPath]
       
       if (!component) {
@@ -145,7 +150,7 @@ export const useUserStore = defineStore(
       } finally {
         // 无论后端接口是否成功，都清除本地 Token 和数据
         AuthUtils.removeAllTokens();
-        router.push("/login");
+        router.push(LOGIN_PATH);
         
         // 清除用户数据
         userData.value = null;

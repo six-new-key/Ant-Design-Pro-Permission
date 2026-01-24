@@ -19,8 +19,9 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { DoubleRightOutlined, DashboardOutlined } from '@ant-design/icons-vue'
+import { DoubleRightOutlined, HomeOutlined } from '@ant-design/icons-vue'
 import { useUserStore } from '@/stores'
+import { HOME_PATH } from '@/constants/routes'
 
 const route = useRoute()
 const userStore = useUserStore()
@@ -40,7 +41,7 @@ const props = defineProps({
   // 首页配置
   homeConfig: {
     type: Object,
-    default: () => ({ title: '首页', path: '/home', icon: DashboardOutlined })
+    default: () => ({ title: '首页', path: HOME_PATH, icon: HomeOutlined })
   }
 })
 

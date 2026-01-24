@@ -188,21 +188,39 @@
           <a-row :gutter="24" v-if="menuForm.type !== 2">
              <a-col :span="12">
                 <a-form-item label="菜单图标" name="icon">
-                  <a-input v-model:value="menuForm.icon" placeholder="请输入图标名称（如：UserOutlined）" />
+                  <a-input 
+                    v-model:value="menuForm.icon" 
+                    placeholder="点击选择图标"
+                    readonly
+                    @click="iconSelectorVisible = true"
+                    style="cursor: pointer"
+                  >
+                    <template #prefix>
+                      <component v-if="menuForm.icon && isAntDesignIcon(menuForm.icon)" :is="menuForm.icon" />
+                    </template>
+                  </a-input>
                   <div style="font-size: 12px; color: #999; margin-top: 4px;">
-                    Ant Design 图标，如：UserOutlined、SettingOutlined
+                    点击输入框选择图标
                   </div>
                 </a-form-item>
              </a-col>
-             <a-col :span="12" v-if="menuForm.type === 1">
+             <a-col :span="12">
                 <a-form-item label="组件路径" name="component">
-                  <a-input v-model:value="menuForm.component" placeholder="请输入组件路径（如：/permission/user/User）" />
+                  <a-input 
+                    v-model:value="menuForm.component" 
+                    :placeholder="menuForm.type === 0 ? 'LayoutManager（固定值）' : '请输入组件路径（如：/views/permission/user/User）'" 
+                    :disabled="menuForm.type === 0"
+                  />
                   <div style="font-size: 12px; color: #999; margin-top: 4px;">
-                    相对于 src/views 的路径，如：/permission/user/User
+                    <span v-if="menuForm.type === 0">目录固定为 LayoutManager，用于包裹子菜单</span>
+                    <span v-else>相对于 src/views 的路径，如：/views/permission/user/User</span>
                   </div>
                 </a-form-item>
              </a-col>
-             <a-col :span="12" v-if="menuForm.type === 0">
+          </a-row>
+
+          <a-row :gutter="24" v-if="menuForm.type === 0">
+             <a-col :span="12">
                 <a-form-item label="重定向路径" name="redirect">
                   <a-input v-model:value="menuForm.redirect" placeholder="请输入重定向路径（如：/permission/user）" />
                   <div style="font-size: 12px; color: #999; margin-top: 4px;">
@@ -210,9 +228,17 @@
                   </div>
                 </a-form-item>
              </a-col>
+             <a-col :span="12">
+                <a-form-item label="排序" name="sort">
+                  <a-input-number v-model:value="menuForm.sort" :min="0" placeholder="请输入排序" style="width: 100%" />
+                  <div style="font-size: 12px; color: #999; margin-top: 4px;">
+                    数字越小越靠前
+                  </div>
+                </a-form-item>
+             </a-col>
           </a-row>
 
-          <a-row :gutter="24" v-if="menuForm.type !== 2">
+          <a-row :gutter="24" v-if="menuForm.type === 1">
              <a-col :span="12">
                 <a-form-item label="排序" name="sort">
                   <a-input-number v-model:value="menuForm.sort" :min="0" placeholder="请输入排序" style="width: 100%" />
@@ -266,6 +292,12 @@
         </a-form>
       </div>
     </a-modal>
+
+    <!-- 图标选择器 -->
+    <IconSelector 
+      v-model:visible="iconSelectorVisible"
+      v-model:value="menuForm.icon"
+    />
   </div>
 </template>
 
@@ -290,6 +322,7 @@ import {
   deleteMenu,
   echoMenu
 } from '@/api/menu'
+import IconSelector from '@/components/custom/IconSelector.vue'
 
 const { useToken } = theme
 const { token } = useToken()
@@ -317,6 +350,7 @@ const expandedRowKeys = ref([])
 const isExpandAll = ref(false)
 
 const menuDialogVisible = ref(false)
+const iconSelectorVisible = ref(false)
 
 // 业务状态
 const isEdit = ref(false)
@@ -443,7 +477,7 @@ const getMenuFormRules = () => {
   
   // 根据菜单类型动态添加规则
   if (menuForm.type === 0) {
-    // 目录：需要路由名称、路由路径、重定向
+    // 目录：需要路由名称、路由路径、重定向，组件路径固定为 LayoutManager
     return {
       ...baseRules,
       name: [
@@ -454,12 +488,16 @@ const getMenuFormRules = () => {
         { required: true, message: '路由路径不能为空', trigger: 'blur' },
         { pattern: /^\/[a-z0-9\-/]*$/, message: '路由路径必须以/开头，只能包含小写字母、数字、-和/', trigger: 'blur' }
       ],
+      component: [
+        { required: true, message: '组件路径不能为空', trigger: 'blur' },
+        { pattern: /^LayoutManager$/, message: '目录的组件路径必须为 LayoutManager', trigger: 'blur' }
+      ],
       redirect: [
         { pattern: /^\/[a-z0-9\-/]*$/, message: '重定向路径必须以/开头', trigger: 'blur' }
       ]
     }
   } else if (menuForm.type === 1) {
-    // 菜单：需要路由名称、路由路径、组件路径，不需要权限标识和接口路径
+    // 菜单：需要路由名称、路由路径、组件路径
     return {
       ...baseRules,
       name: [
@@ -590,6 +628,7 @@ const handleAdd = () => {
   parentMenuType.value = null
   resetMenuForm()
   menuForm.type = 0
+  menuForm.component = 'LayoutManager' // 目录默认组件路径
   parentName.value = '0'
   menuDialogVisible.value = true
 }
@@ -603,32 +642,16 @@ const handleAddChild = (row) => {
   parentMenuType.value = row.type
   
   if (row.type === 0) {
+    // 父级是目录，子级是菜单
     menuForm.type = 1
+    menuForm.component = '' // 菜单需要用户输入组件路径
   } else if (row.type === 1) {
+    // 父级是菜单，子级是按钮
     menuForm.type = 2
+    menuForm.component = '' // 按钮不需要组件路径
   }
   
-  // Set parent ID? The demo uses parent name in the form but likely sends parent ID or Name?
-  // Checking Demo Index.vue: 
-  // menuForm.parent = parentName.value
-  // And parentName.value = row.title.
-  // Wait, if parent is '0', it means root. If parent is a name, does the backend resolve it?
-  // Let's verify demo logic:
-  // In handleMenuSubmit: menuForm.parent = parentName.value
-  // It seems the backend expects the parent *Name* or ID?
-  // Looking at the form item: <t-input v-model="parentName" ... />
-  // It seems it passes the Name. This is unusual but I will stick to the demo logic.
-  // Wait, in `handleAddChild`, `parentName.value = row.title`.
-  // If the backend relies on Name for hierarchy, that's fragile.
-  // But I must follow the demo.
-  // Actually, let's check `echoMenu` in demo.
-  // `Object.assign(menuForm, response.data)`
-  // `parentName.value = menuForm.parent`
-  // So `menuForm.parent` stores the identifier/name of the parent.
-  // I'll proceed with this assumption.
-  
-  menuForm.parent = row.title // This sets the parent field to the parent's title
-  
+  menuForm.parent = row.title
   menuDialogVisible.value = true
 }
 
@@ -665,12 +688,13 @@ const handleTypeChange = (e) => {
     menuForm.redirect = ''
     menuForm.hidden = 0
   } else if (value === 0) {
-    // 目录：清空权限相关字段，组件路径固定为 LayoutManager
+    // 目录：组件路径固定为 LayoutManager，清空权限相关字段
     menuForm.component = 'LayoutManager'
     menuForm.permission = ''
     menuForm.apiPath = ''
   } else if (value === 1) {
-    // 菜单：清空权限相关字段和重定向
+    // 菜单：清空权限相关字段和重定向，清空组件路径让用户输入
+    menuForm.component = ''
     menuForm.permission = ''
     menuForm.apiPath = ''
     menuForm.redirect = ''
@@ -688,7 +712,8 @@ const handleMenuSubmit = () => {
     const submitData = { ...menuForm }
     
     if (menuForm.type === 0) {
-      // 目录：清空权限相关字段
+      // 目录：确保组件路径为 LayoutManager，清空权限相关字段
+      submitData.component = 'LayoutManager'
       submitData.permission = ''
       submitData.apiPath = ''
     } else if (menuForm.type === 1) {

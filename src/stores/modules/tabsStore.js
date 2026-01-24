@@ -1,17 +1,18 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { HOME_PATH } from '@/constants/routes'
 
 export const useTabsStore = defineStore('tabs', () => {
   // State
   const tabs = ref([])
-  const activeTabPath = ref('/home')
+  const activeTabPath = ref(HOME_PATH)
   
   // 默认首页页签
   const defaultTab = {
     id: 'home',
     title: '首页',
-    path: '/home',
-    icon: 'DashboardOutlined',
+    path: HOME_PATH,
+    icon: 'HomeOutlined',
     closable: false,
     pinned: true,
     meta: { title: '首页' }
@@ -28,6 +29,12 @@ export const useTabsStore = defineStore('tabs', () => {
 
   // Actions
   const addTab = (route) => {
+    // 首页标签已在 initTabs 中添加，不需要重复添加
+    if (route.path === HOME_PATH) {
+      activeTabPath.value = route.path
+      return
+    }
+    
     const existingTab = tabs.value.find(tab => tab.path === route.path)
     
     if (!existingTab) {
@@ -36,8 +43,8 @@ export const useTabsStore = defineStore('tabs', () => {
         title: route.meta?.title || route.name || '未命名',
         path: route.path,
         icon: route.meta?.icon,
-        closable: route.path !== '/home', // 首页不可关闭
-        pinned: route.path === '/home', // 首页默认固定
+        closable: true, // 非首页标签可关闭
+        pinned: false,  // 非首页标签默认不固定
         meta: route.meta || {}
       }
       
@@ -72,8 +79,8 @@ export const useTabsStore = defineStore('tabs', () => {
         activeTabPath.value = nextTab.path
       } else {
         // 如果没有页签了，跳转到首页
-        activeTabPath.value = '/home'
-        addTab({ path: '/home', meta: { title: '仪表盘' } })
+        activeTabPath.value = HOME_PATH
+        addTab({ path: HOME_PATH, meta: { title: '首页' } })
       }
     }
   }
@@ -84,7 +91,7 @@ export const useTabsStore = defineStore('tabs', () => {
 
   const toggleTabPin = (targetPath) => {
     const tab = tabs.value.find(tab => tab.path === targetPath)
-    if (tab && tab.path !== '/home') { // 首页固定状态不可更改
+    if (tab && tab.path !== HOME_PATH) { // 首页固定状态不可更改
       tab.pinned = !tab.pinned
       tab.closable = !tab.pinned // 固定的页签不可关闭
       
@@ -109,8 +116,8 @@ export const useTabsStore = defineStore('tabs', () => {
       }
     })
     
-    // 确保仪表盘始终在第一位
-    const homeIndex = pinnedTabs.findIndex(tab => tab.path === '/home')
+    // 确保首页始终在第一位
+    const homeIndex = pinnedTabs.findIndex(tab => tab.path === HOME_PATH)
     if (homeIndex > 0) {
       const home = pinnedTabs.splice(homeIndex, 1)[0]
       pinnedTabs.unshift(home)
@@ -158,18 +165,34 @@ export const useTabsStore = defineStore('tabs', () => {
     // 如果当前激活页签被关闭，切换到首页
     const activeTabExists = tabs.value.some(tab => tab.path === activeTabPath.value)
     if (!activeTabExists) {
-      activeTabPath.value = '/home'
+      activeTabPath.value = HOME_PATH
       // 确保首页页签存在
-      if (!tabs.value.some(tab => tab.path === '/home')) {
-        addTab({ path: '/home', meta: { title: '仪表盘' } })
+      if (!tabs.value.some(tab => tab.path === HOME_PATH)) {
+        addTab({ path: HOME_PATH, meta: { title: '首页' } })
       }
     }
   }
 
   const initTabs = () => {
-    // 初始化时确保首页页签存在
-    if (!tabs.value.some(tab => tab.path === '/home')) {
+    // 查找首页标签
+    const homeTabIndex = tabs.value.findIndex(tab => tab.path === HOME_PATH)
+    
+    if (homeTabIndex === -1) {
+      // 首页标签不存在，添加默认首页
       tabs.value.unshift(defaultTab)
+    } else {
+      // 首页标签存在，确保其状态正确（不可关闭、固定）
+      const homeTab = tabs.value[homeTabIndex]
+      homeTab.closable = false
+      homeTab.pinned = true
+      homeTab.title = '首页'
+      homeTab.icon = 'HomeOutlined'
+      
+      // 确保首页在第一位
+      if (homeTabIndex !== 0) {
+        tabs.value.splice(homeTabIndex, 1)
+        tabs.value.unshift(homeTab)
+      }
     }
   }
 

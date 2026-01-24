@@ -3622,5 +3622,213 @@
 	"cfyhf4": {
 		"zh-cn": " 个图标",
 		"en": "An icon"
+	},
+	"wzxhie6": {
+		"zh-cn": "字典数据ID",
+		"en": "Dictionary data ID"
+	},
+	"bv6kns4": {
+		"zh-cn": "字典标签",
+		"en": "Dictionary label"
+	},
+	"bve0lr4": {
+		"zh-cn": "字典键值",
+		"en": "Dictionary key value"
+	},
+	"l6p2": {
+		"zh-cn": " 条",
+		"en": "article"
+	},
+	"lnwg737": {
+		"zh-cn": "请输入字典标签",
+		"en": "Please enter the dictionary label"
+	},
+	"lnp0947": {
+		"zh-cn": "请输入字典键值",
+		"en": "Please enter the dictionary key value"
+	},
+	"5k5pm76": {
+		"zh-cn": "加载数据失败",
+		"en": "Failed to load data"
+	},
+	"updob76": {
+		"zh-cn": "新增字典数据",
+		"en": "New dictionary data"
+	},
+	"4qzona6": {
+		"zh-cn": "编辑字典数据",
+		"en": "Edit dictionary data"
+	},
+	"azdahk4": {
+		"zh-cn": "删除失败",
+		"en": "Deletion failed"
+	},
+	"h94dlg9": {
+		"zh-cn": "请选择要删除的数据",
+		"en": "Please select the data you want to delete"
+	},
+	"cp6e056": {
+		"zh-cn": "状态修改成功",
+		"en": "The status modification was successful."
+	},
+	"cp578q6": {
+		"zh-cn": "状态修改失败",
+		"en": "Status modification failed"
+	},
+	"gmjwui4": {
+		"zh-cn": "编辑成功",
+		"en": "Editing successful"
+	},
+	"d76ha54": {
+		"zh-cn": "新增成功",
+		"en": "\"Added successfully"
+	},
+	"gg26b4": {
+		"zh-cn": " 查询 ",
+		"en": "Query"
+	},
+	"l6iwo86": {
+		"zh-cn": "确定删除吗？",
+		"en": "Are you sure to delete it?"
+	},
+	"2jaeja5": {
+		"zh-cn": "请输入备注",
+		"en": "Please enter the remarks"
+	},
+	"buo9244": {
+		"zh-cn": "字典ID",
+		"en": "Dictionary ID"
+	},
+	"bv36104": {
+		"zh-cn": "字典名称",
+		"en": "Dictionary name"
+	},
+	"bv9usx4": {
+		"zh-cn": "字典类型",
+		"en": "Dictionary type"
+	},
+	"lnzutv7": {
+		"zh-cn": "请输入字典名称",
+		"en": "Please enter the name of the dictionary"
+	},
+	"lnt61y7": {
+		"zh-cn": "请输入字典类型",
+		"en": "Please enter the dictionary type"
+	},
+	"up9tk16": {
+		"zh-cn": "新增字典类型",
+		"en": "New dictionary type"
+	},
+	"4qvtw46": {
+		"zh-cn": "编辑字典类型",
+		"en": "Edit the dictionary type"
+	},
+	"we079m": {
+		"zh-cn": "路由路径必须以/开头，只能包含字母、数字和/",
+		"en": "The routing path must start with/and can only contain letters, numbers and /"
+	},
+	"tlehzxn": {
+		"zh-cn": "重定向路径必须以/开头，只能包含字母、数字和/",
+		"en": "The redirection path must start with/and can only contain letters, numbers and /"
+	},
+	"3p6sxhm": {
+		"zh-cn": "组件路径必须以/开头，只能包含字母、数字和/",
+		"en": "Component paths must start with/and can only contain letters, numbers, and /"
+	},
+	"rss5xss": {
+		"zh-cn": "权限标识格式：模块:资源:操作，只能包含字母、数字和冒号",
+		"en": "Permission identifier format: Module: Resource: Operation, which can only contain letters, numbers and colons"
+	},
+	"ryjhs9m": {
+		"zh-cn": "接口路径必须以/开头，只能包含字母、数字和/",
+		"en": "The interface path must start with/and can only contain letters, numbers and /"
+	},
+	"rpzrfok": {
+		"zh-cn": " 必须以/开头，只能包含字母、数字和/ ",
+		"en": "It must start with/and can only contain letters, numbers and /"
+	},
+	"gtt9zwi": {
+		"zh-cn": "必须以/开头，只能包含字母、数字和/",
+		"en": "It must start with/and can only contain letters, numbers and /"
+	},
+	"o9flndu": {
+		"zh-cn": " 目录的默认跳转路径，必须以/开头，只能包含字母、数字和/ ",
+		"en": "The default jump path of the directory must start with/and can only contain letters, numbers and /"
+	},
+	"xzp5csq": {
+		"zh-cn": " 格式：模块:资源:操作，只能包含字母、数字和冒号 ",
+		"en": "Format: Module: Resource: Operation, which can only contain letters, numbers and colons"
+	},
+	"a5nd3et": {
+		"zh-cn": "路由路径必须以/开头，支持字母、数字、下划线、中划线、斜杠",
+		"en": "The routing path must start with/and support letters, numbers, underscores, hyphens, and slashes"
+	},
+	"c152lou": {
+		"zh-cn": "重定向路径必须以/开头，支持字母、数字、下划线、中划线、斜杠",
+		"en": "The redirection path must start with/and supports letters, numbers, underscores, hyphens, and slashes"
+	},
+	"kpznvet": {
+		"zh-cn": "组件路径必须以/开头，支持字母、数字、下划线、中划线、斜杠",
+		"en": "Component paths must start with/and support letters, numbers, underscores, hyphens, and slashes"
+	},
+	"bngmo8v": {
+		"zh-cn": "权限标识格式：模块:资源:操作，支持字母、数字、下划线、中划线",
+		"en": "Permission identifier format: Module: Resource: Operation, supporting letters, numbers, underscores, and hyphens"
+	},
+	"p01fbox": {
+		"zh-cn": "接口路径必须以/开头，支持字母、数字、下划线、中划线、斜杠、通配符",
+		"en": "The interface path must start with/and support letters, numbers, underscores, hyphens, slashes, and wildcards"
+	},
+	"mphpqlv": {
+		"zh-cn": "路由路径格式错误，支持字母、数字、下划线、中划线、斜杠、通配符",
+		"en": "The routing path format is incorrect. It supports letters, numbers, underscores, hyphens, slashes, and wildcards"
+	},
+	"mfpspdw": {
+		"zh-cn": "重定向路径格式错误，支持字母、数字、下划线、中划线、斜杠、通配符",
+		"en": "The redirection path format is incorrect. It supports letters, numbers, underscores, hyphens, slashes, and wildcards"
+	},
+	"iapkppv": {
+		"zh-cn": "组件路径格式错误，支持字母、数字、下划线、中划线、斜杠、通配符",
+		"en": "The component path format is incorrect. It supports letters, numbers, underscores, hyphens, slashes, and wildcards"
+	},
+	"1b4i4pv": {
+		"zh-cn": "接口路径格式错误，支持字母、数字、下划线、中划线、斜杠、通配符",
+		"en": "The interface path format is incorrect. It supports letters, numbers, underscores, hyphens, slashes, and wildcards"
+	},
+	"swtryaq": {
+		"zh-cn": "请输入路由路径（如：permission/user）",
+		"en": "Please enter the routing path (e.g., permission/user)"
+	},
+	"p9ynzp1b": {
+		"zh-cn": " 支持字母、数字、下划线、中划线、斜杠，如：user/list、user-info/list ",
+		"en": "Supports letters, numbers, underscores, hyphens, and slashes, such as: user/list, user-info/list"
+	},
+	"vr7t511": {
+		"zh-cn": "请输入组件路径（如：views/permission/user/User）",
+		"en": "Please enter the path components (such as: views/permission/user/user)"
+	},
+	"q3d0ffi": {
+		"zh-cn": "支持字母、数字、下划线、中划线、斜杠",
+		"en": "Supports letters, numbers, underscores, hyphens and slashes"
+	},
+	"xqye9er": {
+		"zh-cn": "请输入重定向路径（如：permission/user）",
+		"en": "Please enter the redirection path (e.g., permission/user)"
+	},
+	"rcz54au": {
+		"zh-cn": " 目录的默认跳转路径，支持字母、数字、下划线、中划线、斜杠 ",
+		"en": "The default jump path of the directory supports letters, numbers, underscores, hyphens, and slashes"
+	},
+	"sq32kkt": {
+		"zh-cn": " 格式：模块:资源:操作，支持字母、数字、下划线、中划线 ",
+		"en": "Format: Module: Resource: Operation, supporting letters, numbers, underscores, and hyphens"
+	},
+	"lsdkaky": {
+		"zh-cn": "请输入接口路径（如：user/add 或 dict/type/**）",
+		"en": "Please enter the interface path (such as: user/add or dict/type/**)"
+	},
+	"fl243cs": {
+		"zh-cn": " 支持字母、数字、下划线、中划线、斜杠、通配符（**） ",
+		"en": "Supports letters, numbers, underscores, hyphens, slashes, and wildcards (**)"
 	}
 }

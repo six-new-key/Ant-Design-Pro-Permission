@@ -23,7 +23,7 @@ export function addIpBlacklist(data) {
 // 修改IP黑名单
 export function updateIpBlacklist(data) {
   return request({
-    url: `${PREFIX}/update`,
+    url: `${PREFIX}/edit`,
     method: 'PUT',
     data
   })

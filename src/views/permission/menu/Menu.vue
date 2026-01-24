@@ -177,9 +177,9 @@
              </a-col>
              <a-col :span="12">
                 <a-form-item label="路由路径" name="path">
-                  <a-input v-model:value="menuForm.path" placeholder="请输入路由路径（如：/permission/user）" />
+                  <a-input v-model:value="menuForm.path" placeholder="请输入路由路径（如：permission/user）" />
                   <div style="font-size: 12px; color: #999; margin-top: 4px;">
-                    必须以/开头，如：/permission/user
+                    支持字母、数字、下划线、中划线、斜杠，如：user/list、user-info/list
                   </div>
                 </a-form-item>
              </a-col>
@@ -208,12 +208,12 @@
                 <a-form-item label="组件路径" name="component">
                   <a-input 
                     v-model:value="menuForm.component" 
-                    :placeholder="menuForm.type === 0 ? 'LayoutManager（固定值）' : '请输入组件路径（如：/views/permission/user/User）'" 
+                    :placeholder="menuForm.type === 0 ? 'LayoutManager（固定值）' : '请输入组件路径（如：views/permission/user/User）'" 
                     :disabled="menuForm.type === 0"
                   />
                   <div style="font-size: 12px; color: #999; margin-top: 4px;">
                     <span v-if="menuForm.type === 0">目录固定为 LayoutManager，用于包裹子菜单</span>
-                    <span v-else>相对于 src/views 的路径，如：/views/permission/user/User</span>
+                    <span v-else>支持字母、数字、下划线、中划线、斜杠</span>
                   </div>
                 </a-form-item>
              </a-col>
@@ -222,9 +222,9 @@
           <a-row :gutter="24" v-if="menuForm.type === 0">
              <a-col :span="12">
                 <a-form-item label="重定向路径" name="redirect">
-                  <a-input v-model:value="menuForm.redirect" placeholder="请输入重定向路径（如：/permission/user）" />
+                  <a-input v-model:value="menuForm.redirect" placeholder="请输入重定向路径（如：permission/user）" />
                   <div style="font-size: 12px; color: #999; margin-top: 4px;">
-                    目录的默认跳转路径，通常指向第一个子菜单
+                    目录的默认跳转路径，支持字母、数字、下划线、中划线、斜杠
                   </div>
                 </a-form-item>
              </a-col>
@@ -254,15 +254,15 @@
                 <a-form-item label="权限标识" name="permission">
                   <a-input v-model:value="menuForm.permission" placeholder="请输入权限标识（如：permission:user:add）" />
                   <div style="font-size: 12px; color: #999; margin-top: 4px;">
-                    格式：模块:资源:操作，如：permission:user:add
+                    格式：模块:资源:操作，支持字母、数字、下划线、中划线
                   </div>
                 </a-form-item>
              </a-col>
              <a-col :span="12">
                 <a-form-item label="接口路径" name="apiPath">
-                  <a-input v-model:value="menuForm.apiPath" placeholder="请输入接口路径（如：/user/add）" />
+                  <a-input v-model:value="menuForm.apiPath" placeholder="请输入接口路径（如：user/add 或 dict/type/**）" />
                   <div style="font-size: 12px; color: #999; margin-top: 4px;">
-                    后端接口路径，用于权限校验
+                    支持字母、数字、下划线、中划线、斜杠、通配符（**）
                   </div>
                 </a-form-item>
              </a-col>
@@ -438,6 +438,13 @@ const columns = [
     ellipsis: true
   },
   {
+    title: '接口路径',
+    dataIndex: 'apiPath',
+    key: 'apiPath',
+    width: 180,
+    ellipsis: true
+  },
+  {
     title: '排序',
     dataIndex: 'sort',
     key: 'sort',
@@ -475,6 +482,14 @@ const getMenuFormRules = () => {
     ]
   }
   
+  // 路径验证规则：支持字母、数字、下划线、中划线、斜杠、通配符
+  // 示例：xxx/xxx、xxx-xx/xxx、xxx_xx/xxx/xxx-x、xxxx/xxx/**
+  const pathPattern = /^[a-zA-Z0-9_\-/]+(\*\*)?$/
+  
+  // 权限标识验证规则：支持字母、数字、下划线、中划线，用冒号分隔
+  // 示例：xxx:xx-xx:xxx、xx_xx:xxx:xxx
+  const permissionPattern = /^[a-zA-Z0-9_\-]+:[a-zA-Z0-9_\-]+:[a-zA-Z0-9_\-]+$/
+  
   // 根据菜单类型动态添加规则
   if (menuForm.type === 0) {
     // 目录：需要路由名称、路由路径、重定向，组件路径固定为 LayoutManager
@@ -486,14 +501,14 @@ const getMenuFormRules = () => {
       ],
       path: [
         { required: true, message: '路由路径不能为空', trigger: 'blur' },
-        { pattern: /^\/[a-z0-9\-/]*$/, message: '路由路径必须以/开头，只能包含小写字母、数字、-和/', trigger: 'blur' }
+        { pattern: pathPattern, message: '路由路径格式错误，支持字母、数字、下划线、中划线、斜杠、通配符', trigger: 'blur' }
       ],
       component: [
         { required: true, message: '组件路径不能为空', trigger: 'blur' },
         { pattern: /^LayoutManager$/, message: '目录的组件路径必须为 LayoutManager', trigger: 'blur' }
       ],
       redirect: [
-        { pattern: /^\/[a-z0-9\-/]*$/, message: '重定向路径必须以/开头', trigger: 'blur' }
+        { pattern: pathPattern, message: '重定向路径格式错误，支持字母、数字、下划线、中划线、斜杠、通配符', trigger: 'blur' }
       ]
     }
   } else if (menuForm.type === 1) {
@@ -506,10 +521,11 @@ const getMenuFormRules = () => {
       ],
       path: [
         { required: true, message: '路由路径不能为空', trigger: 'blur' },
-        { pattern: /^\/[a-z0-9\-/]*$/, message: '路由路径必须以/开头，只能包含小写字母、数字、-和/', trigger: 'blur' }
+        { pattern: pathPattern, message: '路由路径格式错误，支持字母、数字、下划线、中划线、斜杠、通配符', trigger: 'blur' }
       ],
       component: [
-        { required: true, message: '组件路径不能为空', trigger: 'blur' }
+        { required: true, message: '组件路径不能为空', trigger: 'blur' },
+        { pattern: pathPattern, message: '组件路径格式错误，支持字母、数字、下划线、中划线、斜杠、通配符', trigger: 'blur' }
       ]
     }
   } else if (menuForm.type === 2) {
@@ -518,11 +534,11 @@ const getMenuFormRules = () => {
       ...baseRules,
       permission: [
         { required: true, message: '权限标识不能为空', trigger: 'blur' },
-        { pattern: /^[a-z]+:[a-z]+:[a-z]+$/, message: '权限标识格式：模块:资源:操作（如 permission:user:add）', trigger: 'blur' }
+        { pattern: permissionPattern, message: '权限标识格式：模块:资源:操作，支持字母、数字、下划线、中划线', trigger: 'blur' }
       ],
       apiPath: [
         { required: true, message: '接口路径不能为空', trigger: 'blur' },
-        { pattern: /^\/[a-zA-Z0-9\-_/]*$/, message: '接口路径格式不正确，必须以/开头', trigger: 'blur' }
+        { pattern: pathPattern, message: '接口路径格式错误，支持字母、数字、下划线、中划线、斜杠、通配符', trigger: 'blur' }
       ]
     }
   }

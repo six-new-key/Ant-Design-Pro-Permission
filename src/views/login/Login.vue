@@ -340,7 +340,7 @@ const preloadBackgroundImages = async () => {
 
 // 登录表单数据
 const formData = reactive({
-  userName: 'swx',
+  userName: 'admin',
   password: '123456',
   captcha: false,
   remember: false,

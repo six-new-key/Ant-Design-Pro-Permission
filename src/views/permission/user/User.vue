@@ -629,7 +629,7 @@ const removeRole = (role) => {
 
 const handleSaveRoles = async () => {
   roleSubmitLoading.value = true
-  const response = await saveUserRoles(currentUser.value.userName, selectedRoles.value)
+  const response = await saveUserRoles(currentUser.value.id, selectedRoles.value)
   if (response.code === 200) {
     Message.success('角色分配成功')
     roleDialogVisible.value = false

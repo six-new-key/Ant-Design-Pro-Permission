@@ -95,10 +95,10 @@ export function queryUserRoles(userId) {
 }
 
 // 保存分配的用户角色
-export function saveUserRoles(username, roles) {
+export const saveUserRoles = (userId, roles) => {
   return request({
-    url: `${PREFIX}/save/roles/${username}`,
-    method: 'POST',
+    url: `/user/save/roles/${userId}`,
+    method: 'post',
     data: roles
   })
 }

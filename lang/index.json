@@ -3830,5 +3830,81 @@
 	"fl243cs": {
 		"zh-cn": " 支持字母、数字、下划线、中划线、斜杠、通配符（**） ",
 		"en": "Supports letters, numbers, underscores, hyphens, slashes, and wildcards (**)"
+	},
+	"gt0k2": {
+		"zh-cn": "性别",
+		"en": "Gender"
+	},
+	"fm6z2": {
+		"zh-cn": "头像",
+		"en": "Avatar"
+	},
+	"n5j1": {
+		"zh-cn": "男",
+		"en": "male"
+	},
+	"ho31": {
+		"zh-cn": "女",
+		"en": "female"
+	},
+	"a6da7l4": {
+		"zh-cn": "上传头像",
+		"en": "Upload your avatar"
+	},
+	"dx7h5jt": {
+		"zh-cn": " 支持 JPG、PNG、GIF 格式，大小不超过 2MB ",
+		"en": "Supports JPG, PNG and GIF formats, with a size not exceeding 2MB"
+	},
+	"dz3hds9": {
+		"zh-cn": "只能上传图片文件!",
+		"en": "Only image files can be uploaded!"
+	},
+	"5jppvbd": {
+		"zh-cn": "图片大小不能超过 2MB!",
+		"en": "The size of the picture cannot exceed 2MB!"
+	},
+	"dgsidc6": {
+		"zh-cn": "头像上传成功",
+		"en": "The avatar has been uploaded successfully."
+	},
+	"dgtp4r6": {
+		"zh-cn": "头像上传失败",
+		"en": "The avatar upload failed."
+	},
+	"cz5v88a": {
+		"zh-cn": "头像上传失败，请重试",
+		"en": "The avatar upload failed. Please try again"
+	},
+	"2elmsl5": {
+		"zh-cn": "请选择性别",
+		"en": "Please select gender"
+	},
+	"f6yl804": {
+		"zh-cn": "用户编号",
+		"en": "User Number"
+	},
+	"xa457a5": {
+		"zh-cn": "隐藏搜索栏",
+		"en": "Hide the search bar"
+	},
+	"apfnxv5": {
+		"zh-cn": "显示搜索栏",
+		"en": "Display the search bar"
+	},
+	"krzgot5": {
+		"zh-cn": "列显示设置",
+		"en": "Column display Settings"
+	},
+	"e0dvr6": {
+		"zh-cn": " 分配角色 ",
+		"en": "Assign roles"
+	},
+	"xfyi6c6": {
+		"zh-cn": " 重置密码 ",
+		"en": "Reset password"
+	},
+	"cwjbf86": {
+		"zh-cn": " 踢人下线 ",
+		"en": "Kick someone and log off"
 	}
 }

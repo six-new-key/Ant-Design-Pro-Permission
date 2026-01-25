@@ -73,25 +73,31 @@ onMounted(() => {
 }
 
 ::-webkit-scrollbar {
-  width: 4px !important;
-  height: 0 !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/*滚动条轨道*/
+::-webkit-scrollbar-track {
+  background: v-bind('appStore.themeMode === "dark" ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.05)"') !important;
+  border-radius: 4px;
 }
 
 /*滚动条的滑块按钮*/
 ::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background: v-bind('appStore.themeMode === "dark" || appStore.sidebarTheme === "dark" ? "rgba(255, 255, 255, 0.1)" : "#e7e7e7"') !important;
+  border-radius: 4px;
+  background: v-bind('appStore.themeMode === "dark" ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.25)"') !important;
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: v-bind('appStore.themeMode === "dark" || appStore.sidebarTheme === "dark" ? "rgba(255, 255, 255, 0.3)" : "#d3d3d3"') !important;
+  background-color: v-bind('appStore.themeMode === "dark" ? "rgba(255, 255, 255, 0.3)" : "rgba(0, 0, 0, 0.4)"') !important;
 }
 
 /*滚动条的上下两端的按钮*/
 ::-webkit-scrollbar-button {
   height: 0px;
-  width: 0;
+  width: 0px;
 }
 </style>

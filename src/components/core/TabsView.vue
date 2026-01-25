@@ -384,9 +384,10 @@ const handleTabClick = (tab) => {
 
 // 滚动到激活的页签
 const scrollToActiveTab = () => {
-  if (!tabsScrollArea.value || !tabsList.value) return
+  if (!tabsScrollArea.value) return
 
-  const activeTabElement = tabsList.value.querySelector('.tab-item.active')
+  // 直接在滚动容器中查询激活的页签（不使用 tabsList ref）
+  const activeTabElement = tabsScrollArea.value.querySelector('.tab-item.active')
   if (!activeTabElement) return
 
   const scrollContainer = tabsScrollArea.value

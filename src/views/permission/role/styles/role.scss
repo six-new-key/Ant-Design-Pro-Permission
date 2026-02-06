@@ -1,0 +1,73 @@
+/* 搜索栏过渡动画 */
+.search-slide-enter-active,
+.search-slide-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-slide-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}
+
+.search-slide-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+}
+
+.search-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+}
+
+.search-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}
+
+.search-card {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-form-left {
+  flex: 1;
+}
+
+.search-form-right {
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.table-header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.warning-text {
+  color: var(--color-warning);
+}
+
+.warning-text:hover {
+  color: var(--color-warning);
+  opacity: 0.8;
+}
+
+.success-text {
+  color: var(--color-success);
+}
+
+.success-text:hover {
+  color: var(--color-success);
+  opacity: 0.8;
+}

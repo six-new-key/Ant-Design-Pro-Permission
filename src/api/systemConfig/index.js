@@ -13,6 +13,17 @@ export function getSystemConfigList() {
 }
 
 /**
+ * 新增配置
+ */
+export function addSystemConfig(data) {
+  return request({
+    url: `${PREFIX}/add`,
+    method: 'POST',
+    data
+  })
+}
+
+/**
  * 修改配置值
  */
 export function updateSystemConfig(data) {
@@ -24,18 +35,21 @@ export function updateSystemConfig(data) {
 }
 
 /**
+ * 删除配置
+ */
+export function deleteSystemConfig(id) {
+  return request({
+    url: `${PREFIX}/delete/${id}`,
+    method: 'DELETE'
+  })
+}
+
+/**
  * 刷新缓存
  */
 export function refreshSystemConfigCache() {
   return request({
     url: `${PREFIX}/refresh-cache`,
     method: 'POST'
-  })
-}
-
-export function updateIpBlacklistEnabled(enabled) {
-  return updateSystemConfig({
-    configKey: 'ip_blacklist_enabled',
-    configValue: enabled ? 'true' : 'false'
   })
 }

@@ -3,35 +3,14 @@ import {request} from "@/utils";
 //请求前缀
 const PREFIX = "/user";
 
-export function login(data) {
-  return request({
-    //模板字符串拼接参数
-    url: `${PREFIX}/login`,
-    method: "POST",
-    data: data,
-  });
-}
-
-export function refreshToken() {
-  return request({
-    url: `${PREFIX}/refresh`,
-    method: "POST",
-  });
-}
-
+/**
+ * 获取当前用户信息
+ * @returns {Promise}
+ */
 export function querySelf() {
   return request({
-    //模板字符串拼接参数
     url: `${PREFIX}/info`,
-    method: "POST"
-  });
-}
-
-export function logout() {
-  return request({
-    //模板字符串拼接参数
-    url: `${PREFIX}/logout`,
-    method: "POST"
+    method: "GET"
   });
 }
 
@@ -56,7 +35,7 @@ export function updateUser(data) {
 // 修改用户状态
 export function updateUserStatus(id) {
   return request({
-    url: `${PREFIX}/edit/status/${id}`,
+    url: `${PREFIX}/status/${id}`,
     method: 'PUT'
   })
 }
@@ -64,17 +43,22 @@ export function updateUserStatus(id) {
 // 批量删除用户
 export function batchDeleteUser(ids) {
   return request({
-    url: `${PREFIX}/batch/remove/${ids.join(',')}`,
-    method: 'DELETE'
+    url: `${PREFIX}/batch/remove`,
+    method: 'DELETE',
+    data: ids
   })
 }
 
 // 分页查询用户数据
 export function queryUserList(pageNo, pageSize, userDto = {}) {
   return request({
-    url: `${PREFIX}/list/${pageNo}/${pageSize}`,
+    url: `${PREFIX}/list`,
     method: 'GET',
-    params: userDto
+    params: {
+      pageNo,
+      pageSize,
+      ...userDto
+    }
   })
 }
 
@@ -95,27 +79,27 @@ export function queryUserRoles(userId) {
 }
 
 // 保存分配的用户角色
-export const saveUserRoles = (userId, roles) => {
+export function saveUserRoles(userId, roles) {
   return request({
-    url: `/user/save/roles/${userId}`,
-    method: 'post',
-    data: roles
+    url: `${PREFIX}/roles/${userId}`,
+    method: 'PUT',
+    data: { roles }
   })
 }
 
 // 重置用户密码
-export function resetUserPassword(data) {
+export function resetUserPassword(id, password) {
   return request({
-    url: `${PREFIX}/reset/pwd`,
-    method: 'POST',
-    data
+    url: `${PREFIX}/password/${id}`,
+    method: 'PUT',
+    data: { password }
   })
 }
 
 // 踢人下线
-export function kickoutUser(userId) {
+export function kickoutUser(id) {
   return request({
-    url: `${PREFIX}/kickout/${userId}`,
+    url: `${PREFIX}/kickout/${id}`,
     method: 'POST'
   })
 }

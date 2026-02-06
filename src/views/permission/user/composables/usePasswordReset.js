@@ -54,17 +54,19 @@ export function usePasswordReset() {
    */
   const handlePasswordSubmit = () => {
     passwordFormRef.value.validate().then(async () => {
-      passwordSubmitLoading.value = true
-      const response = await resetUserPassword({
-        id: currentUser.value.id,
-        password: passwordForm.newPassword
-      })
+      try {
+        passwordSubmitLoading.value = true
+        const response = await resetUserPassword(currentUser.value.id, passwordForm.newPassword)
 
-      if (response.code === 200) {
-        Message.success('密码重置成功')
-        passwordDialogVisible.value = false
+        if (response.code === 200) {
+          Message.success('密码重置成功')
+          passwordDialogVisible.value = false
+        }
+      } catch (error) {
+        // 错误已由axios拦截器处理
+      } finally {
+        passwordSubmitLoading.value = false
       }
-      passwordSubmitLoading.value = false
     }).catch(() => {
       // validation failed
     })

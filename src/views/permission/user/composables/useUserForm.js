@@ -21,8 +21,7 @@ export function useUserForm(fetchUserList) {
     password: '',
     confirmPassword: '',
     gender: 0,
-    avatar: '',
-    status: 1
+    avatar: ''
   })
 
   // 头像上传配置
@@ -117,8 +116,7 @@ export function useUserForm(fetchUserList) {
       password: '',
       confirmPassword: '',
       gender: 0,
-      avatar: '',
-      status: 1
+      avatar: ''
     })
   }
 
@@ -149,17 +147,24 @@ export function useUserForm(fetchUserList) {
   const handleUserSubmit = () => {
     userFormRef.value.validate().then(async () => {
       submitLoading.value = true
-      const apiMethod = isEdit.value ? updateUser : addUser
-      const response = await apiMethod(userForm)
+      try {
+        const apiMethod = isEdit.value ? updateUser : addUser
+        const response = await apiMethod(userForm)
 
-      if (response.code === 200) {
-        Message.success(`${isEdit.value ? '更新' : '创建'}成功`)
-        userDialogVisible.value = false
-        fetchUserList()
+        if (response.code === 200) {
+          Message.success(`${isEdit.value ? '更新' : '创建'}成功`)
+          userDialogVisible.value = false
+          fetchUserList()
+        }
+      } catch (error) {
+        // 接口调用失败，错误已在 axios 拦截器中处理
+        console.error('用户操作失败:', error)
+      } finally {
+        submitLoading.value = false
       }
-      submitLoading.value = false
     }).catch(() => {
-      // validation failed
+      // 表单验证失败
+      submitLoading.value = false
     })
   }
 

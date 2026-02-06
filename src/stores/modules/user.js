@@ -6,9 +6,8 @@ import router from "@/router";
 import { constantRoutes } from "@/router/routes";
 import { HOME_PATH, LOGIN_PATH } from '@/constants/routes'
 
-// 动态导入组件映射
-const modules = import.meta.glob('@/views/**/*.vue')
-const LayoutManager = () => import('@/layouts/LayoutManager.vue')
+// 动态导入所有组件
+const modules = import.meta.glob('/src/**/*.vue')
 
 export const useUserStore = defineStore(
   "user",
@@ -16,15 +15,13 @@ export const useUserStore = defineStore(
     const userData = ref(null);
     const menuRoutes = ref(constantRoutes);
     const permissions = ref([]);
-    const hasAddedRoutes = ref(false); // 标记动态路由是否已添加（不持久化）
+    const hasAddedRoutes = ref(false);
 
     // 登录方法
     const handleLogin = async (data) => {
       try {
-        // 调用登录接口
         const res = await login(data);
         if (res.code === 200) {
-          // 使用认证工具类保存 Token
           const tokenData = res.data;
           AuthUtils.setTokens(tokenData);
           return true;
@@ -32,40 +29,12 @@ export const useUserStore = defineStore(
           return false;
         }
       } catch (error) {
-        // 抛出错误，让调用方处理（包含错误码）
         throw error;
       }
     };
 
     /**
-     * 解析组件路径
-     * @param {string} componentPath - 组件路径
-     * @returns {Function} 组件加载函数
-     */
-    const resolveComponent = (componentPath) => {
-      if (!componentPath) return null
-      
-      // 处理 LayoutManager
-      if (componentPath === 'LayoutManager') {
-        return LayoutManager
-      }
-      
-      // 处理普通组件（如 "/permission/user/User"）
-      const fullPath = `/src${componentPath}.vue`
-      const component = modules[fullPath]
-      
-      if (!component) {
-        console.warn(`组件未找到: ${fullPath}`)
-        return null
-      }
-      
-      return component
-    }
-
-    /**
-     * 递归处理路由配置
-     * @param {Array} routes - 后端返回的路由配置
-     * @returns {Array} 处理后的路由配置
+     * 递归处理路由配置，动态加载组件
      */
     const processRoutes = (routes) => {
       if (!routes || routes.length === 0) return []
@@ -74,8 +43,26 @@ export const useUserStore = defineStore(
         const processedRoute = {
           path: route.path,
           name: route.name,
-          component: resolveComponent(route.component),
           meta: route.meta || {}
+        }
+        
+        // 处理组件加载
+        if (route.meta?.isIframe) {
+          // iframe 类型：使用 IframeView 组件
+          const iframeComponent = modules['/src/components/core/IframeView.vue']
+          if (iframeComponent) {
+            processedRoute.component = iframeComponent
+          } else {
+            console.warn('IframeView 组件未找到')
+          }
+        } else if (route.component) {
+          // 普通组件：动态加载（后端已返回完整路径，目录类型没有 component）
+          const component = modules[route.component]
+          if (component) {
+            processedRoute.component = component
+          } else {
+            console.warn(`组件未找到: ${route.component}`)
+          }
         }
         
         if (route.redirect) {
@@ -90,7 +77,7 @@ export const useUserStore = defineStore(
       })
     }
 
-    //获取用户信息
+    // 获取用户信息
     const getUserInfo = async () => {
       try {
         const res = await querySelf();
@@ -104,14 +91,26 @@ export const useUserStore = defineStore(
           permissions.value = userPermissions || [];
 
           if (routes && routes.length > 0) {
-            // 递归处理后端返回的路由配置
-            const userAsyncRoutes = processRoutes(routes)
+            // 处理后端返回的路由配置
+            const processedRoutes = processRoutes(routes)
 
-            // 构建菜单路由
-            menuRoutes.value = [...constantRoutes, ...userAsyncRoutes]
+            // 包裹 LayoutManager 父路由（不显示在菜单中）
+            const layoutRoute = {
+              path: '/',
+              name: 'Layout',
+              component: modules['/src/layouts/LayoutManager.vue'],
+              redirect: processedRoutes[0]?.path || '/dashboard',
+              meta: {
+                hidden: true  // 隐藏，不在菜单中显示
+              },
+              children: processedRoutes
+            }
+
+            // 构建菜单路由（只显示子路由）
+            menuRoutes.value = [...constantRoutes, ...processedRoutes]
 
             // 动态添加路由
-            userAsyncRoutes.forEach(route => router.addRoute(route))
+            router.addRoute(layoutRoute)
 
             // 添加 404 路由（必须最后添加）
             router.addRoute({
@@ -125,7 +124,7 @@ export const useUserStore = defineStore(
             })
           }
           
-          // 标记动态路由已添加（无论是否有路由，都标记为已处理）
+          // 标记动态路由已添加
           hasAddedRoutes.value = true
           return "ok";
         } else {
@@ -137,28 +136,20 @@ export const useUserStore = defineStore(
       }
     };
 
-    //退出登录
+    // 退出登录
     const handleLogout = async () => {
       try {
-        // 尝试调用后端登出接口（如果 Token 有效）
         if (AuthUtils.isLoggedIn()) {
           await logout();
         }
       } catch (error) {
-        // 登出接口失败（如 Token 过期）也继续执行本地清理
         console.log("后端登出接口调用失败，继续执行本地清理:", error.message);
       } finally {
-        // 无论后端接口是否成功，都清除本地 Token 和数据
         AuthUtils.removeAllTokens();
         router.push(LOGIN_PATH);
-        
-        // 清除用户数据
         userData.value = null;
-        // 清除权限
         permissions.value = [];
-        // 清除菜单路由
         menuRoutes.value = constantRoutes;
-        // 重置动态路由标记
         hasAddedRoutes.value = false;
       }
     };

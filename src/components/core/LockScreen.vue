@@ -40,7 +40,6 @@ import {ref, onMounted, onUnmounted, nextTick, reactive} from 'vue'
 import {dynamicBgManager, generateThemeColors} from '@/utils'
 import {message} from '@/utils'
 import {useAppStore, useLoginStore, useThemeStore,useUserStore} from '@/stores'
-import {logout} from "@/api";
 
 // Store
 const appStore = useAppStore()

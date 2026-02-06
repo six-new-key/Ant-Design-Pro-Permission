@@ -14,7 +14,7 @@ export function useDict() {
   const fetchDictData = async () => {
     try {
       // 加载用户状态字典
-      const statusRes = await getDictDataByType('user_status')
+      const statusRes = await getDictDataByType('common_status')
       if (statusRes.code === 200) {
         statusDict.value = statusRes.data || []
       }

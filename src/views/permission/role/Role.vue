@@ -1,110 +1,134 @@
 <template>
   <div :style="cssVars">
     <!-- 搜索和操作区域 -->
-    <a-card :bordered="false" class="search-card">
-      <div class="search-form">
-        <div class="search-form-left">
-          <a-form layout="inline" :model="searchForm" ref="searchFormRef">
-            <a-form-item name="name">
-              <a-input v-model:value="searchForm.name" placeholder="请输入角色名称" allow-clear style="width: 200px" />
-            </a-form-item>
-            <a-form-item name="code">
-              <a-input v-model:value="searchForm.code" placeholder="请输入角色编码" allow-clear style="width: 200px" />
-            </a-form-item>
-            <a-form-item name="status">
-              <a-select v-model:value="searchForm.status" placeholder="请选择状态" allow-clear style="width: 200px">
-                <a-select-option value="1">启用</a-select-option>
-                <a-select-option value="0">禁用</a-select-option>
-              </a-select>
-            </a-form-item>
-          </a-form>
+    <transition name="search-slide">
+      <a-card :bordered="false" class="search-card" v-show="searchVisible">
+        <div class="search-form">
+          <div class="search-form-left">
+            <a-form layout="inline" :model="searchForm">
+              <a-form-item name="name">
+                <a-input v-model:value="searchForm.name" placeholder="请输入角色名称" allow-clear style="width: 200px" />
+              </a-form-item>
+              <a-form-item name="code">
+                <a-input v-model:value="searchForm.code" placeholder="请输入角色编码" allow-clear style="width: 200px" />
+              </a-form-item>
+              <a-form-item name="status">
+                <a-select v-model:value="searchForm.status" placeholder="请选择状态" allow-clear style="width: 200px">
+                  <a-select-option v-for="item in statusDict" :key="item.value" :value="item.value">
+                    {{ item.label }}
+                  </a-select-option>
+                </a-select>
+              </a-form-item>
+            </a-form>
+          </div>
+          <div class="search-form-right">
+            <a-space :size="12">
+              <a-button type="primary" @click="handleSearch">
+                <template #icon>
+                  <SearchOutlined />
+                </template>
+                搜索
+              </a-button>
+              <a-button @click="handleReset">
+                <template #icon>
+                  <ReloadOutlined />
+                </template>
+                重置
+              </a-button>
+            </a-space>
+          </div>
         </div>
-        <div class="search-form-right">
-          <a-space>
-            <a-button type="primary" @click="handleSearch">
-              <template #icon>
-                <SearchOutlined />
-              </template>
-              搜索
-            </a-button>
-            <a-button @click="handleReset">
-              <template #icon>
-                <ReloadOutlined />
-              </template>
-              重置
-            </a-button>
-          </a-space>
-        </div>
-      </div>
-    </a-card>
+      </a-card>
+    </transition>
 
     <!-- 数据表格区域 -->
-    <a-card :bordered="false" class="table-card">
+    <a-card :bordered="false">
       <template #title>
         <div class="table-header-actions">
-          <a-button type="primary" @click="handleAdd">
-            <template #icon>
-              <PlusOutlined />
-            </template>
-            新增
-          </a-button>
-          <a-button type="primary" danger :disabled="selectedRowKeys.length === 0" @click="handleBatchDelete">
-            <template #icon>
-              <DeleteOutlined />
-            </template>
-            删除 {{ selectedRowKeys.length > 0 ? `(${selectedRowKeys.length})` : '' }}
-          </a-button>
+          <a-space :size="12">
+            <a-button type="primary" @click="handleAdd">
+              <template #icon>
+                <PlusOutlined />
+              </template>
+              新增
+            </a-button>
+            <a-button type="primary" danger :disabled="selectedRowKeys.length === 0" @click="handleBatchDelete">
+              <template #icon>
+                <DeleteOutlined />
+              </template>
+              删除 {{ selectedRowKeys.length > 0 ? `(${selectedRowKeys.length})` : '' }}
+            </a-button>
+          </a-space>
+
+          <a-space :size="12">
+            <a-tooltip :title="searchVisible ? '隐藏搜索栏' : '显示搜索栏'">
+              <a-button shape="circle" @click="toggleSearch">
+                <template #icon>
+                  <EyeInvisibleOutlined v-if="searchVisible" />
+                  <EyeOutlined v-else />
+                </template>
+              </a-button>
+            </a-tooltip>
+            
+            <a-dropdown>
+              <template #overlay>
+                <a-menu>
+                  <a-menu-item v-for="col in configurableColumns" :key="col.key">
+                    <a-checkbox 
+                      :checked="columnVisibility[col.key]" 
+                      @change="() => toggleColumn(col.key)"
+                    >
+                      {{ col.title }}
+                    </a-checkbox>
+                  </a-menu-item>
+                </a-menu>
+              </template>
+              <a-tooltip title="列显示设置">
+                <a-button shape="circle">
+                  <template #icon>
+                    <SettingOutlined />
+                  </template>
+                </a-button>
+              </a-tooltip>
+            </a-dropdown>
+          </a-space>
         </div>
       </template>
 
       <a-table
-        ref="tableRef"
         :dataSource="tableData"
-        :columns="columns"
+        :columns="visibleColumns"
         :loading="loading"
         :pagination="pagination"
-        :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange, getCheckboxProps: getCheckboxProps }"
+        :row-selection="{ selectedRowKeys, onChange: onSelectChange, getCheckboxProps }"
         row-key="id"
         @change="handleTableChange"
-        :scroll="{ x: 1000, y: tableMaxHeight }"
+        :scroll="{ x: 'max-content', y: tableMaxHeight }"
       >
         <template #bodyCell="{ column, record }">
           <template v-if="column.key === 'status'">
-            <a-tag :color="record.status === 1 ? 'success' : 'error'">
-              {{ record.status === 1 ? '启用' : '禁用' }}
-            </a-tag>
+            <a-switch 
+              :checked="record.status === 1" 
+              :disabled="record.code === 'admin'"
+              checked-children="启用" 
+              un-checked-children="禁用"
+              @change="() => handleToggleStatus(record)"
+            />
           </template>
           <template v-if="column.key === 'operation'">
             <a-space>
-              <a-button type="link" size="small" :disabled="record.id === 1" @click="handleEdit(record)">
-                <template #icon>
-                  <EditOutlined />
-                </template>
+              <a-button type="link" size="small" :disabled="record.code === 'admin'" @click="handleEdit(record)">
                 编辑
               </a-button>
-              <a-popconfirm title="确认删除该角色吗？" @confirm="handleDelete(record)">
-                <a-button type="link" danger size="small" :disabled="record.id === 1">
-                  <template #icon>
-                    <DeleteOutlined />
-                  </template>
-                  删除
-                </a-button>
-              </a-popconfirm>
-              <a-button type="link" size="small" :disabled="record.id === 1" style="color: #52c41a" @click="handleAssignPermission(record)">
-                 <template #icon>
-                  <UserOutlined />
-                 </template>
-                 分配权限
+              <a-button type="link" size="small" :disabled="record.status === 0 || record.code === 'admin'" style="color: #52c41a" @click="handleAssignPermission(record)">
+                数据权限
               </a-button>
-              <a-popconfirm
-                :title="`确定要${record.status === 1 ? '禁用' : '启用'}角色 &quot;${record.name}&quot; 吗？`"
-                @confirm="handleToggleStatus(record)"
-              >
-                <a-button type="link" :class="record.status === 1 ? 'warning-text' : 'success-text'" size="small" :disabled="record.id === 1">
-                   <template #icon>
-                     <component :is="record.status === 1 ? 'PoweroffOutlined' : 'CheckCircleOutlined'" />
-                   </template>
-                   {{ record.status === 1 ? '禁用' : '启用' }}
+              <a-button type="link" size="small" :disabled="record.status === 0 || record.code === 'admin'" style="color: #1890ff" @click="handleAssignUser(record)">
+                分配用户
+              </a-button>
+              <a-popconfirm title="确认删除该角色吗？" @confirm="handleDelete(record)">
+                <a-button type="link" danger size="small" :disabled="record.code === 'admin'">
+                  删除
                 </a-button>
               </a-popconfirm>
             </a-space>
@@ -137,17 +161,6 @@
               </a-form-item>
             </a-col>
           </a-row>
-
-          <a-row :gutter="24">
-            <a-col :span="12">
-              <a-form-item label="状态" name="status">
-                <a-radio-group v-model:value="roleForm.status">
-                  <a-radio :value="1">启用</a-radio>
-                  <a-radio :value="0">禁用</a-radio>
-                </a-radio-group>
-              </a-form-item>
-            </a-col>
-          </a-row>
         </a-form>
       </div>
     </a-modal>
@@ -160,33 +173,68 @@
       :rolePermissions="currentRolePermissions"
       @save-success="handlePermissionSaveSuccess"
     />
+
+    <!-- 用户分配抽屉 -->
+    <UserAssignDrawer
+      :visible="assignDrawerVisible"
+      :roleInfo="currentRoleForUser"
+      :dataSource="assignedUsers"
+      :loading="assignedLoading"
+      :selectedRowKeys="assignedSelectedRowKeys"
+      :pagination="assignedPagination"
+      :searchForm="assignedSearchForm"
+      :unassignDisabled="unassignDisabled"
+      :addDrawerVisible="addDrawerVisible"
+      :unassignedUsers="unassignedUsers"
+      :unassignedLoading="unassignedLoading"
+      :unassignedSelectedRowKeys="unassignedSelectedRowKeys"
+      :unassignedPagination="unassignedPagination"
+      :unassignedSearchForm="unassignedSearchForm"
+      :addDisabled="addDisabled"
+      @close="handleCloseAssignDrawer"
+      @search="handleAssignedSearch"
+      @reset="resetAssignedSearch"
+      @selectChange="onAssignedSelectChange"
+      @tableChange="handleAssignedTableChange"
+      @openAdd="handleOpenAddDrawer"
+      @unassign="handleBatchUnassign"
+      @closeAdd="handleCloseAddDrawer"
+      @unassignedSearch="handleUnassignedSearch"
+      @resetUnassigned="resetUnassignedSearch"
+      @unassignedSelectChange="onUnassignedSelectChange"
+      @unassignedTableChange="handleUnassignedTableChange"
+      @confirmAdd="handleBatchAdd"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, onUnmounted, computed } from 'vue'
-import { Modal, theme } from 'ant-design-vue'
+import { computed, onMounted } from 'vue'
+import { theme } from 'ant-design-vue'
 import {
   SearchOutlined,
   ReloadOutlined,
   PlusOutlined,
   DeleteOutlined,
-  EditOutlined,
-  UserOutlined,
-  PoweroffOutlined,
-  CheckCircleOutlined
+  EyeOutlined,
+  EyeInvisibleOutlined,
+  SettingOutlined
 } from '@ant-design/icons-vue'
-import { Message } from '@/utils'
-import {
-  addRole,
-  updateRole,
-  batchDeleteRole,
-  updateRoleStatus,
-  queryRoleListByPage,
-  echoRole
-} from '@/api/role'
-import { queryMenuListWithPermission, queryRoleMenuList } from '@/api/menu'
 import PermissionAssignDialog from '@/components/core/PermissionAssignDialog.vue'
+import UserAssignDrawer from './components/UserAssignDrawer.vue'
+
+// Composables
+import { useDict } from './composables/useDict'
+import { useRoleTable } from './composables/useRoleTable'
+import { useRoleSearch } from './composables/useRoleSearch'
+import { useRoleForm } from './composables/useRoleForm'
+import { useRoleOperations } from './composables/useRoleOperations'
+import { usePermissionAssign } from './composables/usePermissionAssign'
+import { useTableSettings } from './composables/useTableSettings'
+import { useUserAssign } from './composables/useUserAssign'
+
+// Styles
+import './styles/role.scss'
 
 const { useToken } = theme
 const { token } = useToken()
@@ -214,325 +262,125 @@ const cssVars = computed(() => {
   }
 })
 
-// ==================== 响应式数据定义 ====================
-const loading = ref(false)
-const submitLoading = ref(false)
+// ==================== 组合各个功能模块 ====================
 
-const tableData = ref([])
-const selectedRowKeys = ref([])
+// 字典数据
+const {
+  statusDict,
+  fetchDictData
+} = useDict()
 
-const roleDialogVisible = ref(false)
-const permissionDialogVisible = ref(false)
+// 搜索功能（先创建，获取 reactive searchForm）
+const {
+  searchForm,
+  handleSearch,
+  handleReset
+} = useRoleSearch(null, null) // 先传 null，后面通过闭包访问
 
-const isEdit = ref(false)
-const currentRole = ref({})
+// 表格功能（传入 searchForm）
+const {
+  loading,
+  tableData,
+  selectedRowKeys,
+  pagination,
+  columns,
+  tableMaxHeight,
+  fetchRoleList,
+  onSelectChange,
+  getCheckboxProps,
+  handleTableChange
+} = useRoleTable(searchForm)
 
-const allPermissions = ref([])
-const currentRolePermissions = ref([])
+// 更新 useRoleSearch 中的依赖
+handleSearch.fetchRoleList = fetchRoleList
+handleSearch.pagination = pagination
+handleReset.fetchRoleList = fetchRoleList
+handleReset.pagination = pagination
 
-const isFullscreen = ref(false)
+// 表格设置（搜索栏显隐、列显隐）
+const {
+  searchVisible,
+  columnVisibility,
+  toggleSearch,
+  toggleColumn,
+  getVisibleColumns,
+  getConfigurableColumns
+} = useTableSettings(columns)
 
-const roleFormRef = ref()
-const searchFormRef = ref()
+// 获取可见的列
+const visibleColumns = computed(() => getVisibleColumns())
+const configurableColumns = computed(() => getConfigurableColumns())
 
-// ==================== 表单数据定义 ====================
-const searchForm = reactive({
-  name: '',
-  code: '',
-  status: undefined
-})
+// 角色表单
+const {
+  roleDialogVisible,
+  submitLoading,
+  isEdit,
+  roleFormRef,
+  roleForm,
+  roleFormRules,
+  handleAdd,
+  handleEdit,
+  handleRoleSubmit
+} = useRoleForm(fetchRoleList)
 
-const roleForm = reactive({
-  id: null,
-  name: '',
-  code: '',
-  status: 1
-})
+// 角色操作
+const {
+  handleDelete,
+  handleBatchDelete,
+  handleToggleStatus
+} = useRoleOperations(fetchRoleList, selectedRowKeys)
 
-// ==================== 分页配置 ====================
-const pagination = reactive({
-  current: 1,
-  pageSize: 10,
-  total: 0,
-  showSizeChanger: true,
-  showQuickJumper: true,
-  pageSizeOptions: ['10', '20', '50', '100']
-})
+// 权限分配
+const {
+  permissionDialogVisible,
+  currentRole,
+  allPermissions,
+  currentRolePermissions,
+  loadAllPermissions,
+  handleAssignPermission,
+  handlePermissionSaveSuccess
+} = usePermissionAssign(fetchRoleList)
 
-// ==================== 表格列配置 ====================
-const columns = [
-  {
-    title: 'ID',
-    dataIndex: 'id',
-    key: 'id',
-    width: 80,
-    fixed: 'left'
-  },
-  {
-    title: '角色名称',
-    dataIndex: 'name',
-    key: 'name',
-    width: 150
-  },
-  {
-    title: '角色编码',
-    dataIndex: 'code',
-    key: 'code',
-    width: 150
-  },
-  {
-    title: '状态',
-    dataIndex: 'status',
-    key: 'status',
-    width: 100
-  },
-  {
-    title: '创建时间',
-    dataIndex: 'createTime',
-    key: 'createTime',
-    width: 180
-  },
-  {
-    title: '操作',
-    key: 'operation',
-    width: 280,
-    fixed: 'right'
-  }
-]
+// 用户分配
+const {
+  assignDrawerVisible,
+  currentRole: currentRoleForUser,
+  assignedUsers,
+  assignedLoading,
+  assignedSelectedRowKeys,
+  assignedPagination,
+  assignedSearchForm,
+  handleAssignUser,
+  fetchAssignedUsers,
+  handleAssignedSearch,
+  resetAssignedSearch,
+  handleAssignedTableChange,
+  onAssignedSelectChange,
+  handleCloseAssignDrawer,
+  addDrawerVisible,
+  unassignedUsers,
+  unassignedLoading,
+  unassignedSelectedRowKeys,
+  unassignedPagination,
+  unassignedSearchForm,
+  handleOpenAddDrawer,
+  fetchUnassignedUsers,
+  handleUnassignedSearch,
+  resetUnassignedSearch,
+  handleUnassignedTableChange,
+  onUnassignedSelectChange,
+  handleCloseAddDrawer,
+  handleBatchAdd,
+  handleBatchUnassign,
+  unassignDisabled,
+  addDisabled
+} = useUserAssign(fetchRoleList)
 
-// ==================== 表单验证规则 ====================
-const roleFormRules = {
-  name: [
-    { required: true, message: '角色名称不能为空', trigger: 'blur' },
-    { min: 2, max: 20, message: '角色名称长度为2-20个字符', trigger: 'blur' }
-  ],
-  code: [
-    { required: true, message: '角色编码不能为空', trigger: 'blur' },
-    { min: 2, max: 20, message: '角色编码长度为2-20个字符', trigger: 'blur' }
-  ]
-}
-
-// ==================== 计算属性 ====================
-const tableMaxHeight = computed(() => {
-  return isFullscreen.value ? undefined : '420px'
-})
-
-// ==================== 业务方法定义 ====================
-/**
- * 加载所有权限数据
- */
-const loadAllPermissions = async () => {
-  try {
-    const response = await queryMenuListWithPermission()
-    if (response.code === 200) {
-      allPermissions.value = response.data || []
-    }
-  } catch (error) {
-    console.error('加载权限数据失败:', error)
-    Message.error('加载权限数据失败')
-  }
-}
-
-const fetchRoleList = async () => {
-  loading.value = true
-  const params = {
-    name: searchForm.name ? searchForm.name.trim() : '',
-    code: searchForm.code ? searchForm.code.trim() : '',
-    status: searchForm.status !== undefined ? Number(searchForm.status) : null
-  }
-
-  const response = await queryRoleListByPage(pagination.current, pagination.pageSize, params)
-  if (response.code === 200 && response.data !== null) {
-    tableData.value = response.data.data || []
-    pagination.total = response.data.total || 0
-  }
-  loading.value = false
-}
-
-const handleSearch = () => {
-  pagination.current = 1
-  fetchRoleList()
-}
-
-const handleReset = () => {
-  searchForm.name = ''
-  searchForm.code = ''
-  searchForm.status = undefined
-  pagination.current = 1
-  fetchRoleList()
-}
-
-const handleAdd = () => {
-  isEdit.value = false
-  resetRoleForm()
-  roleDialogVisible.value = true
-}
-
-const handleEdit = async (record) => {
-  isEdit.value = true
-  const response = await echoRole(record.id)
-  if (response.code === 200) {
-    Object.assign(roleForm, response.data)
-    roleDialogVisible.value = true
-  }
-}
-
-const handleDelete = async (record) => {
-  const response = await batchDeleteRole([record.id])
-  if (response.code === 200) {
-    Message.success('删除成功')
-    fetchRoleList()
-  }
-}
-
-const handleBatchDelete = () => {
-  if (selectedRowKeys.value.length === 0) {
-    Message.warning('请选择要删除的角色')
-    return
-  }
-
-  Modal.confirm({
-    title: '确认批量删除',
-    content: `确定要删除选中的 ${selectedRowKeys.value.length} 个角色吗？此操作不可撤销。`,
-    okText: '确定删除',
-    cancelText: '取消',
-    okType: 'danger',
-    centered: true,
-    onOk: async () => {
-      const response = await batchDeleteRole(selectedRowKeys.value)
-      if (response.code === 200) {
-        Message.success('批量删除成功')
-        selectedRowKeys.value = []
-        fetchRoleList()
-      }
-    }
-  })
-}
-
-const handleToggleStatus = async (record) => {
-  const action = record.status === 1 ? '禁用' : '启用'
-  // Note: Confirmation is handled by a-popconfirm in the template
-  const response = await updateRoleStatus(record.id)
-  if (response.code === 200) {
-    Message.success(`${action}成功`)
-    fetchRoleList()
-  }
-}
-
-const handleAssignPermission = async (record) => {
-  try {
-    currentRole.value = record
-    const response = await queryRoleMenuList(record.id)
-    if (response.code === 200) {
-      currentRolePermissions.value = response.data || []
-      permissionDialogVisible.value = true
-    }
-  } catch (error) {
-    console.error('获取角色权限数据失败:', error)
-    Message.error('获取角色权限数据失败')
-  }
-}
-
-const handlePermissionSaveSuccess = () => {
-  fetchRoleList()
-}
-
-const handleRoleSubmit = () => {
-  roleFormRef.value.validate().then(async () => {
-    submitLoading.value = true
-    const apiMethod = isEdit.value ? updateRole : addRole
-    const response = await apiMethod(roleForm)
-
-    if (response.code === 200) {
-      Message.success(`${isEdit.value ? '更新' : '创建'}成功`)
-      roleDialogVisible.value = false
-      fetchRoleList()
-    }
-    submitLoading.value = false
-  }).catch(() => {
-    // validation failed
-  })
-}
-
-const resetRoleForm = () => {
-  Object.assign(roleForm, {
-    id: null,
-    name: '',
-    code: '',
-    status: 1
-  })
-}
-
-const onSelectChange = (keys) => {
-  selectedRowKeys.value = keys
-}
-
-const getCheckboxProps = (record) => ({
-  disabled: record.id === 1,
-})
-
-const handleTableChange = (pag) => {
-  pagination.current = pag.current
-  pagination.pageSize = pag.pageSize
-  fetchRoleList()
-}
-
-const handleFullscreenChange = () => {
-  isFullscreen.value = !!document.fullscreenElement
-}
-
+// ==================== 初始化 ====================
 onMounted(() => {
-  Promise.all([
-    fetchRoleList(),
-    loadAllPermissions()
-  ])
-
-  document.addEventListener('fullscreenchange', handleFullscreenChange)
-  isFullscreen.value = !!document.fullscreenElement
-})
-
-onUnmounted(() => {
-  document.removeEventListener('fullscreenchange', handleFullscreenChange)
+  fetchDictData()
+  fetchRoleList()
+  loadAllPermissions()
 })
 </script>
-
-<style scoped lang="scss">
-.search-card {
-  margin-bottom: 20px;
-}
-
-.search-form {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.search-form-left {
-  flex: 1;
-}
-
-.search-form-right {
-  flex-shrink: 0;
-}
-
-.table-header-actions {
-  display: flex;
-  justify-content: space-between;
-}
-
-.warning-text {
-  color: var(--color-warning);
-}
-.warning-text:hover {
-  color: var(--color-warning);
-  opacity: 0.8;
-}
-
-.success-text {
-  color: var(--color-success);
-}
-.success-text:hover {
-  color: var(--color-success);
-  opacity: 0.8;
-}
-</style>

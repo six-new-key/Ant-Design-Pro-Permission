@@ -1,5 +1,6 @@
 package com.universal.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.RedisCallback;
@@ -12,6 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 @Component
 public class RedisUtils {
 
@@ -151,6 +153,21 @@ public class RedisUtils {
      */
     public static Long getExpire(String key) {
         return redisTemplate.getExpire(key, TimeUnit.SECONDS);
+    }
+
+    /**
+     * 根据模式删除缓存
+     * 使用SCAN命令安全地删除匹配的keys
+     *
+     * @param pattern 匹配模式，如：user:route:*
+     * @return 删除的key数量
+     */
+    public static Long deleteByPattern(String pattern) {
+        Set<String> keys = scanKeys(pattern);
+        if (keys != null && !keys.isEmpty()) {
+            return delete(keys);
+        }
+        return 0L;
     }
 }
 

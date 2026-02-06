@@ -1,0 +1,11 @@
+.add-form{
+  padding: 10px 20px;
+
+  :where(.ant-form-item .ant-form-item-control-input){
+    width: 250px;
+  }
+}
+
+.edit-form{
+  padding: 20px 0 0 20px;
+}

@@ -3,55 +3,12 @@
     <!-- 侧边菜单 -->
     <a-menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" mode="inline" :theme="appStore.sidebarTheme"
       class="side-menu">
-      <template v-for="route in visibleRoutes" :key="route.path">
-        <!-- 有子菜单的情况 -->
-        <a-sub-menu v-if="route.children && route.children.length > 0" :key="route.path">
-          <template #icon>
-            <component :is="route.meta?.icon" v-if="route.meta?.icon" />
-          </template>
-          <template #title>{{ route.meta?.title || route.name }}</template>
-
-          <template v-for="child in route.children" :key="child.path">
-            <!-- 二级菜单有子菜单 (三级) -->
-            <a-sub-menu v-if="child.children && child.children.length > 0" :key="child.path">
-              <template #icon>
-                <component :is="child.meta?.icon" v-if="child.meta?.icon" />
-              </template>
-              <template #title>{{ child.meta?.title || child.name }}</template>
-
-              <!-- 三级菜单 -->
-              <a-menu-item v-for="grandChild in child.children" :key="grandChild.path">
-                <template #icon>
-                  <component :is="grandChild.meta?.icon" v-if="grandChild.meta?.icon" />
-                </template>
-                <router-link :to="grandChild.path">
-                  {{ grandChild.meta?.title || grandChild.name }}
-                </router-link>
-              </a-menu-item>
-            </a-sub-menu>
-
-            <!-- 二级菜单无子菜单 -->
-            <a-menu-item v-else :key="child.path">
-              <template #icon>
-                <component :is="child.meta?.icon" v-if="child.meta?.icon" />
-              </template>
-              <router-link :to="child.path">
-                {{ child.meta?.title || child.name }}
-              </router-link>
-            </a-menu-item>
-          </template>
-        </a-sub-menu>
-
-        <!-- 没有子菜单的情况 -->
-        <a-menu-item v-else :key="route.path">
-          <template #icon>
-            <component :is="route.meta?.icon" v-if="route.meta?.icon" />
-          </template>
-          <router-link :to="route.path">
-            {{ route.meta?.title || route.name }}
-          </router-link>
-        </a-menu-item>
-      </template>
+      <!-- 使用递归组件渲染菜单，支持任意层级 -->
+      <RecursiveMenu
+        v-for="route in visibleRoutes"
+        :key="route.path"
+        :menu-item="route"
+      />
     </a-menu>
   </div>
 </template>
@@ -60,6 +17,7 @@
 import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAppStore, useUserStore } from '@/stores'
+import RecursiveMenu from '@/components/core/RecursiveMenu.vue'
 
 const route = useRoute()
 const router = useRouter()

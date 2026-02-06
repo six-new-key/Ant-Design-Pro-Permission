@@ -109,7 +109,7 @@ export class AuthUtils {
   /**
    * 移除所有 Token 和过期时间
    * 
-   * 注意：Refresh Token Cookie 由后端清除（调用 /user/logout 接口）
+   * 注意：Refresh Token Cookie 由后端清除（调用 /auth/logout 接口）
    */
   static removeAllTokens() {
     this.removeAccessToken();

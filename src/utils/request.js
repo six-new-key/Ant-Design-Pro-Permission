@@ -1,9 +1,13 @@
 //对于axios进行二次封装
 import axios from "axios";
+import JSONBig from "json-bigint";
 import { throttle } from "lodash";
 import { message, AuthUtils } from "@/utils";
 import { useUserStore } from "@/stores";
-import { refreshToken as refreshTokenApi } from "@/api/user";
+import { refreshToken as refreshTokenApi } from "@/api/auth";
+
+// 创建 JSONBig 实例，配置将大数字转为字符串
+const jsonBig = JSONBig({ storeAsString: true });
 
 //配置通用的基础路径和超时时间
 const request = axios.create({
@@ -12,6 +16,17 @@ const request = axios.create({
     "Content-Type": "application/json",
   },
   timeout: 60000,
+  // 使用 json-bigint 处理响应数据，避免大数字精度丢失
+  transformResponse: [function (data) {
+    if (typeof data === 'string') {
+      try {
+        return jsonBig.parse(data);
+      } catch (err) {
+        return data;
+      }
+    }
+    return data;
+  }]
 });
 
 // 是否正在刷新 Token 的标志
@@ -83,14 +98,14 @@ request.interceptors.response.use(
     // 401 错误：Token 已过期，自动刷新
     if (code === 401) {
       // 如果是刷新接口本身返回 401，不再重试，直接登出
-      if (originalRequest.url && originalRequest.url.includes('/user/refresh')) {
+      if (originalRequest.url && originalRequest.url.includes('/auth/refresh')) {
         isRefreshing = false;
         clearQueueAndLogout();
         return Promise.reject(new Error(res.message || 'Token 刷新失败'));
       }
       
       // 如果是登出接口返回 401，说明 Token 已过期，直接清除本地数据即可
-      if (originalRequest.url && originalRequest.url.includes('/user/logout')) {
+      if (originalRequest.url && originalRequest.url.includes('/auth/logout')) {
         // 不显示提示，不调用 handleLogout()，避免循环
         return Promise.reject(new Error('Token 已过期'));
       }

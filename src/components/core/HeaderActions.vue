@@ -118,7 +118,6 @@ import { useAppStore, useThemeStore, useUserStore } from '@/stores'
 import SearchDialog from './SearchDialog.vue'
 import LockScreenDialog from './LockScreenDialog.vue'
 import { theme, Modal } from 'ant-design-vue'
-import { logout } from "@/api";
 
 const router = useRouter()
 const appStore = useAppStore()

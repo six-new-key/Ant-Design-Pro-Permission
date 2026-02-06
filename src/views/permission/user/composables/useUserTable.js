@@ -133,7 +133,7 @@ export function useUserTable(searchForm) {
    * 复选框属性
    */
   const getCheckboxProps = (record) => ({
-    disabled: record.id === 1,
+    disabled: record.userName === 'admin',
   })
 
   /**

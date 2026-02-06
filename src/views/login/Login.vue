@@ -173,24 +173,7 @@
             </a-input-password>
           </a-form-item>
 
-          <!-- 图形验证码（登录失败3次后显示） -->
-          <a-form-item v-if="showCaptcha" name="captchaCode">
-            <div class="captcha-container">
-              <a-input 
-                v-model:value="formData.captchaCode" 
-                size="large" 
-                placeholder="请输入验证码"
-                style="flex: 1; margin-right: 10px;"
-              >
-              </a-input>
-              <div class="captcha-image" @click="refreshCaptcha">
-                <img v-if="captchaImage" :src="captchaImage" alt="验证码" />
-                <a-spin v-else />
-              </div>
-            </div>
-          </a-form-item>
-
-          <!-- 滑块验证 -->
+          <!-- 滑块验证（装饰性） -->
           <a-form-item name="captcha">
             <drag-verify ref="dragVerify" :height="39.6" :width="438.4" :background="token.colorFillTertiary"
               :progressBarBg="token.colorSuccess + '90'" :handlerBg="token.colorBgContainer"
@@ -198,6 +181,15 @@
               v-model:isPassing="formData.captcha" @passcallback="handleCaptchaPass" text="请按住滑块拖动" successText="验证通过">
             </drag-verify>
           </a-form-item>
+          
+          <!-- 官方Verify组件 -->
+          <Verify
+            ref="verifyRef"
+            :mode="'pop'"
+            :captchaType="'blockPuzzle'"
+            :imgSize="{ width: '330px', height: '155px' }"
+            @success="handleVerifySuccess"
+          />
 
           <!-- 记住账号和忘记密码 -->
           <a-form-item>
@@ -285,17 +277,23 @@
 import { ref, reactive, onMounted, onUnmounted, computed, watch } from 'vue'
 import router from '@/router'
 import { theme } from 'ant-design-vue'
+import { 
+  SafetyOutlined, 
+  CheckCircleOutlined, 
+  RightOutlined 
+} from '@ant-design/icons-vue'
 import { message, themeChangeWithAnimation, dynamicBgManager, generateThemeColors } from '@/utils'
 import { settings } from '@/settings'
 import { useLoginStore, useThemeStore, useAppStore, useUserStore } from '@/stores'
 import DragVerify from '@/components/custom/DragVerify.vue'
-import { generateCaptcha } from '@/api/captcha'
+import Verify from '@/components/verifition/Verify.vue'
 import { HOME_PATH } from '@/constants/routes'
 
 // 使用 Ant Design Vue 的 design token
 const { token } = theme.useToken()
 
 const formRef = ref();
+const dragVerify = ref();
 const appStore = useAppStore()
 // 使用登录状态管理
 const loginStore = useLoginStore()
@@ -344,31 +342,18 @@ const formData = reactive({
   password: '123456',
   captcha: false,
   remember: false,
-  captchaId: '',
-  captchaCode: ''
+  captchaVerification: ''
 })
 
-// 验证码相关
-const showCaptcha = ref(false)
-const captchaImage = ref('')
+// 官方Verify组件引用
+const verifyRef = ref()
 
-// 生成验证码
-const loadCaptcha = async () => {
-  try {
-    const res = await generateCaptcha()
-    if (res.code === 200) {
-      formData.captchaId = res.data.captchaId
-      captchaImage.value = res.data.captchaImage
-    }
-  } catch (error) {
-    console.error('生成验证码失败:', error)
-  }
-}
-
-// 刷新验证码
-const refreshCaptcha = () => {
-  formData.captchaCode = ''
-  loadCaptcha()
+// 验证成功回调（只保存token，不自动提交）
+const handleVerifySuccess = (params) => {
+  console.log('验证成功:', params)
+  // 只保存验证token，不做任何业务操作
+  formData.captchaVerification = params.captchaVerification || params
+  // 验证码弹窗会自动关闭，用户需要再次点击登录按钮
 }
 
 // 表单验证规则
@@ -382,7 +367,7 @@ const rules = computed(() => ({
   ],
   captcha: [
     {
-      validator: (rule, value) => {
+      validator: (_rule, value) => {
         if (!value) {
           return Promise.reject('请完成滑块验证')
         }
@@ -390,9 +375,6 @@ const rules = computed(() => ({
       },
       trigger: ['change', 'blur']
     }
-  ],
-  captchaCode: [
-    { required: true, message: '请输入验证码', trigger: 'blur' }
   ]
 }))
 
@@ -419,28 +401,50 @@ const controlPanelStyle = computed(() => ({
 
 // 处理登录
 const doLogin = async () => {
-  //校验
-  await formRef.value.validate().then(async () => {
-    loading.value = true
-    // 校验通过，继续登录
-    try {
-      // 调用用户状态管理的登录方法
-      const loginSuccess = await userStore.handleLogin(formData)
-      if (loginSuccess) {
-        // 登录成功，跳转到后台首页
-        router.push(HOME_PATH)
-      }
-    } catch (error) {
-      // 登录失败，检查是否需要显示验证码
-      if (error.code === 10006 || error.code === 10007) {
-        // 需要验证码
-        showCaptcha.value = true
-        loadCaptcha()
-      }
-    } finally {
-      loading.value = false
+  // 1. 先校验表单
+  try {
+    await formRef.value.validate()
+  } catch (error) {
+    return
+  }
+
+  // 2. 如果没有验证码，显示验证码弹窗
+  if (!formData.captchaVerification) {
+    if (verifyRef.value) {
+      verifyRef.value.show()
     }
-  })
+    return
+  }
+
+  // 3. 有验证码，直接提交登录
+  await doLoginSubmit()
+}
+
+// 提交登录
+const doLoginSubmit = async () => {
+  loading.value = true
+  try {
+    const loginSuccess = await userStore.handleLogin(formData)
+    if (loginSuccess) {
+      router.push(HOME_PATH)
+    }
+  } catch (error) {
+    // 登录失败，重置验证码和装饰性滑块
+    formData.captchaVerification = ''
+    formData.captcha = false
+    
+    // 刷新AJ-Captcha验证码
+    if (verifyRef.value) {
+      verifyRef.value.refresh()
+    }
+    
+    // 重置装饰性滑块
+    if (dragVerify.value && dragVerify.value.reset) {
+      dragVerify.value.reset()
+    }
+  } finally {
+    loading.value = false
+  }
 }
 
 // 处理动态背景切换
@@ -827,34 +831,44 @@ onUnmounted(() => {
   }
 }
 
-/* 验证码容器 */
-.captcha-container {
+/* AJ-Captcha 触发器样式 */
+.captcha-trigger {
   display: flex;
   align-items: center;
-  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid v-bind('token.colorBorder');
+  border-radius: v-bind('token.borderRadius + "px"');
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
 
-  .captcha-image {
-    width: 130px;
-    height: 48px;
-    border: 1px solid v-bind('token.colorBorder');
-    border-radius: v-bind('token.borderRadius + "px"');
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: all 0.3s ease;
+  &:hover {
+    border-color: v-bind('token.colorPrimary');
+    box-shadow: 0 0 0 2px v-bind('token.colorPrimary + "20"');
+  }
 
-    &:hover {
-      border-color: v-bind('token.colorPrimary');
-      box-shadow: 0 0 0 2px v-bind('token.colorPrimary + "20"');
+  .captcha-icon {
+    font-size: 18px;
+    color: v-bind('token.colorTextSecondary');
+    margin-right: 12px;
+  }
+
+  .captcha-text {
+    flex: 1;
+    font-size: v-bind('token.fontSize + "px"');
+    color: v-bind('token.colorText');
+
+    .verified {
+      color: v-bind('token.colorSuccess');
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
+  }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  .captcha-arrow {
+    font-size: 12px;
+    color: v-bind('token.colorTextSecondary');
   }
 }
 

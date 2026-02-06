@@ -1,17 +1,19 @@
 <template>
-  <a-modal v-model:open="visible" title="分配权限" :width="isHalfScreen ? '68%' : '46%'" @cancel="handleCancel"
-    @ok="handleSave" centered :confirmLoading="permissionLoading" wrapClassName="permission-dialog-modal">
+  <a-modal v-model:open="visible" title="数据权限" :width="isHalfScreen ? '68%' : '46%'" @cancel="handleCancel"
+    @ok="handleSave" centered :confirmLoading="permissionLoading" :okButtonProps="{ disabled: roleInfo.status === 0 || roleInfo.code === 'admin' }" wrapClassName="permission-dialog-modal">
     <div class="permission-dialog" :style="cssVars">
       <!-- 角色信息 -->
       <div class="permission-header">
         <div class="role-info">
           正在为角色 <strong>{{ currentRole.name }}</strong> 分配权限
+          <a-tag v-if="currentRole.status === 0" color="error" style="margin-left: 8px;">已禁用</a-tag>
+          <a-tag v-if="currentRole.code === 'admin'" color="blue" style="margin-left: 8px;">超级管理员</a-tag>
         </div>
         <div class="permission-actions">
           <a-tooltip :title="isExpandAll ? '收起全部' : '展开全部'">
             <a-button size="small" type="text" @click="handleExpandAll">
               <template #icon>
-                <component :is="isExpandAll ? 'VerticalAlignTopOutlined' : 'VerticalAlignBottomOutlined'" />
+                <component :is="isExpandAll ? 'MenuFoldOutlined' : 'MenuUnfoldOutlined'" />
               </template>
             </a-button>
           </a-tooltip>
@@ -27,7 +29,7 @@
           <a-tooltip :title="isHalfScreen ? '退出半屏' : '半屏'">
             <a-button size="small" type="text" @click="handleHalfScreen">
               <template #icon>
-                <component :is="isHalfScreen ? 'ShrinkOutlined' : 'ArrowsAltOutlined'" />
+                <component :is="isHalfScreen ? 'CompressOutlined' : 'ExpandOutlined'" />
               </template>
             </a-button>
           </a-tooltip>

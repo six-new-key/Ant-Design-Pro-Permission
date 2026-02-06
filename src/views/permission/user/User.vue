@@ -1,50 +1,52 @@
 <template>
   <div :style="cssVars">
     <!-- 搜索和操作区域 -->
-    <a-card :bordered="false" class="search-card" v-show="searchVisible">
-      <div class="search-form">
-        <div class="search-form-left">
-          <a-form layout="inline" :model="searchForm">
-            <a-form-item name="userName">
-              <a-input v-model:value="searchForm.userName" placeholder="请输入用户名" allow-clear style="width: 200px" />
-            </a-form-item>
-            <a-form-item name="phone">
-              <a-input v-model:value="searchForm.phone" placeholder="请输入手机号" allow-clear style="width: 200px" />
-            </a-form-item>
-            <a-form-item name="status">
-              <a-select v-model:value="searchForm.status" placeholder="请选择状态" allow-clear style="width: 200px">
-                <a-select-option v-for="item in statusDict" :key="item.value" :value="item.value">
-                  {{ item.label }}
-                </a-select-option>
-              </a-select>
-            </a-form-item>
-            <a-form-item name="gender">
-              <a-select v-model:value="searchForm.gender" placeholder="请选择性别" allow-clear style="width: 200px">
-                <a-select-option v-for="item in genderDict" :key="item.value" :value="item.value">
-                  {{ item.label }}
-                </a-select-option>
-              </a-select>
-            </a-form-item>
-          </a-form>
+    <transition name="search-slide">
+      <a-card :bordered="false" class="search-card" v-show="searchVisible">
+        <div class="search-form">
+          <div class="search-form-left">
+            <a-form layout="inline" :model="searchForm">
+              <a-form-item name="userName">
+                <a-input v-model:value="searchForm.userName" placeholder="请输入用户名" allow-clear style="width: 200px" />
+              </a-form-item>
+              <a-form-item name="phone">
+                <a-input v-model:value="searchForm.phone" placeholder="请输入手机号" allow-clear style="width: 200px" />
+              </a-form-item>
+              <a-form-item name="status">
+                <a-select v-model:value="searchForm.status" placeholder="请选择状态" allow-clear style="width: 200px">
+                  <a-select-option v-for="item in statusDict" :key="item.value" :value="item.value">
+                    {{ item.label }}
+                  </a-select-option>
+                </a-select>
+              </a-form-item>
+              <a-form-item name="gender">
+                <a-select v-model:value="searchForm.gender" placeholder="请选择性别" allow-clear style="width: 200px">
+                  <a-select-option v-for="item in genderDict" :key="item.value" :value="item.value">
+                    {{ item.label }}
+                  </a-select-option>
+                </a-select>
+              </a-form-item>
+            </a-form>
+          </div>
+          <div class="search-form-right">
+            <a-space :size="12">
+              <a-button type="primary" @click="handleSearch">
+                <template #icon>
+                  <SearchOutlined />
+                </template>
+                搜索
+              </a-button>
+              <a-button @click="handleReset">
+                <template #icon>
+                  <ReloadOutlined />
+                </template>
+                重置
+              </a-button>
+            </a-space>
+          </div>
         </div>
-        <div class="search-form-right">
-          <a-space :size="12">
-            <a-button type="primary" @click="handleSearch">
-              <template #icon>
-                <SearchOutlined />
-              </template>
-              搜索
-            </a-button>
-            <a-button @click="handleReset">
-              <template #icon>
-                <ReloadOutlined />
-              </template>
-              重置
-            </a-button>
-          </a-space>
-        </div>
-      </div>
-    </a-card>
+      </a-card>
+    </transition>
 
     <!-- 数据表格区域 -->
     <a-card :bordered="false">
@@ -111,7 +113,7 @@
           <template v-if="column.key === 'status'">
             <a-switch 
               :checked="record.status === 1" 
-              :disabled="record.id === 1"
+              :disabled="record.userName === 'admin'"
               checked-children="启用" 
               un-checked-children="禁用"
               @change="() => handleToggleStatus(record)"
@@ -132,22 +134,20 @@
 
           <template v-if="column.key === 'operation'">
             <a-space>
-              <a-button type="link" size="small" :disabled="record.id === 1" @click="handleEdit(record)">
-                <template #icon><EditOutlined /></template>
+              <a-button type="link" size="small" :disabled="record.userName === 'admin'" @click="handleEdit(record)">
                 编辑
               </a-button>
-              <a-button type="link" size="small" :disabled="record.id === 1" @click="handleAssignRole(record)">
+              <a-button type="link" size="small" :disabled="record.userName === 'admin'" @click="handleAssignRole(record)">
                 分配角色
               </a-button>
-              <a-button type="link" size="small" :disabled="record.id === 1" @click="handleResetPassword(record)">
+              <a-button type="link" size="small" :disabled="record.userName === 'admin'" @click="handleResetPassword(record)">
                 重置密码
               </a-button>
-              <a-button type="link" size="small" danger :disabled="record.id === 1" @click="handleKickout(record)">
+              <a-button type="link" size="small" danger :disabled="record.userName === 'admin'" @click="handleKickout(record)">
                 踢人下线
               </a-button>
               <a-popconfirm title="确认删除该用户吗？" @confirm="handleDelete(record)">
-                <a-button type="link" danger size="small" :disabled="record.id === 1">
-                  <template #icon><DeleteOutlined /></template>
+                <a-button type="link" danger size="small" :disabled="record.userName === 'admin'">
                   删除
                 </a-button>
               </a-popconfirm>

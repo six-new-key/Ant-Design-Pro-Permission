@@ -1,0 +1,72 @@
+.server-monitor-container {
+
+  .monitor-header {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .last-update-time {
+      color: var(--color-text-3);
+      font-size: 14px;
+    }
+  }
+
+  .monitor-content {
+    .monitor-card {
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .memory-section {
+    h4 {
+      margin-bottom: 16px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-text-1);
+    }
+
+    .memory-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      color: var(--color-text-2);
+      font-size: 14px;
+    }
+  }
+
+  .resource-section {
+    text-align: center;
+
+    h4 {
+      margin-bottom: 16px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-text-1);
+    }
+
+    .resource-info {
+      margin-top: 16px;
+      text-align: left;
+
+      p {
+        margin: 8px 0;
+        color: var(--color-text-2);
+        font-size: 14px;
+      }
+    }
+  }
+
+  // 状态颜色变量
+  .status-success {
+    color: var(--ant-success-color, #3f8600);
+  }
+
+  .status-error {
+    color: var(--ant-error-color, #cf1322);
+  }
+}

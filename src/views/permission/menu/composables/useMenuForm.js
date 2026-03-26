@@ -86,7 +86,7 @@ export function useMenuForm(fetchMenuList) {
     const pathPattern = /^[a-zA-Z0-9_\-/]+(\*\*)?$/
     
     // 权限标识验证规则：支持字母、数字、下划线、中划线，用冒号分隔
-    const permissionPattern = /^[a-z]+:[a-z]+:[a-z]+$/
+    const permissionPattern = /^[a-zA-Z_]+:[a-zA-Z_]+:[a-zA-Z_]+$/
     
     // 自定义路径验证器：必须以 / 开头，且包含父路径
     const pathValidator = (rule, value) => {

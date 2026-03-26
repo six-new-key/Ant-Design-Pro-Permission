@@ -90,7 +90,7 @@ export function useJobLogTable() {
       }
       const res = await getJobLogPage(params)
       if (res.code === 200) {
-        dataSource.value = res.data.records
+        dataSource.value = res.data.data
         pagination.total = res.data.total
       }
     } catch (error) {

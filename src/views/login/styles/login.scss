@@ -1,0 +1,286 @@
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 静态背景 */
+.static-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* 动态背景 */
+.dynamic-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+/* Logo区域 */
+.logo-container {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+
+  .logo-text {
+    margin-left: 10px;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+}
+
+.logo-position-left {
+  position: fixed;
+  top: 22%;
+  right: 20%;
+  z-index: 1;
+
+  .logo-svg {
+    animation: float 2s ease-in-out infinite;
+  }
+}
+
+.logo-position-right {
+  position: fixed;
+  top: 22%;
+  left: 20%;
+  z-index: 1;
+
+  .logo-svg {
+    animation: float 2s ease-in-out infinite;
+  }
+}
+
+.description {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    opacity: 0.8;
+  }
+
+  span {
+    opacity: 0.7;
+  }
+}
+
+/* 功能控制区 */
+.control-panel {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  backdrop-filter: blur(10px);
+  animation: fadeInDown 0.3s ease-out;
+
+  .ant-btn {
+    border-radius: 50px;
+  }
+}
+
+/* 登录表单容器 */
+.login-form-container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* 表单位置样式 */
+.form-position-left {
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.form-position-center {
+  justify-content: center;
+}
+
+.form-position-right {
+  justify-content: flex-end;
+  padding-right: 0;
+}
+
+/* 登录框 */
+.login-box {
+  user-select: none;
+  width: 100%;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out;
+
+  :where(.ant-input) {
+    background: transparent;
+  }
+
+  :where(.ant-input-password) {
+    background: transparent;
+  }
+
+  /* 登录头部 */
+  .login-header {
+    text-align: left;
+    margin-bottom: 26px;
+
+    .welcome-title {
+      opacity: 0.9;
+      font-weight: bold;
+      margin: 0 0 8px 0;
+      line-height: 1.2;
+    }
+
+    .welcome-subtitle {
+      margin: 0;
+      line-height: 1.4;
+    }
+  }
+
+  /* 登录表单 */
+  .options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .ant-btn {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .login-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+
+    .tab-button {
+      width: 50%;
+      transition: all 0.3s ease;
+
+      &.active {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .other-login {
+    .ant-divider {
+      opacity: 0.7;
+    }
+
+    .social-login {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .login-footer {
+    text-align: center;
+    margin-top: 10px;
+
+    span {
+      opacity: 0.8;
+    }
+
+    .ant-btn {
+      padding: 0;
+      margin: 0;
+    }
+
+    .copyright {
+      margin-top: 16px;
+    }
+  }
+}
+
+/* AJ-Captcha 触发器样式 */
+.captcha-trigger {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+
+  .captcha-icon {
+    font-size: 18px;
+    margin-right: 12px;
+  }
+
+  .captcha-text {
+    flex: 1;
+
+    .verified {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+
+  .captcha-arrow {
+    font-size: 12px;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 上下浮动动画 */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

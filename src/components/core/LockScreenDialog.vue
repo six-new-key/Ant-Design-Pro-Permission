@@ -4,9 +4,10 @@
         <div class="lock-dialog-content">
             <!-- 用户头像和信息 -->
             <div class="user-section">
-                <a-avatar :size="80" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Vben" alt="用户头像"
-                    class="user-avatar" />
-                <div class="user-name">Admin</div>
+                <a-avatar :size="80" :src="userStore.userData?.avatar || undefined" class="user-avatar">
+                    {{ userStore.userData?.userName?.charAt(0)?.toUpperCase() }}
+                </a-avatar>
+                <div class="user-name">{{ userStore.userData?.userName }}</div>
             </div>
 
             <!-- 表单区域 -->
@@ -31,7 +32,7 @@
 
 <script setup>
 import { ref, watch, reactive, nextTick } from 'vue'
-import { useAppStore ,useThemeStore} from '@/stores'
+import { useAppStore, useThemeStore, useUserStore } from '@/stores'
 
 // Props
 const props = defineProps({
@@ -47,6 +48,7 @@ const emit = defineEmits(['update:modelValue'])
 // Store
 const appStore = useAppStore()
 const themeStore = useThemeStore()
+const userStore = useUserStore()
 
 // 响应式数据
 const visible = ref(props.modelValue)

@@ -2,18 +2,18 @@ import request from '@/utils/request'
 
 /**
  * 分页查询在线用户
- * @param {Object} params - 查询参数
- * @param {number} params.pageNo - 页码
- * @param {number} params.pageSize - 页大小
- * @param {number} params.userId - 用户ID
- * @param {string} params.username - 用户名
+ * @param {Object} data - 查询参数
+ * @param {number} data.pageNo - 页码
+ * @param {number} data.pageSize - 页大小
+ * @param {number} data.userId - 用户ID
+ * @param {string} data.username - 用户名
  * @returns {Promise}
  */
-export function getOnlineUsers(params) {
+export function getOnlineUsers(data) {
   return request({
     url: '/monitor/online/users',
-    method: 'get',
-    params
+    method: 'post',
+    data
   })
 }
 
@@ -24,7 +24,7 @@ export function getOnlineUsers(params) {
  */
 export function forceLogout(userId) {
   return request({
-    url: `/monitor/online/users/${userId}`,
+    url: `/monitor/online/users/kickout/${userId}`,
     method: 'delete'
   })
 }

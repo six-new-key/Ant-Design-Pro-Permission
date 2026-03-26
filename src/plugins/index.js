@@ -3,9 +3,21 @@
 import SvgIcon from "@/components/custom/SvgIcon.vue";
 //封装iconfont.cn图标库
 import IconFont from "@/components/custom/IconFont.vue";
+//字典组件
+import DictSelect from "@/components/custom/DictSelect.vue";
+import DictRadio from "@/components/custom/DictRadio.vue";
+import DictTag from "@/components/custom/DictTag.vue";
+//引入自定义指令
+import { permission, role } from "@/directives/permission";
 
 //全局对象
-const allGlobalComponent = { IconFont, SvgIcon };
+const allGlobalComponent = { 
+    IconFont, 
+    SvgIcon,
+    DictSelect,
+    DictRadio,
+    DictTag
+};
 
 //对外暴露插件对象
 export default {
@@ -16,5 +28,9 @@ export default {
             //注册为全局组件
             app.component(key, allGlobalComponent[key]);
         });
+        
+        //注册自定义指令
+        app.directive('permission', permission);
+        app.directive('role', role);
     }
 }

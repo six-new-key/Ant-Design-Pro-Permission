@@ -7,18 +7,19 @@ const ACCESS_TOKEN_EXPIRE_KEY = "access_token_expire";
  * 
  * 安全优化说明：
  * 1. Refresh Token 由后端通过 HttpOnly Cookie 管理，前端无法访问
- * 2. Access Token 存储在 sessionStorage，关闭标签页即清除
+ * 2. Access Token 存储在 localStorage，支持跨标签页共享登录状态
  * 3. 前端只管理 Access Token 和过期时间
+ * 4. Token 安全性由过期时间和 Refresh Token 机制保障
  */
 export class AuthUtils {
   // ==================== Access Token 管理 ====================
   
   /**
-   * 设置 Access Token（存储到 sessionStorage）
+   * 设置 Access Token（存储到 localStorage）
    * @param {string} token - Access Token
    */
   static setAccessToken(token) {
-    sessionStorage.setItem(ACCESS_TOKEN_KEY, token);
+    localStorage.setItem(ACCESS_TOKEN_KEY, token);
   }
 
   /**
@@ -26,14 +27,14 @@ export class AuthUtils {
    * @returns {string|null} Access Token
    */
   static getAccessToken() {
-    return sessionStorage.getItem(ACCESS_TOKEN_KEY);
+    return localStorage.getItem(ACCESS_TOKEN_KEY);
   }
 
   /**
    * 移除 Access Token
    */
   static removeAccessToken() {
-    sessionStorage.removeItem(ACCESS_TOKEN_KEY);
+    localStorage.removeItem(ACCESS_TOKEN_KEY);
   }
 
   // ==================== Token 过期时间管理 ====================
@@ -43,7 +44,7 @@ export class AuthUtils {
    * @param {number} accessExpire - Access Token 过期时间（时间戳，毫秒）
    */
   static setTokenExpireTime(accessExpire) {
-    sessionStorage.setItem(ACCESS_TOKEN_EXPIRE_KEY, accessExpire.toString());
+    localStorage.setItem(ACCESS_TOKEN_EXPIRE_KEY, accessExpire.toString());
   }
 
   /**
@@ -51,7 +52,7 @@ export class AuthUtils {
    * @returns {number|null} 过期时间（时间戳，毫秒）
    */
   static getAccessTokenExpireTime() {
-    const expire = sessionStorage.getItem(ACCESS_TOKEN_EXPIRE_KEY);
+    const expire = localStorage.getItem(ACCESS_TOKEN_EXPIRE_KEY);
     return expire ? parseInt(expire) : null;
   }
 
@@ -59,7 +60,7 @@ export class AuthUtils {
    * 移除 Token 过期时间
    */
   static removeTokenExpireTime() {
-    sessionStorage.removeItem(ACCESS_TOKEN_EXPIRE_KEY);
+    localStorage.removeItem(ACCESS_TOKEN_EXPIRE_KEY);
   }
 
   // ==================== Token 状态检查 ====================

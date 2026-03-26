@@ -29,22 +29,20 @@
 }
 
 .search-card {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   overflow: hidden;
 }
 
-.search-form {
+.search-form-compact {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-}
-
-.search-form-left {
-  flex: 1;
-}
-
-.search-form-right {
-  margin-left: 16px;
+  gap: 0;
+  
+  :deep(.ant-form-item) {
+    margin-bottom: 0;
+    margin-right: 12px;
+  }
 }
 
 .table-header-actions{
@@ -60,13 +58,12 @@
 
 .assign-user-info {
   margin-bottom: 16px;
-  font-size: 14px;
   color: var(--color-text);
 }
 
 .assign-user-info strong {
   color: var(--color-primary);
-  font-weight: 600;
+  font-weight: var(--font-weight-strong);
 }
 
 .role-layout {
@@ -86,7 +83,7 @@
 .section-title {
   margin: 0 0 16px 0;
   font-size: var(--font-size-lg);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   color: var(--color-text);
   border-bottom: 1px solid var(--color-border-secondary);
   padding-bottom: 8px;
@@ -105,8 +102,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 4px 12px;
-  border-radius: 4px;
-  font-size: 13px;
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
   cursor: pointer;
   transition: all 0.2s;
   border: 1px solid transparent;
@@ -157,21 +154,18 @@
   text-align: center;
   padding: 40px 0;
   color: var(--color-text-tertiary);
-  font-size: 14px;
 }
 
 /* 密码重置弹窗样式 */
 .user-info-section {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
   background: var(--color-fill-quaternary);
-  border-radius: 8px;
+  border-radius: var(--border-radius-lg);
   margin-bottom: 24px;
 }
 
 .user-title {
-  font-size: 14px;
   color: var(--color-text-secondary);
   font-weight: normal;
   margin: 0;
@@ -179,8 +173,8 @@
 
 .username-display {
   margin: 0 4px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-strong);
   color: var(--color-primary);
 }
 
@@ -190,7 +184,7 @@
   padding: 12px 16px;
   background: var(--color-warning-bg);
   border: 1px solid var(--color-warning-border);
-  border-radius: 6px;
+  border-radius: var(--border-radius);
   margin-top: 16px;
 }
 
@@ -201,17 +195,17 @@
 }
 
 .tip-text {
-  font-size: 13px;
+  font-size: var(--font-size-sm);
   color: var(--color-warning);
   line-height: 1.4;
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 24px;
+/* 表单居中容器 */
+.user-form-container {
+  display: flex;
+  justify-content: center;
 }
 
-.form-item.full-width {
-  grid-column: 1 / -1;
+.user-form {
+  width: 540px;
 }

@@ -1,5 +1,6 @@
-import { request } from "@/utils";
+import {request} from "@/utils";
 
+//请求前缀
 const PREFIX = "/role";
 
 /**
@@ -66,20 +67,14 @@ export function queryRoleList() {
 
 /**
  * 分页查询角色数据
- * @param {Number} pageNo - 当前页
- * @param {Number} pageSize - 每页数量
- * @param {Object} roleDto - 查询条件 { name, code, status }
+ * @param {Object} roleDto - 查询条件 { pageNo, pageSize, name, code, status }
  * @returns {Promise}
  */
-export function queryRoleListByPage(pageNo, pageSize, roleDto = {}) {
+export function queryRoleListByPage(roleDto) {
   return request({
     url: `${PREFIX}/list`,
-    method: 'GET',
-    params: {
-      pageNo,
-      pageSize,
-      ...roleDto
-    }
+    method: 'POST',
+    data: roleDto
   })
 }
 
@@ -111,43 +106,27 @@ export function saveRolePermission(roleId, permissions) {
 
 /**
  * 分页查询角色已分配的用户列表
- * @param {Number} roleId - 角色ID
- * @param {Number} pageNo - 当前页
- * @param {Number} pageSize - 每页数量
- * @param {Object} queryDto - 查询条件 { userName, status }
+ * @param {Object} queryDto - 查询条件 { roleId, pageNo, pageSize, userName, status }
  * @returns {Promise}
  */
-export function queryAssignedUsers(roleId, pageNo, pageSize, queryDto = {}) {
+export function queryAssignedUsers(queryDto) {
   return request({
     url: `${PREFIX}/assigned/users`,
-    method: 'GET',
-    params: {
-      roleId,
-      pageNo,
-      pageSize,
-      ...queryDto
-    }
+    method: 'POST',
+    data: queryDto
   })
 }
 
 /**
  * 分页查询角色未分配的用户列表
- * @param {Number} roleId - 角色ID
- * @param {Number} pageNo - 当前页
- * @param {Number} pageSize - 每页数量
- * @param {Object} queryDto - 查询条件 { userName, status }
+ * @param {Object} queryDto - 查询条件 { roleId, pageNo, pageSize, userName, status }
  * @returns {Promise}
  */
-export function queryUnassignedUsers(roleId, pageNo, pageSize, queryDto = {}) {
+export function queryUnassignedUsers(queryDto) {
   return request({
     url: `${PREFIX}/unassigned/users`,
-    method: 'GET',
-    params: {
-      roleId,
-      pageNo,
-      pageSize,
-      ...queryDto
-    }
+    method: 'POST',
+    data: queryDto
   })
 }
 
@@ -176,5 +155,19 @@ export function batchUnassignUsers(roleId, userIds) {
     url: `${PREFIX}/unassign/users/${roleId}`,
     method: 'DELETE',
     data: { userIds }
+  })
+}
+
+/**
+ * 导出角色数据
+ * @param {Object} roleDto - 查询条件 { name, code, status }
+ * @returns {Promise}
+ */
+export function exportRole(data) {
+  return request({
+    url: `${PREFIX}/export`,
+    method: 'POST',
+    data,
+    responseType: 'blob'
   })
 }

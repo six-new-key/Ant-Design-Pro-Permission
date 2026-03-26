@@ -57,9 +57,10 @@
         <!-- 用户头像下拉菜单 -->
         <a-dropdown arrow placement="bottomRight">
             <div class="user-info">
-                <a-avatar>
-                    <template #icon><user-outlined /></template>
+                <a-avatar :src="userStore.userData?.avatar || undefined">
+                    {{ userStore.userData?.userName?.charAt(0)?.toUpperCase() }}
                 </a-avatar>
+                <span class="user-name">{{ userStore.userData?.userName }}</span>
             </div>
             <template #overlay>
                 <a-menu @click="handleMenuClick">
@@ -68,12 +69,6 @@
                             <user-outlined />
                         </template>
                         个人中心
-                    </a-menu-item>
-                    <a-menu-item key="settings">
-                        <template #icon>
-                            <setting-outlined />
-                        </template>
-                        个人设置
                     </a-menu-item>
                     <a-menu-divider />
                     <a-menu-item key="lock">
@@ -214,9 +209,6 @@ const handleMenuClick = ({ key }) => {
         case 'profile':
             router.push('/profile')
             break
-        case 'settings':
-            router.push('/settings')
-            break
         case 'lock':
             openLockDialog()
             break
@@ -337,6 +329,17 @@ onUnmounted(() => {
 
 .user-info {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: v-bind('token.borderRadius + "px"');
+    transition: background 0.2s;
+    
+    .user-name {
+        font-size: v-bind('token.fontSize + "px"');
+        color: v-bind('textColor');
+    }
 }
 
 .ant-btn:hover {

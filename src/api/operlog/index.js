@@ -1,13 +1,16 @@
 import request from '@/utils/request'
 
+//请求前缀
+const PREFIX = "/monitor/oper_log";
+
 /**
  * 分页查询操作日志列表
  */
-export function getOperLogList(params) {
+export function getOperLogList(data) {
   return request({
-    url: '/monitor/operlog/list',
-    method: 'get',
-    params
+    url: `${PREFIX}/list`,
+    method: 'post',
+    data
   })
 }
 
@@ -16,7 +19,7 @@ export function getOperLogList(params) {
  */
 export function getOperLogDetail(id) {
   return request({
-    url: `/monitor/operlog/${id}`,
+    url: `${PREFIX}/${id}`,
     method: 'get'
   })
 }
@@ -26,8 +29,9 @@ export function getOperLogDetail(id) {
  */
 export function deleteOperLog(ids) {
   return request({
-    url: `/monitor/operlog/${ids.join(',')}`,
-    method: 'delete'
+    url: `${PREFIX}/remove`,
+    method: 'delete',
+    data: ids
   })
 }
 
@@ -36,7 +40,19 @@ export function deleteOperLog(ids) {
  */
 export function cleanOperLog() {
   return request({
-    url: '/monitor/operlog/clean',
+    url: `${PREFIX}/clean`,
     method: 'delete'
+  })
+}
+
+/**
+ * 导出操作日志
+ */
+export function exportOperLog(data) {
+  return request({
+    url: `${PREFIX}/export`,
+    method: 'post',
+    data,
+    responseType: 'blob'
   })
 }

@@ -11,6 +11,11 @@
               </span>
           </div>
           <div class="verifybox-bottom" :style="{padding:mode=='pop'?'15px':'0'}">
+              <!-- 加载状态遮罩 -->
+              <div v-if="loading" class="loading-mask">
+                  <a-spin tip="加载中..." />
+              </div>
+              
               <!-- 验证码容器 -->
               <component v-if="componentType"
                           :is="componentType"
@@ -24,7 +29,8 @@
                           :imgSize="imgSize"
                           :blockSize="blockSize"
                           :barSize="barSize"
-                          ref="instance"></component>
+                          ref="instance"
+                          @loading="handleLoading"></component>
           </div>
       </div>
   </div>
@@ -38,14 +44,15 @@
     import VerifySlide from './Verify/VerifySlide.vue'
     import VerifyPoints from './Verify/VerifyPoints.vue'
 import { computed, ref,watch,toRefs,watchEffect } from 'vue';
-import { theme } from 'ant-design-vue'
+import { theme, Spin } from 'ant-design-vue'
 import { debounce } from 'lodash'
 
     export default {
         name: 'Vue2Verify',
         components: {
             VerifySlide,
-            VerifyPoints
+            VerifyPoints,
+            ASpin: Spin
         },
         props: {
             captchaType:{
@@ -89,6 +96,7 @@ import { debounce } from 'lodash'
             const clickShow = ref(false)
             const verifyType = ref(undefined)
             const componentType = ref(undefined)
+            const loading = ref(false)
             
             const instance = ref({})
             
@@ -135,8 +143,14 @@ import { debounce } from 'lodash'
             const show = ()=>{
                 if (mode.value=="pop") {
                     clickShow.value = true;
+                    loading.value = true; // 显示加载状态
                 }
             }
+            
+            const handleLoading = (isLoading) => {
+                loading.value = isLoading
+            }
+            
             watchEffect(()=>{   
                 switch (captchaType.value) {
                     case 'blockPuzzle':
@@ -159,7 +173,9 @@ import { debounce } from 'lodash'
                 closeBox,
                 show,
                 refresh,
-                cssVars
+                cssVars,
+                loading,
+                handleLoading
             }
         },  
     }
@@ -224,6 +240,28 @@ import { debounce } from 'lodash'
         padding: 15px;
         box-sizing: border-box;
         background-color: var(--color-bg-container);
+        position: relative;
+    }
+    
+    /* 加载遮罩 */
+    .loading-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(2px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        border-radius: var(--border-radius);
+    }
+    
+    /* 暗黑模式下的加载遮罩 */
+    :where(.dark) .loading-mask {
+        background: rgba(0, 0, 0, 0.7);
     }
 </style>
 <style>
@@ -338,15 +376,6 @@ import { debounce } from 'lodash'
         z-index: 3;
         color: var(--color-text-secondary);
     }
-
-    /*字体图标的css*/
-    /*@font-face {font-family: "iconfont";*/
-    /*src: url('../fonts/iconfont.eot?t=1508229193188'); !* IE9*!*/
-    /*src: url('../fonts/iconfont.eot?t=1508229193188#iefix') format('embedded-opentype'), !* IE6-IE8 *!*/
-    /*url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),*/
-    /*url('../fonts/iconfont.ttf?t=1508229193188') format('truetype'), !* chrome, firefox, opera, Safari, Android, iOS 4.2+*!*/
-    /*url('../fonts/iconfont.svg?t=1508229193188#iconfont') format('svg'); !* iOS 4.1- *!*/
-    /*}*/
 
     .iconfont {
         font-family: "iconfont" !important;

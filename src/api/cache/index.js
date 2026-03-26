@@ -90,3 +90,13 @@ export const deleteCacheKey = (key) => {
     method: 'delete'
   })
 }
+
+/**
+ * 获取 Redis 服务器信息
+ */
+export const getRedisInfo = () => {
+  return request({
+    url: '/cache/redis/info',
+    method: 'get'
+  })
+}

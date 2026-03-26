@@ -1,121 +1,208 @@
 <template>
-  <div class="dict-data-container">
-    <!-- 查询表单 -->
-    <a-form layout="inline" :model="queryForm" style="margin-bottom: 16px">
-      <a-form-item label="字典标签">
-        <a-input v-model:value="queryForm.label" placeholder="请输入字典标签" allow-clear style="width: 200px" />
-      </a-form-item>
-      <a-form-item label="状态">
-        <a-select v-model:value="queryForm.status" placeholder="请选择状态" allow-clear style="width: 120px">
-          <a-select-option :value="1">启用</a-select-option>
-          <a-select-option :value="0">禁用</a-select-option>
-        </a-select>
-      </a-form-item>
-      <a-form-item>
-        <a-space>
-          <a-button type="primary" @click="handleQuery">
-            <template #icon><SearchOutlined /></template>
-            查询
-          </a-button>
-          <a-button @click="handleReset">
-            <template #icon><ReloadOutlined /></template>
-            重置
-          </a-button>
-        </a-space>
-      </a-form-item>
-    </a-form>
+  <div :style="cssVars">
+    <!-- 搜索区域 -->
+    <transition name="search-slide">
+      <a-card :bordered="false" class="search-card" :body-style="{ padding: '16px' }" v-show="searchVisible">
+        <a-form layout="inline" :model="queryForm" class="search-form-compact">
+          <a-form-item name="label">
+            <a-input v-model:value="queryForm.label" placeholder="请输入字典标签" allow-clear style="width: 180px" @pressEnter="handleQuery" />
+          </a-form-item>
+          <a-form-item name="status">
+            <DictSelect 
+              v-model:value="queryForm.status" 
+              dict-type="dict_data_status" 
+              placeholder="请选择状态" 
+              allow-clear 
+              value-type="number"
+              style="width: 180px"
+            />
+          </a-form-item>
+          <a-form-item>
+            <a-space :size="12">
+              <a-button type="primary" @click="handleQuery">
+                <template #icon><SearchOutlined /></template>
+                搜索
+              </a-button>
+              <a-button @click="handleReset">
+                <template #icon><ReloadOutlined /></template>
+                重置
+              </a-button>
+            </a-space>
+          </a-form-item>
+        </a-form>
+      </a-card>
+    </transition>
 
-    <!-- 操作按钮 -->
-    <div style="margin-bottom: 16px">
-      <a-space>
-        <a-button type="primary" @click="handleAdd">
-          <template #icon><PlusOutlined /></template>
-          新增
-        </a-button>
-        <a-button danger :disabled="!hasSelected" @click="handleBatchDelete">
-          <template #icon><DeleteOutlined /></template>
-          删除
-        </a-button>
-      </a-space>
-    </div>
-
-    <!-- 表格 -->
-    <a-table
-      :columns="columns"
-      :data-source="dataSource"
-      :row-selection="rowSelection"
-      :pagination="pagination"
-      :loading="loading"
-      row-key="id"
-      @change="handleTableChange"
-    >
-      <template #bodyCell="{ column, record }">
-        <template v-if="column.key === 'status'">
-          <a-switch
-            :checked="record.status === 1"
-            checked-children="启用"
-            un-checked-children="禁用"
-            @change="handleStatusChange(record)"
-          />
-        </template>
-        <template v-else-if="column.key === 'action'">
-          <a-space>
-            <a @click="handleEdit(record)">编辑</a>
-            <a-divider type="vertical" />
-            <a-popconfirm title="确定删除吗？" @confirm="handleDelete(record.id)">
-              <a style="color: #ff4d4f">删除</a>
-            </a-popconfirm>
+    <!-- 数据表格区域 -->
+    <a-card :bordered="false">
+      <template #title>
+        <div class="table-header-actions">
+          <a-space :size="12">
+            <a-button type="primary" @click="handleAdd" v-permission.disable="'system:dict_data:add'">
+              <template #icon><PlusOutlined /></template>
+              新增
+            </a-button>
+            <a-button type="primary" danger :disabled="selectedRowKeys.length === 0" @click="handleBatchDelete" v-permission.disable="'system:dict_data:remove'">
+              <template #icon><DeleteOutlined /></template>
+              删除 {{ selectedRowKeys.length > 0 ? `(${selectedRowKeys.length})` : '' }}
+            </a-button>
           </a-space>
-        </template>
+
+          <a-space :size="12">
+            <a-tooltip :title="searchVisible ? '隐藏搜索栏' : '显示搜索栏'">
+              <a-button shape="circle" @click="toggleSearch">
+                <template #icon>
+                  <EyeInvisibleOutlined v-if="searchVisible" />
+                  <EyeOutlined v-else />
+                </template>
+              </a-button>
+            </a-tooltip>
+            
+            <a-dropdown placement="bottomRight">
+              <template #overlay>
+                <a-menu>
+                  <a-menu-item v-for="col in configurableColumns" :key="col.key">
+                    <a-checkbox 
+                      :checked="columnVisibility[col.key]" 
+                      @change="() => toggleColumn(col.key)"
+                    >
+                      {{ col.title }}
+                    </a-checkbox>
+                  </a-menu-item>
+                </a-menu>
+              </template>
+              <a-tooltip title="列显示设置">
+                <a-button shape="circle">
+                  <template #icon><SettingOutlined /></template>
+                </a-button>
+              </a-tooltip>
+            </a-dropdown>
+          </a-space>
+        </div>
       </template>
-    </a-table>
+
+      <a-table
+        :columns="visibleColumns"
+        :data-source="dataSource"
+        :row-selection="{ selectedRowKeys, onChange: onSelectChange }"
+        :pagination="pagination"
+        :loading="loading"
+        row-key="id"
+        @change="handleTableChange"
+        :scroll="{ x: 'max-content' }"
+      >
+        <template #bodyCell="{ column, record }">
+          <template v-if="column.key === 'status'">
+            <a-switch
+              :checked="record.status === 1"
+              checked-children="启用"
+              un-checked-children="禁用"
+              @change="() => handleStatusChange(record)"
+            />
+          </template>
+          <template v-else-if="column.key === 'action'">
+            <a-space :size="8">
+              <a-tooltip title="编辑">
+                <a-button type="link" size="small" @click="handleEdit(record)" v-permission.disable="'system:dict_data:edit'">
+                  <template #icon><EditOutlined /></template>
+                  编辑
+                </a-button>
+              </a-tooltip>
+              <a-popconfirm title="确认删除该字典数据吗？" @confirm="handleDelete(record.id)">
+                <a-tooltip title="删除">
+                  <a-button type="link" danger size="small" v-permission.disable="'system:dict_data:remove'">
+                    <template #icon><DeleteOutlined /></template>
+                    删除
+                  </a-button>
+                </a-tooltip>
+              </a-popconfirm>
+            </a-space>
+          </template>
+        </template>
+      </a-table>
+    </a-card>
 
     <!-- 新增/编辑弹窗 -->
     <a-modal
       v-model:open="modalVisible"
-      :title="modalTitle"
-      :confirm-loading="modalLoading"
-      @ok="handleModalOk"
-      @cancel="handleModalCancel"
+      width="600px"
+      :footer="null"
+      :closable="false"
+      centered
     >
-      <a-form
-        ref="formRef"
-        :model="formData"
-        :rules="formRules"
-        :label-col="{ span: 6 }"
-        :wrapper-col="{ span: 16 }"
-      >
-        <a-form-item label="字典标签" name="label">
-          <a-input v-model:value="formData.label" placeholder="请输入字典标签" />
-        </a-form-item>
-        <a-form-item label="字典键值" name="value">
-          <a-input v-model:value="formData.value" placeholder="请输入字典键值" />
-        </a-form-item>
-        <a-form-item label="排序" name="sort">
-          <a-input-number v-model:value="formData.sort" :min="0" style="width: 100%" />
-        </a-form-item>
-        <a-form-item label="状态" name="status">
-          <a-radio-group v-model:value="formData.status">
-            <a-radio :value="1">启用</a-radio>
-            <a-radio :value="0">禁用</a-radio>
-          </a-radio-group>
-        </a-form-item>
-        <a-form-item label="备注" name="remark">
-          <a-textarea v-model:value="formData.remark" placeholder="请输入备注" :rows="4" />
-        </a-form-item>
-      </a-form>
+      <template #title>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <span style="font-size: 18px; font-weight: 600;">{{ modalTitle }}</span>
+          <a-space :size="12">
+            <a-button @click="handleModalCancel">取消</a-button>
+            <a-button type="primary" :loading="modalLoading" @click="handleModalOk">确定</a-button>
+          </a-space>
+        </div>
+      </template>
+      
+      <a-divider />
+      
+      <div :style="cssVars">
+        <a-form
+          ref="formRef"
+          :model="formData"
+          :rules="formRules"
+          layout="vertical"
+        >
+          <a-row :gutter="24">
+            <a-col :span="12">
+              <a-form-item label="字典标签" name="label">
+                <a-input v-model:value="formData.label" placeholder="请输入字典标签" />
+              </a-form-item>
+            </a-col>
+            <a-col :span="12">
+              <a-form-item label="字典键值" name="value">
+                <a-input v-model:value="formData.value" placeholder="请输入字典键值" />
+              </a-form-item>
+            </a-col>
+          </a-row>
+          <a-row :gutter="24">
+            <a-col :span="12">
+              <a-form-item label="排序" name="sort">
+                <a-input-number v-model:value="formData.sort" :min="0" style="width: 100%" />
+              </a-form-item>
+            </a-col>
+            <a-col :span="12">
+              <a-form-item label="状态" name="status">
+                <DictRadio 
+                  v-model:value="formData.status" 
+                  dict-type="dict_data_status" 
+                  value-type="number"
+                />
+              </a-form-item>
+            </a-col>
+          </a-row>
+          <a-row :gutter="24">
+            <a-col :span="24">
+              <a-form-item label="备注" name="remark">
+                <a-textarea v-model:value="formData.remark" placeholder="请输入备注" :rows="4" />
+              </a-form-item>
+            </a-col>
+          </a-row>
+        </a-form>
+      </div>
     </a-modal>
   </div>
 </template>
 
 <script setup>
 import { ref, reactive, computed, watch, onMounted } from 'vue'
-import message from '@/utils/message'
+import { theme, Modal } from 'ant-design-vue'
+import { Message } from '@/utils'
 import {
   SearchOutlined,
   ReloadOutlined,
   PlusOutlined,
-  DeleteOutlined
+  DeleteOutlined,
+  EditOutlined,
+  EyeOutlined,
+  EyeInvisibleOutlined,
+  SettingOutlined
 } from '@ant-design/icons-vue'
 import {
   getDictDataList,
@@ -137,22 +224,72 @@ const props = defineProps({
   }
 })
 
+const { useToken } = theme
+const { token } = useToken()
+
+const cssVars = computed(() => {
+  const t = token.value || {}
+  return {
+    '--color-text': t.colorText,
+    '--color-primary': t.colorPrimary,
+    '--color-border-secondary': t.colorBorderSecondary,
+    '--border-radius': `${t.borderRadius}px`,
+    '--color-fill-alter': t.colorFillAlter,
+    '--font-size-lg': `${t.fontSizeLG}px`,
+    '--color-bg-container': t.colorBgContainer,
+    '--color-border': t.colorBorder
+  }
+})
+
 // 查询表单
 const queryForm = reactive({
   label: '',
   status: undefined
 })
 
+// 搜索栏显隐
+const searchVisible = ref(true)
+const toggleSearch = () => {
+  searchVisible.value = !searchVisible.value
+}
+
 // 表格列定义
 const columns = [
-  { title: '字典数据ID', dataIndex: 'id', key: 'id', width: 100 },
-  { title: '字典标签', dataIndex: 'label', key: 'label' },
-  { title: '字典键值', dataIndex: 'value', key: 'value' },
+  { title: '字典数据ID', dataIndex: 'id', key: 'id', width: 120 },
+  { title: '字典标签', dataIndex: 'label', key: 'label', width: 150 },
+  { title: '字典键值', dataIndex: 'value', key: 'value', width: 150 },
   { title: '排序', dataIndex: 'sort', key: 'sort', width: 80 },
   { title: '状态', dataIndex: 'status', key: 'status', width: 100 },
-  { title: '备注', dataIndex: 'remark', key: 'remark', ellipsis: true },
-  { title: '操作', key: 'action', width: 150, fixed: 'right' }
+  { title: '备注', dataIndex: 'remark', key: 'remark', width: 200, ellipsis: true },
+  { title: '创建时间', dataIndex: 'createTime', key: 'createTime', width: 180 },
+  { title: '操作', key: 'action', width: 180 }
 ]
+
+// 列显隐控制
+const columnVisibility = ref({
+  id: true,
+  label: true,
+  value: true,
+  sort: true,
+  status: true,
+  remark: true,
+  createTime: true
+})
+
+const toggleColumn = (key) => {
+  columnVisibility.value[key] = !columnVisibility.value[key]
+}
+
+const visibleColumns = computed(() => {
+  return columns.filter(col => {
+    if (col.key === 'action') return true
+    return columnVisibility.value[col.key] !== false
+  })
+})
+
+const configurableColumns = computed(() => {
+  return columns.filter(col => col.key !== 'action')
+})
 
 // 表格数据
 const dataSource = ref([])
@@ -166,18 +303,15 @@ const pagination = reactive({
   total: 0,
   showSizeChanger: true,
   showQuickJumper: true,
-  showTotal: (total) => `共 ${total} 条`
+  showTotal: (total) => `共 ${total} 条`,
+  pageSizeOptions: ['10', '20', '50', '100'],
+  showLessItems: true
 })
 
 // 行选择
-const rowSelection = computed(() => ({
-  selectedRowKeys: selectedRowKeys.value,
-  onChange: (keys) => {
-    selectedRowKeys.value = keys
-  }
-}))
-
-const hasSelected = computed(() => selectedRowKeys.value.length > 0)
+const onSelectChange = (keys) => {
+  selectedRowKeys.value = keys
+}
 
 // 弹窗
 const modalVisible = ref(false)
@@ -206,18 +340,20 @@ const formRules = {
 const loadData = async () => {
   loading.value = true
   try {
-    const params = {
+    const data = {
       dictId: props.dictId,
       label: queryForm.label || undefined,
-      status: queryForm.status
+      status: queryForm.status,
+      pageNo: pagination.current,
+      pageSize: pagination.pageSize
     }
-    const res = await getDictDataList(pagination.current, pagination.pageSize, params)
+    const res = await getDictDataList(data)
     if (res.code === 200) {
-      dataSource.value = res.data.records
+      dataSource.value = res.data.data
       pagination.total = res.data.total
     }
   } catch (error) {
-    message.error('加载数据失败')
+    Message.error('加载数据失败')
   } finally {
     loading.value = false
   }
@@ -269,7 +405,7 @@ const handleEdit = async (record) => {
       modalVisible.value = true
     }
   } catch (error) {
-    message.error('加载数据失败')
+    Message.error('加载数据失败')
   }
 }
 
@@ -278,35 +414,55 @@ const handleDelete = async (id) => {
   try {
     const res = await deleteDictData(id)
     if (res.code === 200) {
-      message.success('删除成功')
+      Message.success('删除成功')
       loadData()
     }
   } catch (error) {
-    message.error('删除失败')
+    Message.error('删除失败')
   }
 }
 
 // 批量删除
 const handleBatchDelete = () => {
   if (selectedRowKeys.value.length === 0) {
-    message.warning('请选择要删除的数据')
+    Message.warning('请选择要删除的数据')
     return
   }
-  handleDelete(selectedRowKeys.value.join(','))
-  selectedRowKeys.value = []
+
+  Modal.confirm({
+    title: '确认批量删除',
+    content: `确定要删除选中的 ${selectedRowKeys.value.length} 条字典数据吗？此操作不可撤销。`,
+    okText: '确定删除',
+    cancelText: '取消',
+    okType: 'danger',
+    centered: true,
+    onOk: async () => {
+      await handleDelete(selectedRowKeys.value.join(','))
+      selectedRowKeys.value = []
+    }
+  })
 }
 
 // 状态切换
 const handleStatusChange = async (record) => {
-  try {
-    const res = await updateDictDataStatus(record.id)
-    if (res.code === 200) {
-      message.success('状态修改成功')
-      loadData()
+  Modal.confirm({
+    title: '确认操作',
+    content: `确定要${record.status === 1 ? '禁用' : '启用'}该字典数据吗？`,
+    okText: '确定',
+    cancelText: '取消',
+    centered: true,
+    onOk: async () => {
+      try {
+        const res = await updateDictDataStatus(record.id)
+        if (res.code === 200) {
+          Message.success('状态修改成功')
+          loadData()
+        }
+      } catch (error) {
+        Message.error('状态修改失败')
+      }
     }
-  } catch (error) {
-    message.error('状态修改失败')
-  }
+  })
 }
 
 // 弹窗确定
@@ -317,7 +473,7 @@ const handleModalOk = async () => {
     const api = isEdit.value ? editDictData : addDictData
     const res = await api(formData)
     if (res.code === 200) {
-      message.success(isEdit.value ? '编辑成功' : '新增成功')
+      Message.success(isEdit.value ? '编辑成功' : '新增成功')
       modalVisible.value = false
       loadData()
     }
@@ -330,6 +486,7 @@ const handleModalOk = async () => {
 
 // 弹窗取消
 const handleModalCancel = () => {
+  modalVisible.value = false
   formRef.value?.resetFields()
 }
 
@@ -345,8 +502,57 @@ onMounted(() => {
 })
 </script>
 
-<style scoped lang="scss">
-.dict-data-container {
-  // 样式
+<style lang="scss" scoped>
+/* 搜索栏过渡动画 */
+.search-slide-enter-active,
+.search-slide-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-slide-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}
+
+.search-slide-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+}
+
+.search-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+}
+
+.search-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}
+
+.search-card {
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.search-form-compact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  
+  :deep(.ant-form-item) {
+    margin-bottom: 0;
+    margin-right: 12px;
+  }
+}
+
+.table-header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

@@ -3,7 +3,7 @@ import { ref } from 'vue'
 /**
  * 表格设置管理（搜索栏显隐、列显隐）
  */
-export function useTableSettings(columns) {
+export function useTableSettings(columns, updateTableHeight) {
   // 搜索栏显示状态
   const searchVisible = ref(true)
 
@@ -22,6 +22,10 @@ export function useTableSettings(columns) {
    */
   const toggleSearch = () => {
     searchVisible.value = !searchVisible.value
+    // 通知表格更新高度
+    if (updateTableHeight) {
+      updateTableHeight(searchVisible.value)
+    }
   }
 
   /**

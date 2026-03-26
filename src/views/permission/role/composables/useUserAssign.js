@@ -25,7 +25,9 @@ export function useUserAssign(fetchRoleList) {
     total: 0,
     showSizeChanger: true,
     showQuickJumper: true,
-    pageSizeOptions: ['10', '20', '50']
+    showTotal: (total) => `共 ${total} 条`,
+    pageSizeOptions: ['10', '20', '50', '100'],
+    showLessItems: true
   })
   
   // 已分配用户搜索条件
@@ -47,7 +49,9 @@ export function useUserAssign(fetchRoleList) {
     total: 0,
     showSizeChanger: true,
     showQuickJumper: true,
-    pageSizeOptions: ['10', '20', '50']
+    showTotal: (total) => `共 ${total} 条`,
+    pageSizeOptions: ['10', '20', '50', '100'],
+    showLessItems: true
   })
   
   // 未分配用户搜索条件
@@ -85,16 +89,14 @@ export function useUserAssign(fetchRoleList) {
     assignedLoading.value = true
     try {
       const params = {
-        userName: assignedSearchForm.userName ? assignedSearchForm.userName.trim() : '',
+        roleId: currentRole.value.id,
+        pageNo: assignedPagination.current,
+        pageSize: assignedPagination.pageSize,
+        userName: assignedSearchForm.userName ? assignedSearchForm.userName.trim() : undefined,
         status: assignedSearchForm.status
       }
       
-      const response = await queryAssignedUsers(
-        currentRole.value.id,
-        assignedPagination.current,
-        assignedPagination.pageSize,
-        params
-      )
+      const response = await queryAssignedUsers(params)
       
       if (response.code === 200 && response.data !== null) {
         assignedUsers.value = response.data.data || []
@@ -158,16 +160,14 @@ export function useUserAssign(fetchRoleList) {
     unassignedLoading.value = true
     try {
       const params = {
-        userName: unassignedSearchForm.userName ? unassignedSearchForm.userName.trim() : '',
+        roleId: currentRole.value.id,
+        pageNo: unassignedPagination.current,
+        pageSize: unassignedPagination.pageSize,
+        userName: unassignedSearchForm.userName ? unassignedSearchForm.userName.trim() : undefined,
         status: unassignedSearchForm.status
       }
       
-      const response = await queryUnassignedUsers(
-        currentRole.value.id,
-        unassignedPagination.current,
-        unassignedPagination.pageSize,
-        params
-      )
+      const response = await queryUnassignedUsers(params)
       
       if (response.code === 200 && response.data !== null) {
         unassignedUsers.value = response.data.data || []

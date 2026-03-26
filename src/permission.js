@@ -27,7 +27,7 @@ router.beforeEach(async (to, from, next) => {
     //用户已登录
     if (to.path === LOGIN_PATH) {
       next(HOME_PATH);
-    } else {
+    } {
       // 使用 hasAddedRoutes 标志位判断动态路由是否已添加
       if (userStore.hasAddedRoutes) {
         // 动态路由已添加，直接放行

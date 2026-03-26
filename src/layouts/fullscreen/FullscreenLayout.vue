@@ -19,7 +19,7 @@ import TabsView from '@/components/core/TabsView.vue'
 const appStore = useAppStore()
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .fullscreen-content {
     height: calc(100vh - $top-height);
     overflow-y: scroll;

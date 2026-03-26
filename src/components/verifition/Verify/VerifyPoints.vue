@@ -54,6 +54,7 @@
     import { computed, onMounted, reactive, ref,watch,nextTick,toRefs, watchEffect,getCurrentInstance} from 'vue';
     export default {
         name: 'VerifyPoints',
+        emits: ['loading', 'success', 'error', 'ready'],
         props: {
             //弹出式pop，固定fixed
             mode: {
@@ -210,6 +211,9 @@
 
                 // 请求背景图片和验证图片
                 function getPictrue() {
+                    // 触发加载状态
+                    context.emit('loading', true)
+                    
                     let data = {
                         captchaType:captchaType.value
                     }
@@ -223,9 +227,13 @@
                         }else{
                             text.value = res.repMsg || '验证码加载失败，请刷新重试';
                         }
+                        // 加载完成
+                        context.emit('loading', false)
                     }).catch(err => {
                         console.error('获取验证码失败:', err)
                         text.value = '验证码加载失败，请刷新重试'
+                        // 加载完成（即使失败）
+                        context.emit('loading', false)
                     })
                 }
                 //坐标转换函数

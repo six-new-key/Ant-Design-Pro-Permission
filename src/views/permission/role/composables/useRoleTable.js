@@ -1,4 +1,4 @@
-import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
+import { ref, reactive } from 'vue'
 import { queryRoleListByPage } from '@/api/role'
 
 /**
@@ -8,7 +8,6 @@ export function useRoleTable(searchForm) {
   const loading = ref(false)
   const tableData = ref([])
   const selectedRowKeys = ref([])
-  const isFullscreen = ref(false)
 
   // 分页配置
   const pagination = reactive({
@@ -17,7 +16,9 @@ export function useRoleTable(searchForm) {
     total: 0,
     showSizeChanger: true,
     showQuickJumper: true,
-    pageSizeOptions: ['10', '20', '50', '100']
+    showTotal: (total) => `共 ${total} 条`,
+    pageSizeOptions: ['10', '20', '50', '100'],
+    showLessItems: true
   })
 
   // 表格列配置
@@ -26,20 +27,22 @@ export function useRoleTable(searchForm) {
       title: '角色编号',
       dataIndex: 'id',
       key: 'id',
-      width: 100,
+      width: 180,
       fixed: 'left'
     },
     {
       title: '角色名称',
       dataIndex: 'name',
       key: 'name',
-      width: 150
+      width: 150,
+      ellipsis: true
     },
     {
       title: '角色编码',
       dataIndex: 'code',
       key: 'code',
-      width: 150
+      width: 150,
+      ellipsis: true
     },
     {
       title: '状态',
@@ -51,20 +54,16 @@ export function useRoleTable(searchForm) {
       title: '创建时间',
       dataIndex: 'createTime',
       key: 'createTime',
-      width: 180
+      width: 180,
+      ellipsis: true
     },
     {
       title: '操作',
       key: 'operation',
-      width: 200,
+      width: 360,
       fixed: 'right'
     }
   ]
-
-  // 表格最大高度
-  const tableMaxHeight = computed(() => {
-    return isFullscreen.value ? undefined : '420px'
-  })
 
   /**
    * 加载角色列表
@@ -72,12 +71,14 @@ export function useRoleTable(searchForm) {
   const fetchRoleList = async () => {
     loading.value = true
     const params = {
-      name: searchForm.name ? searchForm.name.trim() : '',
-      code: searchForm.code ? searchForm.code.trim() : '',
-      status: searchForm.status !== undefined ? Number(searchForm.status) : null
+      pageNo: pagination.current,
+      pageSize: pagination.pageSize,
+      name: searchForm.name ? searchForm.name.trim() : undefined,
+      code: searchForm.code ? searchForm.code.trim() : undefined,
+      status: searchForm.status !== undefined ? Number(searchForm.status) : undefined
     }
 
-    const response = await queryRoleListByPage(pagination.current, pagination.pageSize, params)
+    const response = await queryRoleListByPage(params)
     if (response.code === 200 && response.data !== null) {
       tableData.value = response.data.data || []
       pagination.total = response.data.total || 0
@@ -108,29 +109,12 @@ export function useRoleTable(searchForm) {
     fetchRoleList()
   }
 
-  /**
-   * 全屏变化监听
-   */
-  const handleFullscreenChange = () => {
-    isFullscreen.value = !!document.fullscreenElement
-  }
-
-  onMounted(() => {
-    document.addEventListener('fullscreenchange', handleFullscreenChange)
-    isFullscreen.value = !!document.fullscreenElement
-  })
-
-  onUnmounted(() => {
-    document.removeEventListener('fullscreenchange', handleFullscreenChange)
-  })
-
   return {
     loading,
     tableData,
     selectedRowKeys,
     pagination,
     columns,
-    tableMaxHeight,
     fetchRoleList,
     onSelectChange,
     getCheckboxProps,

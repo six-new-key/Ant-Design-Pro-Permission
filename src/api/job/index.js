@@ -1,13 +1,17 @@
 import request from '@/utils/request'
 
+//请求前缀
+const PREFIX_JOB = "/schedule/job";
+const PREFIX_JOB_LOG = "/schedule/job/log";
+
 /**
  * 分页查询定时任务
  */
-export function getJobPage(params) {
+export function getJobPage(data) {
   return request({
-    url: '/api/schedule/job/page',
-    method: 'get',
-    params
+    url: `${PREFIX_JOB}/page`,
+    method: 'post',
+    data
   })
 }
 
@@ -16,7 +20,7 @@ export function getJobPage(params) {
  */
 export function getJobById(jobId) {
   return request({
-    url: `/api/schedule/job/${jobId}`,
+    url: `${PREFIX_JOB}/detail/${jobId}`,
     method: 'get'
   })
 }
@@ -26,7 +30,7 @@ export function getJobById(jobId) {
  */
 export function addJob(data) {
   return request({
-    url: '/api/schedule/job',
+    url: `${PREFIX_JOB}/add`,
     method: 'post',
     data
   })
@@ -37,7 +41,7 @@ export function addJob(data) {
  */
 export function updateJob(data) {
   return request({
-    url: '/api/schedule/job',
+    url: `${PREFIX_JOB}/update`,
     method: 'put',
     data
   })
@@ -48,7 +52,7 @@ export function updateJob(data) {
  */
 export function deleteJob(jobId) {
   return request({
-    url: `/api/schedule/job/${jobId}`,
+    url: `${PREFIX_JOB}/single/${jobId}`,
     method: 'delete'
   })
 }
@@ -58,7 +62,7 @@ export function deleteJob(jobId) {
  */
 export function batchDeleteJobs(jobIds) {
   return request({
-    url: '/api/schedule/job/batch',
+    url: `${PREFIX_JOB}/batch`,
     method: 'delete',
     data: jobIds
   })
@@ -69,7 +73,7 @@ export function batchDeleteJobs(jobIds) {
  */
 export function changeStatus(jobId, status) {
   return request({
-    url: '/api/schedule/job/changeStatus',
+    url: `${PREFIX_JOB}/changeStatus`,
     method: 'put',
     params: { jobId, status }
   })
@@ -80,7 +84,7 @@ export function changeStatus(jobId, status) {
  */
 export function runJob(jobId) {
   return request({
-    url: `/api/schedule/job/run/${jobId}`,
+    url: `${PREFIX_JOB}/run/${jobId}`,
     method: 'post'
   })
 }
@@ -88,11 +92,11 @@ export function runJob(jobId) {
 /**
  * 分页查询定时任务日志
  */
-export function getJobLogPage(params) {
+export function getJobLogPage(data) {
   return request({
-    url: '/api/schedule/job/log/page',
-    method: 'get',
-    params
+    url: `${PREFIX_JOB_LOG}/page`,
+    method: 'post',
+    data
   })
 }
 
@@ -101,7 +105,7 @@ export function getJobLogPage(params) {
  */
 export function cleanJobLog() {
   return request({
-    url: '/api/schedule/job/log/clean',
+    url: `${PREFIX_JOB_LOG}/clean`,
     method: 'delete'
   })
 }

@@ -1,0 +1,59 @@
+/* 搜索栏过渡动画 */
+.search-slide-enter-active,
+.search-slide-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-slide-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}
+
+.search-slide-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+}
+
+.search-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+}
+
+.search-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}
+
+.announcement-container {
+  .search-card {
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  .search-form-compact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+    
+    :deep(.ant-form-item) {
+      margin-bottom: 0;
+      margin-right: 12px;
+    }
+  }
+
+  .table-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title-cell {
+    display: flex;
+    align-items: center;
+  }
+}

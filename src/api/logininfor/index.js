@@ -1,13 +1,16 @@
 import request from '@/utils/request'
 
+//请求前缀
+const PREFIX = "/monitor/login_log";
+
 /**
  * 分页查询登录日志列表
  */
-export function getLoginLogList(params) {
+export function getLoginLogList(data) {
   return request({
-    url: '/monitor/logininfor/list',
-    method: 'get',
-    params
+    url: `${PREFIX}/list`,
+    method: 'post',
+    data
   })
 }
 
@@ -16,7 +19,7 @@ export function getLoginLogList(params) {
  */
 export function getLoginLogDetail(id) {
   return request({
-    url: `/monitor/logininfor/${id}`,
+    url: `${PREFIX}/${id}`,
     method: 'get'
   })
 }
@@ -26,8 +29,9 @@ export function getLoginLogDetail(id) {
  */
 export function deleteLoginLog(ids) {
   return request({
-    url: `/monitor/logininfor/${ids.join(',')}`,
-    method: 'delete'
+    url: `${PREFIX}/remove`,
+    method: 'delete',
+    data: ids
   })
 }
 
@@ -36,7 +40,19 @@ export function deleteLoginLog(ids) {
  */
 export function cleanLoginLog() {
   return request({
-    url: '/monitor/logininfor/clean',
+    url: `${PREFIX}/clean`,
     method: 'delete'
+  })
+}
+
+/**
+ * 导出登录日志
+ */
+export function exportLoginLog(data) {
+  return request({
+    url: `${PREFIX}/export`,
+    method: 'post',
+    data,
+    responseType: 'blob'
   })
 }

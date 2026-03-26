@@ -1,6 +1,6 @@
 ﻿<template>
   <div class="cron-generator" :style="cssVars">
-    <a-tabs v-model:activeKey="activeTab" type="card">
+    <a-tabs v-model:activeKey="activeTab">
       <a-tab-pane key="second" tab="秒">
         <CronSecond ref="cronSecond" @update="updateCronValue" />
       </a-tab-pane>
@@ -270,9 +270,9 @@ watch(() => props.value, (newVal) => {
 }, { immediate: true })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .cron-generator {
-  padding: 16px;
+  padding: 0;
 }
 
 .cron-result {

@@ -17,7 +17,12 @@ const request = axios.create({
   },
   timeout: 60000,
   // 使用 json-bigint 处理响应数据，避免大数字精度丢失
-  transformResponse: [function (data) {
+  transformResponse: [function (data, headers) {
+    // 如果是 blob 类型，直接返回原始数据
+    if (headers && headers['content-type'] && headers['content-type'].includes('application/octet-stream')) {
+      return data;
+    }
+    
     if (typeof data === 'string') {
       try {
         return jsonBig.parse(data);
@@ -90,6 +95,11 @@ request.interceptors.request.use((config) => {
 //响应拦截器
 request.interceptors.response.use(
   async (response) => {
+    // 如果是 blob 类型的响应，直接返回原始响应（用于文件下载）
+    if (response.config.responseType === 'blob') {
+      return response;
+    }
+    
     //响应成功的回调
     const res = response.data;
     const code = res.code;

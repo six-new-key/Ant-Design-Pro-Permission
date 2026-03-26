@@ -1,6 +1,30 @@
 <template>
-  <a-modal v-model:open="visible" title="数据权限" :width="isHalfScreen ? '68%' : '46%'" @cancel="handleCancel"
-    @ok="handleSave" centered :confirmLoading="permissionLoading" :okButtonProps="{ disabled: roleInfo.status === 0 || roleInfo.code === 'admin' }" wrapClassName="permission-dialog-modal">
+  <a-modal 
+    v-model:open="visible" 
+    :width="isHalfScreen ? '68%' : '46%'" 
+    :footer="null"
+    :closable="false"
+    centered 
+    wrapClassName="permission-dialog-modal">
+    
+    <template #title>
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span style="font-size: 18px; font-weight: 600;">数据权限</span>
+        <a-space :size="12">
+          <a-button @click="handleCancel">取消</a-button>
+          <a-button 
+            type="primary" 
+            :loading="permissionLoading" 
+            :disabled="roleInfo.status === 0 || roleInfo.code === 'admin'"
+            @click="handleSave">
+            确定
+          </a-button>
+        </a-space>
+      </div>
+    </template>
+    
+    <a-divider />
+    
     <div class="permission-dialog" :style="cssVars">
       <!-- 角色信息 -->
       <div class="permission-header">
@@ -67,8 +91,8 @@ import {
   MenuUnfoldOutlined,
   CloseCircleOutlined,
   CheckCircleOutlined,
-  FullscreenExitOutlined,
-  FullscreenOutlined
+  ExpandOutlined,
+  CompressOutlined
 } from '@ant-design/icons-vue'
 import { Message } from '@/utils'
 import { saveRolePermission } from '@/api/role'

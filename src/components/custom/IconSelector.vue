@@ -1,17 +1,18 @@
 <template>
   <a-modal
     :open="visible"
-    title="选择图标"
-    width="900px"
+    width="700px"
+    :footer="null"
+    :closable="false"
     centered
     @cancel="handleCancel"
     :destroyOnClose="true"
   >
-    <template #footer>
-      <a-space>
+    <template #title>
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span style="font-size: 18px; font-weight: 600;">选择图标</span>
         <a-button @click="handleClear">清空选择</a-button>
-        <a-button type="primary" @click="handleConfirm" :disabled="!selectedIcon">确定</a-button>
-      </a-space>
+      </div>
     </template>
     <div :style="cssVars" class="icon-selector">
       <!-- 搜索栏 -->
@@ -244,6 +245,10 @@ const handleCategoryChange = () => {
 
 const handleSelectIcon = (iconName) => {
   selectedIcon.value = iconName
+  // 点击图标后立即确认并关闭
+  emit('update:value', iconName)
+  emit('change', iconName)
+  emit('update:visible', false)
 }
 
 const handleConfirm = () => {
@@ -284,9 +289,9 @@ const handleCancel = () => {
 
   .icon-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 8px;
-    max-height: 450px;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 6px;
+    max-height: 350px;
     overflow-y: auto;
     padding: 8px;
     background: var(--color-fill-alter);
@@ -312,7 +317,7 @@ const handleCancel = () => {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 12px 8px;
+      padding: 8px 4px;
       background: var(--color-bg-container);
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
@@ -339,18 +344,18 @@ const handleCancel = () => {
       }
 
       .icon {
-        font-size: 24px;
+        font-size: 20px;
         color: var(--color-text);
-        margin-bottom: 8px;
+        margin-bottom: 4px;
         transition: all 0.3s;
       }
 
       .icon-name {
-        font-size: 12px;
+        font-size: 11px;
         color: var(--color-text);
         text-align: center;
         word-break: break-all;
-        line-height: 1.4;
+        line-height: 1.2;
         max-width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;

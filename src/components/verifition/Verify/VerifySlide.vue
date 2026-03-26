@@ -52,6 +52,7 @@
     //  "captchaType":"blockPuzzle",
     export default {
         name: 'VerifySlide',
+        emits: ['loading', 'success', 'error', 'ready'],
         props: {
             captchaType:{
                 type:String,
@@ -318,6 +319,9 @@
 
                 // 请求背景图片和验证图片
                 function getPictrue(){
+                    // 触发加载状态
+                    context.emit('loading', true)
+                    
                     let data = {
                         captchaType:captchaType.value
                     }
@@ -331,10 +335,14 @@
                             tipWords.value = res.repMsg || '验证码加载失败，请刷新重试';
                             passFlag.value = false
                         }
+                        // 加载完成
+                        context.emit('loading', false)
                     }).catch(err => {
                         console.error('获取验证码失败:', err)
                         tipWords.value = '验证码加载失败，请刷新重试'
                         passFlag.value = false
+                        // 加载完成（即使失败）
+                        context.emit('loading', false)
                     })
                 }
                 return {

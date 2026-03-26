@@ -17,7 +17,7 @@
           <a-button 
             v-if="selectedCategory" 
             danger 
-            @click="handleClearCurrentType">
+            @click="handleClearCurrentType" v-permission.disable="'system:cache:clear_type'">
             <template #icon>
               <DeleteOutlined />
             </template>
@@ -55,7 +55,7 @@
                   type="link" 
                   size="small" 
                   danger
-                  @click.stop="handleClearCacheType(record)">
+                  @click.stop="handleClearCacheType(record)" v-permission.disable="'system:cache:clear_type'">
                   <DeleteOutlined />
                 </a-button>
               </template>
@@ -78,7 +78,7 @@
                 v-if="selectedCategory"
                 danger
                 :disabled="selectedKeys.length === 0"
-                @click="handleBatchDelete">
+                @click="handleBatchDelete" v-permission.disable="'system:cache:clear_key'">
                 <template #icon>
                   <DeleteOutlined />
                 </template>
@@ -140,7 +140,7 @@
                   type="link" 
                   size="small" 
                   danger
-                  @click.stop="handleDeleteKey(record.key)">
+                  @click.stop="handleDeleteKey(record.key)" v-permission.disable="'system:cache:clear_key'">
                   <DeleteOutlined />
                 </a-button>
               </template>
@@ -168,7 +168,7 @@
                 type="link" 
                 size="small" 
                 danger
-                @click="handleDeleteCurrentKey">
+                @click="handleDeleteCurrentKey" v-permission.disable="'system:cache:clear_key'">
                 <template #icon>
                   <DeleteOutlined />
                 </template>
@@ -230,7 +230,6 @@ import {
 import { useCacheList } from './composables/useCacheList'
 import { message } from '@/utils'
 import { confirmDelete } from '@/utils/confirm'
-import './styles/cache-list.scss'
 
 const route = useRoute()
 
@@ -489,3 +488,7 @@ watch(() => route.query.type, (newType) => {
   }
 })
 </script>
+
+<style lang="scss" scoped>
+@import './styles/cache-list.scss';
+</style>

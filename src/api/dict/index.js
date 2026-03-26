@@ -5,11 +5,11 @@ import request from '@/utils/request'
 /**
  * 分页查询字典类型
  */
-export function getDictTypeList(pageNo, pageSize, params) {
+export function getDictTypeList(data) {
   return request({
-    url: `/dict/type/list/${pageNo}/${pageSize}`,
-    method: 'get',
-    params
+    url: '/dict/type/list',
+    method: 'post',
+    data
   })
 }
 
@@ -80,11 +80,11 @@ export function getAllDictTypes() {
 /**
  * 分页查询字典数据
  */
-export function getDictDataList(pageNo, pageSize, params) {
+export function getDictDataList(data) {
   return request({
-    url: `/dict/data/list/${pageNo}/${pageSize}`,
-    method: 'get',
-    params
+    url: '/dict/data/list',
+    method: 'post',
+    data
   })
 }
 

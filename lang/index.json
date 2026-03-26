@@ -4254,5 +4254,3889 @@
 	"cun0c7d": {
 		"zh-cn": "验证码加载失败，请刷新重试",
 		"en": "The verification code failed to load. Please refresh and try again"
+	},
+	"gms6yk4": {
+		"zh-cn": "编辑配置",
+		"en": "Edit configuration"
+	},
+	"me4hw3": {
+		"zh-cn": "长文本",
+		"en": "Long text"
+	},
+	"a9j0ke4": {
+		"zh-cn": "下拉选择",
+		"en": "Drop-down selection"
+	},
+	"yo8mts6": {
+		"zh-cn": "JSON对象",
+		"en": "JSON object"
+	},
+	"eyqc2": {
+		"zh-cn": "单选",
+		"en": "Single choice"
+	},
+	"fy272": {
+		"zh-cn": "多选",
+		"en": "Multiple choices"
+	},
+	"idef2": {
+		"zh-cn": "标签",
+		"en": "Tag"
+	},
+	"l6wdl3": {
+		"zh-cn": "请输入",
+		"en": "Please enter"
+	},
+	"58gzp39": {
+		"zh-cn": "元数据配置（可选）",
+		"en": "Metadata configuration (optional"
+	},
+	"in5wcd5": {
+		"zh-cn": "占位符提示",
+		"en": "Placeholder prompt"
+	},
+	"uq1vgy9": {
+		"zh-cn": "输入框的占位符文本",
+		"en": "Placeholder text of the input box"
+	},
+	"fj7rh3": {
+		"zh-cn": "最小值",
+		"en": "Minimum value"
+	},
+	"fipyt3": {
+		"zh-cn": "最大值",
+		"en": "Maximum value"
+	},
+	"ely02": {
+		"zh-cn": "单位",
+		"en": "\"Unit"
+	},
+	"4l12vj6": {
+		"zh-cn": "如：分钟、次",
+		"en": "For example: minutes, times"
+	},
+	"d8rnjd4": {
+		"zh-cn": "文本行数",
+		"en": "Number of lines of text"
+	},
+	"klq2ck4": {
+		"zh-cn": "默认4行",
+		"en": "Default 4 lines"
+	},
+	"il0fta4": {
+		"zh-cn": "选择模式",
+		"en": "\"Select mode"
+	},
+	"it1pox4": {
+		"zh-cn": "选项配置",
+		"en": "Option configuration"
+	},
+	"dehsu94": {
+		"zh-cn": "显示文本",
+		"en": "Display text"
+	},
+	"e53g53": {
+		"zh-cn": "实际值",
+		"en": "Actual value"
+	},
+	"kt2n128": {
+		"zh-cn": " + 添加选项 ",
+		"en": "+ Add Options"
+	},
+	"heqc2": {
+		"zh-cn": "提交",
+		"en": "Submit"
+	},
+	"nul4rj6": {
+		"zh-cn": "输入提示文本",
+		"en": "Enter prompt text"
+	},
+	"ie3c399": {
+		"zh-cn": "例如：请输入配置值",
+		"en": "For example: Please enter the configuration value"
+	},
+	"4j7hxos": {
+		"zh-cn": " 设置配置值输入框的提示文本（placeholder） ",
+		"en": "Set the prompt text (placeholder) for the configuration value input box"
+	},
+	"hrlt2": {
+		"zh-cn": "描述",
+		"en": "Description"
+	},
+	"ghv52": {
+		"zh-cn": "布尔",
+		"en": "Bull"
+	},
+	"hu2t2": {
+		"zh-cn": "文本",
+		"en": "Text"
+	},
+	"wamfn86": {
+		"zh-cn": "更新配置成功",
+		"en": "The configuration update was successful"
+	},
+	"gui1d57": {
+		"zh-cn": "请检查表单填写",
+		"en": "Please check the form filling"
+	},
+	"wanmen6": {
+		"zh-cn": "更新配置失败",
+		"en": "Failed to update configuration"
+	},
+	"mertif6": {
+		"zh-cn": "删除配置失败",
+		"en": "Failed to delete the configuration"
+	},
+	"8p56j66": {
+		"zh-cn": "刷新缓存失败",
+		"en": "Failed to refresh the cache"
+	},
+	"bx9yfa5": {
+		"zh-cn": "暂无配置项",
+		"en": "There are no configuration items for the time being"
+	},
+	"ykoq9s8": {
+		"zh-cn": "切换功能开关失败",
+		"en": "The function switch failed"
+	},
+	"cs1za44": {
+		"zh-cn": "所属功能",
+		"en": "The function it belongs to"
+	},
+	"wknrmb7": {
+		"zh-cn": "请选择所属功能",
+		"en": "Please select the corresponding function"
+	},
+	"npolml6": {
+		"zh-cn": "新增配置失败",
+		"en": "New configuration failed"
+	},
+	"dmk39wa": {
+		"zh-cn": "系统内置配置不可删除",
+		"en": "The built-in configuration of the system cannot be deleted"
+	},
+	"avlu2r4": {
+		"zh-cn": "分组管理",
+		"en": "Group management"
+	},
+	"ayn8zn4": {
+		"zh-cn": "功能管理",
+		"en": "Function Management"
+	},
+	"iv0sna4": {
+		"zh-cn": "配置管理",
+		"en": "Configuration Management"
+	},
+	"ayfnss4": {
+		"zh-cn": "功能代码",
+		"en": "Function code"
+	},
+	"aygjsx4": {
+		"zh-cn": "功能名称",
+		"en": "Function name"
+	},
+	"ayjcn34": {
+		"zh-cn": "功能描述",
+		"en": "Function description"
+	},
+	"cs1v6k4": {
+		"zh-cn": "所属分组",
+		"en": "Group to which"
+	},
+	"b3yn504": {
+		"zh-cn": "启用状态",
+		"en": "Enabled status"
+	},
+	"1wp2r06": {
+		"zh-cn": " 新增功能 ",
+		"en": "New function"
+	},
+	"d743vw4": {
+		"zh-cn": "新增功能",
+		"en": "New function"
+	},
+	"e43jmre": {
+		"zh-cn": "如：ip_blacklist",
+		"en": "For example: ip_blacklist"
+	},
+	"h95zx67": {
+		"zh-cn": "如：IP黑名单",
+		"en": "For example: IP blacklist"
+	},
+	"1fkaunb": {
+		"zh-cn": "请输入功能描述（可选）",
+		"en": "Please enter the function description (optional)"
+	},
+	"wknnir7": {
+		"zh-cn": "请选择所属分组",
+		"en": "Please select your group"
+	},
+	"gmhjg94": {
+		"zh-cn": "编辑功能",
+		"en": "Editing function"
+	},
+	"ave8vw4": {
+		"zh-cn": "分组代码",
+		"en": "Grouping code"
+	},
+	"avf4w14": {
+		"zh-cn": "分组名称",
+		"en": "Group name"
+	},
+	"avhxq74": {
+		"zh-cn": "分组描述",
+		"en": "Group description"
+	},
+	"1wslt86": {
+		"zh-cn": " 新增分组 ",
+		"en": "New groups added"
+	},
+	"d73zsc4": {
+		"zh-cn": "新增分组",
+		"en": "New groups added"
+	},
+	"2525g8a": {
+		"zh-cn": "如：security",
+		"en": "For example: security"
+	},
+	"3n7cxj6": {
+		"zh-cn": "如：安全防护",
+		"en": "For example: Safety protection"
+	},
+	"phk373b": {
+		"zh-cn": "请输入分组描述（可选）",
+		"en": "Please enter the group description (optional)"
+	},
+	"gmhfcp4": {
+		"zh-cn": "编辑分组",
+		"en": "Edit groups"
+	},
+	"yggt1oq": {
+		"zh-cn": "设置配置值输入框的提示文本（placeholder）",
+		"en": "Set the prompt text (placeholder) for the configuration value input box"
+	},
+	"jbhuao8": {
+		"zh-cn": "加载功能列表失败",
+		"en": "Failed to load the function list"
+	},
+	"mknd237": {
+		"zh-cn": "请输入功能代码",
+		"en": "Please enter the function code"
+	},
+	"mkmh1y7": {
+		"zh-cn": "请输入功能名称",
+		"en": "Please enter the function name"
+	},
+	"vm0yit6": {
+		"zh-cn": "新增功能成功",
+		"en": "The new function has been successfully added."
+	},
+	"vm25a86": {
+		"zh-cn": "新增功能失败",
+		"en": "The new function failed."
+	},
+	"uu42o96": {
+		"zh-cn": "更新功能成功",
+		"en": "The update function was successful."
+	},
+	"uu2vwu6": {
+		"zh-cn": "更新功能失败",
+		"en": "The update function failed."
+	},
+	"k2i3u38": {
+		"zh-cn": "确定要删除功能\"",
+		"en": "Confirm to delete the function"
+	},
+	"tugfdem": {
+		"zh-cn": "\"吗？删除后该功能下的所有配置都将无法访问！",
+		"en": "\"?\" All configurations under this function will be inaccessible after deletion!"
+	},
+	"ub46en6": {
+		"zh-cn": "删除功能成功",
+		"en": "The deletion function was successful."
+	},
+	"ub5d626": {
+		"zh-cn": "删除功能失败",
+		"en": "The deletion function failed."
+	},
+	"tf4w9s8": {
+		"zh-cn": "加载分组列表失败",
+		"en": "Failed to load the grouped list"
+	},
+	"mnoryz7": {
+		"zh-cn": "请输入分组代码",
+		"en": "Please enter the grouping code"
+	},
+	"mnnvyu7": {
+		"zh-cn": "请输入分组名称",
+		"en": "Please enter the group name"
+	},
+	"vp2dfp6": {
+		"zh-cn": "新增分组成功",
+		"en": "The new group was successfully added."
+	},
+	"vp3k746": {
+		"zh-cn": "新增分组失败",
+		"en": "Failed to add new groups"
+	},
+	"ur2nrd6": {
+		"zh-cn": "更新分组成功",
+		"en": "The group update was successful."
+	},
+	"ur1gzy6": {
+		"zh-cn": "更新分组失败",
+		"en": "Failed to update the group"
+	},
+	"k2ekrv8": {
+		"zh-cn": "确定要删除分组\"",
+		"en": "Make sure to delete the group"
+	},
+	"xpujxyp": {
+		"zh-cn": "\"吗？删除后该分组下的所有功能和配置都将无法访问！",
+		"en": "\"?\" After deletion, all functions and configurations under this group will be inaccessible!"
+	},
+	"ue5lbj6": {
+		"zh-cn": "删除分组成功",
+		"en": "The group was deleted successfully."
+	},
+	"ue6s2y6": {
+		"zh-cn": "删除分组失败",
+		"en": "Failed to delete the group"
+	},
+	"az1ljn9": {
+		"zh-cn": "搜索分组名称或代码",
+		"en": "Search for the group name or code"
+	},
+	"ak45bw6": {
+		"zh-cn": " 查看功能 ",
+		"en": "\"View function\""
+	},
+	"g5m3v04": {
+		"zh-cn": "筛选分组",
+		"en": "Screening and grouping"
+	},
+	"i1cvsd9": {
+		"zh-cn": "搜索功能名称或代码",
+		"en": "Search for the name or code of the function"
+	},
+	"atae3d6": {
+		"zh-cn": " 查看配置 ",
+		"en": "View configuration"
+	},
+	"xnj64i6": {
+		"zh-cn": " 重置过滤 ",
+		"en": "Reset the filter"
+	},
+	"cpllw3": {
+		"zh-cn": "功能\"",
+		"en": "\"Function"
+	},
+	"f6rdfl4": {
+		"zh-cn": "用户取消",
+		"en": "User cancelled"
+	},
+	"d1559r18": {
+		"zh-cn": "提示：新增功能代码后，需在后端 SystemCacheConstant 类中添加对应常量",
+		"en": "Note: After adding the function code, the corresponding constant needs to be added in the SystemCacheConstant class at the back end"
+	},
+	"499l8t1a": {
+		"zh-cn": "提示：修改功能代码后，需在后端 SystemCacheConstant 类中同步修改对应常量",
+		"en": "Note: After modifying the function code, the corresponding constants need to be modified synchronously in the SystemCacheConstant class at the back end"
+	},
+	"csh2hw17": {
+		"zh-cn": "提示：新增配置键后，需在后端 SystemCacheConstant 类中添加对应常量",
+		"en": "Note: After adding the configuration key, the corresponding constant needs to be added in the SystemCacheConstant class at the back end"
+	},
+	"t590d17": {
+		"zh-cn": "功能代码用于后端识别，新增后需在 SystemCacheConstant 类中定义常量",
+		"en": "The function code is used for backend recognition. After being added, a constant needs to be defined in the SystemCacheConstant class"
+	},
+	"42pq5c19": {
+		"zh-cn": "功能代码用于后端识别，修改后需在 SystemCacheConstant 类中同步更新常量",
+		"en": "The function code is used for back-end identification. After modification, the constant needs to be updated synchronously in the SystemCacheConstant class"
+	},
+	"6m39rp18": {
+		"zh-cn": "配置键用于后端读取配置，新增后需在 SystemCacheConstant 类中定义常量",
+		"en": "The configuration key is used for the backend to read the configuration. After adding it, a constant needs to be defined in the SystemCacheConstant class"
+	},
+	"363ijuv": {
+		"zh-cn": "启用后，该功能将立即生效，相关配置项将可用。\\n\\n功能名称：",
+		"en": "Once enabled, this function will take effect immediately and the relevant configuration items will be available. \\n\\n Function Name:"
+	},
+	"xotxbo7": {
+		"zh-cn": "\\n功能代码：",
+		"en": "\\n Function Code:"
+	},
+	"qjmh9nw": {
+		"zh-cn": "禁用后，该功能将立即失效，相关配置项将不可用。\\n\\n功能名称：",
+		"en": "After being disabled, this function will immediately become invalid and the related configuration items will be unavailable. \\n\\n Function Name:"
+	},
+	"77xbo5t": {
+		"zh-cn": "\\n\\n⚠️ 注意：禁用可能影响系统正常运行，请谨慎操作！",
+		"en": "\\n\\n⚠️ note: Disabling may affect the normal operation of the system. Please operate with caution!"
+	},
+	"erem2": {
+		"zh-cn": "功能",
+		"en": "Function"
+	},
+	"d73npo4": {
+		"zh-cn": "新增公告",
+		"en": "New Announcement"
+	},
+	"gmh3a14": {
+		"zh-cn": "编辑公告",
+		"en": "Editorial Notice"
+	},
+	"ij5d2": {
+		"zh-cn": "标题",
+		"en": "Title"
+	},
+	"lzs42": {
+		"zh-cn": "级别",
+		"en": "\"Level\""
+	},
+	"1x303w6": {
+		"zh-cn": " 新增公告 ",
+		"en": "New Announcement"
+	},
+	"g5t43i4": {
+		"zh-cn": "筛选类型",
+		"en": "Filter type"
+	},
+	"g5rhy14": {
+		"zh-cn": "筛选状态",
+		"en": "\"Screening status\""
+	},
+	"9f5stn6": {
+		"zh-cn": "搜索公告标题",
+		"en": "Search for the title of the announcement"
+	},
+	"dadwu4": {
+		"zh-cn": " 发布 ",
+		"en": "\"Publish"
+	},
+	"b1c2wq4": {
+		"zh-cn": "取消置顶",
+		"en": "\"Unpinned\""
+	},
+	"fpvuu4": {
+		"zh-cn": " 撤回 ",
+		"en": "\"Withdraw\""
+	},
+	"amke334": {
+		"zh-cn": "公告标题",
+		"en": "Title of the Announcement"
+	},
+	"mwimrs7": {
+		"zh-cn": "请输入公告标题",
+		"en": "Please enter the title of the announcement"
+	},
+	"amniha4": {
+		"zh-cn": "公告类型",
+		"en": "Announcement type"
+	},
+	"uf9ath7": {
+		"zh-cn": "请选择公告类型",
+		"en": "Please select the type of announcement"
+	},
+	"iyrz5k4": {
+		"zh-cn": "重要级别",
+		"en": "\"Important level\""
+	},
+	"w9qahd7": {
+		"zh-cn": "请选择重要级别",
+		"en": "Please select the important level"
+	},
+	"amg88i4": {
+		"zh-cn": "公告内容",
+		"en": "Announcement Content"
+	},
+	"mwmsmd7": {
+		"zh-cn": "请输入公告内容",
+		"en": "Please enter the announcement content"
+	},
+	"wiv4b2a": {
+		"zh-cn": "标题最多200个字符",
+		"en": "The title should be no more than 200 characters"
+	},
+	"vy0omd6": {
+		"zh-cn": "新增公告成功",
+		"en": "The new announcement was successfully added."
+	},
+	"ui4ckp6": {
+		"zh-cn": "更新公告成功",
+		"en": "The update announcement was successful."
+	},
+	"k246h78": {
+		"zh-cn": "确定要删除公告\"",
+		"en": "Confirm to delete the announcement"
+	},
+	"a3ckkfb": {
+		"zh-cn": "\"吗？删除后无法恢复！",
+		"en": "\"?\" Once deleted, it cannot be restored!"
+	},
+	"un3wi76": {
+		"zh-cn": "删除公告成功",
+		"en": "The announcement has been successfully deleted."
+	},
+	"froszs4": {
+		"zh-cn": "确认发布",
+		"en": "Confirm release"
+	},
+	"jk79q58": {
+		"zh-cn": "确定要发布公告\"",
+		"en": "It is confirmed that an announcement will be made."
+	},
+	"yppmifm": {
+		"zh-cn": "\"吗？\\n\\n发布后，公告将对所有用户可见。",
+		"en": "\"?\" After the announcement is published, it will be visible to all users."
+	},
+	"oyny676": {
+		"zh-cn": "发布公告成功",
+		"en": "The announcement was successfully issued."
+	},
+	"frrmls4": {
+		"zh-cn": "确认撤回",
+		"en": "Confirm withdrawal"
+	},
+	"det8d18": {
+		"zh-cn": "确定要撤回公告\"",
+		"en": "Confirm the withdrawal of the announcement"
+	},
+	"8s4diim": {
+		"zh-cn": "\"吗？\\n\\n撤回后，公告将不再对用户可见。",
+		"en": "\"?\" After withdrawal, the announcement will no longer be visible to users."
+	},
+	"nm74616": {
+		"zh-cn": "撤回公告成功",
+		"en": "The announcement has been successfully withdrawn."
+	},
+	"16nec18": {
+		"zh-cn": "请输入内容...",
+		"en": "Please enter the content..."
+	},
+	"garqz34": {
+		"zh-cn": "系统通知",
+		"en": "System notification"
+	},
+	"ayjnju4": {
+		"zh-cn": "功能更新",
+		"en": "Function update"
+	},
+	"gfahla4": {
+		"zh-cn": "维护公告",
+		"en": "Maintenance Notice"
+	},
+	"e4h7u34": {
+		"zh-cn": "活动公告",
+		"en": "Event Announcement"
+	},
+	"i7os2": {
+		"zh-cn": "普通",
+		"en": "Ordinary"
+	},
+	"pjys2": {
+		"zh-cn": "重要",
+		"en": "Important"
+	},
+	"ltcu2": {
+		"zh-cn": "紧急",
+		"en": "Urgent"
+	},
+	"n02e2": {
+		"zh-cn": "草稿",
+		"en": "Draft"
+	},
+	"e656s3": {
+		"zh-cn": "已发布",
+		"en": "Published"
+	},
+	"e8yss3": {
+		"zh-cn": "已撤回",
+		"en": "Withdrawn"
+	},
+	"2egs9l5": {
+		"zh-cn": "请选择类型",
+		"en": "Please select the type"
+	},
+	"amniw34": {
+		"zh-cn": "公告管理",
+		"en": "Announcement Management"
+	},
+	"dtngxv4": {
+		"zh-cn": "模板管理",
+		"en": "Template Management"
+	},
+	"d77yss4": {
+		"zh-cn": "新增模板",
+		"en": "New template added"
+	},
+	"gmled54": {
+		"zh-cn": "编辑模板",
+		"en": "Edit template"
+	},
+	"dtgrr54": {
+		"zh-cn": "模板名称",
+		"en": "Template name"
+	},
+	"ain5iw4": {
+		"zh-cn": "使用次数",
+		"en": "Number of uses"
+	},
+	"dtjklb4": {
+		"zh-cn": "模板描述",
+		"en": "Template description"
+	},
+	"1tdgfg6": {
+		"zh-cn": " 新增模板 ",
+		"en": "New template added"
+	},
+	"jh16k4": {
+		"zh-cn": " 系统 ",
+		"en": "System"
+	},
+	"jpm93q7": {
+		"zh-cn": "请输入模板名称",
+		"en": "Please enter the template name"
+	},
+	"jpjg9k7": {
+		"zh-cn": "请输入模板描述",
+		"en": "Please enter the template description"
+	},
+	"dr7sfj4": {
+		"zh-cn": "标题模板",
+		"en": "Title template"
+	},
+	"ptl6n5w": {
+		"zh-cn": "支持变量：{{date}} 当前日期、{{time}} 当前时间",
+		"en": "Supported variables: {{date}} current date, {{time}} current time"
+	},
+	"jrv8fc7": {
+		"zh-cn": "请输入标题模板",
+		"en": "Please enter the title template"
+	},
+	"ao3n0y4": {
+		"zh-cn": "内容模板",
+		"en": "Content template"
+	},
+	"5c2ngt1k": {
+		"zh-cn": "支持变量：{{date}} 日期、{{time}} 时间、{{title}} 标题、{{content}} 内容",
+		"en": "Supported variables: {{date}} date, {{time}} time, {{title}} title, {{content}} content"
+	},
+	"muzdtx7": {
+		"zh-cn": "请输入内容模板",
+		"en": "Please enter the content template"
+	},
+	"aitz5n8": {
+		"zh-cn": "选择模板（可选）",
+		"en": "Select a template (optional)"
+	},
+	"ucs1is8": {
+		"zh-cn": "选择模板快速填充",
+		"en": "Select the template for quick filling"
+	},
+	"sr0qkl6": {
+		"zh-cn": "新增模板成功",
+		"en": "The new template has been successfully added."
+	},
+	"xp4amh6": {
+		"zh-cn": "更新模板成功",
+		"en": "The template update was successful."
+	},
+	"k5tq5n8": {
+		"zh-cn": "确定要删除模板\"",
+		"en": "Confirm to delete the template"
+	},
+	"rg3ygf6": {
+		"zh-cn": "删除模板成功",
+		"en": "The template was deleted successfully."
+	},
+	"frpmpr4": {
+		"zh-cn": "确认复制",
+		"en": "Confirm copy"
+	},
+	"wdzwu28": {
+		"zh-cn": "确定要复制模板\"",
+		"en": "Make sure to copy the template"
+	},
+	"mt1hre6": {
+		"zh-cn": "复制模板成功",
+		"en": "The template was copied successfully."
+	},
+	"cdds504": {
+		"zh-cn": "当前日期",
+		"en": "Current date"
+	},
+	"jcxrx5d": {
+		"zh-cn": "格式：YYYY-MM-DD",
+		"en": "Format: YYYY-MM-DD"
+	},
+	"cde1so4": {
+		"zh-cn": "当前时间",
+		"en": "Current time"
+	},
+	"7agihzb": {
+		"zh-cn": "格式：HH:mm:ss",
+		"en": "Format: HH:mm:ss"
+	},
+	"pjukg6": {
+		"zh-cn": "完整日期时间",
+		"en": "Full date and time"
+	},
+	"ly6ktjm": {
+		"zh-cn": "格式：YYYY-MM-DD HH:mm:ss",
+		"en": "Format: YYYY-MM-DD HH:mm:ss"
+	},
+	"ghzd2": {
+		"zh-cn": "年份",
+		"en": "Year"
+	},
+	"54gu555": {
+		"zh-cn": "四位数年份",
+		"en": "Four-digit year"
+	},
+	"vtzokc5": {
+		"zh-cn": "两位数月份",
+		"en": "Two-digit months"
+	},
+	"vtzmdd5": {
+		"zh-cn": "两位数日期",
+		"en": "Two-digit date"
+	},
+	"aac2u24": {
+		"zh-cn": "中文星期",
+		"en": "Chinese Week"
+	},
+	"mmpuh65": {
+		"zh-cn": "自定义标题",
+		"en": "Custom title"
+	},
+	"hklht4": {
+		"zh-cn": "[标题]",
+		"en": "[Title"
+	},
+	"7ejldk7": {
+		"zh-cn": "用户填写的标题",
+		"en": "The title filled in by the user"
+	},
+	"mmloml5": {
+		"zh-cn": "自定义内容",
+		"en": "Custom content"
+	},
+	"dzk5q4": {
+		"zh-cn": "[内容]",
+		"en": "[Content"
+	},
+	"7effiz7": {
+		"zh-cn": "用户填写的内容",
+		"en": "The content filled in by the user"
+	},
+	"hplwbz5": {
+		"zh-cn": "支持变量：",
+		"en": "Supporting variables"
+	},
+	"emut2": {
+		"zh-cn": "分类",
+		"en": "Classification"
+	},
+	"2ensyc5": {
+		"zh-cn": "请选择分类",
+		"en": "Please select the category"
+	},
+	"nk2ws4": {
+		"zh-cn": " 预览 ",
+		"en": "Preview"
+	},
+	"dtgfub4": {
+		"zh-cn": "模板分类",
+		"en": "Template classification"
+	},
+	"f1k0v3": {
+		"zh-cn": "排序值",
+		"en": "Sorting value"
+	},
+	"apk7rm7": {
+		"zh-cn": "数值越大越靠前",
+		"en": "The larger the value, the more forward it is"
+	},
+	"dtsi4i4": {
+		"zh-cn": "模板预览",
+		"en": "Template Preview"
+	},
+	"ivr33": {
+		"zh-cn": " 次 ",
+		"en": "time"
+	},
+	"lox5c3": {
+		"zh-cn": "通知类",
+		"en": "Notification class"
+	},
+	"gepn23": {
+		"zh-cn": "活动类",
+		"en": "Activity category"
+	},
+	"j2vrf3": {
+		"zh-cn": "维护类",
+		"en": "Maintenance class"
+	},
+	"isyn13": {
+		"zh-cn": "紧急类",
+		"en": "Emergency category"
+	},
+	"1s0ji31p": {
+		"zh-cn": "<span style=\"color: #999; font-style: italic;\">[请填写标题]</span>",
+		"en": "<span style=\"color: #999; font-style: italic;\" Please fill in the title."
+	},
+	"to9ciw1p": {
+		"zh-cn": "<span style=\"color: #999; font-style: italic;\">[请填写内容]</span>",
+		"en": "<span style=\"color: #999; font-style: italic;\" [Please fill in the content]</span>"
+	},
+	"gdqw496": {
+		"zh-cn": "是否系统模板",
+		"en": "Is it a system template?"
+	},
+	"7vlqqzp": {
+		"zh-cn": " 系统模板带\"系统\"标签，普通用户不能编辑和删除 ",
+		"en": "The system template is labeled with \"System\", and ordinary users cannot edit or delete it"
+	},
+	"c38mxq7": {
+		"zh-cn": " 批量删除 (",
+		"en": "Batch deletion"
+	},
+	"h90w1g9": {
+		"zh-cn": "请选择要删除的公告",
+		"en": "Please select the announcement you want to delete"
+	},
+	"435teqe": {
+		"zh-cn": " 条公告吗？删除后无法恢复！",
+		"en": "Is this an announcement? Once deleted, it cannot be restored!"
+	},
+	"3auduv8": {
+		"zh-cn": "批量删除公告成功",
+		"en": "The batch deletion announcement was successful"
+	},
+	"h9574k9": {
+		"zh-cn": "请选择要删除的模板",
+		"en": "Please select the template you want to delete"
+	},
+	"kkbpqo6": {
+		"zh-cn": " 个模板吗？",
+		"en": "Is it a template?"
+	},
+	"6hubwn8": {
+		"zh-cn": "批量删除模板成功",
+		"en": "The batch deletion of templates was successful"
+	},
+	"amsk2q4": {
+		"zh-cn": "公告预览",
+		"en": "Announcement Preview"
+	},
+	"jyat44": {
+		"zh-cn": " 置顶 ",
+		"en": "Top position"
+	},
+	"rg6a2": {
+		"zh-cn": "黑体",
+		"en": "Bold typeface"
+	},
+	"dxt82": {
+		"zh-cn": "仿宋",
+		"en": "Imitation Song style"
+	},
+	"idh82": {
+		"zh-cn": "楷体",
+		"en": "Regular script"
+	},
+	"fqwoz3": {
+		"zh-cn": "标楷体",
+		"en": "Mingliu font"
+	},
+	"axigpx4": {
+		"zh-cn": "华文仿宋",
+		"en": "Chinese imitation of the Song Dynasty"
+	},
+	"axmwdx4": {
+		"zh-cn": "华文楷体",
+		"en": "Chinese regular script"
+	},
+	"g0882": {
+		"zh-cn": "宋体",
+		"en": "Song typeface"
+	},
+	"co6uwd4": {
+		"zh-cn": "微软雅黑",
+		"en": "Microsoft Yahei"
+	},
+	"8t58uh6": {
+		"zh-cn": "链接不能为空",
+		"en": "The link cannot be empty"
+	},
+	"q74nxqu": {
+		"zh-cn": "链接必须以 http://, https:// 或 / 开头",
+		"en": "Links must begin with http://, https:// or /"
+	},
+	"pr6r2v8": {
+		"zh-cn": "图片地址不能为空",
+		"en": "The image address cannot be empty"
+	},
+	"z9knxa13": {
+		"zh-cn": "图片地址必须以 http://, https://, / 或 data: 开头",
+		"en": "The image address must begin with http://, https://, / or data:"
+	},
+	"gzd3e38": {
+		"zh-cn": "视频地址不能为空",
+		"en": "The video address cannot be empty"
+	},
+	"7z9emew": {
+		"zh-cn": "视频地址必须以 http://, https:// 或 / 开头",
+		"en": "The video address must begin with http://, https:// or /"
+	},
+	"p7m2": {
+		"zh-cn": "0秒",
+		"en": "0 seconds"
+	},
+	"br20x18": {
+		"zh-cn": "Redis 监控",
+		"en": "Redis Monitoring"
+	},
+	"s4qpnhb": {
+		"zh-cn": "Redis 服务器信息",
+		"en": "Redis server information"
+	},
+	"biyzkw4": {
+		"zh-cn": "基本信息",
+		"en": "Basic information"
+	},
+	"br2rzr8": {
+		"zh-cn": "Redis 版本",
+		"en": "Redis version"
+	},
+	"iph6kq4": {
+		"zh-cn": "运行模式",
+		"en": "Operation mode"
+	},
+	"ldck2": {
+		"zh-cn": "端口",
+		"en": "Port"
+	},
+	"bz1uye4": {
+		"zh-cn": "客户端数",
+		"en": "Number of clients"
+	},
+	"ipebxf4": {
+		"zh-cn": "运行天数",
+		"en": "Operating days"
+	},
+	"idl2": {
+		"zh-cn": " 天",
+		"en": "day"
+	},
+	"ipgrt14": {
+		"zh-cn": "运行时长",
+		"en": "Running duration"
+	},
+	"e7zq93": {
+		"zh-cn": "已开启",
+		"en": "Enabled"
+	},
+	"fklp53": {
+		"zh-cn": "未开启",
+		"en": "Not opened"
+	},
+	"v410s05": {
+		"zh-cn": "键空间大小",
+		"en": "Key space size"
+	},
+	"cnyuja4": {
+		"zh-cn": "性能指标",
+		"en": "Performance indicators"
+	},
+	"momf8u5": {
+		"zh-cn": "已使用内存",
+		"en": "Used memory"
+	},
+	"anz9q74": {
+		"zh-cn": "内存峰值",
+		"en": "Memory peak"
+	},
+	"odyujp5": {
+		"zh-cn": "内存碎片率",
+		"en": "Memory fragmentation rate"
+	},
+	"cqi5ym4": {
+		"zh-cn": "总连接数",
+		"en": "Total number of connections"
+	},
+	"chpj5a4": {
+		"zh-cn": "总命令数",
+		"en": "Total number of commands"
+	},
+	"b4o21q5": {
+		"zh-cn": "每秒操作数",
+		"en": "Operations per second"
+	},
+	"gld82l4": {
+		"zh-cn": "网络输入",
+		"en": "Network input"
+	},
+	"gld86q4": {
+		"zh-cn": "网络输出",
+		"en": "Network output"
+	},
+	"crfp33": {
+		"zh-cn": "命中率",
+		"en": "Hit rate"
+	},
+	"q13zzh5": {
+		"zh-cn": "键命中次数",
+		"en": "Number of key hits"
+	},
+	"sacebf6": {
+		"zh-cn": "键未命中次数",
+		"en": "The number of key misses"
+	},
+	"azszc94": {
+		"zh-cn": "命令统计",
+		"en": "Command statistics"
+	},
+	"8zfelkd": {
+		"zh-cn": "获取 Redis 信息失败",
+		"en": "Failed to obtain Redis information"
+	},
+	"dlq0fr4": {
+		"zh-cn": "查看源码",
+		"en": "View source code"
+	},
+	"4a1bglk": {
+		"zh-cn": "HTML 格式错误，无法切换到可视化模式",
+		"en": "The HTML format is incorrect and cannot be switched to the visual mode"
+	},
+	"gbkq0l4": {
+		"zh-cn": "组件名称",
+		"en": "Component name"
+	},
+	"i66pfy4": {
+		"zh-cn": "详细信息",
+		"en": "Detailed information"
+	},
+	"gqefo74": {
+		"zh-cn": "自动刷新",
+		"en": "\"Automatic refresh\""
+	},
+	"cqtkuu4": {
+		"zh-cn": "手动刷新",
+		"en": "Manual refresh"
+	},
+	"dcjbga4": {
+		"zh-cn": "服务概览",
+		"en": "Service Overview"
+	},
+	"dcknjz4": {
+		"zh-cn": "服务状态",
+		"en": "Service status"
+	},
+	"cf5q0o4": {
+		"zh-cn": "应用版本",
+		"en": "Application version"
+	},
+	"ayuuon4": {
+		"zh-cn": "启动时间",
+		"en": "Start-up time"
+	},
+	"ymj4sr6": {
+		"zh-cn": "JVM 监控",
+		"en": "JVM monitoring"
+	},
+	"anx6po4": {
+		"zh-cn": "内存使用",
+		"en": "Memory usage"
+	},
+	"daigp3": {
+		"zh-cn": "堆内存",
+		"en": "Heap memory"
+	},
+	"cbqbdo4": {
+		"zh-cn": "已用: ",
+		"en": "Used:"
+	},
+	"dcqr2l4": {
+		"zh-cn": "最大: ",
+		"en": "Largest"
+	},
+	"jglc634": {
+		"zh-cn": "非堆内存",
+		"en": "Non-heap memory"
+	},
+	"bek7zn4": {
+		"zh-cn": "垃圾回收",
+		"en": "Garbage recycling"
+	},
+	"snt0qdb": {
+		"zh-cn": "Young GC 次数",
+		"en": "Young GC times"
+	},
+	"snpg9xb": {
+		"zh-cn": "Young GC 耗时",
+		"en": "Young GC takes time"
+	},
+	"4y3m2ma": {
+		"zh-cn": "Full GC 次数",
+		"en": "Full GC times"
+	},
+	"4y01m6a": {
+		"zh-cn": "Full GC 耗时",
+		"en": "Full GC time-consuming"
+	},
+	"ghrumy4": {
+		"zh-cn": "线程信息",
+		"en": "Thread information"
+	},
+	"sh1ru25": {
+		"zh-cn": "当前线程数",
+		"en": "Current number of threads"
+	},
+	"ivpp885": {
+		"zh-cn": "峰值线程数",
+		"en": "Peak thread count"
+	},
+	"fpcht45": {
+		"zh-cn": "守护线程数",
+		"en": "The number of daemon threads"
+	},
+	"ddwwf25": {
+		"zh-cn": "死锁线程数",
+		"en": "Number of deadlocked threads"
+	},
+	"gar7rk4": {
+		"zh-cn": "系统资源",
+		"en": "System resources"
+	},
+	"si4pl27": {
+		"zh-cn": "CPU 使用率",
+		"en": "CPU usage rate"
+	},
+	"w9zm0e8": {
+		"zh-cn": "系统 CPU: ",
+		"en": "System CPU"
+	},
+	"9cy6zm8": {
+		"zh-cn": "进程 CPU: ",
+		"en": "Process CPU"
+	},
+	"323uct9": {
+		"zh-cn": "CPU 核心数: ",
+		"en": "Number of CPU cores"
+	},
+	"gagy474": {
+		"zh-cn": "系统内存",
+		"en": "System memory"
+	},
+	"vraduc5": {
+		"zh-cn": "总内存: ",
+		"en": "Total memory"
+	},
+	"b29rzz4": {
+		"zh-cn": "可用: ",
+		"en": "Available"
+	},
+	"fqb0vl4": {
+		"zh-cn": "磁盘空间",
+		"en": "Disk space"
+	},
+	"xv9p0l5": {
+		"zh-cn": "总空间: ",
+		"en": "Total space"
+	},
+	"4djs639": {
+		"zh-cn": "HTTP 请求统计",
+		"en": "HTTP request statistics"
+	},
+	"cpz1xm4": {
+		"zh-cn": "总请求数",
+		"en": "Total number of requests"
+	},
+	"vrasei5": {
+		"zh-cn": "成功请求数",
+		"en": "Number of successful requests"
+	},
+	"byuvip5": {
+		"zh-cn": "失败请求数",
+		"en": "Number of failed requests"
+	},
+	"9c8ivt6": {
+		"zh-cn": "平均响应时间",
+		"en": "Average response time"
+	},
+	"i2hi9o6": {
+		"zh-cn": "数据库连接池",
+		"en": "Database connection pool"
+	},
+	"jdrdgh5": {
+		"zh-cn": "活跃连接数",
+		"en": "Number of active connections"
+	},
+	"16bd3l5": {
+		"zh-cn": "空闲连接数",
+		"en": "Number of idle connections"
+	},
+	"bm44am5": {
+		"zh-cn": "最大连接数",
+		"en": "Maximum number of connections"
+	},
+	"2le97c5": {
+		"zh-cn": "等待线程数",
+		"en": "Waiting for the number of threads"
+	},
+	"cm5w5d6": {
+		"zh-cn": "依赖服务健康",
+		"en": "Rely on services for health"
+	},
+	"cezu0y4": {
+		"zh-cn": "应用信息",
+		"en": "Application information"
+	},
+	"cf0olz4": {
+		"zh-cn": "应用名称",
+		"en": "Application Name"
+	},
+	"ywhgj16": {
+		"zh-cn": "JDK 版本",
+		"en": "JDK version"
+	},
+	"gakseq4": {
+		"zh-cn": "系统架构",
+		"en": "System architecture"
+	},
+	"c6jfcu4": {
+		"zh-cn": "工作目录",
+		"en": "Work Catalogue"
+	},
+	"rmzzx1a": {
+		"zh-cn": "获取服务监控信息失败",
+		"en": "Failed to obtain service monitoring information"
+	},
+	"fn7ba3": {
+		"zh-cn": "无限制",
+		"en": "Unlimited"
+	},
+	"efb5j4": {
+		"zh-cn": " 导入 ",
+		"en": "\"Import"
+	},
+	"efepu4": {
+		"zh-cn": " 导出 ",
+		"en": "Export"
+	},
+	"f6slrs4": {
+		"zh-cn": "用户导入",
+		"en": "User import"
+	},
+	"qim7k6m": {
+		"zh-cn": "1. 请先下载导入模板，按照模板格式填写数据",
+		"en": "1. Please download the import template first and fill in the data according to the template format"
+	},
+	"4ou1r8u": {
+		"zh-cn": "2. 仅支持 .xls 和 .xlsx 格式的Excel文件",
+		"en": "2. Only Excel files in.xls and.xlsx formats are supported"
+	},
+	"h4a81rf": {
+		"zh-cn": "3. 文件大小不超过 10MB",
+		"en": "3. The file size should not exceed 10MB"
+	},
+	"xwn5lbf": {
+		"zh-cn": " 是否更新已经存在的用户数据 ",
+		"en": "Whether to update the existing user data"
+	},
+	"mz62z56": {
+		"zh-cn": " 选择文件 ",
+		"en": "Select a file"
+	},
+	"xmyd5z8": {
+		"zh-cn": " 下载导入模板 ",
+		"en": "Download and import the template"
+	},
+	"qv7pp17": {
+		"zh-cn": "正在导出...",
+		"en": "Exporting..."
+	},
+	"qbopxq5": {
+		"zh-cn": "用户数据_",
+		"en": "User Data"
+	},
+	"by5dal4": {
+		"zh-cn": "导出成功",
+		"en": "Export successful"
+	},
+	"by46j64": {
+		"zh-cn": "导出失败",
+		"en": "Export failed"
+	},
+	"8jdif9": {
+		"zh-cn": "正在下载模板...",
+		"en": "The template is being downloaded..."
+	},
+	"l9sb557": {
+		"zh-cn": "用户导入模板_",
+		"en": "User imports template"
+	},
+	"3v0o0x6": {
+		"zh-cn": "模板下载成功",
+		"en": "The template has been downloaded successfully."
+	},
+	"j13s2s6": {
+		"zh-cn": "下载模板失败",
+		"en": "Failed to download the template"
+	},
+	"vcnqi6e": {
+		"zh-cn": "只能上传 Excel 文件！",
+		"en": "Only Excel files can be uploaded!"
+	},
+	"32p6uue": {
+		"zh-cn": "文件大小不能超过 10MB！",
+		"en": "The file size cannot exceed 10MB!"
+	},
+	"nxhbj49": {
+		"zh-cn": "请选择要导入的文件",
+		"en": "Please select the file you want to import"
+	},
+	"by7b2q4": {
+		"zh-cn": "导入结果",
+		"en": "Import results"
+	},
+	"by2at44": {
+		"zh-cn": "导入成功",
+		"en": "Import successful"
+	},
+	"by141p4": {
+		"zh-cn": "导入失败",
+		"en": "Import failed"
+	},
+	"7cgynjc": {
+		"zh-cn": "导入失败，请检查文件格式",
+		"en": "Import failed. Please check the file format"
+	},
+	"fme806d": {
+		"zh-cn": "最多只能选择 5 个文件！",
+		"en": "You can select a maximum of 5 files!"
+	},
+	"kp2s21m": {
+		"zh-cn": "4. 最多可同时选择 5 个文件进行批量导入",
+		"en": "4. Up to 5 files can be selected for batch import simultaneously"
+	},
+	"971l2mo": {
+		"zh-cn": "5. 导入时默认密码为 123456，状态为正常",
+		"en": "5. The default password for import is 123456 and the status is normal"
+	},
+	"uqmbhdc": {
+		"zh-cn": " 选择文件（最多5个） ",
+		"en": "Select files (up to 5)"
+	},
+	"by9j5v4": {
+		"zh-cn": "导入说明",
+		"en": "Import Instructions"
+	},
+	"sycce7l": {
+		"zh-cn": "• 请先下载导入模板，按照模板格式填写数据",
+		"en": "Please download the import template first and fill in the data according to the template format"
+	},
+	"13zv06t": {
+		"zh-cn": "• 仅支持 .xls 和 .xlsx 格式的Excel文件",
+		"en": "Only Excel files in.xls and.xlsx formats are supported"
+	},
+	"bjpusxg": {
+		"zh-cn": "• 单个文件大小不超过 10MB",
+		"en": "The size of a single file should not exceed 10MB"
+	},
+	"664h5tl": {
+		"zh-cn": "• 最多可同时选择 5 个文件进行批量导入",
+		"en": "Up to 5 files can be selected for batch import simultaneously"
+	},
+	"muk761n": {
+		"zh-cn": "• 导入时默认密码为 123456，状态为正常",
+		"en": "The default password for import is 123456 and the status is normal"
+	},
+	"i6nkknd": {
+		"zh-cn": "点击或拖拽文件到此区域上传",
+		"en": "Click or drag the file to this area to upload"
+	},
+	"rde99fk": {
+		"zh-cn": " 请先下载导入模板，按照模板格式填写数据",
+		"en": "Please download the import template first and fill in the data according to the template format"
+	},
+	"yqd788s": {
+		"zh-cn": " 仅支持 .xls 和 .xlsx 格式的Excel文件",
+		"en": "Only Excel files in.xls and.xlsx formats are supported"
+	},
+	"hlxg3iz": {
+		"zh-cn": " 单个文件大小不超过 10MB，最多可同时选择 5 个文件进行批量导入",
+		"en": "The size of a single file should not exceed 10MB, and up to 5 files can be selected for batch import simultaneously"
+	},
+	"pu3sffn": {
+		"zh-cn": " 导入时默认密码为 123456，状态为正常 ",
+		"en": "The default password for import is 123456 and the status is normal"
+	},
+	"frq4ms4": {
+		"zh-cn": "确认导出",
+		"en": "Confirm export"
+	},
+	"53hr53b": {
+		"zh-cn": "确定要导出角色数据吗？",
+		"en": "Are you sure you want to export the character data?"
+	},
+	"bwcggn7": {
+		"zh-cn": "导入IP黑名单",
+		"en": "Import the IP blacklist"
+	},
+	"axeywnv": {
+		"zh-cn": " 支持 .xls 和 .xlsx 格式，最多上传 5 个文件 ",
+		"en": "Supports.xls and.xlsx formats, with a maximum of 5 files to upload"
+	},
+	"r5y7dnh": {
+		"zh-cn": " 是否更新已存在的IP黑名单数据 ",
+		"en": "Whether to update the existing IP blacklist data"
+	},
+	"3p72ujv": {
+		"zh-cn": " 勾选后，如果IP已存在，将更新其信息；否则跳过已存在的IP ",
+		"en": "After checking, if the IP already exists, its information will be updated. Otherwise, skip the existing IP"
+	},
+	"70gjh7e": {
+		"zh-cn": "确定要导出IP黑名单数据吗？",
+		"en": "Are you sure you want to export the IP blacklist data?"
+	},
+	"3v1usc6": {
+		"zh-cn": "模板下载失败",
+		"en": "The template download failed."
+	},
+	"z7syg2r": {
+		"zh-cn": "只能上传 Excel 文件（.xls 或 .xlsx）",
+		"en": "Only Excel files (.xls or.xlsx) can be uploaded."
+	},
+	"bk09d7d": {
+		"zh-cn": "文件大小不能超过 10MB",
+		"en": "The file size cannot exceed 10MB"
+	},
+	"yn1bync": {
+		"zh-cn": "最多只能上传 5 个文件",
+		"en": "A maximum of five files can be uploaded"
+	},
+	"io0yxl4": {
+		"zh-cn": "通用状态",
+		"en": "General state"
+	},
+	"huc72": {
+		"zh-cn": "是否",
+		"en": "Whether or not"
+	},
+	"f6wjtm4": {
+		"zh-cn": "用户状态",
+		"en": "User status"
+	},
+	"hxganf4": {
+		"zh-cn": "角色状态",
+		"en": "Character status"
+	},
+	"hipol56": {
+		"zh-cn": "IP规则状态",
+		"en": "IP rule status"
+	},
+	"u4hipw6": {
+		"zh-cn": "字典类型状态",
+		"en": "Dictionary type status"
+	},
+	"wzdhx26": {
+		"zh-cn": "字典数据状态",
+		"en": "Dictionary data status"
+	},
+	"fr6p8v6": {
+		"zh-cn": "配置选择模式",
+		"en": "Configuration selection mode"
+	},
+	"amlwbt4": {
+		"zh-cn": "公告状态",
+		"en": "Announcement status"
+	},
+	"amnupu4": {
+		"zh-cn": "公告级别",
+		"en": "Announcement level"
+	},
+	"ytpvq56": {
+		"zh-cn": "任务日志状态",
+		"en": "Task log status"
+	},
+	"ldcf44": {
+		"zh-cn": " 角色 ",
+		"en": "\"Role\""
+	},
+	"ekrj94": {
+		"zh-cn": " 密码 ",
+		"en": "Password"
+	},
+	"i9ag304": {
+		"zh-cn": "踢人下线",
+		"en": "Kick someone and log off"
+	},
+	"cliek4": {
+		"zh-cn": " 下线 ",
+		"en": "\"Offline\""
+	},
+	"azht8z4": {
+		"zh-cn": "删除用户",
+		"en": "Delete the user"
+	},
+	"62odwk5": {
+		"zh-cn": "该用户吗？",
+		"en": "Is this the user?"
+	},
+	"gbapcg6": {
+		"zh-cn": " 下载模板 ",
+		"en": "Download the template"
+	},
+	"ariy5u6": {
+		"zh-cn": "分配数据权限",
+		"en": "Allocate data permissions"
+	},
+	"ayadee4": {
+		"zh-cn": "分配用户",
+		"en": "Allocate users"
+	},
+	"azli5g4": {
+		"zh-cn": "删除角色",
+		"en": "Delete the character"
+	},
+	"in1ck4": {
+		"zh-cn": " 确定 ",
+		"en": "\"Sure\""
+	},
+	"h2eu34": {
+		"zh-cn": " 添加 ",
+		"en": "\"Add"
+	},
+	"bishcd5": {
+		"zh-cn": " 取消授权",
+		"en": "Cancel authorization"
+	},
+	"jtid3": {
+		"zh-cn": " 添加",
+		"en": "\"Add"
+	},
+	"h0u7hh5": {
+		"zh-cn": "新增子菜单",
+		"en": "New sub-menu added"
+	},
+	"azk8cd4": {
+		"zh-cn": "删除菜单",
+		"en": "Delete menu"
+	},
+	"astc5a4": {
+		"zh-cn": "刷新缓存",
+		"en": "Refresh the cache"
+	},
+	"dd0d3p4": {
+		"zh-cn": "更多操作",
+		"en": "More operations"
+	},
+	"7nevp4b": {
+		"zh-cn": "确定要导出用户数据吗？",
+		"en": "Are you sure you want to export user data?"
+	},
+	"jwtx85g": {
+		"zh-cn": " 条字典类型吗？此操作不可撤销。",
+		"en": "Is it a dictionary type? This operation is irrevocable."
+	},
+	"6sc0027": {
+		"zh-cn": "该字典类型吗？",
+		"en": "Is this type of dictionary?"
+	},
+	"ud27lwb": {
+		"zh-cn": "确认删除该字典类型吗？",
+		"en": "Are you sure to delete this dictionary type?"
+	},
+	"k1csyhg": {
+		"zh-cn": " 条字典数据吗？此操作不可撤销。",
+		"en": "A dictionary data? This operation is irrevocable."
+	},
+	"9n7z787": {
+		"zh-cn": "该字典数据吗？",
+		"en": "Is this dictionary data?"
+	},
+	"ri68eqb": {
+		"zh-cn": "确认删除该字典数据吗？",
+		"en": "Are you sure to delete this dictionary data?"
+	},
+	"k4vgp16": {
+		"zh-cn": "强制退出成功",
+		"en": "Forced exit successful"
+	},
+	"k4u9xm6": {
+		"zh-cn": "强制退出失败",
+		"en": "Forced exit failed"
+	},
+	"icqgml7": {
+		"zh-cn": "请输入用户ID",
+		"en": "Please enter your user ID"
+	},
+	"y45ln6a": {
+		"zh-cn": " 自动刷新：30秒 ",
+		"en": "Automatic refresh: 30 seconds"
+	},
+	"84u2vkb": {
+		"zh-cn": "确认强制退出该用户吗？",
+		"en": "Confirm the forced logout of this user?"
+	},
+	"w0h2uwa": {
+		"zh-cn": "确定要强制退出用户\"",
+		"en": "Make sure to force the user out."
+	},
+	"wrz66j7": {
+		"zh-cn": "请选择执行策略",
+		"en": "Please select the execution strategy"
+	},
+	"w2a1937": {
+		"zh-cn": "请选择并发执行",
+		"en": "Please select concurrent execution"
+	},
+	"ular1s6": {
+		"zh-cn": "新增定时任务",
+		"en": "Add scheduled tasks"
+	},
+	"4mwrdv6": {
+		"zh-cn": "编辑定时任务",
+		"en": "Edit scheduled tasks"
+	},
+	"k3osasg": {
+		"zh-cn": " 条定时任务吗？此操作不可撤销。",
+		"en": "Is there a scheduled task? This operation is irrevocable."
+	},
+	"z3qaqu6": {
+		"zh-cn": "任务执行成功",
+		"en": "The task was executed successfully."
+	},
+	"z3rhi96": {
+		"zh-cn": "任务执行失败",
+		"en": "Task execution failed"
+	},
+	"u3vuq07": {
+		"zh-cn": "请选择任务状态",
+		"en": "Please select the task status"
+	},
+	"cz9xdv4": {
+		"zh-cn": "执行时间",
+		"en": "Execution time"
+	},
+	"lg7jtwl": {
+		"zh-cn": "确定要清空所有任务日志吗？此操作不可撤销。",
+		"en": "Are you sure you want to clear all task logs? This operation is irrevocable."
+	},
+	"wrxl537": {
+		"zh-cn": "请选择执行状态",
+		"en": "Please select the execution status"
+	},
+	"eod62": {
+		"zh-cn": "关闭",
+		"en": "\"Close"
+	},
+	"d3kyug": {
+		"zh-cn": " 条登录日志吗？此操作不可撤销。",
+		"en": "Is there a login log? This operation is irrevocable."
+	},
+	"9c4ey0l": {
+		"zh-cn": "确定要清空所有登录日志吗？此操作不可撤销。",
+		"en": "Are you sure you want to clear all login logs? This operation is irrevocable."
+	},
+	"be8padd": {
+		"zh-cn": "确定要导出登录日志数据吗？",
+		"en": "Are you sure you want to export the login log data?"
+	},
+	"libwbx5": {
+		"zh-cn": "登录日志_",
+		"en": "Login log"
+	},
+	"z53lh87": {
+		"zh-cn": "请选择登录状态",
+		"en": "Please select your login status"
+	},
+	"6h9f8bg": {
+		"zh-cn": " 条操作日志吗？此操作不可撤销。",
+		"en": "Is there an operation log? This operation is irrevocable."
+	},
+	"37ykojl": {
+		"zh-cn": "确定要清空所有操作日志吗？此操作不可撤销。",
+		"en": "Are you sure you want to clear all operation logs? This operation is irrevocable."
+	},
+	"o8oamed": {
+		"zh-cn": "确定要导出操作日志数据吗？",
+		"en": "Are you sure you want to export the operation log data?"
+	},
+	"lmblaa5": {
+		"zh-cn": "操作日志_",
+		"en": "Operation Log"
+	},
+	"wuhesx7": {
+		"zh-cn": "请选择操作状态",
+		"en": "Please select the operation status"
+	},
+	"edzpt34": {
+		"zh-cn": "清空日志",
+		"en": "Clear the log"
+	},
+	"ol6ski6": {
+		"zh-cn": "确认删除吗？",
+		"en": "Are you sure to delete it?"
+	},
+	"7zch1ke": {
+		"zh-cn": " 条公告吗？此操作不可撤销。",
+		"en": "Is this an announcement? This operation is irrevocable."
+	},
+	"fjuf54e": {
+		"zh-cn": " 条模板吗？此操作不可撤销。",
+		"en": "A template? This operation is irrevocable."
+	},
+	"l8qfjf8": {
+		"zh-cn": "该IP黑名单吗？",
+		"en": "Is this IP on the blacklist?"
+	},
+	"lehq94": {
+		"zh-cn": " 记住 ",
+		"en": "Remember"
+	},
+	"ifxxda5": {
+		"zh-cn": " 记住我 ",
+		"en": "Remember me"
+	},
+	"xzsssh8": {
+		"zh-cn": "下次自动填充账号",
+		"en": "The account will be automatically filled in next time"
+	},
+	"hodh3u7": {
+		"zh-cn": " 验证码登录 ",
+		"en": "Verification code login"
+	},
+	"dy3cca8": {
+		"zh-cn": " 账号密码登录 ",
+		"en": "Account and password login"
+	},
+	"ve0m7x8": {
+		"zh-cn": "手机号格式不正确",
+		"en": "The format of the mobile phone number is incorrect"
+	},
+	"hysqnqc": {
+		"zh-cn": "验证码格式不正确，请输入",
+		"en": "The verification code format is incorrect. Please enter it"
+	},
+	"c3wms3": {
+		"zh-cn": "位数字",
+		"en": "Digit number"
+	},
+	"arefbk4": {
+		"zh-cn": "创建账号",
+		"en": "Create an account"
+	},
+	"lz1av9f": {
+		"zh-cn": "请输入用户名（3-20个字符）",
+		"en": "Please enter the user name (3 to 20 characters)"
+	},
+	"5acwrte": {
+		"zh-cn": "请输入密码（6-20个字符）",
+		"en": "Please enter the password (6 to 20 characters)"
+	},
+	"gwkbg4": {
+		"zh-cn": " 注册 ",
+		"en": "\"Register"
+	},
+	"pr1zw75": {
+		"zh-cn": "已有账号？",
+		"en": "Already have an account?"
+	},
+	"kpwldo6": {
+		"zh-cn": " 返回登录 ",
+		"en": "Return to Login"
+	},
+	"px9tpm6": {
+		"zh-cn": "验证码已发送",
+		"en": "The verification code has been sent"
+	},
+	"4hw7uaa": {
+		"zh-cn": "验证码功能初始化失败",
+		"en": "The initialization of the verification code function failed"
+	},
+	"fq5t7o4": {
+		"zh-cn": "秒后重试",
+		"en": "Try again in seconds"
+	},
+	"t09mz15": {
+		"zh-cn": "获取验证码",
+		"en": "Get the verification code"
+	},
+	"gcu6cdh": {
+		"zh-cn": "用户名长度必须在3-20个字符之间",
+		"en": "The length of the username must be between 3 and 20 characters"
+	},
+	"gj0wh3g": {
+		"zh-cn": "用户名只能包含字母、数字和下划线",
+		"en": "Usernames can only contain letters, numbers and underscores"
+	},
+	"rf2e4dg": {
+		"zh-cn": "密码长度必须在6-20个字符之间",
+		"en": "The password length must be between 6 and 20 characters"
+	},
+	"57u0485": {
+		"zh-cn": "请确认密码",
+		"en": "Please confirm the password."
+	},
+	"venleq7": {
+		"zh-cn": "邮箱格式不正确",
+		"en": "The email address format is incorrect"
+	},
+	"id4zgj8": {
+		"zh-cn": "注册成功！请登录",
+		"en": "Registration successful! Please log in"
+	},
+	"b6cflh4": {
+		"zh-cn": "发送记录",
+		"en": "Sending record"
+	},
+	"b6d6xk4": {
+		"zh-cn": "发送邮件",
+		"en": "Send an email"
+	},
+	"5vjkxg8": {
+		"zh-cn": "请输入收件人邮箱",
+		"en": "Please enter the recipient's email address"
+	},
+	"5x0s3c9": {
+		"zh-cn": "邮箱格式不正确: ",
+		"en": "The email address format is incorrect"
+	},
+	"ey6uky7": {
+		"zh-cn": "请输入邮件主题",
+		"en": "Please enter the subject of the email"
+	},
+	"ey6mgr7": {
+		"zh-cn": "请输入邮件内容",
+		"en": "Please enter the content of the email"
+	},
+	"u3xryp6": {
+		"zh-cn": "请先选择模板",
+		"en": "Please select the template first"
+	},
+	"wnhm837": {
+		"zh-cn": "请选择邮件模板",
+		"en": "Please select the email template"
+	},
+	"gqc1co9": {
+		"zh-cn": "邮件发送任务已提交",
+		"en": "The email sending task has been submitted"
+	},
+	"n8abhdc": {
+		"zh-cn": "批量发送任务已提交，共 ",
+		"en": "The batch sending task has been submitted"
+	},
+	"arpu5s5": {
+		"zh-cn": " 个收件人",
+		"en": "Individual recipient"
+	},
+	"clrmfu9": {
+		"zh-cn": "请输入测试邮箱地址",
+		"en": "Please enter the test email address"
+	},
+	"81n784b": {
+		"zh-cn": "测试邮件已发送，请查收",
+		"en": "The test email has been sent. Please check it"
+	},
+	"b65z2e4": {
+		"zh-cn": "发送方式",
+		"en": "Sending method"
+	},
+	"ff4thd4": {
+		"zh-cn": "直接发送",
+		"en": "Send directly"
+	},
+	"aimzt34": {
+		"zh-cn": "使用模板",
+		"en": "Use the template"
+	},
+	"il0hha4": {
+		"zh-cn": "选择模板",
+		"en": "Select a template"
+	},
+	"f7jne3": {
+		"zh-cn": "收件人",
+		"en": "Recipient"
+	},
+	"dx7f3mg": {
+		"zh-cn": "请输入收件人邮箱，按回车添加多个",
+		"en": "Please enter the recipient's email address and press Enter to add multiple"
+	},
+	"tcnhse9": {
+		"zh-cn": " 从用户列表选择 ",
+		"en": "Select from the user list"
+	},
+	"ude3mlt": {
+		"zh-cn": "支持输入多个邮箱，用逗号、分号或空格分隔，或从用户列表选择",
+		"en": "Support entering multiple email addresses, separated by commas, semicolons or Spaces, or selected from the user list"
+	},
+	"f4eal3": {
+		"zh-cn": "抄送人",
+		"en": "Cc to"
+	},
+	"dpgicec": {
+		"zh-cn": "请输入抄送人邮箱（可选）",
+		"en": "Please enter the recipient's email address (optional)"
+	},
+	"e4ufz3": {
+		"zh-cn": "密送人",
+		"en": "Secretly send someone away"
+	},
+	"w6lja8c": {
+		"zh-cn": "请输入密送人邮箱（可选）",
+		"en": "Please enter the sender's email address (optional)"
+	},
+	"il3omw4": {
+		"zh-cn": "邮件类型",
+		"en": "Email type"
+	},
+	"j1u2c3": {
+		"zh-cn": "纯文本",
+		"en": "Plain text"
+	},
+	"ikw69x4": {
+		"zh-cn": "邮件主题",
+		"en": "Email subject"
+	},
+	"ikwee44": {
+		"zh-cn": "邮件内容",
+		"en": "Email content"
+	},
+	"dtglws4": {
+		"zh-cn": "模板参数",
+		"en": "Template parameters"
+	},
+	"mii3sh7": {
+		"zh-cn": "该模板无需参数",
+		"en": "This template does not require parameters"
+	},
+	"qp502": {
+		"zh-cn": "预览",
+		"en": "Preview"
+	},
+	"jte40c4": {
+		"zh-cn": "预览邮件",
+		"en": "Preview email"
+	},
+	"6h8lns6": {
+		"zh-cn": " 发送邮件 ",
+		"en": "Send an email"
+	},
+	"yjkab96": {
+		"zh-cn": " 测试配置 ",
+		"en": "Test configuration"
+	},
+	"il8q8c4": {
+		"zh-cn": "邮件预览",
+		"en": "Email Preview"
+	},
+	"7qud4l5": {
+		"zh-cn": "邮件主题：",
+		"en": "Email subject"
+	},
+	"7r1cqm5": {
+		"zh-cn": "邮件内容：",
+		"en": "Email content"
+	},
+	"wnnnar6": {
+		"zh-cn": "测试邮件配置",
+		"en": "Test email configuration"
+	},
+	"edfwa54": {
+		"zh-cn": "测试邮箱",
+		"en": "Test email"
+	},
+	"b69sxs4": {
+		"zh-cn": "发送类型",
+		"en": "\"Send type\""
+	},
+	"b686sb4": {
+		"zh-cn": "发送状态",
+		"en": "\"Send status"
+	},
+	"b66bda4": {
+		"zh-cn": "发送时间",
+		"en": "Sending time"
+	},
+	"iz11cn4": {
+		"zh-cn": "重试次数",
+		"en": "Number of retries"
+	},
+	"vpd0666": {
+		"zh-cn": "重新发送成功",
+		"en": "Resent successfully"
+	},
+	"p492": {
+		"zh-cn": " 等",
+		"en": "Such as"
+	},
+	"fju1": {
+		"zh-cn": "人",
+		"en": "people"
+	},
+	"eepw53": {
+		"zh-cn": "待发送",
+		"en": "To be sent"
+	},
+	"cyvvh3": {
+		"zh-cn": "发送中",
+		"en": "\"Sending in progress"
+	},
+	"ad3dgr4": {
+		"zh-cn": "今日发送",
+		"en": "Sent today"
+	},
+	"ad5gkq4": {
+		"zh-cn": "今日成功",
+		"en": "Success today"
+	},
+	"ad49tb4": {
+		"zh-cn": "今日失败",
+		"en": "Failure today"
+	},
+	"erro83": {
+		"zh-cn": "成功率",
+		"en": "Success rate"
+	},
+	"cnmdu3": {
+		"zh-cn": "关键词",
+		"en": "Key words"
+	},
+	"eb7avt6": {
+		"zh-cn": "收件人或主题",
+		"en": "Recipient or subject"
+	},
+	"emu42": {
+		"zh-cn": "单发",
+		"en": "Single send"
+	},
+	"hjsm2": {
+		"zh-cn": "批量",
+		"en": "Batch production"
+	},
+	"dhk87j4": {
+		"zh-cn": "时间范围",
+		"en": "Time range"
+	},
+	"mbhss4": {
+		"zh-cn": " 重发 ",
+		"en": "Reissue"
+	},
+	"nzk2iab": {
+		"zh-cn": "确定要删除这条记录吗？",
+		"en": "Are you sure you want to delete this record?"
+	},
+	"eqkdp06": {
+		"zh-cn": "发送记录详情",
+		"en": "Details of the sending record"
+	},
+	"dtfvr04": {
+		"zh-cn": "模板代码",
+		"en": "Template code"
+	},
+	"cyvze3": {
+		"zh-cn": "发送人",
+		"en": "Sender"
+	},
+	"dtngj24": {
+		"zh-cn": "模板类型",
+		"en": "Template type"
+	},
+	"xm98v97": {
+		"zh-cn": "请选择模板类型",
+		"en": "Please select the template type"
+	},
+	"flsaxi6": {
+		"zh-cn": "状态更新成功",
+		"en": "Status update successful"
+	},
+	"fa9kq8b": {
+		"zh-cn": "确定要删除这个模板吗？",
+		"en": "Are you sure you want to delete this template?"
+	},
+	"fizpfvb": {
+		"zh-cn": "支持变量 ${变量名}",
+		"en": "Supported variable ${Variable name}"
+	},
+	"b2ossw4": {
+		"zh-cn": "可用变量",
+		"en": "Available variables"
+	},
+	"uufz9l1a": {
+		"zh-cn": "JSON格式，如：[{\"name\":\"code\",\"description\":\"验证码\"}]",
+		"en": "JSON format, such as: [{\"name\":\"code\",\"description\":\" verification code\"}]"
+	},
+	"il2byn4": {
+		"zh-cn": "选择用户",
+		"en": "Select a user"
+	},
+	"r4je4z7": {
+		"zh-cn": " 确定（已选 ",
+		"en": "Ok (Selected."
+	},
+	"daxqp4": {
+		"zh-cn": " 人） ",
+		"en": "\"Human"
+	},
+	"y4me2j6": {
+		"zh-cn": "用户名或邮箱",
+		"en": "Username or email address"
+	},
+	"hehdqfa": {
+		"zh-cn": "发送任务已提交：共 ",
+		"en": "The sending task has been submitted: total"
+	},
+	"km2kob9": {
+		"zh-cn": " 个收件人，成功 ",
+		"en": "One recipient, success"
+	},
+	"1u0d866": {
+		"zh-cn": " 个，失败 ",
+		"en": "One, failure"
+	},
+	"jpn53v7": {
+		"zh-cn": "请输入模板代码",
+		"en": "Please enter the template code"
+	},
+	"rwnnkd7": {
+		"zh-cn": "模板名称或代码",
+		"en": "Template name or code"
+	},
+	"o7hv2": {
+		"zh-cn": "订单",
+		"en": "Order"
+	},
+	"p62z2": {
+		"zh-cn": "通知",
+		"en": "Notice"
+	},
+	"oayxhno": {
+		"zh-cn": "唯一标识，如：verification-code",
+		"en": "Unique identification, such as: verification-code"
+	},
+	"snd1uxh": {
+		"zh-cn": " 用于API调用，创建后不可修改 ",
+		"en": "Used for API calls, once created, it cannot be modified"
+	},
+	"cv27wm20": {
+		"zh-cn": "JSON格式，如：[{\"name\":\"code\",\"desc\":\"验证码\"},{\"name\":\"username\",\"desc\":\"用户名\"}]",
+		"en": "JSON format, such as: [{\" name \":\" code \", \"desc\" : \"captcha\"}, {\" name \":\" username \", \"desc\" : \"user name\"}]"
+	},
+	"7chaors": {
+		"zh-cn": " JSON数组格式，每个变量包含name和desc字段 ",
+		"en": "JSON array format, each variable contains the name and desc fields"
+	},
+	"dtq6544": {
+		"zh-cn": "模板说明",
+		"en": "Template description"
+	},
+	"jpcupr7": {
+		"zh-cn": "请输入模板说明",
+		"en": "Please enter the template description"
+	},
+	"ud121u6": {
+		"zh-cn": "隐藏高级选项",
+		"en": "Hide advanced options"
+	},
+	"5kq9g7d": {
+		"zh-cn": "显示高级选项（抄送/密送）",
+		"en": "Display advanced options (CC/secret mail)"
+	},
+	"r6bw87p": {
+		"zh-cn": "抄送人可以看到邮件，且其他收件人也能看到抄送人列表",
+		"en": "The CC recipient can see the email, and other recipients can also see the CC list"
+	},
+	"v88d11o": {
+		"zh-cn": "密送人可以收到邮件，但其他收件人看不到密送人列表",
+		"en": "The sender can receive the email, but other recipients cannot see the sender list"
+	},
+	"25r7fj5": {
+		"zh-cn": "模板不存在",
+		"en": "The template does not exist."
+	},
+	"k5ji4j5": {
+		"zh-cn": "收件人邮箱",
+		"en": "Recipient's email address"
+	},
+	"tb58bsc": {
+		"zh-cn": "数据格式错误，必须是数组",
+		"en": "The data format is incorrect. It must be an array"
+	},
+	"s8r0vzg": {
+		"zh-cn": "每个收件人必须包含email字段",
+		"en": "Each recipient must include an email field"
+	},
+	"vygwwo5": {
+		"zh-cn": "成功导入 ",
+		"en": "Successful import"
+	},
+	"hmcbebe": {
+		"zh-cn": "JSON格式错误，请检查输入",
+		"en": "The JSON format is incorrect. Please check the input"
+	},
+	"3xct4aa": {
+		"zh-cn": "请至少添加一个收件人",
+		"en": "Please add at least one recipient"
+	},
+	"mdfmajb": {
+		"zh-cn": "请填写所有收件人的邮箱",
+		"en": "Please fill in the email addresses of all the recipients"
+	},
+	"cndowkf": {
+		"zh-cn": "个性化邮件发送任务已提交，共 ",
+		"en": "The personalized email sending task has been submitted"
+	},
+	"grj2pf7": {
+		"zh-cn": "使用模板-群发",
+		"en": "Use the template - mass sending"
+	},
+	"magm0j8": {
+		"zh-cn": "使用模板-个性化",
+		"en": "Use templates - Personalization"
+	},
+	"m1jnbag": {
+		"zh-cn": " 群发：所有收件人收到相同内容 ",
+		"en": "Mass sending: All recipients receive the same content"
+	},
+	"lyvfrlq": {
+		"zh-cn": " 个性化：每个收件人收到不同内容（根据各自的参数） ",
+		"en": "Personalization: Each recipient receives different content (based on their respective parameters)"
+	},
+	"k5u2vp5": {
+		"zh-cn": "收件人列表",
+		"en": "Recipient list"
+	},
+	"1clhaj7": {
+		"zh-cn": " 添加收件人 ",
+		"en": "Add recipient"
+	},
+	"78du676": {
+		"zh-cn": " 批量导入 ",
+		"en": "Batch import"
+	},
+	"yxt9ru6": {
+		"zh-cn": " 清空列表 ",
+		"en": "Clear the list"
+	},
+	"bpbdvf7": {
+		"zh-cn": "批量导入收件人",
+		"en": "Batch import of recipients"
+	},
+	"pubjhm6": {
+		"zh-cn": "导入格式说明",
+		"en": "Import Format Instructions"
+	},
+	"ezpmj04n": {
+		"zh-cn": "请按JSON格式输入，每个收件人一行。示例：\r\n[\r\n  { \"email\": \"user1@qq.com\", \"username\": \"张三\", \"code\": \"123456\" },\r\n  { \"email\": \"user2@qq.com\", \"username\": \"李四\", \"code\": \"654321\" }\r\n]",
+		"en": "Please input in JSON format, on one line for each recipient. Example\n[\n{\" email \":\" user1@qq.com \", \"username\" : \"zhang\", \"code\" : \"123456\"},\n{\" email \":\" user2@qq.com \", \"username\" : \"bill\", \"code\" : \"654321\"}\n]"
+	},
+	"ozlms8f": {
+		"zh-cn": "请输入JSON格式的收件人数据",
+		"en": "Please enter the recipient data in JSON format"
+	},
+	"utb5crm": {
+		"zh-cn": "请按JSON格式输入，每个收件人一行。示例：",
+		"en": "Please input in JSON format, on one line for each recipient. Example"
+	},
+	"7wacdl3v": {
+		"zh-cn": "[\n  { \"email\": \"user1@qq.com\", \"username\": \"张三\", \"code\": \"123456\" },\n  { \"email\": \"user2@qq.com\", \"username\": \"李四\", \"code\": \"654321\" }\n]",
+		"en": "[\n{\" email \":\" user1@qq.com \", \"username\" : \"zhang\", \"code\" : \"123456\"},\n{\" email \":\" user2@qq.com \", \"username\" : \"bill\", \"code\" : \"654321\"}\n]"
+	},
+	"32jj4o8": {
+		"zh-cn": "请先输入邮件主题",
+		"en": "Please enter the subject of the email first"
+	},
+	"32jb0h8": {
+		"zh-cn": "请先输入邮件内容",
+		"en": "Please enter the email content first"
+	},
+	"bwyux3": {
+		"zh-cn": "个性化",
+		"en": "Personalization"
+	},
+	"5hsc7ni": {
+		"zh-cn": " 默认模式：所有收件人收到相同内容 ",
+		"en": "Default mode: All recipients receive the same content"
+	},
+	"94vnbzs": {
+		"zh-cn": " 个性化模式：每个收件人收到不同内容（根据各自的参数） ",
+		"en": "Personalized mode: Each recipient receives different content (based on their respective parameters)"
+	},
+	"lp6iq98": {
+		"zh-cn": " 使用邮件模板 ",
+		"en": "Use the email template"
+	},
+	"bddry1r": {
+		"zh-cn": " 勾选后可选择已有模板发送，不勾选则手动输入邮件内容 ",
+		"en": "After checking the box, you can select an existing template to send. If not checked, you need to manually enter the email content"
+	},
+	"7fz3cl5": {
+		"zh-cn": "该模板吗？",
+		"en": "Is this template?"
+	},
+	"3bwwfdl": {
+		"zh-cn": "支持变量 {{变量名}} 或 ${变量名}",
+		"en": "Support variables {{variable name}} or ${variable name}"
+	},
+	"5v05102e": {
+		"zh-cn": "JSON格式，如：[{\"name\":\"code\",\"description\":\"验证码\"},{\"name\":\"username\",\"description\":\"用户名\"}]",
+		"en": "JSON format, such as: [{\" name \":\" code \", \"description\" : \"captcha\"}, {\" name \":\" username \", \"description\" : \"user name\"}]"
+	},
+	"bh3hxqz": {
+		"zh-cn": " JSON数组格式，每个变量包含name和description字段 ",
+		"en": "JSON array format, each variable contains the name and description fields"
+	},
+	"obrz2": {
+		"zh-cn": "详情",
+		"en": "For details"
+	},
+	"itc64z4": {
+		"zh-cn": "重新发送",
+		"en": "Resend"
+	},
+	"f06yqu6": {
+		"zh-cn": " 默认模式 ",
+		"en": "Default mode"
+	},
+	"vajjdl7": {
+		"zh-cn": " 个性化模式 ",
+		"en": "Personalized mode"
+	},
+	"vfnu6os": {
+		"zh-cn": " 所有收件人收到相同内容，可选择使用模板或直接输入内容 ",
+		"en": "All recipients receive the same content and can choose to use a template or directly enter the content"
+	},
+	"jce0ajx": {
+		"zh-cn": " 每个收件人收到不同内容，必须使用模板并为每个收件人设置独立参数 ",
+		"en": "Each recipient receives different content and must use a template and set independent parameters for each recipient"
+	},
+	"ao37of4": {
+		"zh-cn": "内容来源",
+		"en": "Content source"
+	},
+	"ffen1f4": {
+		"zh-cn": "直接输入",
+		"en": "Input directly"
+	},
+	"w1z00pm": {
+		"zh-cn": " 支持输入多个邮箱，用逗号、分号或空格分隔 ",
+		"en": "Support entering multiple email addresses, separated by commas, semicolons or Spaces"
+	},
+	"9tf4uk6": {
+		"zh-cn": " 预览邮件 ",
+		"en": "Preview email"
+	},
+	"l21d2": {
+		"zh-cn": "示例",
+		"en": "Example"
+	},
+	"7cbny4j": {
+		"zh-cn": "请按JSON格式输入，每个收件人一行。",
+		"en": "Please input in JSON format, on one line for each recipient."
+	},
+	"csmlzlc": {
+		"zh-cn": " 当前模板需要的字段： ",
+		"en": "The fields required by the current template:"
+	},
+	"70hniy6": {
+		"zh-cn": " 批量重发 ",
+		"en": "Batch resale"
+	},
+	"qahhwl9": {
+		"zh-cn": "请选择要重发的记录",
+		"en": "Please select the records you want to resend"
+	},
+	"396z0sb": {
+		"zh-cn": "一次最多重发50条记录",
+		"en": "A maximum of 50 records can be sent at a time"
+	},
+	"k3kb94b": {
+		"zh-cn": "确定要重新发送选中的 ",
+		"en": "Make sure to resend the selected one"
+	},
+	"xak5v6a": {
+		"zh-cn": " 条记录吗？\\n\\n",
+		"en": "A record? \\n\\n"
+	},
+	"oll6u47": {
+		"zh-cn": "状态分布：\\n",
+		"en": "State distribution: \\n"
+	},
+	"uejjr6": {
+		"zh-cn": "• 已成功：",
+		"en": "• Successful"
+	},
+	"fplzn4": {
+		"zh-cn": " 条\\n",
+		"en": "\"Item \\n\""
+	},
+	"tdpxu6": {
+		"zh-cn": "• 已失败：",
+		"en": "• Failed:"
+	},
+	"oy2w4v7": {
+		"zh-cn": "• 其他状态：",
+		"en": "• Other states:"
+	},
+	"8uv367d": {
+		"zh-cn": "\\n⚠️ 警告：您选中了 ",
+		"en": "\\n⚠️ warning: you have selected"
+	},
+	"wtahoxt": {
+		"zh-cn": " 条已成功发送的记录，重新发送可能导致收件人收到重复邮件！",
+		"en": "A successfully sent record, resending it may cause the recipient to receive a duplicate email!"
+	},
+	"n7tfkg6": {
+		"zh-cn": "批量重发确认",
+		"en": "Batch retransmission confirmation"
+	},
+	"fkxzf44": {
+		"zh-cn": "确定重发",
+		"en": "Confirm retransmission"
+	},
+	"bsev0r9": {
+		"zh-cn": "批量重发完成！\\n",
+		"en": "Batch resale completed! \\n"
+	},
+	"esj8r3": {
+		"zh-cn": "成功：",
+		"en": "Success"
+	},
+	"drpmu3": {
+		"zh-cn": "失败：",
+		"en": "Failure"
+	},
+	"kigwsb9": {
+		"zh-cn": "\\n失败原因：\\n",
+		"en": "\\n Failure reason: \\n"
+	},
+	"ri22ur8": {
+		"zh-cn": "\\n...还有 ",
+		"en": "\\n... And"
+	},
+	"n7ublv6": {
+		"zh-cn": "批量重发结果",
+		"en": "Batch resend the results"
+	},
+	"bqzo079": {
+		"zh-cn": "批量重发成功！共 ",
+		"en": "Batch resale successful! A total of"
+	},
+	"9aosks7": {
+		"zh-cn": "批量重发失败：",
+		"en": "Batch retransmission failed"
+	},
+	"diprg14": {
+		"zh-cn": "未知错误",
+		"en": "Unknown error"
+	},
+	"ysctua5": {
+		"zh-cn": "状态分布：",
+		"en": "State distribution"
+	},
+	"7cq9i9b": {
+		"zh-cn": "⚠️ 警告：您选中了 ",
+		"en": "⚠️ warning: You have selected"
+	},
+	"9atvvn7": {
+		"zh-cn": "批量重发完成！",
+		"en": "Batch resale completed!"
+	},
+	"bqizd15": {
+		"zh-cn": "失败原因：",
+		"en": "Reasons for failure"
+	},
+	"n3qj8h6": {
+		"zh-cn": "...还有 ",
+		"en": "... And"
+	},
+	"iqw5224": {
+		"zh-cn": "重发确认",
+		"en": "Retransmission confirmation"
+	},
+	"usngo0d": {
+		"zh-cn": "确定要重新发送这封邮件吗？",
+		"en": "Are you sure you want to resend this email?"
+	},
+	"d3jbj44": {
+		"zh-cn": "收件人：",
+		"en": "Recipient:"
+	},
+	"c7v253": {
+		"zh-cn": "主题：",
+		"en": "Subject"
+	},
+	"sf6q515": {
+		"zh-cn": "当前状态：",
+		"en": "Current status"
+	},
+	"km7uu24": {
+		"zh-cn": "默认模式",
+		"en": "Default mode"
+	},
+	"xz4w1z5": {
+		"zh-cn": "个性化模式",
+		"en": "Personalized mode"
+	},
+	"edwkjq4": {
+		"zh-cn": "清空列表",
+		"en": "Clear the list"
+	},
+	"c3z38k5": {
+		"zh-cn": "暂无收件人",
+		"en": "No recipient for the time being"
+	},
+	"5c23pij": {
+		"zh-cn": "请点击\"添加收件人\"或\"批量导入\"添加",
+		"en": "Please click \"Add Recipient\" or \"Batch Import\" to add"
+	},
+	"3efgxkg": {
+		"zh-cn": "确定要清空所有收件人吗？当前共 ",
+		"en": "Are you sure you want to clear all the recipients? Current"
+	},
+	"lab1f26": {
+		"zh-cn": " 个收件人。",
+		"en": "One recipient."
+	},
+	"n2cfuk8": {
+		"zh-cn": "已清空收件人列表",
+		"en": "The recipient list has been cleared"
+	},
+	"h9av0b9": {
+		"zh-cn": "请选择要删除的记录",
+		"en": "Please select the records you want to delete"
+	},
+	"fgfvzk6": {
+		"zh-cn": "批量删除确认",
+		"en": "Batch deletion confirmation"
+	},
+	"nfxfcyh": {
+		"zh-cn": "⚠️ 警告：删除后数据将无法恢复！",
+		"en": "⚠️ warning: Data cannot be recovered after deletion!"
+	},
+	"pu2gv1b": {
+		"zh-cn": "批量删除成功！共删除 ",
+		"en": "Batch deletion successful! Deleted together"
+	},
+	"gdtwm4": {
+		"zh-cn": " 条记录",
+		"en": "A record"
+	},
+	"i6mwhg7": {
+		"zh-cn": "批量删除失败：",
+		"en": "Batch deletion failed"
+	},
+	"ubhu0r6": {
+		"zh-cn": "邮件模板分类",
+		"en": "Email template classification"
+	},
+	"uboupi6": {
+		"zh-cn": "邮件模板类型",
+		"en": "Email template type"
+	},
+	"35oarg7": {
+		"zh-cn": "请先添加收件人",
+		"en": "Please add the recipient first"
+	},
+	"au3xx74": {
+		"zh-cn": "允许重发",
+		"en": "Retransmission is allowed."
+	},
+	"bu5b83": {
+		"zh-cn": "不允许",
+		"en": "Not allowed"
+	},
+	"io8q7zi": {
+		"zh-cn": " 验证码类邮件建议设置为\"不允许\" ",
+		"en": "It is recommended to set verification code-type emails to \"Not allowed\"."
+	},
+	"2rbl139": {
+		"zh-cn": "请选择是否允许重发",
+		"en": "Please select whether to allow resending"
+	},
+	"5i8den9": {
+		"zh-cn": "只能重发失败的邮件",
+		"en": "Failed emails can only be resent"
+	},
+	"fb99vse": {
+		"zh-cn": "请选择失败状态的记录进行重发",
+		"en": "Please select the records in the failed state to resend"
+	},
+	"8ayhi68": {
+		"zh-cn": " 条失败记录吗？",
+		"en": "Is there a failed record?"
+	},
+	"2cbmze9": {
+		"zh-cn": "注意：已自动过滤 ",
+		"en": "Note: Automatically filtered"
+	},
+	"jpim2ba": {
+		"zh-cn": " 条非失败状态的记录",
+		"en": "A record of a non-failed state"
+	},
+	"sj8tvnh": {
+		"zh-cn": "该邮件不允许重发（如验证码类邮件）",
+		"en": "This email is not allowed to be resent (such as verification code-type emails)."
+	},
+	"r8hiymn": {
+		"zh-cn": "所选记录均不可重发（需要是失败状态且允许重发）",
+		"en": "All selected records cannot be resent (they must be in a failed state and retransmission is allowed)."
+	},
+	"isrs7y9": {
+		"zh-cn": " 条不可重发的记录",
+		"en": "A record that cannot be resent"
+	},
+	"whx62dc": {
+		"zh-cn": "批量重发任务已提交，共 ",
+		"en": "The batch resale task has been submitted"
+	},
+	"e6bpq98": {
+		"zh-cn": "邮件模板允许重发",
+		"en": "The email template allows resending"
+	},
+	"1w9wdb7": {
+		"zh-cn": "邮件服务提供商",
+		"en": "Email service provider"
+	},
+	"67doj3h": {
+		"zh-cn": "请选择服务提供商（不选则使用默认）",
+		"en": "Please select the service provider (if not selected, the default will be used)."
+	},
+	"kwkt8pk": {
+		"zh-cn": " 不选择则使用系统默认配置的服务提供商 ",
+		"en": "If not selected, use the service provider configured by the system default"
+	},
+	"orm5dx6": {
+		"zh-cn": "确认发起支付",
+		"en": "Confirm the initiation of payment"
+	},
+	"wfz8xvd": {
+		"zh-cn": "确定要发起支付吗？金额：¥",
+		"en": "Are you sure you want to initiate the payment? Amount: ¥"
+	},
+	"wm2fjx4": {
+		"zh-cn": "，标题：",
+		"en": "Title"
+	},
+	"kyd2uu8": {
+		"zh-cn": "支付订单创建成功",
+		"en": "The payment order has been created successfully"
+	},
+	"h9cuh68": {
+		"zh-cn": "请输入商户订单号",
+		"en": "Please enter the merchant order number"
+	},
+	"ortl6i6": {
+		"zh-cn": "确认发起退款",
+		"en": "Confirm the initiation of the refund"
+	},
+	"l2g22f7": {
+		"zh-cn": "确定要对订单 ",
+		"en": "Make sure to check the order"
+	},
+	"bmw7aj5": {
+		"zh-cn": " 发起 ¥",
+		"en": "\"Initiate ¥"
+	},
+	"26vau6": {
+		"zh-cn": " 的退款吗？",
+		"en": "Is there a refund?"
+	},
+	"fkxt0q4": {
+		"zh-cn": "确定退款",
+		"en": "Refund confirmed"
+	},
+	"t1h1h97": {
+		"zh-cn": "退款请求已提交",
+		"en": "A refund request has been submitted"
+	},
+	"109gt86": {
+		"zh-cn": "订单关闭成功",
+		"en": "The order has been closed successfully."
+	},
+	"3f9nmm6": {
+		"zh-cn": "订单撤销成功",
+		"en": "The order was successfully cancelled."
+	},
+	"fy656q4": {
+		"zh-cn": "等待付款",
+		"en": "Waiting for payment"
+	},
+	"d3gkpk4": {
+		"zh-cn": "支付成功",
+		"en": "Payment successful"
+	},
+	"e61qk3": {
+		"zh-cn": "已关闭",
+		"en": "Closed"
+	},
+	"e7hbq3": {
+		"zh-cn": "已完成",
+		"en": "Completed"
+	},
+	"b5sekv4": {
+		"zh-cn": "发起支付",
+		"en": "Initiate payment"
+	},
+	"d3iyrg4": {
+		"zh-cn": "支付渠道",
+		"en": "Payment channel"
+	},
+	"ww4r3n7": {
+		"zh-cn": "请选择支付渠道",
+		"en": "Please select the payment channel"
+	},
+	"f7gac3": {
+		"zh-cn": "支付宝",
+		"en": "Alipay"
+	},
+	"cemv244": {
+		"zh-cn": "微信支付",
+		"en": "Wechat Pay"
+	},
+	"d3da9v4": {
+		"zh-cn": "支付产品",
+		"en": "Payment product"
+	},
+	"wvz2m27": {
+		"zh-cn": "请选择支付产品",
+		"en": "Please select the payment product"
+	},
+	"4wyy829": {
+		"zh-cn": "订单码支付（扫码）",
+		"en": "Order code payment (scan code)"
+	},
+	"oehnl96": {
+		"zh-cn": "电脑网站支付",
+		"en": "Payment via computer website"
+	},
+	"2lc8u0b": {
+		"zh-cn": "Native 扫码支付",
+		"en": "Native QR code payment"
+	},
+	"8srbl7": {
+		"zh-cn": "订单金额（元）",
+		"en": "Order amount (yuan)"
+	},
+	"fk5a0o7": {
+		"zh-cn": "请输入订单金额",
+		"en": "Please enter the order amount"
+	},
+	"hyqmxw4": {
+		"zh-cn": "订单标题",
+		"en": "Order Title"
+	},
+	"fkcdwz7": {
+		"zh-cn": "请输入订单标题",
+		"en": "Please enter the order title"
+	},
+	"hypvec4": {
+		"zh-cn": "订单描述",
+		"en": "Order description"
+	},
+	"ozgi2": {
+		"zh-cn": "选填",
+		"en": "Optional Filling"
+	},
+	"bjd3g54": {
+		"zh-cn": "回调地址",
+		"en": "Callback address"
+	},
+	"1hlbc7p": {
+		"zh-cn": "支付成功后支付SDK将POST通知到此地址（选填）",
+		"en": "After a successful payment, the payment SDK will POST a notification to this address (optional)"
+	},
+	"5zc6q96": {
+		"zh-cn": " 发起支付 ",
+		"en": "Initiate payment"
+	},
+	"d3lkz64": {
+		"zh-cn": "支付结果",
+		"en": "Payment result"
+	},
+	"7me566j": {
+		"zh-cn": "请使用对应APP扫描下方二维码完成支付",
+		"en": "Please scan the QR code below with the corresponding APP to complete the payment"
+	},
+	"8rq8kt5": {
+		"zh-cn": "商户订单号",
+		"en": "Merchant order number"
+	},
+	"vimksg5": {
+		"zh-cn": "二维码链接",
+		"en": "Qr code link"
+	},
+	"ipffux6": {
+		"zh-cn": "支付跳转链接",
+		"en": "Payment redirect link"
+	},
+	"8zkgp06": {
+		"zh-cn": "点击跳转支付",
+		"en": "Click to jump to payment"
+	},
+	"hyqjm84": {
+		"zh-cn": "订单查询",
+		"en": "Order inquiry"
+	},
+	"mxridx5": {
+		"zh-cn": "渠道交易号",
+		"en": "Channel transaction number"
+	},
+	"acl1ru4": {
+		"zh-cn": "交易状态",
+		"en": "Transaction status"
+	},
+	"b5zudg4": {
+		"zh-cn": "发起退款",
+		"en": "Initiate a refund"
+	},
+	"7exse3c": {
+		"zh-cn": "请输入要退款的商户订单号",
+		"en": "Please enter the merchant order number for which you want a refund"
+	},
+	"cv1juk7": {
+		"zh-cn": "退款金额（元）",
+		"en": "Refund amount (yuan)"
+	},
+	"ewtbvx7": {
+		"zh-cn": "请输入退款金额",
+		"en": "Please enter the refund amount"
+	},
+	"awz3cfa": {
+		"zh-cn": "请输入正确的金额格式",
+		"en": "Please enter the correct amount format"
+	},
+	"ilyr4v4": {
+		"zh-cn": "退款原因",
+		"en": "Refund reason"
+	},
+	"65qscc6": {
+		"zh-cn": " 发起退款 ",
+		"en": "Initiate a refund"
+	},
+	"im66zr4": {
+		"zh-cn": "退款结果",
+		"en": "Refund result"
+	},
+	"hrk1jj5": {
+		"zh-cn": "关闭/撤销",
+		"en": "Close/Undo"
+	},
+	"ew8ayfi": {
+		"zh-cn": "确定要关闭此订单吗？仅限未支付订单。",
+		"en": "Are you sure you want to close this order? Only for unpaid orders."
+	},
+	"21sl2l6": {
+		"zh-cn": " 关闭订单 ",
+		"en": "Close the order"
+	},
+	"k8rqr3x": {
+		"zh-cn": "确定要撤销此订单吗？仅支付宝支持，未支付触发关闭，已支付触发退款。",
+		"en": "Are you sure you want to cancel this order? Only Alipay supports it. It will be closed if payment is not made and will be refunded if payment is made."
+	},
+	"1u989d6": {
+		"zh-cn": " 撤销订单 ",
+		"en": "Cancel the order"
+	},
+	"d1xq544": {
+		"zh-cn": "操作结果",
+		"en": "Operation result"
+	},
+	"d1spvi4": {
+		"zh-cn": "操作成功",
+		"en": "Operation successful"
+	},
+	"hymtes4": {
+		"zh-cn": "订单列表",
+		"en": "Order list"
+	},
+	"im8c4j4": {
+		"zh-cn": "退款记录",
+		"en": "Refund record"
+	},
+	"8we4ha5": {
+		"zh-cn": "退款请求号",
+		"en": "Refund request number"
+	},
+	"im9oyy4": {
+		"zh-cn": "退款金额",
+		"en": "Refund amount"
+	},
+	"im43bd4": {
+		"zh-cn": "退款状态",
+		"en": "Refund status"
+	},
+	"if78oz4": {
+		"zh-cn": "资金到账",
+		"en": "The funds have arrived."
+	},
+	"dljhn3": {
+		"zh-cn": "处理中",
+		"en": "In processing"
+	},
+	"im16q54": {
+		"zh-cn": "退款成功",
+		"en": "Refund successful"
+	},
+	"ilzzyq4": {
+		"zh-cn": "退款失败",
+		"en": "Refund failed"
+	},
+	"e64iw3": {
+		"zh-cn": "已到账",
+		"en": "The account has been received."
+	},
+	"fiqhs3": {
+		"zh-cn": "未到账",
+		"en": "Not credited yet"
+	},
+	"urgvxwd": {
+		"zh-cn": "确定要删除这条退款记录吗？",
+		"en": "Are you sure you want to delete this refund record?"
+	},
+	"im8dp94": {
+		"zh-cn": "退款详情",
+		"en": "Refund details"
+	},
+	"i08dc04": {
+		"zh-cn": "记录ID",
+		"en": "Record ID"
+	},
+	"je47mi6": {
+		"zh-cn": "资金是否到账",
+		"en": "Whether the funds have been received"
+	},
+	"bu2drp4": {
+		"zh-cn": "失败原因",
+		"en": "Reasons for failure"
+	},
+	"pn1o2": {
+		"zh-cn": "金额",
+		"en": "Amount"
+	},
+	"d3hlvr4": {
+		"zh-cn": "支付时间",
+		"en": "Payment time"
+	},
+	"o1ka90b": {
+		"zh-cn": "确定要删除这条订单吗？",
+		"en": "Are you sure you want to delete this order?"
+	},
+	"hywfki4": {
+		"zh-cn": "订单详情",
+		"en": "Order details"
+	},
+	"hy85la4": {
+		"zh-cn": "订单ID",
+		"en": "Order ID"
+	},
+	"hyxqu74": {
+		"zh-cn": "订单金额",
+		"en": "Order amount"
+	},
+	"awalg84": {
+		"zh-cn": "关闭时间",
+		"en": "Closing time"
+	},
+	"9koxo49": {
+		"zh-cn": "选择渠道后自动读取",
+		"en": "It will be automatically read after the channel is selected"
+	},
+	"fte973": {
+		"zh-cn": "未配置",
+		"en": "Not configured"
+	},
+	"i0bjbj4": {
+		"zh-cn": "读取失败",
+		"en": "Read failed"
+	},
+	"ka179s5": {
+		"zh-cn": "支付二维码",
+		"en": "Payment QR code"
+	},
+	"k2b24d6": {
+		"zh-cn": "扫码完成支付",
+		"en": "Scan the code to complete the payment"
+	},
+	"hynsc64": {
+		"zh-cn": "订单号：",
+		"en": "Order Number"
+	},
+	"e1z3f3a": {
+		"zh-cn": " 点击跳转支付页面 ",
+		"en": "Click to jump to the payment page"
+	},
+	"tpk5bu7": {
+		"zh-cn": "等待支付结果（",
+		"en": "Waiting for the payment result"
+	},
+	"4wfcx56": {
+		"zh-cn": "s 后超时）",
+		"en": "Timeout after s"
+	},
+	"4qv7ckh": {
+		"zh-cn": "确定取消支付？取消后订单将被关闭。",
+		"en": "Are you sure to cancel the payment? The order will be closed after cancellation."
+	},
+	"fknl264": {
+		"zh-cn": "确定取消",
+		"en": "Confirmed cancellation"
+	},
+	"gjanzj4": {
+		"zh-cn": "继续支付",
+		"en": "Continue to pay"
+	},
+	"b177nf4": {
+		"zh-cn": "取消支付",
+		"en": "Cancel payment"
+	},
+	"d3o2my4": {
+		"zh-cn": "支付超时",
+		"en": "Payment timeout"
+	},
+	"z0sgjra": {
+		"zh-cn": "支付超时，订单已关闭",
+		"en": "The payment has expired and the order has been closed"
+	},
+	"7wssx4b": {
+		"zh-cn": "支付已取消，订单已关闭",
+		"en": "Payment has been cancelled and the order has been closed"
+	},
+	"5xlaise": {
+		"zh-cn": "取消支付失败，请手动关闭订单",
+		"en": "The payment cancellation failed. Please manually close the order"
+	},
+	"htgf6u6": {
+		"zh-cn": "查询退款状态",
+		"en": "Check the refund status"
+	},
+	"yxh7j98": {
+		"zh-cn": "请输入退款请求号",
+		"en": "Please enter the refund request number"
+	},
+	"im27wc4": {
+		"zh-cn": "退款时间",
+		"en": "Refund time"
+	},
+	"z114pt6": {
+		"zh-cn": "关闭订单失败",
+		"en": "Failed to close the order"
+	},
+	"dkda1v6": {
+		"zh-cn": "撤销订单失败",
+		"en": "Failed to cancel the order"
+	},
+	"h60dpg6": {
+		"zh-cn": "查询订单失败",
+		"en": "Failed to query the order"
+	},
+	"5e9gns6": {
+		"zh-cn": "发起退款失败",
+		"en": "Failed to initiate a refund"
+	},
+	"jb4v4g4": {
+		"zh-cn": "门店编号",
+		"en": "Store number"
+	},
+	"r0fcxcb": {
+		"zh-cn": "选填，如：NJ_001",
+		"en": "Optional, for example: NJ_001"
+	},
+	"loqd1y5": {
+		"zh-cn": "操作员编号",
+		"en": "Operator Number"
+	},
+	"5y72odb": {
+		"zh-cn": "选填，如：yx_001",
+		"en": "Optional filling, for example: yx_001"
+	},
+	"gia96w4": {
+		"zh-cn": "终端编号",
+		"en": "Terminal number"
+	},
+	"vj9emzd": {
+		"zh-cn": "选填，如：NJ_T_001",
+		"en": "Optional filling, for example: NJ_T_001"
+	},
+	"kwooxgc": {
+		"zh-cn": "选填，与商户订单号二选一",
+		"en": "Optional, choose one from the merchant order number"
+	},
+	"2qk49lb": {
+		"zh-cn": "选填（关闭订单时有效）",
+		"en": "Optional (valid when closing the order)"
+	},
+	"jn9uw26": {
+		"zh-cn": "请确认新密码",
+		"en": "Please confirm the new password"
+	},
+	"gynkul5": {
+		"zh-cn": "验证手机号",
+		"en": "Verify mobile phone number"
+	},
+	"41dvne5": {
+		"zh-cn": "输入验证码",
+		"en": "Enter the verification code"
+	},
+	"5cy5z95": {
+		"zh-cn": "设置新密码",
+		"en": "Set a new password"
+	},
+	"fs7ft9a": {
+		"zh-cn": "请输入注册时的手机号",
+		"en": "Please enter the mobile phone number used during registration"
+	},
+	"aqnnbw7": {
+		"zh-cn": " 发送验证码 ",
+		"en": "Send verification code"
+	},
+	"8fytjj8": {
+		"zh-cn": "请输入短信验证码",
+		"en": "Please enter the SMS verification code"
+	},
+	"anw2345": {
+		"zh-cn": " 下一步 ",
+		"en": "Next step"
+	},
+	"m8ze1hf": {
+		"zh-cn": "请输入新密码（6-20个字符）",
+		"en": "Please enter a new password (6 to 20 characters)."
+	},
+	"8aswln5": {
+		"zh-cn": "确认新密码",
+		"en": "Confirm the new password"
+	},
+	"7190kp6": {
+		"zh-cn": " 确认重置 ",
+		"en": "Confirm reset"
+	},
+	"x9g9d18": {
+		"zh-cn": "请使用新密码登录",
+		"en": "Please log in with the new password"
+	},
+	"dai78d5": {
+		"zh-cn": " 我是谁 ",
+		"en": "Who am I?"
+	},
+	"7j0tt36": {
+		"zh-cn": "请输入旧密码",
+		"en": "Please enter the old password"
+	},
+	"2qpsht8": {
+		"zh-cn": "只能上传图片文件",
+		"en": "Only image files can be uploaded"
+	},
+	"bmvodmc": {
+		"zh-cn": "图片大小不能超过 2MB",
+		"en": "The size of the picture cannot exceed 2MB"
+	},
+	"2rx64p8": {
+		"zh-cn": "个人信息更新成功",
+		"en": "The personal information has been updated successfully"
+	},
+	"ph3nf96": {
+		"zh-cn": "密码修改成功",
+		"en": "The password has been modified successfully."
+	},
+	"4vx8x4a": {
+		"zh-cn": "请使用新密码重新登录",
+		"en": "Please log in again with the new password"
+	},
+	"ek7w3c4": {
+		"zh-cn": "点击上传",
+		"en": "Click to upload"
+	},
+	"cjxy4qw": {
+		"zh-cn": "支持 JPG、PNG、GIF、WEBP 格式，大小不超过 2MB",
+		"en": "Supports JPG, PNG, GIF and WEBP formats, with a size not exceeding 2MB"
+	},
+	"cp35x4": {
+		"zh-cn": " 保存 ",
+		"en": "Save"
+	},
+	"phz52": {
+		"zh-cn": "重置",
+		"en": "Reset"
+	},
+	"ai7i2u4": {
+		"zh-cn": "修改密码",
+		"en": "Change password"
+	},
+	"fdlia3": {
+		"zh-cn": "旧密码",
+		"en": "Old password"
+	},
+	"6rh7z36": {
+		"zh-cn": " 确认修改 ",
+		"en": "Confirm the modification"
+	},
+	"degm154": {
+		"zh-cn": "更换头像",
+		"en": "Change the avatar"
+	},
+	"lxd2": {
+		"zh-cn": " 次",
+		"en": "time"
+	},
+	"dckibs4": {
+		"zh-cn": "最后登录",
+		"en": "Log in last"
+	},
+	"fvorza6": {
+		"zh-cn": " 保存修改 ",
+		"en": "Save the modifications"
+	},
+	"cr49h4": {
+		"zh-cn": " 修改 ",
+		"en": "\"Modify"
+	},
+	"vt90v27": {
+		"zh-cn": "手机号修改成功",
+		"en": "The mobile phone number has been modified successfully"
+	},
+	"tg7q035": {
+		"zh-cn": "修改手机号",
+		"en": "Modify the mobile phone number"
+	},
+	"d8mdw84": {
+		"zh-cn": "新手机号",
+		"en": "New mobile phone number"
+	},
+	"kagmyn7": {
+		"zh-cn": "请输入新手机号",
+		"en": "Please enter your new mobile phone number"
+	},
+	"nv4kr4": {
+		"zh-cn": " 验证 ",
+		"en": "Verification"
+	},
+	"dd4ni4": {
+		"zh-cn": " 取消 ",
+		"en": "Cancel"
+	},
+	"b6ubxf6": {
+		"zh-cn": "邮箱修改成功",
+		"en": "The email address has been modified successfully."
+	},
+	"aigiry4": {
+		"zh-cn": "修改邮箱",
+		"en": "Modify the email address"
+	},
+	"flhf73": {
+		"zh-cn": "新邮箱",
+		"en": "New email address"
+	},
+	"7isxw66": {
+		"zh-cn": "请输入新邮箱",
+		"en": "Please enter your new email address"
+	},
+	"bwhr6k4": {
+		"zh-cn": "套餐名称",
+		"en": "Package name"
+	},
+	"e04l2": {
+		"zh-cn": "价格",
+		"en": "Price"
+	},
+	"fl3fk3": {
+		"zh-cn": "有效期",
+		"en": "Validity period"
+	},
+	"w8kry36": {
+		"zh-cn": "新增会员套餐",
+		"en": "New membership package"
+	},
+	"lml9ob7": {
+		"zh-cn": "请输入套餐名称",
+		"en": "Please enter the package name"
+	},
+	"2jc52q5": {
+		"zh-cn": "请输入价格",
+		"en": "Please enter the price"
+	},
+	"7itbvt6": {
+		"zh-cn": "请输入有效期",
+		"en": "Please enter the validity period"
+	},
+	"6a6sa66": {
+		"zh-cn": "编辑会员套餐",
+		"en": "Editor's Membership Package"
+	},
+	"wd6n8s9": {
+		"zh-cn": "确认删除该套餐吗？",
+		"en": "Are you sure you want to delete this package?"
+	},
+	"fwz3ge8": {
+		"zh-cn": "请输入有效期天数",
+		"en": "Please enter the number of validity days"
+	},
+	"bwkk0q4": {
+		"zh-cn": "套餐描述",
+		"en": "Package description"
+	},
+	"lmigu57": {
+		"zh-cn": "请输入套餐描述",
+		"en": "Please enter the package description"
+	},
+	"t4xq766": {
+		"zh-cn": " 套餐管理 ",
+		"en": "Package Management"
+	},
+	"t99qwz6": {
+		"zh-cn": " 套餐预览 ",
+		"en": "Package Preview"
+	},
+	"8cukv27": {
+		"zh-cn": "基础功能全开放",
+		"en": "All basic functions are fully open"
+	},
+	"x9hikf7": {
+		"zh-cn": "每日使用不限次",
+		"en": "Unlimited daily use"
+	},
+	"shp1gl6": {
+		"zh-cn": "邮件客服支持",
+		"en": "Email customer service support"
+	},
+	"hurclu7": {
+		"zh-cn": "数据保留30天",
+		"en": "Data will be retained for 30 days"
+	},
+	"3ttaro6": {
+		"zh-cn": "全部基础功能",
+		"en": "All basic functions"
+	},
+	"p44dj06": {
+		"zh-cn": "高级分析报表",
+		"en": "Advanced Analysis Report"
+	},
+	"rmpiyb6": {
+		"zh-cn": "优先客服支持",
+		"en": "Youxian customer service support"
+	},
+	"hurh207": {
+		"zh-cn": "数据保留90天",
+		"en": "The data is retained for 90 days"
+	},
+	"yp3h4w6": {
+		"zh-cn": "专属活动优惠",
+		"en": "Exclusive event offer"
+	},
+	"qdmhz97": {
+		"zh-cn": "全部VIP功能",
+		"en": "All VIP functions"
+	},
+	"bjdckd7": {
+		"zh-cn": "API接口调用",
+		"en": "API interface call"
+	},
+	"y6mac76": {
+		"zh-cn": "专属客户经理",
+		"en": "Exclusive Customer Manager"
+	},
+	"gm8cnt6": {
+		"zh-cn": "数据永久保留",
+		"en": "The data is permanently retained."
+	},
+	"dq5lri5": {
+		"zh-cn": "定制化服务",
+		"en": "Customized service"
+	},
+	"p7rxc57": {
+		"zh-cn": "优先体验新功能",
+		"en": "Get priority experience of new features"
+	},
+	"g03ggv6v": {
+		"zh-cn": "<div class=\"preview-header\" data-v-c2bf93b7><div class=\"header-bg\" data-v-c2bf93b7></div><div class=\"header-content\" data-v-c2bf93b7><h1 class=\"title\" data-v-c2bf93b7>选择您的专属套餐</h1><p class=\"subtitle\" data-v-c2bf93b7>解锁全部高级功能，享受极致体验</p></div></div>",
+		"en": "<div class=\"preview-header\" data-v-c2bf93b7><div class=\"header-bg\" data-v-c2bf93b7></div><div class=\"header-content\" data-v-c2bf93b7><h1 class=\"title\" data-v-c2bf93b7> Select your exclusive package </h1><p class=\"subtitle\" data-v-c2bf93b7> Unlock all advanced features Enjoy the ultimate experience"
+	},
+	"2q0ndp6": {
+		"zh-cn": " 最受欢迎 ",
+		"en": "The most popular"
+	},
+	"tazx8bb": {
+		"zh-cn": "标准套餐，满足日常需求",
+		"en": "Standard package, meeting daily needs"
+	},
+	"95unat6": {
+		"zh-cn": " 立即购买 ",
+		"en": "Buy now"
+	},
+	"mafnqo6": {
+		"zh-cn": "暂无可用套餐",
+		"en": "There are no available packages for the moment"
+	},
+	"mcir2": {
+		"zh-cn": "终身",
+		"en": "\"Lifetime\""
+	},
+	"87tv84a": {
+		"zh-cn": "7x24小时在线客服",
+		"en": "7x24-hour online customer service"
+	},
+	"ipimcd6": {
+		"zh-cn": "数据安全加密",
+		"en": "Data security encryption"
+	},
+	"49307e6": {
+		"zh-cn": "加载套餐失败",
+		"en": "Failed to load the package"
+	},
+	"eumhcg89": {
+		"zh-cn": "<div class=\"preview-header\" data-v-e6851a78><div class=\"header-bg\" data-v-e6851a78></div><div class=\"header-content\" data-v-e6851a78><div class=\"badge\" data-v-e6851a78>限时优惠</div><h1 class=\"main-title\" data-v-e6851a78>选择您的专属套餐</h1><p class=\"subtitle\" data-v-e6851a78>解锁全部高级功能，享受极致体验</p></div></div>",
+		"en": "<div class=\"preview-header\" data-v-e6851a78><div class=\"header-bg\" data-v-e6851a78></div><div class=\"header-content\" data-v-e6851a78><div class=\"badge\" data-v-e6851a78> Limited-time offer </div><h1 class=\"main-title\" data-v-e6851a78> Choose your exclusive package </h1><p class=\"subtitle\" data-v-e6851a78> Unlock all advanced features and enjoy the ultimate experience </p></div></div>"
+	},
+	"boff134": {
+		"zh-cn": "天有效期",
+		"en": "Validity period in days"
+	},
+	"2m96png": {
+		"zh-cn": "所有套餐均享受7天无理由退款保障",
+		"en": "All packages come with a 7-day no-reason refund guarantee"
+	},
+	"qhoxr97": {
+		"zh-cn": "会员tao'c",
+		"en": "Member tao'c"
+	},
+	"ckuoew4": {
+		"zh-cn": "开通会员",
+		"en": "Become a member"
+	},
+	"z3kqj489": {
+		"zh-cn": "<div class=\"preview-header\" data-v-ceec5047><div class=\"header-bg\" data-v-ceec5047></div><div class=\"header-content\" data-v-ceec5047><div class=\"badge\" data-v-ceec5047>限时优惠</div><h1 class=\"main-title\" data-v-ceec5047>选择您的专属套餐</h1><p class=\"subtitle\" data-v-ceec5047>解锁全部高级功能，享受极致体验</p></div></div>",
+		"en": "<div class=\"preview-header\" data-v-ceec5047><div class=\"header-bg\" data-v-ceec5047></div><div class=\"header-content\" data-v-ceec5047><div class=\"badge\" data-v-ceec5047> Limited-time offer </div><h1 class=\"main-title\" data-v-ceec5047> Choose your exclusive package </h1><p class=\"subtitle\" data-v-ceec5047> Unlock all advanced features and enjoy the ultimate experience </p></div></div>"
+	},
+	"ijabxq8": {
+		"zh-cn": "正在处理您的请求",
+		"en": "Your request is being processed"
+	},
+	"wytwa9h": {
+		"zh-cn": "请稍候，正在连接安全支付网关...",
+		"en": "Please wait a moment. The secure payment gateway is being connected..."
+	},
+	"i1v1": {
+		"zh-cn": "季",
+		"en": "season"
+	},
+	"b4ddvwb": {
+		"zh-cn": "超值优选 · 全年无忧",
+		"en": "Super Value Selection · Worry-free throughout the year"
+	},
+	"agrarb": {
+		"zh-cn": "适中周期 · 平衡之选",
+		"en": "Moderate cycle · Balanced choice"
+	},
+	"indngzb": {
+		"zh-cn": "灵活订阅 · 随心体验",
+		"en": "Flexible subscription · Experience as you wish"
+	},
+	"fyzjq34": {
+		"zh-cn": "立省 ¥",
+		"en": "Lisheng"
+	},
+	"w54xvy8": {
+		"zh-cn": " · 性价比首选",
+		"en": "· The first choice for cost performance"
+	},
+	"7xqn4va": {
+		"zh-cn": "限时 50% OFF",
+		"en": "Limited-time 50% OFF"
+	},
+	"g0sywea": {
+		"zh-cn": "包含所有月度会员权益",
+		"en": "All monthly membership benefits are included"
+	},
+	"lj1nbjb": {
+		"zh-cn": "4K 超清画质无限观看",
+		"en": "4K ultra-clear picture quality for unlimited viewing"
+	},
+	"z7e3o4d": {
+		"zh-cn": "专属 VIP 客服优先通道",
+		"en": "Exclusive VIP customer service priority channel"
+	},
+	"abfy5q9": {
+		"zh-cn": "线下活动优先参与权",
+		"en": "Priority participation rights in offline activities"
+	},
+	"5ocw2p9": {
+		"zh-cn": "赠送限量版数字藏品",
+		"en": "A limited edition digital collectible is given as a gift"
+	},
+	"7th5ez7": {
+		"zh-cn": "无限云存储空间",
+		"en": "Unlimited cloud storage space"
+	},
+	"rk11ic6": {
+		"zh-cn": "生日专属礼遇",
+		"en": "Exclusive birthday gifts"
+	},
+	"1kfaqpa": {
+		"zh-cn": "1080P 高清画质",
+		"en": "1080P high-definition picture quality"
+	},
+	"armm8c6": {
+		"zh-cn": "离线下载功能",
+		"en": "Offline download function"
+	},
+	"y1l8d4d": {
+		"zh-cn": "每月 50GB 云存储空间",
+		"en": "50GB of cloud storage space per month"
+	},
+	"mbu8809": {
+		"zh-cn": "高清无广告观看体验",
+		"en": "High-definition ad-free viewing experience"
+	},
+	"5rxqir9": {
+		"zh-cn": "基础专属内容库访问",
+		"en": "Access to the basic exclusive content library"
+	},
+	"xud7fi8": {
+		"zh-cn": "多端同步观看进度",
+		"en": "Watch the progress simultaneously across multiple devices"
+	},
+	"d6fvlo6": {
+		"zh-cn": "标准客服支持",
+		"en": "Standard customer service support"
+	},
+	"nziyg4d": {
+		"zh-cn": "每月 10GB 云存储空间",
+		"en": "10GB of cloud storage space per month"
+	},
+	"x2lk0j5": {
+		"zh-cn": "恭喜您开通",
+		"en": "Congratulations on your activation"
+	},
+	"y9uxv6b": {
+		"zh-cn": "，尊享权益已立即生效！",
+		"en": "Exclusive benefits take effect immediately!"
+	},
+	"mbbtb86": {
+		"zh-cn": "解锁无限可能",
+		"en": "Unlock unlimited possibilities"
+	},
+	"x86opr13": {
+		"zh-cn": "尊享会员专属权益，开启极致体验之旅。选择适合您的计划，享受前所未有的优质服务。",
+		"en": "Enjoy exclusive member benefits and embark on an ultimate experience journey. Choose the plan that suits you and enjoy unprecedented high-quality services."
+	},
+	"m09oz87": {
+		"zh-cn": "🏆 年度钜惠",
+		"en": "🏆 annual great deal"
+	},
+	"av9arh4": {
+		"zh-cn": "原价 ¥",
+		"en": "Original price: ¥"
+	},
+	"bxul7l4": {
+		"zh-cn": "尊享升级",
+		"en": "Exclusive Upgrade"
+	},
+	"fu8zs24": {
+		"zh-cn": "立即开通",
+		"en": "Open immediately"
+	},
+	"g3yc2": {
+		"zh-cn": "完成",
+		"en": "Completed"
+	},
+	"ayganj4": {
+		"zh-cn": "功能列表",
+		"en": "Function list"
+	},
+	"ecr2g612": {
+		"zh-cn": "请输入功能列表，用中文分号「；」分隔，例如：每日免费次数；专属客服；优先审核",
+		"en": "Please enter the function list using the Chinese semicolon \";\" Separation, for example: free times per day; Exclusive customer service Priority review"
+	},
+	"z93e76g": {
+		"zh-cn": "每日免费次数；专属客服；优先审核",
+		"en": "Daily free times; Exclusive customer service Priority review"
+	},
+	"ennc2": {
+		"zh-cn": "原价",
+		"en": "Original price"
+	},
+	"2jbhjz5": {
+		"zh-cn": "请输入原价",
+		"en": "Please enter the original price"
+	},
+	"e14l8l4": {
+		"zh-cn": "每日费用",
+		"en": "Daily charge"
+	},
+	"czhdg36": {
+		"zh-cn": "每日花费费用",
+		"en": "Daily expense"
+	},
+	"ho6g2": {
+		"zh-cn": "推荐",
+		"en": "\"Recommended"
+	},
+	"d8sjpb4": {
+		"zh-cn": "是否推荐",
+		"en": "Is it recommended?"
+	},
+	"xmui5v6": {
+		"zh-cn": "推荐更新成功",
+		"en": "Recommended update successful"
+	},
+	"gmywue9": {
+		"zh-cn": "功能列表的数据格式",
+		"en": "The data format of the function list"
+	},
+	"eo0x1rg": {
+		"zh-cn": "功能列表的数据格式错误，请修改！",
+		"en": "The data format of the function list is incorrect. Please correct it!"
+	},
+	"5nlx1d15": {
+		"zh-cn": " 尊享会员专属权益，开启极致体验之旅。选择适合您的计划，享受前所未有的优质服务。 ",
+		"en": "Enjoy exclusive member benefits and embark on an ultimate experience journey. Choose the plan that suits you and enjoy unprecedented high-quality services."
+	},
+	"cb4ipc4": {
+		"zh-cn": "年度会员",
+		"en": "Annual Member"
+	},
+	"4b5ct6": {
+		"zh-cn": "发起支付失败",
+		"en": "Failed to initiate payment"
+	},
+	"6uhhi96": {
+		"zh-cn": " 确认支付 ",
+		"en": "Confirm payment"
+	},
+	"dvj4679": {
+		"zh-cn": "支付成功！订单号：",
+		"en": "Payment successful! Order Number"
+	},
+	"ifuw638": {
+		"zh-cn": "支付超时，订单 ",
+		"en": "Payment timeout, order"
+	},
+	"eqhbg4": {
+		"zh-cn": " 已关闭",
+		"en": "Closed"
+	},
+	"n9wblw9": {
+		"zh-cn": "支付已取消，订单 ",
+		"en": "The payment has been cancelled. Order"
+	},
+	"8ovvao8": {
+		"zh-cn": "支付失败，请重试",
+		"en": "Payment failed. Please try again"
+	},
+	"gpo32": {
+		"zh-cn": "微信",
+		"en": "wechat"
+	},
+	"q1i62": {
+		"zh-cn": "银联",
+		"en": "UnionPay"
+	},
+	"fry8o94": {
+		"zh-cn": "确认订单",
+		"en": "Confirm the order"
+	},
+	"naeqifc": {
+		"zh-cn": "请选择支付方式并完成订单",
+		"en": "Please select the payment method and complete the order"
+	},
+	"d3p2yd4": {
+		"zh-cn": "支付金额",
+		"en": "Payment amount"
+	},
+	"th4b0f6": {
+		"zh-cn": "选择支付方式",
+		"en": "Select the payment method"
+	},
+	"ww31x27": {
+		"zh-cn": "请选择支付方式",
+		"en": "Please select the payment method"
+	},
+	"bw1fwo4": {
+		"zh-cn": "安全支付",
+		"en": "Secure payment"
+	},
+	"pnhq4m9": {
+		"zh-cn": "正在发起支付...",
+		"en": "A payment is being initiated..."
+	},
+	"bdfuv95": {
+		"zh-cn": "订单待支付",
+		"en": "The order is pending payment."
+	},
+	"kuwys3": {
+		"zh-cn": "订单号",
+		"en": "Order Number"
+	},
+	"s2lkf3c": {
+		"zh-cn": "请使用支付宝或微信扫一扫",
+		"en": "Please scan the code with Alipay or wechat"
+	},
+	"r6uhdy9": {
+		"zh-cn": "即将跳转到支付页面",
+		"en": "You are about to jump to the payment page"
+	},
+	"rtjup66": {
+		"zh-cn": "立即跳转支付",
+		"en": "\"Jump to payment immediately\""
+	},
+	"9pjug45": {
+		"zh-cn": "秒后超时）",
+		"en": "Timeout in seconds"
+	},
+	"32s7b1b": {
+		"zh-cn": "确定要取消这笔订单吗？",
+		"en": "Are you sure you want to cancel this order?"
+	},
+	"t41o1bi": {
+		"zh-cn": "取消后订单将被关闭，需要重新发起支付",
+		"en": "After cancellation, the order will be closed and a new payment needs to be initiated"
+	},
+	"fjhbk3": {
+		"zh-cn": "收银台",
+		"en": "checkstand"
+	},
+	"cwy1of4": {
+		"zh-cn": "扫码支付",
+		"en": "scan to pay"
+	},
+	"hypqyk4": {
+		"zh-cn": "订单支付",
+		"en": "Order payment"
+	},
+	"8zzu6n6": {
+		"zh-cn": " 立即支付 ",
+		"en": "\"Pay immediately"
+	},
+	"k01dvf5": {
+		"zh-cn": "支付金额：",
+		"en": "Payment amount"
+	},
+	"kw7283": {
+		"zh-cn": "请使用",
+		"en": "Please use"
+	},
+	"wwy0mp8": {
+		"zh-cn": " 跳转支付页面 ",
+		"en": "Jump to the payment page"
+	},
+	"ponbf4a": {
+		"zh-cn": "点击按钮前往支付页面",
+		"en": "Click the button to go to the payment page"
+	},
+	"ct1e8j6": {
+		"zh-cn": "等待支付 (",
+		"en": "Waiting for payment"
+	},
+	"ig97bq5": {
+		"zh-cn": " 订单号：",
+		"en": "Order Number"
+	},
+	"fr965k7": {
+		"zh-cn": "确定取消支付？",
+		"en": "Are you sure to cancel the payment?"
+	},
+	"b1drz94": {
+		"zh-cn": "取消订单",
+		"en": "Cancel the order"
+	},
+	"bhtdq44": {
+		"zh-cn": "填写信息",
+		"en": "Fill in the information"
+	},
+	"e5st9ld": {
+		"zh-cn": "请使用微信/支付宝扫码支付",
+		"en": "Please make the payment by scanning the code with wechat or Alipay"
+	},
+	"s4ya648": {
+		"zh-cn": "s 内完成支付）",
+		"en": "Payment completed within s"
+	},
+	"imaqrw7": {
+		"zh-cn": "微信扫一扫支付",
+		"en": "Scan the code with wechat for payment"
+	},
+	"tdrnv98": {
+		"zh-cn": "支付宝扫一扫支付",
+		"en": "Alipay scan to pay"
+	},
+	"mh3wr3": {
+		"zh-cn": "银行卡",
+		"en": "Bank card"
+	},
+	"4gb6cn9": {
+		"zh-cn": "储蓄卡/信用卡支付",
+		"en": "Payment by debit card/credit card"
+	},
+	"bzxhxr4": {
+		"zh-cn": "对应应用",
+		"en": "Corresponding application"
+	},
+	"k7zebp5": {
+		"zh-cn": "支付已取消",
+		"en": "The payment has been cancelled."
+	},
+	"v600udc": {
+		"zh-cn": "取消失败，请手动关闭订单",
+		"en": "Cancellation failed. Please close the order manually"
+	},
+	"13fyhj6": {
+		"zh-cn": "订单号已复制",
+		"en": "The order number has been copied"
+	},
+	"frrocf4": {
+		"zh-cn": "确认支付",
+		"en": "Confirm payment"
+	},
+	"1csr7uc": {
+		"zh-cn": "请核对订单信息并完成支付",
+		"en": "Please check the order information and complete the payment"
+	},
+	"hzq2xs4": {
+		"zh-cn": "请使用 ",
+		"en": "Please use"
+	},
+	"daoo5n6": {
+		"zh-cn": " 扫描二维码",
+		"en": "Scan the QR code"
+	},
+	"2137xh6": {
+		"zh-cn": " 取消支付 ",
+		"en": "Cancel payment"
+	},
+	"ua3307": {
+		"zh-cn": " 确认支付 ¥",
+		"en": "Confirm payment ¥"
+	},
+	"vw2dhs9": {
+		"zh-cn": " 跳转至支付页面 ",
+		"en": "Jump to the payment page"
+	},
+	"kwuun3": {
+		"zh-cn": "请在 ",
+		"en": "Please"
+	},
+	"adccgw7": {
+		"zh-cn": " 秒内完成支付",
+		"en": "Payment completed within seconds"
+	},
+	"bymir86": {
+		"zh-cn": "安全加密保护",
+		"en": "Secure encryption protection"
+	},
+	"gy48d7b": {
+		"zh-cn": "正在等待支付结果...",
+		"en": "Waiting for the payment result..."
+	},
+	"wncum09": {
+		"zh-cn": "确定要取消支付吗？",
+		"en": "Are you sure you want to cancel the payment?"
+	},
+	"frow6g4": {
+		"zh-cn": "确认取消",
+		"en": "Confirm cancellation"
 	}
 }

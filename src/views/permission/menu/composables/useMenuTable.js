@@ -1,4 +1,4 @@
-import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import { queryMenuList, queryMenuListByLike } from '@/api/menu'
 
 /**
@@ -9,7 +9,6 @@ export function useMenuTable(searchForm) {
   const tableData = ref([])
   const expandedRowKeys = ref([])
   const isExpandAll = ref(false)
-  const isFullscreen = ref(false)
 
   // 表格列配置
   const columns = [
@@ -179,29 +178,12 @@ export function useMenuTable(searchForm) {
     }
   }
 
-  /**
-   * 全屏变化监听
-   */
-  const handleFullscreenChange = () => {
-    isFullscreen.value = !!document.fullscreenElement
-  }
-
-  onMounted(() => {
-    document.addEventListener('fullscreenchange', handleFullscreenChange)
-    isFullscreen.value = !!document.fullscreenElement
-  })
-
-  onUnmounted(() => {
-    document.removeEventListener('fullscreenchange', handleFullscreenChange)
-  })
-
   return {
     loading,
     tableData,
     expandedRowKeys,
     isExpandAll,
     columns,
-    tableMaxHeight,
     fetchMenuList,
     onExpand,
     handleExpandAll

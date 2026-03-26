@@ -102,7 +102,7 @@ export function useOnlineUserTable() {
       const res = await getOnlineUsers(params)
       
       if (res.code === 200) {
-        dataSource.value = res.data.records
+        dataSource.value = res.data.data
         pagination.total = res.data.total
       } else {
         message.error(res.message || '查询失败')

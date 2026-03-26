@@ -1,71 +1,114 @@
 <template>
   <div :style="cssVars">
     <!-- 搜索和操作区域 -->
-    <a-card :bordered="false" class="search-card">
-      <div class="search-form">
-        <div class="search-form-left">
-          <a-form layout="inline" :model="searchForm" ref="searchFormRef">
-            <a-form-item name="status">
-              <a-select v-model:value="searchForm.status" placeholder="请选择状态" allow-clear style="width: 200px">
-                <a-select-option :value="1">启用</a-select-option>
-                <a-select-option :value="0">禁用</a-select-option>
-              </a-select>
-            </a-form-item>
-          </a-form>
-        </div>
-        <div class="search-form-right">
-          <a-space :size="20">
-            <a-button type="primary" @click="handleSearch">
-              <template #icon>
-                <SearchOutlined />
-              </template>
-              搜索
-            </a-button>
-            <a-button @click="handleReset">
-              <template #icon>
-                <ReloadOutlined />
-              </template>
-              重置
-            </a-button>
-          </a-space>
-        </div>
-      </div>
-    </a-card>
+    <transition name="search-slide">
+      <a-card :bordered="false" class="search-card" v-show="searchVisible">
+        <a-form layout="inline" :model="searchForm" ref="searchFormRef" class="search-form-compact">
+          <a-form-item name="status">
+            <DictSelect 
+              v-model:value="searchForm.status" 
+              dict-type="ip_rule_status" 
+              placeholder="请选择状态" 
+              allow-clear 
+              value-type="number"
+              style="width: 180px"
+            />
+          </a-form-item>
+          <a-form-item>
+            <a-space :size="12">
+              <a-button type="primary" @click="handleSearch">
+                <template #icon><SearchOutlined /></template>
+                搜索
+              </a-button>
+              <a-button @click="handleReset">
+                <template #icon><ReloadOutlined /></template>
+                重置
+              </a-button>
+            </a-space>
+          </a-form-item>
+        </a-form>
+      </a-card>
+    </transition>
 
     <!-- 数据表格区域 -->
     <a-card :bordered="false">
       <template #title>
         <div class="table-header-actions">
-          <div class="left">
-            <a-space :size="20">
-              <a-button type="primary" @click="handleAdd">
-                <template #icon>
-                  <PlusOutlined />
-                </template>
-                新增
-              </a-button>
-              <a-button @click="handleRefreshCache">
-                <template #icon>
-                  <SyncOutlined />
-                </template>
-                刷新缓存
-              </a-button>
-            </a-space>
-          </div>
-          <div class="right">
-            <a-button type="primary" danger :disabled="selectedRowKeys.length === 0" @click="handleBatchDelete">
-              <template #icon>
-                <DeleteOutlined />
-              </template>
+          <a-space :size="12">
+            <a-button type="primary" @click="handleAdd" v-permission.disable="'system:iprule:add'">
+              <template #icon><PlusOutlined /></template>
+              新增
+            </a-button>
+            <a-button type="primary" danger :disabled="selectedRowKeys.length === 0" @click="handleBatchDelete" v-permission.disable="'system:iprule:remove'">
+              <template #icon><DeleteOutlined /></template>
               删除 {{ selectedRowKeys.length > 0 ? `(${selectedRowKeys.length})` : '' }}
             </a-button>
-          </div>
+          </a-space>
+
+          <a-space :size="12">
+            <a-tooltip :title="searchVisible ? '隐藏搜索栏' : '显示搜索栏'">
+              <a-button shape="circle" @click="toggleSearch">
+                <template #icon>
+                  <EyeInvisibleOutlined v-if="searchVisible" />
+                  <EyeOutlined v-else />
+                </template>
+              </a-button>
+            </a-tooltip>
+            
+            <a-dropdown placement="bottomRight">
+              <template #overlay>
+                <a-menu>
+                  <a-menu-item v-for="col in configurableColumns" :key="col.key">
+                    <a-checkbox 
+                      :checked="columnVisibility[col.key]" 
+                      @change="() => toggleColumn(col.key)"
+                    >
+                      {{ col.title }}
+                    </a-checkbox>
+                  </a-menu-item>
+                </a-menu>
+              </template>
+              <a-tooltip title="列显示设置">
+                <a-button shape="circle">
+                  <template #icon>
+                    <SettingOutlined />
+                  </template>
+                </a-button>
+              </a-tooltip>
+            </a-dropdown>
+
+            <a-dropdown placement="bottomRight">
+              <template #overlay>
+                <a-menu>
+                  <a-menu-item key="refresh" @click="handleRefreshCache" v-if="hasPermission('system:iprule:refresh')">
+                    <SyncOutlined />
+                    <span style="margin-left: 8px;">刷新缓存</span>
+                  </a-menu-item>
+                  <a-menu-item key="import" @click="handleImport" v-if="hasPermission('system:iprule:import')">
+                    <UploadOutlined />
+                    <span style="margin-left: 8px;">导入</span>
+                  </a-menu-item>
+                  <a-menu-item key="export" @click="handleExport" v-if="hasPermission('system:iprule:export')">
+                    <DownloadOutlined />
+                    <span style="margin-left: 8px;">导出</span>
+                  </a-menu-item>
+                </a-menu>
+              </template>
+              <a-tooltip title="更多操作">
+                <a-button shape="circle">
+                  <template #icon>
+                    <MoreOutlined />
+                  </template>
+                </a-button>
+              </a-tooltip>
+            </a-dropdown>
+          </a-space>
         </div>
       </template>
 
-      <a-table ref="tableRef" :dataSource="tableData" :columns="columns" :loading="loading" :pagination="pagination"
+      <a-table ref="tableRef" :dataSource="tableData" :columns="visibleColumns" :loading="loading" :pagination="pagination"
         :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }" row-key="id"
-        @change="handleTableChange" :scroll="{ x: 1000, y: tableMaxHeight }">
+        @change="handleTableChange" :scroll="{ x: 'max-content' }">
         <template #bodyCell="{ column, record }">
           <template v-if="column.key === 'banType'">
             <a-tag :color="record.banType === 2 ? 'orange' : 'blue'">
@@ -73,25 +116,28 @@
             </a-tag>
           </template>
           <template v-if="column.key === 'status'">
-            <a-tag :color="record.status === 1 ? 'success' : 'default'">
-              {{ record.status === 1 ? '启用' : '禁用' }}
-            </a-tag>
+            <a-switch 
+              :checked="record.status === 1" 
+              checked-children="启用" 
+              un-checked-children="禁用"
+              @change="() => handleToggleStatus(record)"
+            />
           </template>
           <template v-if="column.key === 'operation'">
-            <a-space>
-              <a-button type="link" size="small" @click="handleEdit(record)">
-                <template #icon>
-                  <EditOutlined />
-                </template>
-                编辑
-              </a-button>
-              <a-popconfirm title="确认删除该IP黑名单吗？" @confirm="handleDelete(record)">
-                <a-button type="link" danger size="small">
-                  <template #icon>
-                    <DeleteOutlined />
-                  </template>
-                  删除
+            <a-space :size="8">
+              <a-tooltip title="编辑">
+                <a-button type="link" size="small" @click="handleEdit(record)" v-permission.disable="'system:iprule:edit'">
+                  <template #icon><EditOutlined /></template>
+                  编辑
                 </a-button>
+              </a-tooltip>
+              <a-popconfirm title="确认删除该IP黑名单吗？" @confirm="handleDelete(record)" v-permission.disable="'system:iprule:remove'">
+                <a-tooltip title="删除">
+                  <a-button type="link" danger size="small">
+                    <template #icon><DeleteOutlined /></template>
+                    删除
+                  </a-button>
+                </a-tooltip>
               </a-popconfirm>
             </a-space>
           </template>
@@ -100,39 +146,94 @@
     </a-card>
 
     <!-- 新增/编辑IP黑名单弹窗 -->
-    <a-modal v-model:open="ipBlacklistDialogVisible" :title="isEdit ? '编辑IP黑名单' : '新增IP黑名单'" width="600px"
-      @ok="handleIpBlacklistSubmit" @cancel="ipBlacklistDialogVisible = false" :confirmLoading="submitLoading" centered>
-      <a-form ref="ipBlacklistFormRef" :model="ipBlacklistForm" :rules="ipBlacklistFormRules" layout="vertical"
-        class="ip-blacklist-form">
-        <a-form-item label="IP地址" name="ip" class="form-item">
-          <a-input v-model:value="ipBlacklistForm.ip" placeholder="支持单个IP（如：192.168.1.100）或CIDR格式（如：192.168.1.0/24）"
-            allow-clear />
-          <div class="form-tip">
-            支持精确IP匹配和CIDR网段格式
-          </div>
-        </a-form-item>
+    <a-modal
+      v-model:open="ipBlacklistDialogVisible"
+      width="600px"
+      :footer="null"
+      :closable="false"
+      centered
+    >
+      <template #title>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <span style="font-size: 18px; font-weight: 600;">{{ isEdit ? '编辑IP黑名单' : '新增IP黑名单' }}</span>
+          <a-space :size="12">
+            <a-button @click="ipBlacklistDialogVisible = false">取消</a-button>
+            <a-button type="primary" :loading="submitLoading" @click="handleIpBlacklistSubmit">确定</a-button>
+          </a-space>
+        </div>
+      </template>
+      
+      <a-divider />
+      
+      <div :style="cssVars">
+        <a-form ref="ipBlacklistFormRef" :model="ipBlacklistForm" :rules="ipBlacklistFormRules" layout="vertical"
+          class="ip-blacklist-form">
+          <a-form-item label="IP地址" name="ip" class="form-item">
+            <a-input v-model:value="ipBlacklistForm.ip" placeholder="支持单个IP（如：192.168.1.100）或CIDR格式（如：192.168.1.0/24）"
+              allow-clear />
+            <div class="form-tip">
+              支持精确IP匹配和CIDR网段格式
+            </div>
+          </a-form-item>
 
-        <a-form-item label="原因" name="reason" class="form-item">
-          <a-textarea v-model:value="ipBlacklistForm.reason" placeholder="请输入加入黑名单的原因（如：恶意攻击、暴力破解等）" :rows="3"
-            allow-clear />
-          <div class="form-tip">
-            建议填写原因，方便后续管理
-          </div>
-        </a-form-item>
+          <a-form-item label="原因" name="reason" class="form-item">
+            <a-textarea v-model:value="ipBlacklistForm.reason" placeholder="请输入加入黑名单的原因（如：恶意攻击、暴力破解等）" :rows="3"
+              allow-clear />
+            <div class="form-tip">
+              建议填写原因，方便后续管理
+            </div>
+          </a-form-item>
+        </a-form>
+      </div>
+    </a-modal>
 
-        <a-form-item label="状态" name="status" class="form-item">
-          <a-radio-group v-model:value="ipBlacklistForm.status">
-            <a-radio :value="1">启用</a-radio>
-            <a-radio :value="0">禁用</a-radio>
-          </a-radio-group>
-        </a-form-item>
-      </a-form>
+    <!-- 导入IP黑名单弹窗 -->
+    <a-modal
+      v-model:open="importDialogVisible"
+      width="500px"
+      :footer="null"
+      :closable="false"
+      centered
+    >
+      <template #title>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <span style="font-size: 18px; font-weight: 600;">导入</span>
+          <a-space :size="12">
+            <a-button @click="handleDownloadTemplate" v-permission.disable="'system:iprule:importTemplate'">
+              <template #icon><DownloadOutlined /></template>
+              下载模板
+            </a-button>
+            <a-button @click="handleImportCancel">取消</a-button>
+            <a-button type="primary" :loading="importLoading" @click="handleImportSubmit">确定</a-button>
+          </a-space>
+        </div>
+      </template>
+      
+      <a-divider />
+      
+      <div :style="cssVars">
+        <a-upload-dragger
+          v-model:file-list="importFileList"
+          :before-upload="beforeUpload"
+          @change="handleFileChange"
+          accept=".xlsx,.xls"
+          multiple
+          :max-count="5">
+          <p class="ant-upload-drag-icon">
+            <InboxOutlined />
+          </p>
+          <p class="ant-upload-text">点击或拖拽文件到此区域上传</p>
+          <p class="ant-upload-hint">
+            支持 .xls 和 .xlsx 格式，最多上传 5 个文件
+          </p>
+        </a-upload-dragger>
+      </div>
     </a-modal>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, onUnmounted, computed } from 'vue'
+import { ref, reactive, onMounted, computed } from 'vue'
 import { Modal, theme } from 'ant-design-vue'
 import {
   SearchOutlined,
@@ -140,20 +241,31 @@ import {
   PlusOutlined,
   DeleteOutlined,
   EditOutlined,
-  SyncOutlined
+  SyncOutlined,
+  DownloadOutlined,
+  UploadOutlined,
+  EyeOutlined,
+  EyeInvisibleOutlined,
+  SettingOutlined,
+  MoreOutlined,
+  InboxOutlined
 } from '@ant-design/icons-vue'
 import { Message } from '@/utils'
+import { usePermission } from '@/utils/usePermission'
 import {
   queryIpBlacklistList,
   addIpBlacklist,
   updateIpBlacklist,
   batchDeleteIpBlacklist,
   echoIpBlacklist,
-  refreshIpBlacklistCache
+  refreshIpBlacklistCache,
+  updateIpBlacklistStatus
 } from '@/api/iprule'
+import { useIpBlacklistImportExport } from './composables/useIpBlacklistImportExport'
 
 const { useToken } = theme
 const { token } = useToken()
+const { hasPermission } = usePermission()
 
 const cssVars = computed(() => {
   const t = token.value || {}
@@ -179,7 +291,15 @@ const selectedRowKeys = ref([])
 const ipBlacklistDialogVisible = ref(false)
 const isEdit = ref(false)
 
-const isFullscreen = ref(false)
+const searchVisible = ref(true)
+const columnVisibility = ref({
+  id: true,
+  ip: true,
+  banType: true,
+  status: true,
+  reason: true,
+  createTime: true
+})
 
 const ipBlacklistFormRef = ref()
 const searchFormRef = ref()
@@ -192,8 +312,7 @@ const searchForm = reactive({
 const ipBlacklistForm = reactive({
   id: null,
   ip: '',
-  reason: '',
-  status: 1
+  reason: ''
 })
 
 // ==================== 分页配置 ====================
@@ -203,7 +322,9 @@ const pagination = reactive({
   total: 0,
   showSizeChanger: true,
   showQuickJumper: true,
-  pageSizeOptions: ['10', '20', '50', '100']
+  showTotal: (total) => `共 ${total} 条`,
+  pageSizeOptions: ['10', '20', '50', '100'],
+  showLessItems: true
 })
 
 // ==================== 表格列配置 ====================
@@ -212,7 +333,7 @@ const columns = [
     title: 'ID',
     dataIndex: 'id',
     key: 'id',
-    width: 80,
+    width: 180,
     fixed: 'left'
   },
   {
@@ -274,31 +395,61 @@ const ipBlacklistFormRules = {
       },
       trigger: 'blur'
     }
-  ],
-  status: [
-    { required: true, message: '请选择状态', trigger: 'change' }
   ]
 }
 
-// ==================== 计算属性 ====================
-const tableMaxHeight = computed(() => {
-  return isFullscreen.value ? undefined : '420px'
+// ==================== 业务方法定义 ====================
+const toggleSearch = () => {
+  searchVisible.value = !searchVisible.value
+}
+
+const toggleColumn = (key) => {
+  columnVisibility.value[key] = !columnVisibility.value[key]
+}
+
+const visibleColumns = computed(() => {
+  return columns.filter(col => {
+    if (col.key === 'operation') return true
+    return columnVisibility.value[col.key] !== false
+  })
 })
 
-// ==================== 业务方法定义 ====================
+const configurableColumns = computed(() => {
+  return columns.filter(col => col.key !== 'operation')
+})
+
+
 const fetchIpBlacklistList = async () => {
   loading.value = true
-  const params = {
-    status: searchForm.status !== undefined ? searchForm.status : ''
+  const data = {
+    status: searchForm.status !== undefined ? searchForm.status : undefined,
+    pageNo: pagination.current,
+    pageSize: pagination.pageSize
   }
 
-  const response = await queryIpBlacklistList(pagination.current, pagination.pageSize, params)
+  const response = await queryIpBlacklistList(data)
   if (response.code === 200 && response.data !== null) {
     tableData.value = response.data.data || []
     pagination.total = response.data.total || 0
   }
   loading.value = false
 }
+
+// ==================== 导入导出功能 ====================
+const {
+  exportLoading,
+  handleExport,
+  importDialogVisible,
+  importFileList,
+  importLoading,
+  updateSupport,
+  handleImport,
+  handleDownloadTemplate,
+  beforeUpload,
+  handleFileChange,
+  handleImportSubmit,
+  handleImportCancel
+} = useIpBlacklistImportExport(fetchIpBlacklistList, searchForm)
 
 const handleSearch = () => {
   pagination.current = 1
@@ -325,9 +476,29 @@ const handleEdit = async (record) => {
     ipBlacklistForm.id = response.data.id
     ipBlacklistForm.ip = response.data.ip
     ipBlacklistForm.reason = response.data.reason
-    ipBlacklistForm.status = response.data.status
     ipBlacklistDialogVisible.value = true
   }
+}
+
+const handleToggleStatus = (record) => {
+  const action = record.status === 1 ? '禁用' : '启用'
+  const okType = record.status === 1 ? 'danger' : 'primary'
+
+  Modal.confirm({
+    title: `确认${action}`,
+    content: `确定要${action}该IP黑名单吗？`,
+    okText: '确定',
+    cancelText: '取消',
+    okType,
+    centered: true,
+    onOk: async () => {
+      const response = await updateIpBlacklistStatus(record.id)
+      if (response.code === 200) {
+        Message.success(`${action}成功`)
+        fetchIpBlacklistList()
+      }
+    }
+  })
 }
 
 const handleDelete = async (record) => {
@@ -402,47 +573,64 @@ const resetIpBlacklistForm = () => {
   Object.assign(ipBlacklistForm, {
     id: null,
     ip: '',
-    reason: '',
-    status: 1
+    reason: ''
   })
-}
-
-const handleFullscreenChange = () => {
-  isFullscreen.value = !!document.fullscreenElement
 }
 
 onMounted(() => {
   fetchIpBlacklistList()
-  document.addEventListener('fullscreenchange', handleFullscreenChange)
-  isFullscreen.value = !!document.fullscreenElement
-})
-
-onUnmounted(() => {
-  document.removeEventListener('fullscreenchange', handleFullscreenChange)
 })
 </script>
 
 <style scoped lang="scss">
+/* 搜索栏过渡动画 */
+.search-slide-enter-active,
+.search-slide-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-slide-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}
+
+.search-slide-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+}
+
+.search-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px;
+}
+
+.search-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}
+
 .search-card {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  overflow: hidden;
 }
 
-.search-form {
+.search-form-compact {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-}
-
-.search-form-left {
-  flex: 1;
-}
-
-.search-form-right {
-  margin-left: 16px;
+  gap: 0;
+  
+  :deep(.ant-form-item) {
+    margin-bottom: 0;
+    margin-right: 12px;
+  }
 }
 
 .table-header-actions {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

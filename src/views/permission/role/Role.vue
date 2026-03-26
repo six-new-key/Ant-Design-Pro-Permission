@@ -3,41 +3,35 @@
     <!-- 搜索和操作区域 -->
     <transition name="search-slide">
       <a-card :bordered="false" class="search-card" v-show="searchVisible">
-        <div class="search-form">
-          <div class="search-form-left">
-            <a-form layout="inline" :model="searchForm">
-              <a-form-item name="name">
-                <a-input v-model:value="searchForm.name" placeholder="请输入角色名称" allow-clear style="width: 200px" />
-              </a-form-item>
-              <a-form-item name="code">
-                <a-input v-model:value="searchForm.code" placeholder="请输入角色编码" allow-clear style="width: 200px" />
-              </a-form-item>
-              <a-form-item name="status">
-                <a-select v-model:value="searchForm.status" placeholder="请选择状态" allow-clear style="width: 200px">
-                  <a-select-option v-for="item in statusDict" :key="item.value" :value="item.value">
-                    {{ item.label }}
-                  </a-select-option>
-                </a-select>
-              </a-form-item>
-            </a-form>
-          </div>
-          <div class="search-form-right">
+        <a-form layout="inline" :model="searchForm" class="search-form-compact">
+          <a-form-item name="name">
+            <a-input v-model:value="searchForm.name" placeholder="请输入角色名称" allow-clear style="width: 180px" @pressEnter="handleSearch" />
+          </a-form-item>
+          <a-form-item name="code">
+            <a-input v-model:value="searchForm.code" placeholder="请输入角色编码" allow-clear style="width: 180px" @pressEnter="handleSearch" />
+          </a-form-item>
+          <a-form-item name="status">
+            <DictSelect 
+              v-model:value="searchForm.status" 
+              dict-type="role_status" 
+              placeholder="请选择状态" 
+              allow-clear 
+              style="width: 180px"
+            />
+          </a-form-item>
+          <a-form-item>
             <a-space :size="12">
               <a-button type="primary" @click="handleSearch">
-                <template #icon>
-                  <SearchOutlined />
-                </template>
+                <template #icon><SearchOutlined /></template>
                 搜索
               </a-button>
               <a-button @click="handleReset">
-                <template #icon>
-                  <ReloadOutlined />
-                </template>
+                <template #icon><ReloadOutlined /></template>
                 重置
               </a-button>
             </a-space>
-          </div>
-        </div>
+          </a-form-item>
+        </a-form>
       </a-card>
     </transition>
 
@@ -46,17 +40,23 @@
       <template #title>
         <div class="table-header-actions">
           <a-space :size="12">
-            <a-button type="primary" @click="handleAdd">
+            <a-button type="primary" @click="handleAdd" v-permission.disable="'permission:role:add'">
               <template #icon>
                 <PlusOutlined />
               </template>
               新增
             </a-button>
-            <a-button type="primary" danger :disabled="selectedRowKeys.length === 0" @click="handleBatchDelete">
+            <a-button type="primary" danger :disabled="selectedRowKeys.length === 0" @click="handleBatchDelete" v-permission.disable="'permission:role:remove'">
               <template #icon>
                 <DeleteOutlined />
               </template>
               删除 {{ selectedRowKeys.length > 0 ? `(${selectedRowKeys.length})` : '' }}
+            </a-button>
+            <a-button :loading="exportLoading" @click="handleExport" v-permission.disable="'permission:role:export'">
+              <template #icon>
+                <DownloadOutlined />
+              </template>
+              导出
             </a-button>
           </a-space>
 
@@ -103,7 +103,7 @@
         :row-selection="{ selectedRowKeys, onChange: onSelectChange, getCheckboxProps }"
         row-key="id"
         @change="handleTableChange"
-        :scroll="{ x: 'max-content', y: tableMaxHeight }"
+        :scroll="{ x: 'max-content' }"
       >
         <template #bodyCell="{ column, record }">
           <template v-if="column.key === 'status'">
@@ -116,20 +116,32 @@
             />
           </template>
           <template v-if="column.key === 'operation'">
-            <a-space>
-              <a-button type="link" size="small" :disabled="record.code === 'admin'" @click="handleEdit(record)">
-                编辑
-              </a-button>
-              <a-button type="link" size="small" :disabled="record.status === 0 || record.code === 'admin'" style="color: #52c41a" @click="handleAssignPermission(record)">
-                数据权限
-              </a-button>
-              <a-button type="link" size="small" :disabled="record.status === 0 || record.code === 'admin'" style="color: #1890ff" @click="handleAssignUser(record)">
-                分配用户
-              </a-button>
-              <a-popconfirm title="确认删除该角色吗？" @confirm="handleDelete(record)">
-                <a-button type="link" danger size="small" :disabled="record.code === 'admin'">
-                  删除
+            <a-space :size="8">
+              <a-tooltip title="编辑角色">
+                <a-button type="link" size="small" :disabled="record.code === 'admin'" @click="handleEdit(record)" v-permission.disable="'permission:role:edit'">
+                  <template #icon><EditOutlined /></template>
+                  编辑
                 </a-button>
+              </a-tooltip>
+              <a-tooltip title="分配数据权限">
+                <a-button type="link" size="small" :disabled="record.status === 0 || record.code === 'admin'" @click="handleAssignPermission(record)" v-permission.disable="'permission:role:assign_data'">
+                  <template #icon><SafetyOutlined /></template>
+                  数据权限
+                </a-button>
+              </a-tooltip>
+              <a-tooltip title="分配用户">
+                <a-button type="link" size="small" :disabled="record.status === 0 || record.code === 'admin'" @click="handleAssignUser(record)" v-permission.disable="'permission:role:assign_user'">
+                  <template #icon><UserOutlined /></template>
+                  分配用户
+                </a-button>
+              </a-tooltip>
+              <a-popconfirm title="确认删除该角色吗？" @confirm="handleDelete(record)">
+                <a-tooltip title="删除角色">
+                  <a-button type="link" danger size="small" :disabled="record.code === 'admin'" v-permission.disable="'permission:role:remove'">
+                    <template #icon><DeleteOutlined /></template>
+                    删除
+                  </a-button>
+                </a-tooltip>
               </a-popconfirm>
             </a-space>
           </template>
@@ -140,13 +152,23 @@
     <!-- 新增/编辑角色弹窗 -->
     <a-modal
       v-model:open="roleDialogVisible"
-      :title="isEdit ? '编辑角色' : '新增角色'"
-      width="700px"
-      @ok="handleRoleSubmit"
-      @cancel="roleDialogVisible = false"
-      :confirmLoading="submitLoading"
+      width="600px"
+      :footer="null"
+      :closable="false"
       centered
     >
+      <template #title>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <span style="font-size: 18px; font-weight: 600;">{{ isEdit ? '编辑角色' : '新增角色' }}</span>
+          <a-space :size="12">
+            <a-button @click="roleDialogVisible = false">取消</a-button>
+            <a-button type="primary" :loading="submitLoading" @click="handleRoleSubmit">确定</a-button>
+          </a-space>
+        </div>
+      </template>
+      
+      <a-divider />
+      
       <div :style="cssVars">
         <a-form ref="roleFormRef" :model="roleForm" :rules="roleFormRules" layout="vertical" class="role-form">
           <a-row :gutter="24">
@@ -218,13 +240,16 @@ import {
   DeleteOutlined,
   EyeOutlined,
   EyeInvisibleOutlined,
-  SettingOutlined
+  SettingOutlined,
+  DownloadOutlined,
+  EditOutlined,
+  SafetyOutlined,
+  UserOutlined
 } from '@ant-design/icons-vue'
 import PermissionAssignDialog from '@/components/core/PermissionAssignDialog.vue'
 import UserAssignDrawer from './components/UserAssignDrawer.vue'
 
 // Composables
-import { useDict } from './composables/useDict'
 import { useRoleTable } from './composables/useRoleTable'
 import { useRoleSearch } from './composables/useRoleSearch'
 import { useRoleForm } from './composables/useRoleForm'
@@ -232,9 +257,7 @@ import { useRoleOperations } from './composables/useRoleOperations'
 import { usePermissionAssign } from './composables/usePermissionAssign'
 import { useTableSettings } from './composables/useTableSettings'
 import { useUserAssign } from './composables/useUserAssign'
-
-// Styles
-import './styles/role.scss'
+import { useRoleExport } from './composables/useRoleExport'
 
 const { useToken } = theme
 const { token } = useToken()
@@ -264,12 +287,6 @@ const cssVars = computed(() => {
 
 // ==================== 组合各个功能模块 ====================
 
-// 字典数据
-const {
-  statusDict,
-  fetchDictData
-} = useDict()
-
 // 搜索功能（先创建，获取 reactive searchForm）
 const {
   searchForm,
@@ -284,7 +301,6 @@ const {
   selectedRowKeys,
   pagination,
   columns,
-  tableMaxHeight,
   fetchRoleList,
   onSelectChange,
   getCheckboxProps,
@@ -377,10 +393,19 @@ const {
   addDisabled
 } = useUserAssign(fetchRoleList)
 
+// 导出功能
+const {
+  exportLoading,
+  handleExport
+} = useRoleExport(searchForm)
+
 // ==================== 初始化 ====================
 onMounted(() => {
-  fetchDictData()
   fetchRoleList()
   loadAllPermissions()
 })
 </script>
+
+<style lang="scss" scoped>
+@import './styles/role.scss';
+</style>

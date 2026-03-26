@@ -14,20 +14,18 @@
             v-model:value="searchForm.userName" 
             placeholder="请输入用户名" 
             allow-clear 
-            style="width: 200px"
+            style="width: 180px"
             @pressEnter="handleSearch"
           />
         </a-form-item>
         <a-form-item>
-          <a-select 
+          <DictSelect 
             v-model:value="searchForm.status" 
+            dict-type="user_status" 
             placeholder="请选择状态" 
             allow-clear 
-            style="width: 200px"
-          >
-            <a-select-option :value="1">启用</a-select-option>
-            <a-select-option :value="0">禁用</a-select-option>
-          </a-select>
+            style="width: 180px"
+          />
         </a-form-item>
         <a-form-item>
           <a-space>
@@ -58,7 +56,7 @@
         <template #icon>
           <PlusOutlined />
         </template>
-        确定添加{{ selectedRowKeys.length > 0 ? `(${selectedRowKeys.length})` : '' }}
+        添加{{ selectedRowKeys.length > 0 ? `(${selectedRowKeys.length})` : '' }}
       </a-button>
     </div>
 
@@ -71,7 +69,7 @@
       :row-selection="{ selectedRowKeys, onChange: onSelectChange }"
       row-key="id"
       @change="handleTableChange"
-      :scroll="{ y: 400 }"
+      :scroll="{ x: 'max-content' }"
     >
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'status'">
@@ -85,7 +83,8 @@
 </template>
 
 <script setup>
-import { SearchOutlined, ReloadOutlined, CheckOutlined } from '@ant-design/icons-vue'
+import { SearchOutlined, ReloadOutlined, PlusOutlined } from '@ant-design/icons-vue'
+import DictSelect from '@/components/custom/DictSelect.vue'
 
 const props = defineProps({
   visible: {
@@ -181,13 +180,9 @@ const handleConfirm = () => {
 <style scoped lang="scss">
 .search-section {
   margin-bottom: 16px;
-  padding: 16px;
-  background-color: #fafafa;
-  border-radius: 4px;
 }
 
 .drawer-actions {
   margin-bottom: 16px;
-  padding: 0 16px;
 }
 </style>

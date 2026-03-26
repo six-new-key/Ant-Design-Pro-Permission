@@ -50,15 +50,11 @@ export function batchDeleteUser(ids) {
 }
 
 // 分页查询用户数据
-export function queryUserList(pageNo, pageSize, userDto = {}) {
+export function queryUserList(userDto) {
   return request({
     url: `${PREFIX}/list`,
-    method: 'GET',
-    params: {
-      pageNo,
-      pageSize,
-      ...userDto
-    }
+    method: 'POST',
+    data: userDto
   })
 }
 
@@ -101,5 +97,68 @@ export function kickoutUser(id) {
   return request({
     url: `${PREFIX}/kickout/${id}`,
     method: 'POST'
+  })
+}
+
+// 导出用户数据
+export function exportUser(data) {
+  return request({
+    url: `${PREFIX}/export`,
+    method: 'POST',
+    data,
+    responseType: 'blob'
+  })
+}
+
+// 导入用户数据
+export function importUser(data) {
+  return request({
+    url: `${PREFIX}/import`,
+    method: 'POST',
+    data,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+}
+
+// 下载导入模板
+export function downloadTemplate() {
+  return request({
+    url: `${PREFIX}/importTemplate`,
+    method: 'POST',
+    responseType: 'blob'
+  })
+}
+
+// 更新个人信息
+export function updateProfile(data) {
+  return request({
+    url: `${PREFIX}/profile`,
+    method: 'PUT',
+    data
+  })
+}
+
+// 修改密码
+export function updatePassword(data) {
+  return request({
+    url: `${PREFIX}/profile/password`,
+    method: 'PUT',
+    data
+  })
+}
+
+// 上传头像
+export function uploadAvatar(file) {
+  const formData = new FormData()
+  formData.append('file', file)
+  return request({
+    url: '/file/upload/avatar',
+    method: 'POST',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
   })
 }

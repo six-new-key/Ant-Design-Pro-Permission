@@ -14,8 +14,10 @@
   <a-modal v-model:open="showUnlockDialog" title="解锁屏幕" :closable="false" :maskClosable="false" :keyboard="false"
            centered :width="400" :footer="null" :mask="false">
     <div class="dialog-user-info">
-      <a-avatar :size="80" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Vben" alt="用户头像"/>
-      <div class="user-name">Super</div>
+      <a-avatar :size="80" :src="userStore.userData?.avatar || undefined" alt="用户头像">
+        {{ userStore.userData?.userName?.charAt(0)?.toUpperCase() }}
+      </a-avatar>
+      <div class="user-name">{{ userStore.userData?.userName }}</div>
     </div>
 
     <a-form ref="formRef" :model="formData" :rules="rules" @finish="handleUnlock">

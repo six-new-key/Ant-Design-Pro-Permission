@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { AuthUtils } from "@/utils";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { login, querySelf, logout } from "@/api";
 import router from "@/router";
 import { constantRoutes } from "@/router/routes";
@@ -15,6 +15,7 @@ export const useUserStore = defineStore(
     const userData = ref(null);
     const menuRoutes = ref(constantRoutes);
     const permissions = ref([]);
+    const roles = ref([]);
     const hasAddedRoutes = ref(false);
 
     // 登录方法
@@ -82,13 +83,16 @@ export const useUserStore = defineStore(
       try {
         const res = await querySelf();
         if (res.code === 200) {
-          const { user, routes, permissions: userPermissions } = res.data;
+          const { user, routes, permissions: userPermissions, roles: userRoles } = res.data;
 
           // 设置用户基本信息
           userData.value = user;
 
           // 设置权限
           permissions.value = userPermissions || [];
+          
+          // 设置角色
+          roles.value = userRoles || [];
 
           if (routes && routes.length > 0) {
             // 处理后端返回的路由配置
@@ -149,10 +153,16 @@ export const useUserStore = defineStore(
         router.push(LOGIN_PATH);
         userData.value = null;
         permissions.value = [];
+        roles.value = [];
         menuRoutes.value = constantRoutes;
         hasAddedRoutes.value = false;
       }
     };
+    
+    // 判断是否为管理员
+    const isAdmin = computed(() => {
+      return roles.value.some(role => role.code === 'admin')
+    })
 
     return {
       handleLogin,
@@ -161,7 +171,9 @@ export const useUserStore = defineStore(
       userData,
       menuRoutes,
       permissions,
+      roles,
       hasAddedRoutes,
+      isAdmin
     };
   },
   {
@@ -169,7 +181,7 @@ export const useUserStore = defineStore(
     persist: {
       key: "user-store",
       storage: localStorage,
-      pick: ["userData", "permissions"], // 只持久化这两个字段
+      pick: ["userData", "permissions", "roles"], // 持久化这三个字段
     },
   }
 );

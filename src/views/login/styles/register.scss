@@ -1,0 +1,29 @@
+// 注册抽屉样式
+.register-drawer {
+  :deep(.ant-drawer-header) {
+    border-bottom: 1px solid var(--ant-color-border);
+  }
+
+  :deep(.ant-drawer-body) {
+    padding: 24px;
+  }
+
+  :deep(.ant-form-item) {
+    margin-bottom: 20px;
+  }
+
+  :deep(.ant-form-item-label > label) {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  :deep(.ant-input-affix-wrapper) {
+    padding: 8px 11px;
+  }
+
+  :deep(.ant-radio-group) {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+  }
+}

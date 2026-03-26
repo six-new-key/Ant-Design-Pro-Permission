@@ -3,44 +3,42 @@
     <!-- 搜索和操作区域 -->
     <transition name="search-slide">
       <a-card :bordered="false" class="search-card" v-show="searchVisible">
-        <div class="search-form">
-          <div class="search-form-left">
-            <a-form layout="inline" :model="searchForm">
-              <a-form-item name="title">
-                <a-input v-model:value="searchForm.title" placeholder="请输入菜单名称" allow-clear style="width: 200px" />
-              </a-form-item>
-              <a-form-item name="type">
-                <a-select v-model:value="searchForm.type" placeholder="请选择菜单类型" allow-clear style="width: 200px">
-                  <a-select-option :value="0">目录</a-select-option>
-                  <a-select-option :value="1">菜单</a-select-option>
-                  <a-select-option :value="2">按钮</a-select-option>
-                </a-select>
-              </a-form-item>
-              <a-form-item name="status">
-                <a-select v-model:value="searchForm.status" placeholder="请选择状态" allow-clear style="width: 200px">
-                  <a-select-option value="1">启用</a-select-option>
-                  <a-select-option value="0">禁用</a-select-option>
-                </a-select>
-              </a-form-item>
-            </a-form>
-          </div>
-          <div class="search-form-right">
+        <a-form layout="inline" :model="searchForm" class="search-form-compact">
+          <a-form-item name="title">
+            <a-input v-model:value="searchForm.title" placeholder="请输入菜单名称" allow-clear style="width: 180px" @pressEnter="handleSearch" />
+          </a-form-item>
+          <a-form-item name="type">
+            <DictSelect 
+              v-model:value="searchForm.type" 
+              dict-type="menu_type" 
+              placeholder="请选择菜单类型" 
+              allow-clear 
+              value-type="number"
+              style="width: 180px"
+            />
+          </a-form-item>
+          <a-form-item name="status">
+            <DictSelect 
+              v-model:value="searchForm.status" 
+              dict-type="menu_status" 
+              placeholder="请选择状态" 
+              allow-clear 
+              style="width: 180px"
+            />
+          </a-form-item>
+          <a-form-item>
             <a-space :size="12">
               <a-button type="primary" @click="handleSearch">
-                <template #icon>
-                  <SearchOutlined />
-                </template>
+                <template #icon><SearchOutlined /></template>
                 搜索
               </a-button>
               <a-button @click="handleReset">
-                <template #icon>
-                  <ReloadOutlined />
-                </template>
+                <template #icon><ReloadOutlined /></template>
                 重置
               </a-button>
             </a-space>
-          </div>
-        </div>
+          </a-form-item>
+        </a-form>
       </a-card>
     </transition>
 
@@ -49,7 +47,7 @@
       <template #title>
         <div class="table-header-actions">
           <a-space :size="12">
-            <a-button type="primary" @click="handleAdd">
+            <a-button type="primary" @click="handleAdd" v-permission.disable="'permission:menu:add'">
               <template #icon>
                 <PlusOutlined />
               </template>
@@ -104,7 +102,7 @@
         :loading="loading"
         row-key="id"
         :pagination="false"
-        :scroll="{ x: 'max-content', y: tableMaxHeight }"
+        :scroll="{ x: 'max-content' }"
         :expandedRowKeys="expandedRowKeys"
         @expand="onExpand"
       >
@@ -143,32 +141,33 @@
           </template>
 
           <template v-if="column.key === 'operation'">
-            <a-space>
-              <a-button
-                v-if="record.type !== 2"
-                type="link"
-                size="small"
-                style="color: #52c41a"
-                @click="handleAddChild(record)"
-              >
-                <template #icon>
-                  <PlusOutlined />
-                </template>
-                新增
-              </a-button>
-              <a-button type="link" size="small" @click="handleEdit(record)">
-                <template #icon>
-                  <EditOutlined />
-                </template>
-                编辑
-              </a-button>
-              <a-popconfirm title="确认删除该菜单吗？" @confirm="handleDelete(record)">
-                <a-button type="link" danger size="small">
-                  <template #icon>
-                    <DeleteOutlined />
-                  </template>
-                  删除
+            <a-space :size="8">
+              <a-tooltip v-if="record.type !== 2" title="新增子菜单">
+                <a-button
+                  type="link"
+                  size="small"
+                  @click="handleAddChild(record)"
+                  v-permission.disable="'permission:menu:add'"
+                >
+                  <template #icon><PlusOutlined /></template>
+                  新增
                 </a-button>
+              </a-tooltip>
+              
+              <a-tooltip title="编辑菜单">
+                <a-button type="link" size="small" @click="handleEdit(record)" v-permission.disable="'permission:menu:edit'">
+                  <template #icon><EditOutlined /></template>
+                  编辑
+                </a-button>
+              </a-tooltip>
+              
+              <a-popconfirm title="确认删除该菜单吗？" @confirm="handleDelete(record)">
+                <a-tooltip title="删除菜单">
+                  <a-button type="link" danger size="small" v-permission.disable="'permission:menu:remove'">
+                    <template #icon><DeleteOutlined /></template>
+                    删除
+                  </a-button>
+                </a-tooltip>
               </a-popconfirm>
             </a-space>
           </template>
@@ -176,24 +175,30 @@
       </a-table>
     </a-card>
 
-    <!-- 新增/编辑菜单弹窗 -->
-    <a-modal
+    <!-- 新增/编辑菜单抽屉 -->
+    <a-drawer
       v-model:open="menuDialogVisible"
-      :title="isEdit ? '编辑菜单' : '新增菜单'"
-      width="650px"
-      @ok="handleMenuSubmit"
-      @cancel="menuDialogVisible = false"
-      :confirmLoading="submitLoading"
-      centered
+      width="600px"
+      :closable="false"
+      placement="right"
     >
+      <template #title>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <span style="font-size: 18px; font-weight: 600;">{{ isEdit ? '编辑菜单' : '新增菜单' }}</span>
+          <a-space :size="12">
+            <a-button @click="menuDialogVisible = false">取消</a-button>
+            <a-button type="primary" :loading="submitLoading" @click="handleMenuSubmit">确定</a-button>
+          </a-space>
+        </div>
+      </template>
+      
       <div :style="cssVars">
         <a-form 
           ref="menuFormRef" 
           :model="menuForm" 
           :rules="menuFormRules" 
-          layout="Inline"
+          layout="vertical"
           class="menu-form"
-          style="padding: 10px 0 10px 26px"
         >
           <!-- 上级菜单 -->
           <a-row :gutter="24">
@@ -204,7 +209,6 @@
                   v-if="isEdit && menuForm.type === 2"
                   v-model:value="menuForm.parentId"
                   placeholder="请选择上级菜单"
-                  style="width: 480px;"
                   :options="parentMenuOptions"
                   :field-names="{ label: 'title', value: 'id' }"
                   @change="handleParentChange"
@@ -218,7 +222,6 @@
                   placeholder="请选择上级菜单"
                   tree-default-expand-all
                   :field-names="{ label: 'title', value: 'id', children: 'children' }"
-                  style="width: 480px;"
                   @change="handleParentChange"
                 >
                   <template #title="{ title }">
@@ -245,11 +248,13 @@
                     <QuestionCircleOutlined style="margin-left: 4px; color: rgba(0, 0, 0, 0.45);" />
                   </a-tooltip>
                 </template>
-                <a-radio-group v-model:value="menuForm.type" @change="handleTypeChange">
-                  <a-radio :value="0" :disabled="isEdit || !isTypeAllowed(0)">目录</a-radio>
-                  <a-radio :value="1" :disabled="isEdit || !isTypeAllowed(1)">菜单</a-radio>
-                  <a-radio :value="2" :disabled="isEdit || !isTypeAllowed(2)">按钮</a-radio>
-                </a-radio-group>
+                <DictRadio 
+                  v-model:value="menuForm.type" 
+                  dict-type="menu_type" 
+                  value-type="number"
+                  :disabled="isEdit"
+                  @change="handleTypeChange"
+                />
               </a-form-item>
             </a-col>
           </a-row>
@@ -264,11 +269,12 @@
                     <QuestionCircleOutlined style="margin-left: 4px; color: rgba(0, 0, 0, 0.45);" />
                   </a-tooltip>
                 </template>
-                <a-radio-group v-model:value="menuForm.linkType" @change="handleLinkTypeChange">
-                  <a-radio :value="0">内部路由</a-radio>
-                  <a-radio :value="1">外链（新窗口）</a-radio>
-                  <a-radio :value="2">内嵌iframe</a-radio>
-                </a-radio-group>
+                <DictRadio 
+                  v-model:value="menuForm.linkType" 
+                  dict-type="link_type" 
+                  value-type="number"
+                  @change="handleLinkTypeChange"
+                />
               </a-form-item>
             </a-col>
           </a-row>
@@ -286,7 +292,6 @@
                 <a-input 
                   v-model:value="menuForm.linkUrl" 
                   placeholder="如：https://www.example.com"
-                  style="width: 480px"
                 />
               </a-form-item>
             </a-col>
@@ -301,7 +306,7 @@
                   placeholder="点击选择"
                   readonly
                   @click="iconSelectorVisible = true"
-                  style="width: 250px; cursor: pointer"
+                  style="cursor: pointer"
                 >
                   <template #prefix>
                     <component v-if="menuForm.icon && isAntDesignIcon(menuForm.icon)" :is="menuForm.icon" />
@@ -321,7 +326,6 @@
                   v-model:value="menuForm.sort" 
                   :min="0" 
                   placeholder="排序"
-                  style="width: 250px"
                 />
               </a-form-item>
             </a-col>
@@ -329,12 +333,11 @@
 
           <!-- 菜单名称（外链 linkType=1：只显示菜单名称） -->
           <a-row v-if="menuForm.type === 1 && menuForm.linkType === 1" :gutter="24">
-            <a-col :span="12">
+            <a-col :span="24">
               <a-form-item label="菜单名称" name="title">
                 <a-input 
                   v-model:value="menuForm.title" 
                   placeholder="请输入菜单名称"
-                  style="width: 250px"
                 />
               </a-form-item>
             </a-col>
@@ -347,7 +350,6 @@
                 <a-input 
                   v-model:value="menuForm.title" 
                   placeholder="请输入菜单名称"
-                  style="width: 250px"
                 />
               </a-form-item>
             </a-col>
@@ -362,7 +364,6 @@
                 <a-input 
                   v-model:value="menuForm.name" 
                   placeholder="如：ExternalDoc"
-                  style="width: 250px"
                 />
               </a-form-item>
             </a-col>
@@ -375,7 +376,6 @@
                 <a-input 
                   v-model:value="menuForm.title" 
                   placeholder="请输入菜单名称"
-                  style="width: 250px"
                 />
               </a-form-item>
             </a-col>
@@ -390,7 +390,6 @@
                 <a-input 
                   v-model:value="menuForm.name" 
                   placeholder="如：User"
-                  style="width: 250px"
                 />
               </a-form-item>
             </a-col>
@@ -403,7 +402,6 @@
                 <a-input 
                   v-model:value="menuForm.title" 
                   placeholder="请输入菜单名称"
-                  style="width: 250px"
                 />
               </a-form-item>
             </a-col>
@@ -422,7 +420,6 @@
                 <a-input 
                   v-model:value="menuForm.path" 
                   placeholder="如：/system/user（绝对路径）"
-                  style="width: 250px"
                   @blur="handlePathBlur"
                 />
               </a-form-item>
@@ -442,7 +439,6 @@
                 <a-input 
                   v-model:value="menuForm.path" 
                   placeholder="如：/system/user（绝对路径）"
-                  style="width: 250px"
                   @blur="handlePathBlur"
                 />
               </a-form-item>
@@ -458,7 +454,6 @@
                 <a-input 
                   v-model:value="menuForm.component" 
                   placeholder="如：/views/system/user/User"
-                  style="width: 180px"
                 >
                   <template #suffix>
                     <a-tooltip title="根据路由路径自动生成">
@@ -490,7 +485,6 @@
                 <a-input 
                   v-model:value="menuForm.path" 
                   placeholder="如：/system（绝对路径）"
-                  style="width: 250px"
                   @blur="handlePathBlur"
                 />
               </a-form-item>
@@ -507,7 +501,6 @@
                   v-model:value="menuForm.component" 
                   placeholder="LayoutManager" 
                   disabled
-                  style="width: 250px"
                 />
               </a-form-item>
             </a-col>
@@ -526,7 +519,6 @@
                 <a-input 
                   v-model:value="menuForm.redirect" 
                   placeholder="如：permission/user"
-                  style="width: 250px"
                 />
               </a-form-item>
             </a-col>
@@ -538,10 +530,11 @@
                     <QuestionCircleOutlined style="margin-left: 4px; color: rgba(0, 0, 0, 0.45);" />
                   </a-tooltip>
                 </template>
-                <a-radio-group v-model:value="menuForm.hidden">
-                  <a-radio :value="0">否</a-radio>
-                  <a-radio :value="1">是</a-radio>
-                </a-radio-group>
+                <DictRadio 
+                  v-model:value="menuForm.hidden" 
+                  dict-type="yes_no" 
+                  value-type="number"
+                />
               </a-form-item>
             </a-col>
           </a-row>
@@ -556,10 +549,11 @@
                     <QuestionCircleOutlined style="margin-left: 4px; color: rgba(0, 0, 0, 0.45);" />
                   </a-tooltip>
                 </template>
-                <a-radio-group v-model:value="menuForm.hidden">
-                  <a-radio :value="0">否</a-radio>
-                  <a-radio :value="1">是</a-radio>
-                </a-radio-group>
+                <DictRadio 
+                  v-model:value="menuForm.hidden" 
+                  dict-type="yes_no" 
+                  value-type="number"
+                />
               </a-form-item>
             </a-col>
           </a-row>
@@ -577,7 +571,6 @@
                 <a-input 
                   v-model:value="menuForm.permission" 
                   placeholder="如：system:user:add"
-                  style="width: 180px"
                 >
                   <template #suffix>
                     <a-popover trigger="click" placement="bottom">
@@ -616,14 +609,13 @@
                 <a-input 
                   v-model:value="menuForm.apiPath" 
                   placeholder="如：user/add"
-                  style="width: 250px"
                 />
               </a-form-item>
             </a-col>
           </a-row>
         </a-form>
       </div>
-    </a-modal>
+    </a-drawer>
 
     <!-- 图标选择器 -->
     <IconSelector 
@@ -662,9 +654,6 @@ import { useMenuForm } from './composables/useMenuForm'
 import { useMenuOperations } from './composables/useMenuOperations'
 import { useTableSettings } from './composables/useTableSettings'
 
-// Styles
-import './styles/menu.scss'
-
 const { useToken } = theme
 const { token } = useToken()
 
@@ -701,7 +690,6 @@ const {
   expandedRowKeys,
   isExpandAll,
   columns,
-  tableMaxHeight,
   fetchMenuList,
   onExpand,
   handleExpandAll
@@ -773,3 +761,7 @@ onMounted(() => {
   fetchMenuList()
 })
 </script>
+
+<style lang="scss" scoped>
+@import './styles/menu.scss';
+</style>

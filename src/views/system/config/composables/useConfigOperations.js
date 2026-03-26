@@ -1,98 +1,48 @@
 import { ref } from 'vue'
-import { Modal } from 'ant-design-vue'
-import { updateSystemConfig, deleteSystemConfig, refreshSystemConfigCache } from '@/api/systemConfig'
-import { Message } from '@/utils'
+import { message, Modal } from 'ant-design-vue'
+import { deleteSystemConfig, refreshSystemConfigCache } from '@/api/systemConfig'
 
 /**
- * 配置操作管理
+ * 配置操作管理 Composable
  */
-export function useConfigOperations(refreshCallback) {
+export function useConfigOperations(loadData) {
   const refreshLoading = ref(false)
-  const submitLoading = ref(false)
 
-  /**
-   * 配置开关切换
-   */
-  const handleConfigChange = async (record, checked) => {
-    record.loading = true
-    try {
-      const response = await updateSystemConfig({
-        configKey: record.configKey,
-        configValue: checked ? 'true' : 'false'
-      })
-      if (response.code === 200) {
-        Message.success(`${record.configName}已${checked ? '启用' : '禁用'}`)
-        record.configValue = checked ? 'true' : 'false'
-      } else {
-        // 失败时恢复开关状态
-        record.configValue = checked ? 'false' : 'true'
-      }
-    } finally {
-      record.loading = false
-    }
-  }
-
-  /**
-   * 提交编辑
-   */
-  const handleEditSubmit = async (currentConfig, editForm, closeCallback) => {
-    submitLoading.value = true
-    try {
-      const response = await updateSystemConfig({
-        configKey: currentConfig.configKey,
-        configValue: editForm.value.toString()
-      })
-      if (response.code === 200) {
-        Message.success('配置更新成功')
-        currentConfig.configValue = editForm.value.toString()
-        if (closeCallback) {
-          closeCallback()
-        }
-      }
-    } finally {
-      submitLoading.value = false
-    }
-  }
-
-  /**
-   * 删除配置
-   */
+  // 删除配置
   const handleDelete = (record) => {
+    if (record.isSystem) {
+      message.warning('系统内置配置不可删除')
+      return
+    }
+
     Modal.confirm({
       title: '确认删除',
       content: `确定要删除配置"${record.configName}"吗？`,
       okText: '确定',
-      okType: 'danger',
       cancelText: '取消',
+      okType: 'danger',
       onOk: async () => {
         try {
-          const response = await deleteSystemConfig(record.id)
-          if (response.code === 200) {
-            Message.success('删除配置成功')
-            if (refreshCallback) {
-              await refreshCallback()
-            }
-          }
+          await deleteSystemConfig(record.id)
+          message.success('删除配置成功')
+          await loadData()
         } catch (error) {
-          console.error('删除失败:', error)
+          console.error('删除配置失败:', error)
+          // 响应拦截器已统一处理错误提示
         }
       }
     })
   }
 
-  /**
-   * 刷新缓存
-   */
+  // 刷新缓存
   const handleRefreshCache = async () => {
-    refreshLoading.value = true
     try {
-      const response = await refreshSystemConfigCache()
-      if (response.code === 200) {
-        Message.success('缓存刷新成功')
-        if (refreshCallback) {
-          await refreshCallback()
-        }
-      }
+      refreshLoading.value = true
+      await refreshSystemConfigCache()
+      message.success('缓存刷新成功')
+    } catch (error) {
+      console.error('刷新缓存失败:', error)
+      // 响应拦截器已统一处理错误提示
     } finally {
       refreshLoading.value = false
     }
@@ -100,9 +50,6 @@ export function useConfigOperations(refreshCallback) {
 
   return {
     refreshLoading,
-    submitLoading,
-    handleConfigChange,
-    handleEditSubmit,
     handleDelete,
     handleRefreshCache
   }

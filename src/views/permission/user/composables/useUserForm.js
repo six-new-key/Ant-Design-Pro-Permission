@@ -39,7 +39,7 @@ export function useUserForm(fetchUserList) {
   const userFormRules = {
     userName: [
       { required: true, message: '用户名不能为空', trigger: 'blur' },
-      { min: 3, max: 20, message: '用户名长度为3-20个字符', trigger: 'blur' }
+      { min: 2, max: 20, message: '用户名长度为3-20个字符', trigger: 'blur' }
     ],
     email: [
       { required: true, message: '邮箱不能为空', trigger: 'blur' },

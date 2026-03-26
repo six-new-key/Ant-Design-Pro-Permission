@@ -9,6 +9,15 @@ export const constantRoutes = [
       hidden: true,
     },
   },
+  {
+    path: "/member/package/view",
+    name: "MemberPackagePreview",
+    component: () => import("@/views/system/member_package_view/MemberPackagePreview.vue"),
+    meta: {
+      title: "开通会员",
+      hidden: true,
+    },
+  },
   // 404页面
   {
     path: '/404',
